@@ -1,0 +1,11 @@
+//
+// Prefix header for all source files of the 'NWService' target in the 'NWService' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+#endif
+
+#define NWL_LIB NWService
+#import "NWLCore.h"

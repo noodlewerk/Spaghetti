@@ -1,0 +1,1824 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		D756FBA215075A9600FF6730 /* NWServiceAppledoc */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = D756FBA315075A9600FF6730 /* Build configuration list for PBXAggregateTarget "NWServiceAppledoc" */;
+			buildPhases = (
+				D756FBA715075AA800FF6730 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = NWServiceAppledoc;
+			productName = NWServiceAppledoc;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		1500CDAA15889FEB00DFAEB9 /* NWSStringParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1500CDA815889FEB00DFAEB9 /* NWSStringParser.h */; };
+		1500CDAB15889FEB00DFAEB9 /* NWSStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1500CDA915889FEB00DFAEB9 /* NWSStringParser.m */; };
+		155C743F15060AA700735C3C /* NWSOrderKeyTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7871A6614FD17DC000C2FA0 /* NWSOrderKeyTransform.m */; };
+		2372D9A91573C1EF009E7F50 /* NWSBasicExampleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2372D9A81573C1EF009E7F50 /* NWSBasicExampleTableViewController.m */; };
+		D70B6F62151CD73100E0CEF0 /* NWSTestCall.h in Headers */ = {isa = PBXBuildFile; fileRef = D70B6F5C151CD73100E0CEF0 /* NWSTestCall.h */; settings = {ATTRIBUTES = (); }; };
+		D70B6F63151CD73100E0CEF0 /* NWSTestCall.h in Headers */ = {isa = PBXBuildFile; fileRef = D70B6F5C151CD73100E0CEF0 /* NWSTestCall.h */; };
+		D70B6F64151CD73100E0CEF0 /* NWSTestCall.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F5D151CD73100E0CEF0 /* NWSTestCall.m */; };
+		D70B6F65151CD73100E0CEF0 /* NWSTestCall.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F5D151CD73100E0CEF0 /* NWSTestCall.m */; };
+		D70B6F66151CD73100E0CEF0 /* NWSTestDialogue.h in Headers */ = {isa = PBXBuildFile; fileRef = D70B6F5E151CD73100E0CEF0 /* NWSTestDialogue.h */; settings = {ATTRIBUTES = (); }; };
+		D70B6F67151CD73100E0CEF0 /* NWSTestDialogue.h in Headers */ = {isa = PBXBuildFile; fileRef = D70B6F5E151CD73100E0CEF0 /* NWSTestDialogue.h */; };
+		D70B6F68151CD73100E0CEF0 /* NWSTestDialogue.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F5F151CD73100E0CEF0 /* NWSTestDialogue.m */; };
+		D70B6F69151CD73100E0CEF0 /* NWSTestDialogue.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F5F151CD73100E0CEF0 /* NWSTestDialogue.m */; };
+		D70B6F6A151CD73100E0CEF0 /* NWSTestEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = D70B6F60151CD73100E0CEF0 /* NWSTestEndpoint.h */; settings = {ATTRIBUTES = (); }; };
+		D70B6F6B151CD73100E0CEF0 /* NWSTestEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = D70B6F60151CD73100E0CEF0 /* NWSTestEndpoint.h */; };
+		D70B6F6C151CD73100E0CEF0 /* NWSTestEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F61151CD73100E0CEF0 /* NWSTestEndpoint.m */; };
+		D70B6F6D151CD73100E0CEF0 /* NWSTestEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F61151CD73100E0CEF0 /* NWSTestEndpoint.m */; };
+		D70B6F75151CE97F00E0CEF0 /* NWSCallTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F74151CE97F00E0CEF0 /* NWSCallTest.m */; };
+		D70B6F76151CE97F00E0CEF0 /* NWSCallTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F74151CE97F00E0CEF0 /* NWSCallTest.m */; };
+		D70B6F7D151CEEB600E0CEF0 /* Recordshop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F7B151CEEB500E0CEF0 /* Recordshop.xcdatamodeld */; };
+		D70B6F7E151CEEB600E0CEF0 /* Recordshop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F7B151CEEB500E0CEF0 /* Recordshop.xcdatamodeld */; };
+		D70B6F81151CEF7C00E0CEF0 /* NWSRecordshopBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F80151CEF7C00E0CEF0 /* NWSRecordshopBackend.m */; };
+		D70B6F82151CEF7C00E0CEF0 /* NWSRecordshopBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F80151CEF7C00E0CEF0 /* NWSRecordshopBackend.m */; };
+		D70B6F9C151D299800E0CEF0 /* NWSTestTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F9B151D299800E0CEF0 /* NWSTestTools.m */; };
+		D70B6F9D151D299800E0CEF0 /* NWSTestTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F9B151D299800E0CEF0 /* NWSTestTools.m */; };
+		D71F41C915A2E99500E99BD8 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D71F41C715A2E99500E99BD8 /* JSONKit.h */; };
+		D71F41CA15A2E99500E99BD8 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D71F41C715A2E99500E99BD8 /* JSONKit.h */; };
+		D71F41CB15A2E99500E99BD8 /* NWLCore.h in Headers */ = {isa = PBXBuildFile; fileRef = D71F41C815A2E99500E99BD8 /* NWLCore.h */; };
+		D71F41CC15A2E99500E99BD8 /* NWLCore.h in Headers */ = {isa = PBXBuildFile; fileRef = D71F41C815A2E99500E99BD8 /* NWLCore.h */; };
+		D71F41CD15A2EA1200E99BD8 /* libJSONKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D71F419A15A2E7D200E99BD8 /* libJSONKit.a */; };
+		D71F41CE15A2EA1200E99BD8 /* libNWLoggingCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D71F41C515A2E92F00E99BD8 /* libNWLoggingCore.a */; };
+		D731352214FF7ECF0050CBBD /* NWSScheduleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D731351F14FF7EB50050CBBD /* NWSScheduleTest.m */; };
+		D756FAE01507522800FF6730 /* NWSCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9ACB14DAE171008496B3 /* NWSCommon.m */; };
+		D756FAE21507522800FF6730 /* NWSVarStat.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AD014DAE171008496B3 /* NWSVarStat.m */; };
+		D756FAE41507522800FF6730 /* NWSMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AD614DAE171008496B3 /* NWSMapping.m */; };
+		D756FAE51507522800FF6730 /* NWSMappingContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AD814DAE171008496B3 /* NWSMappingContext.m */; };
+		D756FAE71507522800FF6730 /* NWSMappingValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9ADC14DAE171008496B3 /* NWSMappingValidator.m */; };
+		D756FAE81507522800FF6730 /* NWSPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9ADE14DAE171008496B3 /* NWSPolicy.m */; };
+		D756FAE91507522800FF6730 /* NWSArrayObjectID.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AE114DAE171008496B3 /* NWSArrayObjectID.m */; };
+		D756FAEA1507522800FF6730 /* NWSManagedObjectID.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AE314DAE171008496B3 /* NWSManagedObjectID.m */; };
+		D756FAEB1507522800FF6730 /* NWSMemoryObjectID.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AE514DAE171008496B3 /* NWSMemoryObjectID.m */; };
+		D756FAEC1507522800FF6730 /* NWSObjectID.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AE714DAE171008496B3 /* NWSObjectID.m */; };
+		D756FAED1507522800FF6730 /* NWSClassObjectType.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AEA14DAE171008496B3 /* NWSClassObjectType.m */; };
+		D756FAEE1507522800FF6730 /* NWSEntityObjectType.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AEC14DAE171008496B3 /* NWSEntityObjectType.m */; };
+		D756FAEF1507522800FF6730 /* NWSObjectType.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AEE14DAE171008496B3 /* NWSObjectType.m */; };
+		D756FAF01507522800FF6730 /* NWSCompositePath.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AF114DAE171008496B3 /* NWSCompositePath.m */; };
+		D756FAF11507522800FF6730 /* NWSConstantValuePath.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AF314DAE171008496B3 /* NWSConstantValuePath.m */; };
+		D756FAF21507522800FF6730 /* NWSIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AF514DAE171008496B3 /* NWSIndexPath.m */; };
+		D756FAF31507522800FF6730 /* NWSKeyPathPath.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AF714DAE171008496B3 /* NWSKeyPathPath.m */; };
+		D756FAF41507522800FF6730 /* NWSPath.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AF914DAE171008496B3 /* NWSPath.m */; };
+		D756FAF51507522800FF6730 /* NWSSelfPath.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AFB14DAE171008496B3 /* NWSSelfPath.m */; };
+		D756FAF61507522800FF6730 /* NWSSingleKeyPath.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AFD14DAE171008496B3 /* NWSSingleKeyPath.m */; };
+		D756FAF71507522800FF6730 /* NWSBasicStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B0014DAE171008496B3 /* NWSBasicStore.m */; };
+		D756FAF81507522800FF6730 /* NWSCoreDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B0214DAE171008496B3 /* NWSCoreDataStore.m */; };
+		D756FAF91507522800FF6730 /* NWSMultiStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B0414DAE171008496B3 /* NWSMultiStore.m */; };
+		D756FAFA1507522800FF6730 /* NWSRecordingStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B0614DAE171008496B3 /* NWSRecordingStore.m */; };
+		D756FAFB1507522800FF6730 /* NWSStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B0814DAE171008496B3 /* NWSStore.m */; };
+		D756FAFC1507522800FF6730 /* NWSArrayTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B0B14DAE171008496B3 /* NWSArrayTransform.m */; };
+		D756FAFD1507522800FF6730 /* NWSDateFormatterTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B0D14DAE171008496B3 /* NWSDateFormatterTransform.m */; };
+		D756FAFE1507522800FF6730 /* NWSIdentityTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B0F14DAE171008496B3 /* NWSIdentityTransform.m */; };
+		D756FAFF1507522800FF6730 /* NWSIDToObjectTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B1114DAE171008496B3 /* NWSIDToObjectTransform.m */; };
+		D756FB001507522800FF6730 /* NWSMappingTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B1314DAE171008496B3 /* NWSMappingTransform.m */; };
+		D756FB011507522800FF6730 /* NWSTimeStampTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B1514DAE171008496B3 /* NWSTimeStampTransform.m */; };
+		D756FB021507522800FF6730 /* NWSTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B1714DAE171008496B3 /* NWSTransform.m */; };
+		D756FB041507522800FF6730 /* NWSObjectReference.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CC008E14ED5AC00058CA40 /* NWSObjectReference.m */; };
+		D756FB0A1507522800FF6730 /* NWSCompositeTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D786B8011505007600E9AD53 /* NWSCompositeTransform.m */; };
+		D756FB0B1507522800FF6730 /* NWSStringToNumberTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D786B806150501AF00E9AD53 /* NWSStringToNumberTransform.m */; };
+		D756FB0C1507522800FF6730 /* NWSOrderKeyTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7871A6614FD17DC000C2FA0 /* NWSOrderKeyTransform.m */; };
+		D756FB0E1507522800FF6730 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7836CC914A38027006AC672 /* Foundation.framework */; };
+		D756FB131507522800FF6730 /* NWSCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9ACA14DAE171008496B3 /* NWSCommon.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB151507522800FF6730 /* NWService.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9ACE14DAE171008496B3 /* NWService.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB161507522800FF6730 /* NWSVarStat.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9ACF14DAE171008496B3 /* NWSVarStat.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB181507522800FF6730 /* NWSMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AD514DAE171008496B3 /* NWSMapping.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB191507522800FF6730 /* NWSMappingContext.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AD714DAE171008496B3 /* NWSMappingContext.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB1B1507522800FF6730 /* NWSMappingValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9ADB14DAE171008496B3 /* NWSMappingValidator.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB1C1507522800FF6730 /* NWSPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9ADD14DAE171008496B3 /* NWSPolicy.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB1D1507522800FF6730 /* NWSArrayObjectID.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AE014DAE171008496B3 /* NWSArrayObjectID.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB1E1507522800FF6730 /* NWSManagedObjectID.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AE214DAE171008496B3 /* NWSManagedObjectID.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB1F1507522800FF6730 /* NWSMemoryObjectID.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AE414DAE171008496B3 /* NWSMemoryObjectID.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB201507522800FF6730 /* NWSObjectID.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AE614DAE171008496B3 /* NWSObjectID.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB211507522800FF6730 /* NWSClassObjectType.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AE914DAE171008496B3 /* NWSClassObjectType.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB221507522800FF6730 /* NWSEntityObjectType.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AEB14DAE171008496B3 /* NWSEntityObjectType.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB231507522800FF6730 /* NWSObjectType.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AED14DAE171008496B3 /* NWSObjectType.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB241507522800FF6730 /* NWSCompositePath.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AF014DAE171008496B3 /* NWSCompositePath.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB251507522800FF6730 /* NWSConstantValuePath.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AF214DAE171008496B3 /* NWSConstantValuePath.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB261507522800FF6730 /* NWSIndexPath.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AF414DAE171008496B3 /* NWSIndexPath.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB271507522800FF6730 /* NWSKeyPathPath.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AF614DAE171008496B3 /* NWSKeyPathPath.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB281507522800FF6730 /* NWSPath.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AF814DAE171008496B3 /* NWSPath.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB291507522800FF6730 /* NWSSelfPath.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AFA14DAE171008496B3 /* NWSSelfPath.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB2A1507522800FF6730 /* NWSSingleKeyPath.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AFC14DAE171008496B3 /* NWSSingleKeyPath.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB2B1507522800FF6730 /* NWSBasicStore.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AFF14DAE171008496B3 /* NWSBasicStore.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB2C1507522800FF6730 /* NWSCoreDataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B0114DAE171008496B3 /* NWSCoreDataStore.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB2D1507522800FF6730 /* NWSMultiStore.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B0314DAE171008496B3 /* NWSMultiStore.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB2E1507522800FF6730 /* NWSRecordingStore.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B0514DAE171008496B3 /* NWSRecordingStore.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB2F1507522800FF6730 /* NWSStore.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B0714DAE171008496B3 /* NWSStore.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB301507522800FF6730 /* NWSArrayTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B0A14DAE171008496B3 /* NWSArrayTransform.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB311507522800FF6730 /* NWSDateFormatterTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B0C14DAE171008496B3 /* NWSDateFormatterTransform.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB321507522800FF6730 /* NWSIdentityTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B0E14DAE171008496B3 /* NWSIdentityTransform.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB331507522800FF6730 /* NWSIDToObjectTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B1014DAE171008496B3 /* NWSIDToObjectTransform.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB341507522800FF6730 /* NWSMappingTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B1214DAE171008496B3 /* NWSMappingTransform.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB351507522800FF6730 /* NWSTimeStampTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B1414DAE171008496B3 /* NWSTimeStampTransform.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB361507522800FF6730 /* NWSTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B1614DAE171008496B3 /* NWSTransform.h */; settings = {ATTRIBUTES = (); }; };
+		D756FB3C1507522800FF6730 /* NWSCompositeTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D786B8001505007600E9AD53 /* NWSCompositeTransform.h */; };
+		D756FB3D1507522800FF6730 /* NWSStringToNumberTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D786B805150501AF00E9AD53 /* NWSStringToNumberTransform.h */; };
+		D756FB48150754D400FF6730 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7836CE414A38027006AC672 /* SenTestingKit.framework */; };
+		D756FB5E150754F100FF6730 /* NWSPathTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7FBA72A14CF6A62004AC5FA /* NWSPathTest.m */; };
+		D756FB75150758F800FF6730 /* NWSScheduleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D731351F14FF7EB50050CBBD /* NWSScheduleTest.m */; };
+		D75EB5A8150CC99900BCD9C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D75EB5A7150CC99900BCD9C0 /* Foundation.framework */; };
+		D75EB5AA150CC9A700BCD9C0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D75EB5A9150CC9A700BCD9C0 /* CoreData.framework */; };
+		D75EB5AB150CC9B100BCD9C0 /* libNWServiceMacLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D756FB411507522800FF6730 /* libNWServiceMacLibrary.a */; };
+		D763039D15591884005A0428 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D763039C15591884005A0428 /* libxml2.dylib */; };
+		D773521E156C2DEB007BD887 /* NWSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D773521B156C2DEB007BD887 /* NWSAppDelegate.m */; };
+		D773521F156C2DEB007BD887 /* NWSMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D773521D156C2DEB007BD887 /* NWSMenuViewController.m */; };
+		D7735225156C2E0D007BD887 /* NWSPerformanceData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7735222156C2E0D007BD887 /* NWSPerformanceData.plist */; };
+		D7735226156C2E0D007BD887 /* NWSPerformanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7735224156C2E0D007BD887 /* NWSPerformanceViewController.m */; };
+		D77498A41507E573001F2FE4 /* NWSObjectIDTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D77498A31507E573001F2FE4 /* NWSObjectIDTest.m */; };
+		D77498A51507E573001F2FE4 /* NWSObjectIDTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D77498A31507E573001F2FE4 /* NWSObjectIDTest.m */; };
+		D77498AC1507F5E9001F2FE4 /* NWSObjectTypeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D77498AB1507F5E9001F2FE4 /* NWSObjectTypeTest.m */; };
+		D77498AD1507F5E9001F2FE4 /* NWSObjectTypeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D77498AB1507F5E9001F2FE4 /* NWSObjectTypeTest.m */; };
+		D77498B01507FCDD001F2FE4 /* NWSMappingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D77498AF1507FCDD001F2FE4 /* NWSMappingTest.m */; };
+		D77498B11507FCDD001F2FE4 /* NWSMappingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D77498AF1507FCDD001F2FE4 /* NWSMappingTest.m */; };
+		D77498B41507FFC4001F2FE4 /* NWSHTTPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D77498B31507FFC3001F2FE4 /* NWSHTTPTest.m */; };
+		D77498B51507FFC4001F2FE4 /* NWSHTTPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D77498B31507FFC3001F2FE4 /* NWSHTTPTest.m */; };
+		D77498BC1508059A001F2FE4 /* NWSCommonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D77498BB15080599001F2FE4 /* NWSCommonTest.m */; };
+		D77498BD1508059A001F2FE4 /* NWSCommonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D77498BB15080599001F2FE4 /* NWSCommonTest.m */; };
+		D7836CC814A38027006AC672 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7836CC714A38027006AC672 /* UIKit.framework */; };
+		D7836CCA14A38027006AC672 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7836CC914A38027006AC672 /* Foundation.framework */; };
+		D7836CCC14A38027006AC672 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7836CCB14A38027006AC672 /* CoreGraphics.framework */; };
+		D7836CCE14A38027006AC672 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7836CCD14A38027006AC672 /* CoreData.framework */; };
+		D7836CE514A38027006AC672 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7836CE414A38027006AC672 /* SenTestingKit.framework */; };
+		D7836CE714A38027006AC672 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7836CC914A38027006AC672 /* Foundation.framework */; };
+		D7836CE814A38027006AC672 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7836CCD14A38027006AC672 /* CoreData.framework */; };
+		D786B8021505007600E9AD53 /* NWSCompositeTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D786B8001505007600E9AD53 /* NWSCompositeTransform.h */; settings = {ATTRIBUTES = (); }; };
+		D786B8031505007600E9AD53 /* NWSCompositeTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D786B8011505007600E9AD53 /* NWSCompositeTransform.m */; };
+		D786B807150501AF00E9AD53 /* NWSStringToNumberTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D786B805150501AF00E9AD53 /* NWSStringToNumberTransform.h */; settings = {ATTRIBUTES = (); }; };
+		D786B808150501AF00E9AD53 /* NWSStringToNumberTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D786B806150501AF00E9AD53 /* NWSStringToNumberTransform.m */; };
+		D7929E0E15220157006E3F1C /* NWSAmnesicStore.h in Headers */ = {isa = PBXBuildFile; fileRef = D7929E0C15220157006E3F1C /* NWSAmnesicStore.h */; };
+		D7929E0F15220157006E3F1C /* NWSAmnesicStore.h in Headers */ = {isa = PBXBuildFile; fileRef = D7929E0C15220157006E3F1C /* NWSAmnesicStore.h */; };
+		D7929E1015220157006E3F1C /* NWSAmnesicStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D7929E0D15220157006E3F1C /* NWSAmnesicStore.m */; };
+		D7929E1115220157006E3F1C /* NWSAmnesicStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D7929E0D15220157006E3F1C /* NWSAmnesicStore.m */; };
+		D7A4EEF4155A5D5E00D3F850 /* NWSParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D7A4EEF2155A5D5E00D3F850 /* NWSParser.h */; };
+		D7A4EEF5155A5D5E00D3F850 /* NWSParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D7A4EEF2155A5D5E00D3F850 /* NWSParser.h */; };
+		D7A4EEF6155A5D5E00D3F850 /* NWSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A4EEF3155A5D5E00D3F850 /* NWSParser.m */; };
+		D7A4EEF7155A5D5E00D3F850 /* NWSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A4EEF3155A5D5E00D3F850 /* NWSParser.m */; };
+		D7A4EEFA155A5EBE00D3F850 /* NWSJSONKitParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D7A4EEF8155A5EBE00D3F850 /* NWSJSONKitParser.h */; };
+		D7A4EEFB155A5EBE00D3F850 /* NWSJSONKitParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D7A4EEF8155A5EBE00D3F850 /* NWSJSONKitParser.h */; };
+		D7A4EEFC155A5EBE00D3F850 /* NWSJSONKitParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A4EEF9155A5EBE00D3F850 /* NWSJSONKitParser.m */; };
+		D7A4EEFD155A5EBE00D3F850 /* NWSJSONKitParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A4EEF9155A5EBE00D3F850 /* NWSJSONKitParser.m */; };
+		D7A4EF00155A61DB00D3F850 /* NWSXMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D7A4EEFE155A61DB00D3F850 /* NWSXMLParser.h */; };
+		D7A4EF01155A61DB00D3F850 /* NWSXMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D7A4EEFE155A61DB00D3F850 /* NWSXMLParser.h */; };
+		D7A4EF02155A61DB00D3F850 /* NWSXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A4EEFF155A61DB00D3F850 /* NWSXMLParser.m */; };
+		D7A4EF03155A61DB00D3F850 /* NWSXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A4EEFF155A61DB00D3F850 /* NWSXMLParser.m */; };
+		D7A4EF11155A6D0B00D3F850 /* directions.json in Resources */ = {isa = PBXBuildFile; fileRef = D7A4EF0C155A6D0B00D3F850 /* directions.json */; };
+		D7A4EF12155A6D0B00D3F850 /* directions.xml in Resources */ = {isa = PBXBuildFile; fileRef = D7A4EF0D155A6D0B00D3F850 /* directions.xml */; };
+		D7A4EF13155A6D0B00D3F850 /* directions.xml.json in Resources */ = {isa = PBXBuildFile; fileRef = D7A4EF0E155A6D0B00D3F850 /* directions.xml.json */; };
+		D7A4EF14155A6D0B00D3F850 /* NWSMapsService.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A4EF10155A6D0B00D3F850 /* NWSMapsService.m */; };
+		D7A4EF18155A6DAA00D3F850 /* NWSMapsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A4EF17155A6DAA00D3F850 /* NWSMapsTest.m */; };
+		D7A4EF19155A6DAA00D3F850 /* NWSMapsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A4EF17155A6DAA00D3F850 /* NWSMapsTest.m */; };
+		D7AE374514F3ADBE008A5EBC /* NWSObjectReference.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CC008E14ED5AC00058CA40 /* NWSObjectReference.m */; };
+		D7D5172B156BE17600F49F46 /* NWSBackend.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D51725156BE17600F49F46 /* NWSBackend.h */; };
+		D7D5172C156BE17600F49F46 /* NWSBackend.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D51725156BE17600F49F46 /* NWSBackend.h */; };
+		D7D5172D156BE17600F49F46 /* NWSBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D51726156BE17600F49F46 /* NWSBackend.m */; };
+		D7D5172E156BE17600F49F46 /* NWSBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D51726156BE17600F49F46 /* NWSBackend.m */; };
+		D7D5172F156BE17600F49F46 /* NWSOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D51727156BE17600F49F46 /* NWSOperation.h */; };
+		D7D51730156BE17600F49F46 /* NWSOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D51727156BE17600F49F46 /* NWSOperation.h */; };
+		D7D51731156BE17600F49F46 /* NWSOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D51728156BE17600F49F46 /* NWSOperation.m */; };
+		D7D51732156BE17600F49F46 /* NWSOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D51728156BE17600F49F46 /* NWSOperation.m */; };
+		D7D51733156BE17600F49F46 /* NWSSchedule.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D51729156BE17600F49F46 /* NWSSchedule.h */; };
+		D7D51734156BE17600F49F46 /* NWSSchedule.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D51729156BE17600F49F46 /* NWSSchedule.h */; };
+		D7D51735156BE17600F49F46 /* NWSSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D5172A156BE17600F49F46 /* NWSSchedule.m */; };
+		D7D51736156BE17600F49F46 /* NWSSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D5172A156BE17600F49F46 /* NWSSchedule.m */; };
+		D7D51779156BED0000F49F46 /* NWSActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D51769156BED0000F49F46 /* NWSActivityIndicator.h */; };
+		D7D5177A156BED0000F49F46 /* NWSActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D51769156BED0000F49F46 /* NWSActivityIndicator.h */; };
+		D7D5177B156BED0000F49F46 /* NWSActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D5176A156BED0000F49F46 /* NWSActivityIndicator.m */; };
+		D7D5177C156BED0000F49F46 /* NWSActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D5176A156BED0000F49F46 /* NWSActivityIndicator.m */; };
+		D7D5177D156BED0000F49F46 /* NWSCall.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D5176B156BED0000F49F46 /* NWSCall.h */; };
+		D7D5177E156BED0000F49F46 /* NWSCall.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D5176B156BED0000F49F46 /* NWSCall.h */; };
+		D7D5177F156BED0000F49F46 /* NWSCall.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D5176C156BED0000F49F46 /* NWSCall.m */; };
+		D7D51780156BED0000F49F46 /* NWSCall.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D5176C156BED0000F49F46 /* NWSCall.m */; };
+		D7D51781156BED0000F49F46 /* NWSDialogue.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D5176D156BED0000F49F46 /* NWSDialogue.h */; };
+		D7D51782156BED0000F49F46 /* NWSDialogue.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D5176D156BED0000F49F46 /* NWSDialogue.h */; };
+		D7D51783156BED0000F49F46 /* NWSDialogue.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D5176E156BED0000F49F46 /* NWSDialogue.m */; };
+		D7D51784156BED0000F49F46 /* NWSDialogue.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D5176E156BED0000F49F46 /* NWSDialogue.m */; };
+		D7D51785156BED0000F49F46 /* NWSEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D5176F156BED0000F49F46 /* NWSEndpoint.h */; };
+		D7D51786156BED0000F49F46 /* NWSEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D5176F156BED0000F49F46 /* NWSEndpoint.h */; };
+		D7D51787156BED0000F49F46 /* NWSEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D51770156BED0000F49F46 /* NWSEndpoint.m */; };
+		D7D51788156BED0000F49F46 /* NWSEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D51770156BED0000F49F46 /* NWSEndpoint.m */; };
+		D7D51789156BED0000F49F46 /* NWSHTTPCall.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D51771156BED0000F49F46 /* NWSHTTPCall.h */; };
+		D7D5178A156BED0000F49F46 /* NWSHTTPCall.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D51771156BED0000F49F46 /* NWSHTTPCall.h */; };
+		D7D5178B156BED0000F49F46 /* NWSHTTPCall.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D51772156BED0000F49F46 /* NWSHTTPCall.m */; };
+		D7D5178C156BED0000F49F46 /* NWSHTTPCall.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D51772156BED0000F49F46 /* NWSHTTPCall.m */; };
+		D7D5178D156BED0000F49F46 /* NWSHTTPConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D51773156BED0000F49F46 /* NWSHTTPConnection.h */; };
+		D7D5178E156BED0000F49F46 /* NWSHTTPConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D51773156BED0000F49F46 /* NWSHTTPConnection.h */; };
+		D7D5178F156BED0000F49F46 /* NWSHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D51774156BED0000F49F46 /* NWSHTTPConnection.m */; };
+		D7D51790156BED0000F49F46 /* NWSHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D51774156BED0000F49F46 /* NWSHTTPConnection.m */; };
+		D7D51791156BED0000F49F46 /* NWSHTTPDialogue.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D51775156BED0000F49F46 /* NWSHTTPDialogue.h */; };
+		D7D51792156BED0000F49F46 /* NWSHTTPDialogue.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D51775156BED0000F49F46 /* NWSHTTPDialogue.h */; };
+		D7D51793156BED0000F49F46 /* NWSHTTPDialogue.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D51776156BED0000F49F46 /* NWSHTTPDialogue.m */; };
+		D7D51794156BED0000F49F46 /* NWSHTTPDialogue.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D51776156BED0000F49F46 /* NWSHTTPDialogue.m */; };
+		D7D51795156BED0000F49F46 /* NWSHTTPEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D51777156BED0000F49F46 /* NWSHTTPEndpoint.h */; };
+		D7D51796156BED0000F49F46 /* NWSHTTPEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D51777156BED0000F49F46 /* NWSHTTPEndpoint.h */; };
+		D7D51797156BED0000F49F46 /* NWSHTTPEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D51778156BED0000F49F46 /* NWSHTTPEndpoint.m */; };
+		D7D51798156BED0000F49F46 /* NWSHTTPEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D51778156BED0000F49F46 /* NWSHTTPEndpoint.m */; };
+		D7D9A84A14B4B3B600BF0A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D9A84614B4B3B600BF0A77 /* main.m */; };
+		D7DA99DC14DAD931008496B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7836CC914A38027006AC672 /* Foundation.framework */; };
+		D7DA9B2214DAE171008496B3 /* NWSCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9ACA14DAE171008496B3 /* NWSCommon.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B2314DAE171008496B3 /* NWSCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9ACB14DAE171008496B3 /* NWSCommon.m */; };
+		D7DA9B2614DAE171008496B3 /* NWService.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9ACE14DAE171008496B3 /* NWService.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B2714DAE171008496B3 /* NWSVarStat.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9ACF14DAE171008496B3 /* NWSVarStat.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B2814DAE171008496B3 /* NWSVarStat.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AD014DAE171008496B3 /* NWSVarStat.m */; };
+		D7DA9B2B14DAE171008496B3 /* NWSMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AD514DAE171008496B3 /* NWSMapping.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B2C14DAE171008496B3 /* NWSMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AD614DAE171008496B3 /* NWSMapping.m */; };
+		D7DA9B2D14DAE171008496B3 /* NWSMappingContext.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AD714DAE171008496B3 /* NWSMappingContext.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B2E14DAE171008496B3 /* NWSMappingContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AD814DAE171008496B3 /* NWSMappingContext.m */; };
+		D7DA9B3114DAE171008496B3 /* NWSMappingValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9ADB14DAE171008496B3 /* NWSMappingValidator.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B3214DAE171008496B3 /* NWSMappingValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9ADC14DAE171008496B3 /* NWSMappingValidator.m */; };
+		D7DA9B3314DAE171008496B3 /* NWSPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9ADD14DAE171008496B3 /* NWSPolicy.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B3414DAE171008496B3 /* NWSPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9ADE14DAE171008496B3 /* NWSPolicy.m */; };
+		D7DA9B3514DAE171008496B3 /* NWSArrayObjectID.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AE014DAE171008496B3 /* NWSArrayObjectID.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B3614DAE171008496B3 /* NWSArrayObjectID.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AE114DAE171008496B3 /* NWSArrayObjectID.m */; };
+		D7DA9B3714DAE171008496B3 /* NWSManagedObjectID.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AE214DAE171008496B3 /* NWSManagedObjectID.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B3814DAE171008496B3 /* NWSManagedObjectID.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AE314DAE171008496B3 /* NWSManagedObjectID.m */; };
+		D7DA9B3914DAE171008496B3 /* NWSMemoryObjectID.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AE414DAE171008496B3 /* NWSMemoryObjectID.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B3A14DAE171008496B3 /* NWSMemoryObjectID.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AE514DAE171008496B3 /* NWSMemoryObjectID.m */; };
+		D7DA9B3B14DAE171008496B3 /* NWSObjectID.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AE614DAE171008496B3 /* NWSObjectID.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B3C14DAE171008496B3 /* NWSObjectID.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AE714DAE171008496B3 /* NWSObjectID.m */; };
+		D7DA9B3D14DAE171008496B3 /* NWSClassObjectType.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AE914DAE171008496B3 /* NWSClassObjectType.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B3E14DAE171008496B3 /* NWSClassObjectType.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AEA14DAE171008496B3 /* NWSClassObjectType.m */; };
+		D7DA9B3F14DAE171008496B3 /* NWSEntityObjectType.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AEB14DAE171008496B3 /* NWSEntityObjectType.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B4014DAE171008496B3 /* NWSEntityObjectType.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AEC14DAE171008496B3 /* NWSEntityObjectType.m */; };
+		D7DA9B4114DAE171008496B3 /* NWSObjectType.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AED14DAE171008496B3 /* NWSObjectType.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B4214DAE171008496B3 /* NWSObjectType.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AEE14DAE171008496B3 /* NWSObjectType.m */; };
+		D7DA9B4314DAE171008496B3 /* NWSCompositePath.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AF014DAE171008496B3 /* NWSCompositePath.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B4414DAE171008496B3 /* NWSCompositePath.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AF114DAE171008496B3 /* NWSCompositePath.m */; };
+		D7DA9B4514DAE171008496B3 /* NWSConstantValuePath.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AF214DAE171008496B3 /* NWSConstantValuePath.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B4614DAE171008496B3 /* NWSConstantValuePath.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AF314DAE171008496B3 /* NWSConstantValuePath.m */; };
+		D7DA9B4714DAE171008496B3 /* NWSIndexPath.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AF414DAE171008496B3 /* NWSIndexPath.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B4814DAE171008496B3 /* NWSIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AF514DAE171008496B3 /* NWSIndexPath.m */; };
+		D7DA9B4914DAE171008496B3 /* NWSKeyPathPath.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AF614DAE171008496B3 /* NWSKeyPathPath.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B4A14DAE171008496B3 /* NWSKeyPathPath.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AF714DAE171008496B3 /* NWSKeyPathPath.m */; };
+		D7DA9B4B14DAE171008496B3 /* NWSPath.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AF814DAE171008496B3 /* NWSPath.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B4C14DAE171008496B3 /* NWSPath.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AF914DAE171008496B3 /* NWSPath.m */; };
+		D7DA9B4D14DAE171008496B3 /* NWSSelfPath.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AFA14DAE171008496B3 /* NWSSelfPath.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B4E14DAE171008496B3 /* NWSSelfPath.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AFB14DAE171008496B3 /* NWSSelfPath.m */; };
+		D7DA9B4F14DAE171008496B3 /* NWSSingleKeyPath.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AFC14DAE171008496B3 /* NWSSingleKeyPath.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B5014DAE171008496B3 /* NWSSingleKeyPath.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AFD14DAE171008496B3 /* NWSSingleKeyPath.m */; };
+		D7DA9B5114DAE171008496B3 /* NWSBasicStore.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9AFF14DAE171008496B3 /* NWSBasicStore.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B5214DAE171008496B3 /* NWSBasicStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B0014DAE171008496B3 /* NWSBasicStore.m */; };
+		D7DA9B5314DAE171008496B3 /* NWSCoreDataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B0114DAE171008496B3 /* NWSCoreDataStore.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B5414DAE171008496B3 /* NWSCoreDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B0214DAE171008496B3 /* NWSCoreDataStore.m */; };
+		D7DA9B5514DAE171008496B3 /* NWSMultiStore.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B0314DAE171008496B3 /* NWSMultiStore.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B5614DAE171008496B3 /* NWSMultiStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B0414DAE171008496B3 /* NWSMultiStore.m */; };
+		D7DA9B5714DAE171008496B3 /* NWSRecordingStore.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B0514DAE171008496B3 /* NWSRecordingStore.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B5814DAE171008496B3 /* NWSRecordingStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B0614DAE171008496B3 /* NWSRecordingStore.m */; };
+		D7DA9B5914DAE171008496B3 /* NWSStore.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B0714DAE171008496B3 /* NWSStore.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B5A14DAE171008496B3 /* NWSStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B0814DAE171008496B3 /* NWSStore.m */; };
+		D7DA9B5B14DAE171008496B3 /* NWSArrayTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B0A14DAE171008496B3 /* NWSArrayTransform.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B5C14DAE171008496B3 /* NWSArrayTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B0B14DAE171008496B3 /* NWSArrayTransform.m */; };
+		D7DA9B5D14DAE171008496B3 /* NWSDateFormatterTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B0C14DAE171008496B3 /* NWSDateFormatterTransform.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B5E14DAE171008496B3 /* NWSDateFormatterTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B0D14DAE171008496B3 /* NWSDateFormatterTransform.m */; };
+		D7DA9B5F14DAE171008496B3 /* NWSIdentityTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B0E14DAE171008496B3 /* NWSIdentityTransform.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B6014DAE171008496B3 /* NWSIdentityTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B0F14DAE171008496B3 /* NWSIdentityTransform.m */; };
+		D7DA9B6114DAE171008496B3 /* NWSIDToObjectTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B1014DAE171008496B3 /* NWSIDToObjectTransform.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B6214DAE171008496B3 /* NWSIDToObjectTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B1114DAE171008496B3 /* NWSIDToObjectTransform.m */; };
+		D7DA9B6314DAE171008496B3 /* NWSMappingTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B1214DAE171008496B3 /* NWSMappingTransform.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B6414DAE171008496B3 /* NWSMappingTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B1314DAE171008496B3 /* NWSMappingTransform.m */; };
+		D7DA9B6514DAE171008496B3 /* NWSTimeStampTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B1414DAE171008496B3 /* NWSTimeStampTransform.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B6614DAE171008496B3 /* NWSTimeStampTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B1514DAE171008496B3 /* NWSTimeStampTransform.m */; };
+		D7DA9B6714DAE171008496B3 /* NWSTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DA9B1614DAE171008496B3 /* NWSTransform.h */; settings = {ATTRIBUTES = (); }; };
+		D7DA9B6814DAE171008496B3 /* NWSTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9B1714DAE171008496B3 /* NWSTransform.m */; };
+		D7DA9B6914DAE1BB008496B3 /* libNWService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DA99DB14DAD931008496B3 /* libNWService.a */; };
+		D7E46C8E15B6F91500E29206 /* NWSURLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D7E46C8C15B6F91500E29206 /* NWSURLParser.h */; };
+		D7E46C8F15B6F91500E29206 /* NWSURLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D7E46C8C15B6F91500E29206 /* NWSURLParser.h */; };
+		D7E46C9015B6F91500E29206 /* NWSURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E46C8D15B6F91500E29206 /* NWSURLParser.m */; };
+		D7E46C9115B6F91500E29206 /* NWSURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E46C8D15B6F91500E29206 /* NWSURLParser.m */; };
+		D7FBA72B14CF6A62004AC5FA /* NWSPathTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7FBA72A14CF6A62004AC5FA /* NWSPathTest.m */; };
+		D7FEEE4614EDC71A0091A49F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D7FEEE4514EDC71A0091A49F /* README.md */; };
+		DE0BCBDA150F66AA00E9A51B /* NWSBlockTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = DE0BCBD8150F66AA00E9A51B /* NWSBlockTransform.h */; settings = {ATTRIBUTES = (); }; };
+		DE0BCBDB150F66AA00E9A51B /* NWSBlockTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = DE0BCBD8150F66AA00E9A51B /* NWSBlockTransform.h */; };
+		DE0BCBDC150F66AA00E9A51B /* NWSBlockTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0BCBD9150F66AA00E9A51B /* NWSBlockTransform.m */; };
+		DE0BCBDD150F66AA00E9A51B /* NWSBlockTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0BCBD9150F66AA00E9A51B /* NWSBlockTransform.m */; };
+		DE94AA83150FA8DB007AC934 /* NWSAssertTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = DE94AA81150FA8DB007AC934 /* NWSAssertTransform.h */; settings = {ATTRIBUTES = (); }; };
+		DE94AA84150FA8DB007AC934 /* NWSAssertTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = DE94AA81150FA8DB007AC934 /* NWSAssertTransform.h */; };
+		DE94AA85150FA8DB007AC934 /* NWSAssertTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = DE94AA82150FA8DB007AC934 /* NWSAssertTransform.m */; };
+		DE94AA86150FA8DB007AC934 /* NWSAssertTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = DE94AA82150FA8DB007AC934 /* NWSAssertTransform.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D756FB5C150754E800FF6730 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7836CBA14A38027006AC672 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D756FADB1507522800FF6730;
+			remoteInfo = NWServiceMacLibrary;
+		};
+		D75EB5A3150CC77C00BCD9C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7836CBA14A38027006AC672 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7DA99DA14DAD931008496B3;
+			remoteInfo = NWServiceLibrary;
+		};
+		D7DA9ABB14DAE15A008496B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7836CBA14A38027006AC672 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7DA99DA14DAD931008496B3;
+			remoteInfo = NWServiceLib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1500CDA815889FEB00DFAEB9 /* NWSStringParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSStringParser.h; sourceTree = "<group>"; };
+		1500CDA915889FEB00DFAEB9 /* NWSStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSStringParser.m; sourceTree = "<group>"; };
+		2372D9A71573C1EF009E7F50 /* NWSBasicExampleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSBasicExampleTableViewController.h; sourceTree = "<group>"; };
+		2372D9A81573C1EF009E7F50 /* NWSBasicExampleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSBasicExampleTableViewController.m; sourceTree = "<group>"; };
+		D70B6F5C151CD73100E0CEF0 /* NWSTestCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSTestCall.h; sourceTree = "<group>"; };
+		D70B6F5D151CD73100E0CEF0 /* NWSTestCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSTestCall.m; sourceTree = "<group>"; };
+		D70B6F5E151CD73100E0CEF0 /* NWSTestDialogue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSTestDialogue.h; sourceTree = "<group>"; };
+		D70B6F5F151CD73100E0CEF0 /* NWSTestDialogue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSTestDialogue.m; sourceTree = "<group>"; };
+		D70B6F60151CD73100E0CEF0 /* NWSTestEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSTestEndpoint.h; sourceTree = "<group>"; };
+		D70B6F61151CD73100E0CEF0 /* NWSTestEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSTestEndpoint.m; sourceTree = "<group>"; };
+		D70B6F74151CE97F00E0CEF0 /* NWSCallTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSCallTest.m; sourceTree = "<group>"; };
+		D70B6F7C151CEEB600E0CEF0 /* Recordshop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Recordshop.xcdatamodel; sourceTree = "<group>"; };
+		D70B6F7F151CEF7C00E0CEF0 /* NWSRecordshopBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSRecordshopBackend.h; sourceTree = "<group>"; };
+		D70B6F80151CEF7C00E0CEF0 /* NWSRecordshopBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSRecordshopBackend.m; sourceTree = "<group>"; };
+		D70B6F9A151D299800E0CEF0 /* NWSTestTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSTestTools.h; sourceTree = "<group>"; };
+		D70B6F9B151D299800E0CEF0 /* NWSTestTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSTestTools.m; sourceTree = "<group>"; };
+		D71F419A15A2E7D200E99BD8 /* libJSONKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJSONKit.a; path = Frameworks/libJSONKit.a; sourceTree = "<group>"; };
+		D71F41C515A2E92F00E99BD8 /* libNWLoggingCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNWLoggingCore.a; path = Frameworks/libNWLoggingCore.a; sourceTree = "<group>"; };
+		D71F41C715A2E99500E99BD8 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = Frameworks/JSONKit.h; sourceTree = "<group>"; };
+		D71F41C815A2E99500E99BD8 /* NWLCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NWLCore.h; path = Frameworks/NWLCore.h; sourceTree = "<group>"; };
+		D72EDCD114DAE7D900913E13 /* NWService-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NWService-Prefix.pch"; sourceTree = "<group>"; };
+		D72EDCD214DAE8C200913E13 /* NWServiceDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NWServiceDemo-Prefix.pch"; path = "Demo/NWServiceDemo-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		D72EDCD314DAE8C200913E13 /* NWServiceDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "NWServiceDemo-Info.plist"; path = "Demo/NWServiceDemo-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D731351F14FF7EB50050CBBD /* NWSScheduleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSScheduleTest.m; sourceTree = "<group>"; };
+		D756FB411507522800FF6730 /* libNWServiceMacLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNWServiceMacLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D756FB47150754D400FF6730 /* NWServiceMacTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NWServiceMacTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D75EB5A7150CC99900BCD9C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D75EB5A9150CC9A700BCD9C0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		D763039C15591884005A0428 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		D773521A156C2DEB007BD887 /* NWSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSAppDelegate.h; sourceTree = "<group>"; };
+		D773521B156C2DEB007BD887 /* NWSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSAppDelegate.m; sourceTree = "<group>"; };
+		D773521C156C2DEB007BD887 /* NWSMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSMenuViewController.h; sourceTree = "<group>"; };
+		D773521D156C2DEB007BD887 /* NWSMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSMenuViewController.m; sourceTree = "<group>"; };
+		D7735222156C2E0D007BD887 /* NWSPerformanceData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NWSPerformanceData.plist; sourceTree = "<group>"; };
+		D7735223156C2E0D007BD887 /* NWSPerformanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSPerformanceViewController.h; sourceTree = "<group>"; };
+		D7735224156C2E0D007BD887 /* NWSPerformanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSPerformanceViewController.m; sourceTree = "<group>"; };
+		D77498A31507E573001F2FE4 /* NWSObjectIDTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSObjectIDTest.m; sourceTree = "<group>"; };
+		D77498AB1507F5E9001F2FE4 /* NWSObjectTypeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSObjectTypeTest.m; sourceTree = "<group>"; };
+		D77498AF1507FCDD001F2FE4 /* NWSMappingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSMappingTest.m; sourceTree = "<group>"; };
+		D77498B31507FFC3001F2FE4 /* NWSHTTPTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSHTTPTest.m; sourceTree = "<group>"; };
+		D77498BB15080599001F2FE4 /* NWSCommonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSCommonTest.m; sourceTree = "<group>"; };
+		D7836CC314A38027006AC672 /* NWServiceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NWServiceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7836CC714A38027006AC672 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D7836CC914A38027006AC672 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D7836CCB14A38027006AC672 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D7836CCD14A38027006AC672 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D7836CE314A38027006AC672 /* NWServiceTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NWServiceTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7836CE414A38027006AC672 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D786B8001505007600E9AD53 /* NWSCompositeTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSCompositeTransform.h; sourceTree = "<group>"; };
+		D786B8011505007600E9AD53 /* NWSCompositeTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSCompositeTransform.m; sourceTree = "<group>"; };
+		D786B805150501AF00E9AD53 /* NWSStringToNumberTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSStringToNumberTransform.h; sourceTree = "<group>"; };
+		D786B806150501AF00E9AD53 /* NWSStringToNumberTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSStringToNumberTransform.m; sourceTree = "<group>"; };
+		D7871A6514FD17DC000C2FA0 /* NWSOrderKeyTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSOrderKeyTransform.h; sourceTree = "<group>"; };
+		D7871A6614FD17DC000C2FA0 /* NWSOrderKeyTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSOrderKeyTransform.m; sourceTree = "<group>"; };
+		D7929E0C15220157006E3F1C /* NWSAmnesicStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSAmnesicStore.h; sourceTree = "<group>"; };
+		D7929E0D15220157006E3F1C /* NWSAmnesicStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSAmnesicStore.m; sourceTree = "<group>"; };
+		D7A4EEF2155A5D5E00D3F850 /* NWSParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSParser.h; sourceTree = "<group>"; };
+		D7A4EEF3155A5D5E00D3F850 /* NWSParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSParser.m; sourceTree = "<group>"; };
+		D7A4EEF8155A5EBE00D3F850 /* NWSJSONKitParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSJSONKitParser.h; sourceTree = "<group>"; };
+		D7A4EEF9155A5EBE00D3F850 /* NWSJSONKitParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSJSONKitParser.m; sourceTree = "<group>"; };
+		D7A4EEFE155A61DB00D3F850 /* NWSXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSXMLParser.h; sourceTree = "<group>"; };
+		D7A4EEFF155A61DB00D3F850 /* NWSXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSXMLParser.m; sourceTree = "<group>"; };
+		D7A4EF0C155A6D0B00D3F850 /* directions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = directions.json; sourceTree = "<group>"; };
+		D7A4EF0D155A6D0B00D3F850 /* directions.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = directions.xml; sourceTree = "<group>"; };
+		D7A4EF0E155A6D0B00D3F850 /* directions.xml.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = directions.xml.json; sourceTree = "<group>"; };
+		D7A4EF0F155A6D0B00D3F850 /* NWSMapsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSMapsService.h; sourceTree = "<group>"; };
+		D7A4EF10155A6D0B00D3F850 /* NWSMapsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSMapsService.m; sourceTree = "<group>"; };
+		D7A4EF17155A6DAA00D3F850 /* NWSMapsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSMapsTest.m; sourceTree = "<group>"; };
+		D7CC008D14ED5AC00058CA40 /* NWSObjectReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSObjectReference.h; sourceTree = "<group>"; };
+		D7CC008E14ED5AC00058CA40 /* NWSObjectReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSObjectReference.m; sourceTree = "<group>"; };
+		D7D516F3156BD61C00F49F46 /* Overview.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = Overview.md; sourceTree = "<group>"; };
+		D7D51725156BE17600F49F46 /* NWSBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSBackend.h; sourceTree = "<group>"; };
+		D7D51726156BE17600F49F46 /* NWSBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSBackend.m; sourceTree = "<group>"; };
+		D7D51727156BE17600F49F46 /* NWSOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSOperation.h; sourceTree = "<group>"; };
+		D7D51728156BE17600F49F46 /* NWSOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSOperation.m; sourceTree = "<group>"; };
+		D7D51729156BE17600F49F46 /* NWSSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSSchedule.h; sourceTree = "<group>"; };
+		D7D5172A156BE17600F49F46 /* NWSSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSSchedule.m; sourceTree = "<group>"; };
+		D7D51769156BED0000F49F46 /* NWSActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSActivityIndicator.h; sourceTree = "<group>"; };
+		D7D5176A156BED0000F49F46 /* NWSActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSActivityIndicator.m; sourceTree = "<group>"; };
+		D7D5176B156BED0000F49F46 /* NWSCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSCall.h; sourceTree = "<group>"; };
+		D7D5176C156BED0000F49F46 /* NWSCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSCall.m; sourceTree = "<group>"; };
+		D7D5176D156BED0000F49F46 /* NWSDialogue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSDialogue.h; sourceTree = "<group>"; };
+		D7D5176E156BED0000F49F46 /* NWSDialogue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSDialogue.m; sourceTree = "<group>"; };
+		D7D5176F156BED0000F49F46 /* NWSEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSEndpoint.h; sourceTree = "<group>"; };
+		D7D51770156BED0000F49F46 /* NWSEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSEndpoint.m; sourceTree = "<group>"; };
+		D7D51771156BED0000F49F46 /* NWSHTTPCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSHTTPCall.h; sourceTree = "<group>"; };
+		D7D51772156BED0000F49F46 /* NWSHTTPCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSHTTPCall.m; sourceTree = "<group>"; };
+		D7D51773156BED0000F49F46 /* NWSHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSHTTPConnection.h; sourceTree = "<group>"; };
+		D7D51774156BED0000F49F46 /* NWSHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSHTTPConnection.m; sourceTree = "<group>"; };
+		D7D51775156BED0000F49F46 /* NWSHTTPDialogue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSHTTPDialogue.h; sourceTree = "<group>"; };
+		D7D51776156BED0000F49F46 /* NWSHTTPDialogue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSHTTPDialogue.m; sourceTree = "<group>"; };
+		D7D51777156BED0000F49F46 /* NWSHTTPEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSHTTPEndpoint.h; sourceTree = "<group>"; };
+		D7D51778156BED0000F49F46 /* NWSHTTPEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSHTTPEndpoint.m; sourceTree = "<group>"; };
+		D7D9A83E14B4B37A00BF0A77 /* NWServiceTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "NWServiceTest-Info.plist"; path = "Test/NWServiceTest-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D7D9A84614B4B3B600BF0A77 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Demo/main.m; sourceTree = SOURCE_ROOT; };
+		D7DA99DB14DAD931008496B3 /* libNWService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNWService.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7DA9ACA14DAE171008496B3 /* NWSCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSCommon.h; sourceTree = "<group>"; };
+		D7DA9ACB14DAE171008496B3 /* NWSCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSCommon.m; sourceTree = "<group>"; };
+		D7DA9ACE14DAE171008496B3 /* NWService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWService.h; sourceTree = "<group>"; };
+		D7DA9ACF14DAE171008496B3 /* NWSVarStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSVarStat.h; sourceTree = "<group>"; };
+		D7DA9AD014DAE171008496B3 /* NWSVarStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSVarStat.m; sourceTree = "<group>"; };
+		D7DA9AD514DAE171008496B3 /* NWSMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSMapping.h; sourceTree = "<group>"; };
+		D7DA9AD614DAE171008496B3 /* NWSMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSMapping.m; sourceTree = "<group>"; };
+		D7DA9AD714DAE171008496B3 /* NWSMappingContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSMappingContext.h; sourceTree = "<group>"; };
+		D7DA9AD814DAE171008496B3 /* NWSMappingContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSMappingContext.m; sourceTree = "<group>"; };
+		D7DA9ADB14DAE171008496B3 /* NWSMappingValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSMappingValidator.h; sourceTree = "<group>"; };
+		D7DA9ADC14DAE171008496B3 /* NWSMappingValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSMappingValidator.m; sourceTree = "<group>"; };
+		D7DA9ADD14DAE171008496B3 /* NWSPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSPolicy.h; sourceTree = "<group>"; };
+		D7DA9ADE14DAE171008496B3 /* NWSPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSPolicy.m; sourceTree = "<group>"; };
+		D7DA9AE014DAE171008496B3 /* NWSArrayObjectID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSArrayObjectID.h; sourceTree = "<group>"; };
+		D7DA9AE114DAE171008496B3 /* NWSArrayObjectID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSArrayObjectID.m; sourceTree = "<group>"; };
+		D7DA9AE214DAE171008496B3 /* NWSManagedObjectID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSManagedObjectID.h; sourceTree = "<group>"; };
+		D7DA9AE314DAE171008496B3 /* NWSManagedObjectID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSManagedObjectID.m; sourceTree = "<group>"; };
+		D7DA9AE414DAE171008496B3 /* NWSMemoryObjectID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSMemoryObjectID.h; sourceTree = "<group>"; };
+		D7DA9AE514DAE171008496B3 /* NWSMemoryObjectID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSMemoryObjectID.m; sourceTree = "<group>"; };
+		D7DA9AE614DAE171008496B3 /* NWSObjectID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSObjectID.h; sourceTree = "<group>"; };
+		D7DA9AE714DAE171008496B3 /* NWSObjectID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSObjectID.m; sourceTree = "<group>"; };
+		D7DA9AE914DAE171008496B3 /* NWSClassObjectType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSClassObjectType.h; sourceTree = "<group>"; };
+		D7DA9AEA14DAE171008496B3 /* NWSClassObjectType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSClassObjectType.m; sourceTree = "<group>"; };
+		D7DA9AEB14DAE171008496B3 /* NWSEntityObjectType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSEntityObjectType.h; sourceTree = "<group>"; };
+		D7DA9AEC14DAE171008496B3 /* NWSEntityObjectType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSEntityObjectType.m; sourceTree = "<group>"; };
+		D7DA9AED14DAE171008496B3 /* NWSObjectType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSObjectType.h; sourceTree = "<group>"; };
+		D7DA9AEE14DAE171008496B3 /* NWSObjectType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSObjectType.m; sourceTree = "<group>"; };
+		D7DA9AF014DAE171008496B3 /* NWSCompositePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSCompositePath.h; sourceTree = "<group>"; };
+		D7DA9AF114DAE171008496B3 /* NWSCompositePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSCompositePath.m; sourceTree = "<group>"; };
+		D7DA9AF214DAE171008496B3 /* NWSConstantValuePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSConstantValuePath.h; sourceTree = "<group>"; };
+		D7DA9AF314DAE171008496B3 /* NWSConstantValuePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSConstantValuePath.m; sourceTree = "<group>"; };
+		D7DA9AF414DAE171008496B3 /* NWSIndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSIndexPath.h; sourceTree = "<group>"; };
+		D7DA9AF514DAE171008496B3 /* NWSIndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSIndexPath.m; sourceTree = "<group>"; };
+		D7DA9AF614DAE171008496B3 /* NWSKeyPathPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSKeyPathPath.h; sourceTree = "<group>"; };
+		D7DA9AF714DAE171008496B3 /* NWSKeyPathPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSKeyPathPath.m; sourceTree = "<group>"; };
+		D7DA9AF814DAE171008496B3 /* NWSPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSPath.h; sourceTree = "<group>"; };
+		D7DA9AF914DAE171008496B3 /* NWSPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSPath.m; sourceTree = "<group>"; };
+		D7DA9AFA14DAE171008496B3 /* NWSSelfPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSSelfPath.h; sourceTree = "<group>"; };
+		D7DA9AFB14DAE171008496B3 /* NWSSelfPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSSelfPath.m; sourceTree = "<group>"; };
+		D7DA9AFC14DAE171008496B3 /* NWSSingleKeyPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSSingleKeyPath.h; sourceTree = "<group>"; };
+		D7DA9AFD14DAE171008496B3 /* NWSSingleKeyPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSSingleKeyPath.m; sourceTree = "<group>"; };
+		D7DA9AFF14DAE171008496B3 /* NWSBasicStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSBasicStore.h; sourceTree = "<group>"; };
+		D7DA9B0014DAE171008496B3 /* NWSBasicStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSBasicStore.m; sourceTree = "<group>"; };
+		D7DA9B0114DAE171008496B3 /* NWSCoreDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSCoreDataStore.h; sourceTree = "<group>"; };
+		D7DA9B0214DAE171008496B3 /* NWSCoreDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSCoreDataStore.m; sourceTree = "<group>"; };
+		D7DA9B0314DAE171008496B3 /* NWSMultiStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSMultiStore.h; sourceTree = "<group>"; };
+		D7DA9B0414DAE171008496B3 /* NWSMultiStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSMultiStore.m; sourceTree = "<group>"; };
+		D7DA9B0514DAE171008496B3 /* NWSRecordingStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSRecordingStore.h; sourceTree = "<group>"; };
+		D7DA9B0614DAE171008496B3 /* NWSRecordingStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSRecordingStore.m; sourceTree = "<group>"; };
+		D7DA9B0714DAE171008496B3 /* NWSStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSStore.h; sourceTree = "<group>"; };
+		D7DA9B0814DAE171008496B3 /* NWSStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSStore.m; sourceTree = "<group>"; };
+		D7DA9B0A14DAE171008496B3 /* NWSArrayTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSArrayTransform.h; sourceTree = "<group>"; };
+		D7DA9B0B14DAE171008496B3 /* NWSArrayTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSArrayTransform.m; sourceTree = "<group>"; };
+		D7DA9B0C14DAE171008496B3 /* NWSDateFormatterTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSDateFormatterTransform.h; sourceTree = "<group>"; };
+		D7DA9B0D14DAE171008496B3 /* NWSDateFormatterTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSDateFormatterTransform.m; sourceTree = "<group>"; };
+		D7DA9B0E14DAE171008496B3 /* NWSIdentityTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSIdentityTransform.h; sourceTree = "<group>"; };
+		D7DA9B0F14DAE171008496B3 /* NWSIdentityTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSIdentityTransform.m; sourceTree = "<group>"; };
+		D7DA9B1014DAE171008496B3 /* NWSIDToObjectTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSIDToObjectTransform.h; sourceTree = "<group>"; };
+		D7DA9B1114DAE171008496B3 /* NWSIDToObjectTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSIDToObjectTransform.m; sourceTree = "<group>"; };
+		D7DA9B1214DAE171008496B3 /* NWSMappingTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSMappingTransform.h; sourceTree = "<group>"; };
+		D7DA9B1314DAE171008496B3 /* NWSMappingTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSMappingTransform.m; sourceTree = "<group>"; };
+		D7DA9B1414DAE171008496B3 /* NWSTimeStampTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSTimeStampTransform.h; sourceTree = "<group>"; };
+		D7DA9B1514DAE171008496B3 /* NWSTimeStampTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSTimeStampTransform.m; sourceTree = "<group>"; };
+		D7DA9B1614DAE171008496B3 /* NWSTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSTransform.h; sourceTree = "<group>"; };
+		D7DA9B1714DAE171008496B3 /* NWSTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSTransform.m; sourceTree = "<group>"; };
+		D7E46C8C15B6F91500E29206 /* NWSURLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSURLParser.h; sourceTree = "<group>"; };
+		D7E46C8D15B6F91500E29206 /* NWSURLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSURLParser.m; sourceTree = "<group>"; };
+		D7FBA72A14CF6A62004AC5FA /* NWSPathTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSPathTest.m; sourceTree = "<group>"; };
+		D7FEEE4514EDC71A0091A49F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		DE0BCBD8150F66AA00E9A51B /* NWSBlockTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSBlockTransform.h; sourceTree = "<group>"; };
+		DE0BCBD9150F66AA00E9A51B /* NWSBlockTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSBlockTransform.m; sourceTree = "<group>"; };
+		DE94AA81150FA8DB007AC934 /* NWSAssertTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSAssertTransform.h; sourceTree = "<group>"; };
+		DE94AA82150FA8DB007AC934 /* NWSAssertTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSAssertTransform.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D756FB0D1507522800FF6730 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D756FB0E1507522800FF6730 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D756FB43150754D400FF6730 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D75EB5AB150CC9B100BCD9C0 /* libNWServiceMacLibrary.a in Frameworks */,
+				D75EB5AA150CC9A700BCD9C0 /* CoreData.framework in Frameworks */,
+				D75EB5A8150CC99900BCD9C0 /* Foundation.framework in Frameworks */,
+				D756FB48150754D400FF6730 /* SenTestingKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7836CC014A38027006AC672 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D763039D15591884005A0428 /* libxml2.dylib in Frameworks */,
+				D7DA9B6914DAE1BB008496B3 /* libNWService.a in Frameworks */,
+				D7836CC814A38027006AC672 /* UIKit.framework in Frameworks */,
+				D7836CCA14A38027006AC672 /* Foundation.framework in Frameworks */,
+				D7836CCC14A38027006AC672 /* CoreGraphics.framework in Frameworks */,
+				D7836CCE14A38027006AC672 /* CoreData.framework in Frameworks */,
+				D71F41CD15A2EA1200E99BD8 /* libJSONKit.a in Frameworks */,
+				D71F41CE15A2EA1200E99BD8 /* libNWLoggingCore.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7836CDF14A38027006AC672 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7836CE514A38027006AC672 /* SenTestingKit.framework in Frameworks */,
+				D7836CE714A38027006AC672 /* Foundation.framework in Frameworks */,
+				D7836CE814A38027006AC672 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7DA99D814DAD931008496B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7DA99DC14DAD931008496B3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2372D9A51573C127009E7F50 /* BasicExample */ = {
+			isa = PBXGroup;
+			children = (
+				2372D9A71573C1EF009E7F50 /* NWSBasicExampleTableViewController.h */,
+				2372D9A81573C1EF009E7F50 /* NWSBasicExampleTableViewController.m */,
+			);
+			name = BasicExample;
+			path = Demo/BasicExample;
+			sourceTree = SOURCE_ROOT;
+		};
+		D70B6F5B151CD73100E0CEF0 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				D70B6F5C151CD73100E0CEF0 /* NWSTestCall.h */,
+				D70B6F5D151CD73100E0CEF0 /* NWSTestCall.m */,
+				D70B6F5E151CD73100E0CEF0 /* NWSTestDialogue.h */,
+				D70B6F5F151CD73100E0CEF0 /* NWSTestDialogue.m */,
+				D70B6F60151CD73100E0CEF0 /* NWSTestEndpoint.h */,
+				D70B6F61151CD73100E0CEF0 /* NWSTestEndpoint.m */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		D70B6F73151CE96200E0CEF0 /* Recordshop */ = {
+			isa = PBXGroup;
+			children = (
+				D70B6F74151CE97F00E0CEF0 /* NWSCallTest.m */,
+				D70B6F7F151CEF7C00E0CEF0 /* NWSRecordshopBackend.h */,
+				D70B6F80151CEF7C00E0CEF0 /* NWSRecordshopBackend.m */,
+				D70B6F7B151CEEB500E0CEF0 /* Recordshop.xcdatamodeld */,
+			);
+			name = Recordshop;
+			path = Test/Recordshop;
+			sourceTree = SOURCE_ROOT;
+		};
+		D70B6F99151D299700E0CEF0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D70B6F9A151D299800E0CEF0 /* NWSTestTools.h */,
+				D70B6F9B151D299800E0CEF0 /* NWSTestTools.m */,
+			);
+			name = Common;
+			path = Test/Common;
+			sourceTree = SOURCE_ROOT;
+		};
+		D72EDCD014DAE7AC00913E13 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D72EDCD114DAE7D900913E13 /* NWService-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D7735219156C2DEB007BD887 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				D773521A156C2DEB007BD887 /* NWSAppDelegate.h */,
+				D773521B156C2DEB007BD887 /* NWSAppDelegate.m */,
+				D773521C156C2DEB007BD887 /* NWSMenuViewController.h */,
+				D773521D156C2DEB007BD887 /* NWSMenuViewController.m */,
+			);
+			name = Menu;
+			path = Demo/Menu;
+			sourceTree = SOURCE_ROOT;
+		};
+		D7735221156C2E0D007BD887 /* Performance */ = {
+			isa = PBXGroup;
+			children = (
+				D7735222156C2E0D007BD887 /* NWSPerformanceData.plist */,
+				D7735223156C2E0D007BD887 /* NWSPerformanceViewController.h */,
+				D7735224156C2E0D007BD887 /* NWSPerformanceViewController.m */,
+			);
+			name = Performance;
+			path = Demo/Performance;
+			sourceTree = SOURCE_ROOT;
+		};
+		D7836CB814A38027006AC672 = {
+			isa = PBXGroup;
+			children = (
+				D7FEEE4514EDC71A0091A49F /* README.md */,
+				D7DA9ABD14DAE171008496B3 /* Library */,
+				D7D516F1156BD54200F49F46 /* Documentation */,
+				D7836CCF14A38027006AC672 /* Demo */,
+				D7836CEB14A38027006AC672 /* Test */,
+				D7836CC614A38027006AC672 /* Frameworks */,
+				D7836CC414A38027006AC672 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D7836CC414A38027006AC672 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D7836CC314A38027006AC672 /* NWServiceDemo.app */,
+				D7836CE314A38027006AC672 /* NWServiceTest.octest */,
+				D7DA99DB14DAD931008496B3 /* libNWService.a */,
+				D756FB411507522800FF6730 /* libNWServiceMacLibrary.a */,
+				D756FB47150754D400FF6730 /* NWServiceMacTest.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D7836CC614A38027006AC672 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D71F41C715A2E99500E99BD8 /* JSONKit.h */,
+				D71F41C815A2E99500E99BD8 /* NWLCore.h */,
+				D71F419A15A2E7D200E99BD8 /* libJSONKit.a */,
+				D71F41C515A2E92F00E99BD8 /* libNWLoggingCore.a */,
+				D763039C15591884005A0428 /* libxml2.dylib */,
+				D75EB5A9150CC9A700BCD9C0 /* CoreData.framework */,
+				D75EB5A7150CC99900BCD9C0 /* Foundation.framework */,
+				D7836CC714A38027006AC672 /* UIKit.framework */,
+				D7836CC914A38027006AC672 /* Foundation.framework */,
+				D7836CCB14A38027006AC672 /* CoreGraphics.framework */,
+				D7836CCD14A38027006AC672 /* CoreData.framework */,
+				D7836CE414A38027006AC672 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7836CCF14A38027006AC672 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				2372D9A51573C127009E7F50 /* BasicExample */,
+				D7A4EF0B155A6D0B00D3F850 /* Maps */,
+				D7735219156C2DEB007BD887 /* Menu */,
+				D7735221156C2E0D007BD887 /* Performance */,
+				D7836CD014A38027006AC672 /* Supporting Files */,
+			);
+			name = Demo;
+			path = NWService;
+			sourceTree = "<group>";
+		};
+		D7836CD014A38027006AC672 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D72EDCD214DAE8C200913E13 /* NWServiceDemo-Prefix.pch */,
+				D72EDCD314DAE8C200913E13 /* NWServiceDemo-Info.plist */,
+				D7D9A84614B4B3B600BF0A77 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D7836CEB14A38027006AC672 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				D70B6F99151D299700E0CEF0 /* Common */,
+				D7A4EF15155A6D9100D3F850 /* Maps */,
+				D70B6F73151CE96200E0CEF0 /* Recordshop */,
+				D7FBA72714CF6A52004AC5FA /* Unit */,
+				D7836CEC14A38027006AC672 /* Supporting Files */,
+			);
+			name = Test;
+			path = NWServiceTests;
+			sourceTree = "<group>";
+		};
+		D7836CEC14A38027006AC672 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D7D9A83E14B4B37A00BF0A77 /* NWServiceTest-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D7A4EEF1155A5D4C00D3F850 /* Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				D7A4EEF2155A5D5E00D3F850 /* NWSParser.h */,
+				D7A4EEF3155A5D5E00D3F850 /* NWSParser.m */,
+				D7A4EEF8155A5EBE00D3F850 /* NWSJSONKitParser.h */,
+				D7A4EEF9155A5EBE00D3F850 /* NWSJSONKitParser.m */,
+				D7A4EEFE155A61DB00D3F850 /* NWSXMLParser.h */,
+				D7A4EEFF155A61DB00D3F850 /* NWSXMLParser.m */,
+				1500CDA815889FEB00DFAEB9 /* NWSStringParser.h */,
+				1500CDA915889FEB00DFAEB9 /* NWSStringParser.m */,
+				D7E46C8C15B6F91500E29206 /* NWSURLParser.h */,
+				D7E46C8D15B6F91500E29206 /* NWSURLParser.m */,
+			);
+			path = Parsing;
+			sourceTree = "<group>";
+		};
+		D7A4EF0B155A6D0B00D3F850 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				D7A4EF0C155A6D0B00D3F850 /* directions.json */,
+				D7A4EF0D155A6D0B00D3F850 /* directions.xml */,
+				D7A4EF0E155A6D0B00D3F850 /* directions.xml.json */,
+				D7A4EF0F155A6D0B00D3F850 /* NWSMapsService.h */,
+				D7A4EF10155A6D0B00D3F850 /* NWSMapsService.m */,
+			);
+			name = Maps;
+			path = Demo/Maps;
+			sourceTree = SOURCE_ROOT;
+		};
+		D7A4EF15155A6D9100D3F850 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				D7A4EF17155A6DAA00D3F850 /* NWSMapsTest.m */,
+			);
+			name = Maps;
+			path = Test/Maps;
+			sourceTree = SOURCE_ROOT;
+		};
+		D7D516F1156BD54200F49F46 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				D7D516F3156BD61C00F49F46 /* Overview.md */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
+		D7D51724156BE17500F49F46 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D7D51725156BE17600F49F46 /* NWSBackend.h */,
+				D7D51726156BE17600F49F46 /* NWSBackend.m */,
+				D7D51727156BE17600F49F46 /* NWSOperation.h */,
+				D7D51728156BE17600F49F46 /* NWSOperation.m */,
+				D7D51729156BE17600F49F46 /* NWSSchedule.h */,
+				D7D5172A156BE17600F49F46 /* NWSSchedule.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D7D51768156BED0000F49F46 /* Calling */ = {
+			isa = PBXGroup;
+			children = (
+				D7D51769156BED0000F49F46 /* NWSActivityIndicator.h */,
+				D7D5176A156BED0000F49F46 /* NWSActivityIndicator.m */,
+				D7D5176B156BED0000F49F46 /* NWSCall.h */,
+				D7D5176C156BED0000F49F46 /* NWSCall.m */,
+				D7D5176D156BED0000F49F46 /* NWSDialogue.h */,
+				D7D5176E156BED0000F49F46 /* NWSDialogue.m */,
+				D7D5176F156BED0000F49F46 /* NWSEndpoint.h */,
+				D7D51770156BED0000F49F46 /* NWSEndpoint.m */,
+				D7D51771156BED0000F49F46 /* NWSHTTPCall.h */,
+				D7D51772156BED0000F49F46 /* NWSHTTPCall.m */,
+				D7D51773156BED0000F49F46 /* NWSHTTPConnection.h */,
+				D7D51774156BED0000F49F46 /* NWSHTTPConnection.m */,
+				D7D51775156BED0000F49F46 /* NWSHTTPDialogue.h */,
+				D7D51776156BED0000F49F46 /* NWSHTTPDialogue.m */,
+				D7D51777156BED0000F49F46 /* NWSHTTPEndpoint.h */,
+				D7D51778156BED0000F49F46 /* NWSHTTPEndpoint.m */,
+			);
+			path = Calling;
+			sourceTree = "<group>";
+		};
+		D7DA9ABD14DAE171008496B3 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D7D51768156BED0000F49F46 /* Calling */,
+				D7DA9AC914DAE171008496B3 /* Common */,
+				D7DA9AD414DAE171008496B3 /* Mapping */,
+				D7DA9ADF14DAE171008496B3 /* ObjectID */,
+				D7DA9AE814DAE171008496B3 /* ObjectType */,
+				D7DA9AEF14DAE171008496B3 /* Path */,
+				D7A4EEF1155A5D4C00D3F850 /* Parsing */,
+				D7D51724156BE17500F49F46 /* Service */,
+				D7DA9AFE14DAE171008496B3 /* Store */,
+				D70B6F5B151CD73100E0CEF0 /* Test */,
+				D7DA9B0914DAE171008496B3 /* Transform */,
+				D72EDCD014DAE7AC00913E13 /* Supporting Files */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		D7DA9AC914DAE171008496B3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D7DA9ACA14DAE171008496B3 /* NWSCommon.h */,
+				D7DA9ACB14DAE171008496B3 /* NWSCommon.m */,
+				D7DA9ACE14DAE171008496B3 /* NWService.h */,
+				D7DA9ACF14DAE171008496B3 /* NWSVarStat.h */,
+				D7DA9AD014DAE171008496B3 /* NWSVarStat.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		D7DA9AD414DAE171008496B3 /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				D7DA9AD514DAE171008496B3 /* NWSMapping.h */,
+				D7DA9AD614DAE171008496B3 /* NWSMapping.m */,
+				D7DA9AD714DAE171008496B3 /* NWSMappingContext.h */,
+				D7DA9AD814DAE171008496B3 /* NWSMappingContext.m */,
+				D7DA9ADB14DAE171008496B3 /* NWSMappingValidator.h */,
+				D7DA9ADC14DAE171008496B3 /* NWSMappingValidator.m */,
+				D7DA9ADD14DAE171008496B3 /* NWSPolicy.h */,
+				D7DA9ADE14DAE171008496B3 /* NWSPolicy.m */,
+			);
+			path = Mapping;
+			sourceTree = "<group>";
+		};
+		D7DA9ADF14DAE171008496B3 /* ObjectID */ = {
+			isa = PBXGroup;
+			children = (
+				D7DA9AE014DAE171008496B3 /* NWSArrayObjectID.h */,
+				D7DA9AE114DAE171008496B3 /* NWSArrayObjectID.m */,
+				D7DA9AE214DAE171008496B3 /* NWSManagedObjectID.h */,
+				D7DA9AE314DAE171008496B3 /* NWSManagedObjectID.m */,
+				D7DA9AE414DAE171008496B3 /* NWSMemoryObjectID.h */,
+				D7DA9AE514DAE171008496B3 /* NWSMemoryObjectID.m */,
+				D7DA9AE614DAE171008496B3 /* NWSObjectID.h */,
+				D7DA9AE714DAE171008496B3 /* NWSObjectID.m */,
+			);
+			path = ObjectID;
+			sourceTree = "<group>";
+		};
+		D7DA9AE814DAE171008496B3 /* ObjectType */ = {
+			isa = PBXGroup;
+			children = (
+				D7DA9AE914DAE171008496B3 /* NWSClassObjectType.h */,
+				D7DA9AEA14DAE171008496B3 /* NWSClassObjectType.m */,
+				D7DA9AEB14DAE171008496B3 /* NWSEntityObjectType.h */,
+				D7DA9AEC14DAE171008496B3 /* NWSEntityObjectType.m */,
+				D7DA9AED14DAE171008496B3 /* NWSObjectType.h */,
+				D7DA9AEE14DAE171008496B3 /* NWSObjectType.m */,
+			);
+			path = ObjectType;
+			sourceTree = "<group>";
+		};
+		D7DA9AEF14DAE171008496B3 /* Path */ = {
+			isa = PBXGroup;
+			children = (
+				D7DA9AF014DAE171008496B3 /* NWSCompositePath.h */,
+				D7DA9AF114DAE171008496B3 /* NWSCompositePath.m */,
+				D7DA9AF214DAE171008496B3 /* NWSConstantValuePath.h */,
+				D7DA9AF314DAE171008496B3 /* NWSConstantValuePath.m */,
+				D7DA9AF414DAE171008496B3 /* NWSIndexPath.h */,
+				D7DA9AF514DAE171008496B3 /* NWSIndexPath.m */,
+				D7DA9AF614DAE171008496B3 /* NWSKeyPathPath.h */,
+				D7DA9AF714DAE171008496B3 /* NWSKeyPathPath.m */,
+				D7DA9AF814DAE171008496B3 /* NWSPath.h */,
+				D7DA9AF914DAE171008496B3 /* NWSPath.m */,
+				D7DA9AFA14DAE171008496B3 /* NWSSelfPath.h */,
+				D7DA9AFB14DAE171008496B3 /* NWSSelfPath.m */,
+				D7DA9AFC14DAE171008496B3 /* NWSSingleKeyPath.h */,
+				D7DA9AFD14DAE171008496B3 /* NWSSingleKeyPath.m */,
+			);
+			path = Path;
+			sourceTree = "<group>";
+		};
+		D7DA9AFE14DAE171008496B3 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				D7929E0C15220157006E3F1C /* NWSAmnesicStore.h */,
+				D7929E0D15220157006E3F1C /* NWSAmnesicStore.m */,
+				D7DA9AFF14DAE171008496B3 /* NWSBasicStore.h */,
+				D7DA9B0014DAE171008496B3 /* NWSBasicStore.m */,
+				D7DA9B0114DAE171008496B3 /* NWSCoreDataStore.h */,
+				D7DA9B0214DAE171008496B3 /* NWSCoreDataStore.m */,
+				D7DA9B0314DAE171008496B3 /* NWSMultiStore.h */,
+				D7DA9B0414DAE171008496B3 /* NWSMultiStore.m */,
+				D7DA9B0514DAE171008496B3 /* NWSRecordingStore.h */,
+				D7DA9B0614DAE171008496B3 /* NWSRecordingStore.m */,
+				D7DA9B0714DAE171008496B3 /* NWSStore.h */,
+				D7DA9B0814DAE171008496B3 /* NWSStore.m */,
+				D7CC008D14ED5AC00058CA40 /* NWSObjectReference.h */,
+				D7CC008E14ED5AC00058CA40 /* NWSObjectReference.m */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		D7DA9B0914DAE171008496B3 /* Transform */ = {
+			isa = PBXGroup;
+			children = (
+				D7DA9B0A14DAE171008496B3 /* NWSArrayTransform.h */,
+				D7DA9B0B14DAE171008496B3 /* NWSArrayTransform.m */,
+				DE94AA81150FA8DB007AC934 /* NWSAssertTransform.h */,
+				DE94AA82150FA8DB007AC934 /* NWSAssertTransform.m */,
+				DE0BCBD8150F66AA00E9A51B /* NWSBlockTransform.h */,
+				DE0BCBD9150F66AA00E9A51B /* NWSBlockTransform.m */,
+				D786B8001505007600E9AD53 /* NWSCompositeTransform.h */,
+				D786B8011505007600E9AD53 /* NWSCompositeTransform.m */,
+				D7DA9B0C14DAE171008496B3 /* NWSDateFormatterTransform.h */,
+				D7DA9B0D14DAE171008496B3 /* NWSDateFormatterTransform.m */,
+				D7DA9B1014DAE171008496B3 /* NWSIDToObjectTransform.h */,
+				D7DA9B1114DAE171008496B3 /* NWSIDToObjectTransform.m */,
+				D7DA9B0E14DAE171008496B3 /* NWSIdentityTransform.h */,
+				D7DA9B0F14DAE171008496B3 /* NWSIdentityTransform.m */,
+				D7DA9B1214DAE171008496B3 /* NWSMappingTransform.h */,
+				D7DA9B1314DAE171008496B3 /* NWSMappingTransform.m */,
+				D7871A6514FD17DC000C2FA0 /* NWSOrderKeyTransform.h */,
+				D7871A6614FD17DC000C2FA0 /* NWSOrderKeyTransform.m */,
+				D786B805150501AF00E9AD53 /* NWSStringToNumberTransform.h */,
+				D786B806150501AF00E9AD53 /* NWSStringToNumberTransform.m */,
+				D7DA9B1414DAE171008496B3 /* NWSTimeStampTransform.h */,
+				D7DA9B1514DAE171008496B3 /* NWSTimeStampTransform.m */,
+				D7DA9B1614DAE171008496B3 /* NWSTransform.h */,
+				D7DA9B1714DAE171008496B3 /* NWSTransform.m */,
+			);
+			path = Transform;
+			sourceTree = "<group>";
+		};
+		D7FBA72714CF6A52004AC5FA /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				D7FBA72A14CF6A62004AC5FA /* NWSPathTest.m */,
+				D731351F14FF7EB50050CBBD /* NWSScheduleTest.m */,
+				D77498BB15080599001F2FE4 /* NWSCommonTest.m */,
+				D77498B31507FFC3001F2FE4 /* NWSHTTPTest.m */,
+				D77498AF1507FCDD001F2FE4 /* NWSMappingTest.m */,
+				D77498A31507E573001F2FE4 /* NWSObjectIDTest.m */,
+				D77498AB1507F5E9001F2FE4 /* NWSObjectTypeTest.m */,
+			);
+			name = Unit;
+			path = Test/Unit;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D756FB0F1507522800FF6730 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D756FB131507522800FF6730 /* NWSCommon.h in Headers */,
+				D756FB151507522800FF6730 /* NWService.h in Headers */,
+				D756FB161507522800FF6730 /* NWSVarStat.h in Headers */,
+				D756FB181507522800FF6730 /* NWSMapping.h in Headers */,
+				D756FB191507522800FF6730 /* NWSMappingContext.h in Headers */,
+				D756FB1B1507522800FF6730 /* NWSMappingValidator.h in Headers */,
+				D756FB1C1507522800FF6730 /* NWSPolicy.h in Headers */,
+				D756FB1D1507522800FF6730 /* NWSArrayObjectID.h in Headers */,
+				D756FB1E1507522800FF6730 /* NWSManagedObjectID.h in Headers */,
+				D756FB1F1507522800FF6730 /* NWSMemoryObjectID.h in Headers */,
+				D756FB201507522800FF6730 /* NWSObjectID.h in Headers */,
+				D756FB211507522800FF6730 /* NWSClassObjectType.h in Headers */,
+				D756FB221507522800FF6730 /* NWSEntityObjectType.h in Headers */,
+				D756FB231507522800FF6730 /* NWSObjectType.h in Headers */,
+				D756FB241507522800FF6730 /* NWSCompositePath.h in Headers */,
+				D756FB251507522800FF6730 /* NWSConstantValuePath.h in Headers */,
+				D756FB261507522800FF6730 /* NWSIndexPath.h in Headers */,
+				D756FB271507522800FF6730 /* NWSKeyPathPath.h in Headers */,
+				D756FB281507522800FF6730 /* NWSPath.h in Headers */,
+				D756FB291507522800FF6730 /* NWSSelfPath.h in Headers */,
+				D756FB2A1507522800FF6730 /* NWSSingleKeyPath.h in Headers */,
+				D756FB2B1507522800FF6730 /* NWSBasicStore.h in Headers */,
+				D756FB2C1507522800FF6730 /* NWSCoreDataStore.h in Headers */,
+				D756FB2D1507522800FF6730 /* NWSMultiStore.h in Headers */,
+				D756FB2E1507522800FF6730 /* NWSRecordingStore.h in Headers */,
+				D756FB2F1507522800FF6730 /* NWSStore.h in Headers */,
+				D756FB301507522800FF6730 /* NWSArrayTransform.h in Headers */,
+				D756FB311507522800FF6730 /* NWSDateFormatterTransform.h in Headers */,
+				D756FB321507522800FF6730 /* NWSIdentityTransform.h in Headers */,
+				D756FB331507522800FF6730 /* NWSIDToObjectTransform.h in Headers */,
+				D756FB341507522800FF6730 /* NWSMappingTransform.h in Headers */,
+				D756FB351507522800FF6730 /* NWSTimeStampTransform.h in Headers */,
+				D756FB361507522800FF6730 /* NWSTransform.h in Headers */,
+				D756FB3C1507522800FF6730 /* NWSCompositeTransform.h in Headers */,
+				D756FB3D1507522800FF6730 /* NWSStringToNumberTransform.h in Headers */,
+				DE0BCBDB150F66AA00E9A51B /* NWSBlockTransform.h in Headers */,
+				DE94AA84150FA8DB007AC934 /* NWSAssertTransform.h in Headers */,
+				D70B6F63151CD73100E0CEF0 /* NWSTestCall.h in Headers */,
+				D70B6F67151CD73100E0CEF0 /* NWSTestDialogue.h in Headers */,
+				D70B6F6B151CD73100E0CEF0 /* NWSTestEndpoint.h in Headers */,
+				D7929E0F15220157006E3F1C /* NWSAmnesicStore.h in Headers */,
+				D7A4EEF5155A5D5E00D3F850 /* NWSParser.h in Headers */,
+				D7A4EEFB155A5EBE00D3F850 /* NWSJSONKitParser.h in Headers */,
+				D7A4EF01155A61DB00D3F850 /* NWSXMLParser.h in Headers */,
+				D7D5172C156BE17600F49F46 /* NWSBackend.h in Headers */,
+				D7D51730156BE17600F49F46 /* NWSOperation.h in Headers */,
+				D7D51734156BE17600F49F46 /* NWSSchedule.h in Headers */,
+				D7D5177A156BED0000F49F46 /* NWSActivityIndicator.h in Headers */,
+				D7D5177E156BED0000F49F46 /* NWSCall.h in Headers */,
+				D7D51782156BED0000F49F46 /* NWSDialogue.h in Headers */,
+				D7D51786156BED0000F49F46 /* NWSEndpoint.h in Headers */,
+				D7D5178A156BED0000F49F46 /* NWSHTTPCall.h in Headers */,
+				D7D5178E156BED0000F49F46 /* NWSHTTPConnection.h in Headers */,
+				D7D51792156BED0000F49F46 /* NWSHTTPDialogue.h in Headers */,
+				D7D51796156BED0000F49F46 /* NWSHTTPEndpoint.h in Headers */,
+				D71F41CA15A2E99500E99BD8 /* JSONKit.h in Headers */,
+				D71F41CC15A2E99500E99BD8 /* NWLCore.h in Headers */,
+				D7E46C8F15B6F91500E29206 /* NWSURLParser.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7DA99D914DAD931008496B3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7DA9B2214DAE171008496B3 /* NWSCommon.h in Headers */,
+				D7DA9B2614DAE171008496B3 /* NWService.h in Headers */,
+				D7DA9B2714DAE171008496B3 /* NWSVarStat.h in Headers */,
+				D7DA9B2B14DAE171008496B3 /* NWSMapping.h in Headers */,
+				D7DA9B2D14DAE171008496B3 /* NWSMappingContext.h in Headers */,
+				D7DA9B3114DAE171008496B3 /* NWSMappingValidator.h in Headers */,
+				D7DA9B3314DAE171008496B3 /* NWSPolicy.h in Headers */,
+				D7DA9B3514DAE171008496B3 /* NWSArrayObjectID.h in Headers */,
+				D7DA9B3714DAE171008496B3 /* NWSManagedObjectID.h in Headers */,
+				D7DA9B3914DAE171008496B3 /* NWSMemoryObjectID.h in Headers */,
+				D7DA9B3B14DAE171008496B3 /* NWSObjectID.h in Headers */,
+				D7DA9B3D14DAE171008496B3 /* NWSClassObjectType.h in Headers */,
+				D7DA9B3F14DAE171008496B3 /* NWSEntityObjectType.h in Headers */,
+				D7DA9B4114DAE171008496B3 /* NWSObjectType.h in Headers */,
+				D7DA9B4314DAE171008496B3 /* NWSCompositePath.h in Headers */,
+				D7DA9B4514DAE171008496B3 /* NWSConstantValuePath.h in Headers */,
+				D7DA9B4714DAE171008496B3 /* NWSIndexPath.h in Headers */,
+				D7DA9B4914DAE171008496B3 /* NWSKeyPathPath.h in Headers */,
+				D7DA9B4B14DAE171008496B3 /* NWSPath.h in Headers */,
+				D7DA9B4D14DAE171008496B3 /* NWSSelfPath.h in Headers */,
+				D7DA9B4F14DAE171008496B3 /* NWSSingleKeyPath.h in Headers */,
+				D7DA9B5114DAE171008496B3 /* NWSBasicStore.h in Headers */,
+				D7DA9B5314DAE171008496B3 /* NWSCoreDataStore.h in Headers */,
+				D7DA9B5514DAE171008496B3 /* NWSMultiStore.h in Headers */,
+				D7DA9B5714DAE171008496B3 /* NWSRecordingStore.h in Headers */,
+				D7DA9B5914DAE171008496B3 /* NWSStore.h in Headers */,
+				D7DA9B5B14DAE171008496B3 /* NWSArrayTransform.h in Headers */,
+				D7DA9B5D14DAE171008496B3 /* NWSDateFormatterTransform.h in Headers */,
+				D7DA9B5F14DAE171008496B3 /* NWSIdentityTransform.h in Headers */,
+				D7DA9B6114DAE171008496B3 /* NWSIDToObjectTransform.h in Headers */,
+				D7DA9B6314DAE171008496B3 /* NWSMappingTransform.h in Headers */,
+				D7DA9B6514DAE171008496B3 /* NWSTimeStampTransform.h in Headers */,
+				D7DA9B6714DAE171008496B3 /* NWSTransform.h in Headers */,
+				D786B8021505007600E9AD53 /* NWSCompositeTransform.h in Headers */,
+				D786B807150501AF00E9AD53 /* NWSStringToNumberTransform.h in Headers */,
+				DE0BCBDA150F66AA00E9A51B /* NWSBlockTransform.h in Headers */,
+				DE94AA83150FA8DB007AC934 /* NWSAssertTransform.h in Headers */,
+				D70B6F62151CD73100E0CEF0 /* NWSTestCall.h in Headers */,
+				D70B6F66151CD73100E0CEF0 /* NWSTestDialogue.h in Headers */,
+				D70B6F6A151CD73100E0CEF0 /* NWSTestEndpoint.h in Headers */,
+				D7929E0E15220157006E3F1C /* NWSAmnesicStore.h in Headers */,
+				D7A4EEF4155A5D5E00D3F850 /* NWSParser.h in Headers */,
+				D7A4EEFA155A5EBE00D3F850 /* NWSJSONKitParser.h in Headers */,
+				D7A4EF00155A61DB00D3F850 /* NWSXMLParser.h in Headers */,
+				D7D5172B156BE17600F49F46 /* NWSBackend.h in Headers */,
+				D7D5172F156BE17600F49F46 /* NWSOperation.h in Headers */,
+				D7D51733156BE17600F49F46 /* NWSSchedule.h in Headers */,
+				D7D51779156BED0000F49F46 /* NWSActivityIndicator.h in Headers */,
+				D7D5177D156BED0000F49F46 /* NWSCall.h in Headers */,
+				D7D51781156BED0000F49F46 /* NWSDialogue.h in Headers */,
+				D7D51785156BED0000F49F46 /* NWSEndpoint.h in Headers */,
+				D7D51789156BED0000F49F46 /* NWSHTTPCall.h in Headers */,
+				D7D5178D156BED0000F49F46 /* NWSHTTPConnection.h in Headers */,
+				D7D51791156BED0000F49F46 /* NWSHTTPDialogue.h in Headers */,
+				D7D51795156BED0000F49F46 /* NWSHTTPEndpoint.h in Headers */,
+				1500CDAA15889FEB00DFAEB9 /* NWSStringParser.h in Headers */,
+				D71F41C915A2E99500E99BD8 /* JSONKit.h in Headers */,
+				D71F41CB15A2E99500E99BD8 /* NWLCore.h in Headers */,
+				D7E46C8E15B6F91500E29206 /* NWSURLParser.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D756FADB1507522800FF6730 /* NWServiceMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D756FB3E1507522800FF6730 /* Build configuration list for PBXNativeTarget "NWServiceMac" */;
+			buildPhases = (
+				D756FADC1507522800FF6730 /* Sources */,
+				D756FB0D1507522800FF6730 /* Frameworks */,
+				D756FB0F1507522800FF6730 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NWServiceMac;
+			productName = NWServiceLibrary;
+			productReference = D756FB411507522800FF6730 /* libNWServiceMacLibrary.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D756FB46150754D400FF6730 /* NWServiceMacTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D756FB59150754D400FF6730 /* Build configuration list for PBXNativeTarget "NWServiceMacTest" */;
+			buildPhases = (
+				D756FB42150754D400FF6730 /* Sources */,
+				D756FB43150754D400FF6730 /* Frameworks */,
+				D756FB44150754D400FF6730 /* Resources */,
+				D756FB45150754D400FF6730 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D756FB5D150754E800FF6730 /* PBXTargetDependency */,
+			);
+			name = NWServiceMacTest;
+			productName = NWServiceMacTest;
+			productReference = D756FB47150754D400FF6730 /* NWServiceMacTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		D7836CC214A38027006AC672 /* NWServiceDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7836CF614A38027006AC672 /* Build configuration list for PBXNativeTarget "NWServiceDemo" */;
+			buildPhases = (
+				D7836CBF14A38027006AC672 /* Sources */,
+				D7836CC014A38027006AC672 /* Frameworks */,
+				D7836CC114A38027006AC672 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D7DA9ABC14DAE15A008496B3 /* PBXTargetDependency */,
+			);
+			name = NWServiceDemo;
+			productName = NWServiceDemo;
+			productReference = D7836CC314A38027006AC672 /* NWServiceDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D7836CE214A38027006AC672 /* NWServiceTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7836CF914A38027006AC672 /* Build configuration list for PBXNativeTarget "NWServiceTest" */;
+			buildPhases = (
+				D7836CDE14A38027006AC672 /* Sources */,
+				D7836CDF14A38027006AC672 /* Frameworks */,
+				D7836CE014A38027006AC672 /* Resources */,
+				D7836CE114A38027006AC672 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D75EB5A4150CC77C00BCD9C0 /* PBXTargetDependency */,
+			);
+			name = NWServiceTest;
+			productName = NWServiceTests;
+			productReference = D7836CE314A38027006AC672 /* NWServiceTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		D7DA99DA14DAD931008496B3 /* NWService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7DA99E514DAD931008496B3 /* Build configuration list for PBXNativeTarget "NWService" */;
+			buildPhases = (
+				D7DA99D714DAD931008496B3 /* Sources */,
+				D7DA99D814DAD931008496B3 /* Frameworks */,
+				D7DA99D914DAD931008496B3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NWService;
+			productName = NWServiceLibrary;
+			productReference = D7DA99DB14DAD931008496B3 /* libNWService.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D7836CBA14A38027006AC672 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = noodlewerk;
+			};
+			buildConfigurationList = D7836CBD14A38027006AC672 /* Build configuration list for PBXProject "NWService" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D7836CB814A38027006AC672;
+			productRefGroup = D7836CC414A38027006AC672 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D7DA99DA14DAD931008496B3 /* NWService */,
+				D7836CE214A38027006AC672 /* NWServiceTest */,
+				D756FADB1507522800FF6730 /* NWServiceMac */,
+				D756FB46150754D400FF6730 /* NWServiceMacTest */,
+				D7836CC214A38027006AC672 /* NWServiceDemo */,
+				D756FBA215075A9600FF6730 /* NWServiceAppledoc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D756FB44150754D400FF6730 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7836CC114A38027006AC672 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7FEEE4614EDC71A0091A49F /* README.md in Resources */,
+				D7A4EF11155A6D0B00D3F850 /* directions.json in Resources */,
+				D7A4EF12155A6D0B00D3F850 /* directions.xml in Resources */,
+				D7A4EF13155A6D0B00D3F850 /* directions.xml.json in Resources */,
+				D7735225156C2E0D007BD887 /* NWSPerformanceData.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7836CE014A38027006AC672 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D756FB45150754D400FF6730 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		D756FBA715075AA800FF6730 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\necho \"Running appledoc...\"\n/usr/local/bin/appledoc -p NWService -v 0.1 -c Noodlewerk --company-id com.noodlewerk -o $TEMP_DIR --logformat xcode --exit-threshold 2 $SRCROOT/Library\n";
+		};
+		D7836CE114A38027006AC672 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D756FADC1507522800FF6730 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D756FAE01507522800FF6730 /* NWSCommon.m in Sources */,
+				D756FAE21507522800FF6730 /* NWSVarStat.m in Sources */,
+				D756FAE41507522800FF6730 /* NWSMapping.m in Sources */,
+				D756FAE51507522800FF6730 /* NWSMappingContext.m in Sources */,
+				D756FAE71507522800FF6730 /* NWSMappingValidator.m in Sources */,
+				D756FAE81507522800FF6730 /* NWSPolicy.m in Sources */,
+				D756FAE91507522800FF6730 /* NWSArrayObjectID.m in Sources */,
+				D756FAEA1507522800FF6730 /* NWSManagedObjectID.m in Sources */,
+				D756FAEB1507522800FF6730 /* NWSMemoryObjectID.m in Sources */,
+				D756FAEC1507522800FF6730 /* NWSObjectID.m in Sources */,
+				D756FAED1507522800FF6730 /* NWSClassObjectType.m in Sources */,
+				D756FAEE1507522800FF6730 /* NWSEntityObjectType.m in Sources */,
+				D756FAEF1507522800FF6730 /* NWSObjectType.m in Sources */,
+				D756FAF01507522800FF6730 /* NWSCompositePath.m in Sources */,
+				D756FAF11507522800FF6730 /* NWSConstantValuePath.m in Sources */,
+				D756FAF21507522800FF6730 /* NWSIndexPath.m in Sources */,
+				D756FAF31507522800FF6730 /* NWSKeyPathPath.m in Sources */,
+				D756FAF41507522800FF6730 /* NWSPath.m in Sources */,
+				D756FAF51507522800FF6730 /* NWSSelfPath.m in Sources */,
+				D756FAF61507522800FF6730 /* NWSSingleKeyPath.m in Sources */,
+				D756FAF71507522800FF6730 /* NWSBasicStore.m in Sources */,
+				D756FAF81507522800FF6730 /* NWSCoreDataStore.m in Sources */,
+				D756FAF91507522800FF6730 /* NWSMultiStore.m in Sources */,
+				D756FAFA1507522800FF6730 /* NWSRecordingStore.m in Sources */,
+				D756FAFB1507522800FF6730 /* NWSStore.m in Sources */,
+				D756FAFC1507522800FF6730 /* NWSArrayTransform.m in Sources */,
+				D756FAFD1507522800FF6730 /* NWSDateFormatterTransform.m in Sources */,
+				D756FAFE1507522800FF6730 /* NWSIdentityTransform.m in Sources */,
+				D756FAFF1507522800FF6730 /* NWSIDToObjectTransform.m in Sources */,
+				D756FB001507522800FF6730 /* NWSMappingTransform.m in Sources */,
+				D756FB011507522800FF6730 /* NWSTimeStampTransform.m in Sources */,
+				D756FB021507522800FF6730 /* NWSTransform.m in Sources */,
+				D756FB041507522800FF6730 /* NWSObjectReference.m in Sources */,
+				D756FB0A1507522800FF6730 /* NWSCompositeTransform.m in Sources */,
+				D756FB0B1507522800FF6730 /* NWSStringToNumberTransform.m in Sources */,
+				D756FB0C1507522800FF6730 /* NWSOrderKeyTransform.m in Sources */,
+				DE0BCBDD150F66AA00E9A51B /* NWSBlockTransform.m in Sources */,
+				DE94AA86150FA8DB007AC934 /* NWSAssertTransform.m in Sources */,
+				D70B6F65151CD73100E0CEF0 /* NWSTestCall.m in Sources */,
+				D70B6F69151CD73100E0CEF0 /* NWSTestDialogue.m in Sources */,
+				D70B6F6D151CD73100E0CEF0 /* NWSTestEndpoint.m in Sources */,
+				D7929E1115220157006E3F1C /* NWSAmnesicStore.m in Sources */,
+				D7A4EEF7155A5D5E00D3F850 /* NWSParser.m in Sources */,
+				D7A4EEFD155A5EBE00D3F850 /* NWSJSONKitParser.m in Sources */,
+				D7A4EF03155A61DB00D3F850 /* NWSXMLParser.m in Sources */,
+				D7D5172E156BE17600F49F46 /* NWSBackend.m in Sources */,
+				D7D51732156BE17600F49F46 /* NWSOperation.m in Sources */,
+				D7D51736156BE17600F49F46 /* NWSSchedule.m in Sources */,
+				D7D5177C156BED0000F49F46 /* NWSActivityIndicator.m in Sources */,
+				D7D51780156BED0000F49F46 /* NWSCall.m in Sources */,
+				D7D51784156BED0000F49F46 /* NWSDialogue.m in Sources */,
+				D7D51788156BED0000F49F46 /* NWSEndpoint.m in Sources */,
+				D7D5178C156BED0000F49F46 /* NWSHTTPCall.m in Sources */,
+				D7D51790156BED0000F49F46 /* NWSHTTPConnection.m in Sources */,
+				D7D51794156BED0000F49F46 /* NWSHTTPDialogue.m in Sources */,
+				D7D51798156BED0000F49F46 /* NWSHTTPEndpoint.m in Sources */,
+				D7E46C9115B6F91500E29206 /* NWSURLParser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D756FB42150754D400FF6730 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D756FB5E150754F100FF6730 /* NWSPathTest.m in Sources */,
+				D756FB75150758F800FF6730 /* NWSScheduleTest.m in Sources */,
+				D77498A51507E573001F2FE4 /* NWSObjectIDTest.m in Sources */,
+				D77498AD1507F5E9001F2FE4 /* NWSObjectTypeTest.m in Sources */,
+				D77498B11507FCDD001F2FE4 /* NWSMappingTest.m in Sources */,
+				D77498B51507FFC4001F2FE4 /* NWSHTTPTest.m in Sources */,
+				D77498BD1508059A001F2FE4 /* NWSCommonTest.m in Sources */,
+				D70B6F76151CE97F00E0CEF0 /* NWSCallTest.m in Sources */,
+				D70B6F7E151CEEB600E0CEF0 /* Recordshop.xcdatamodeld in Sources */,
+				D70B6F82151CEF7C00E0CEF0 /* NWSRecordshopBackend.m in Sources */,
+				D70B6F9D151D299800E0CEF0 /* NWSTestTools.m in Sources */,
+				D7A4EF19155A6DAA00D3F850 /* NWSMapsTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7836CBF14A38027006AC672 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7D9A84A14B4B3B600BF0A77 /* main.m in Sources */,
+				D7A4EF14155A6D0B00D3F850 /* NWSMapsService.m in Sources */,
+				D773521E156C2DEB007BD887 /* NWSAppDelegate.m in Sources */,
+				D773521F156C2DEB007BD887 /* NWSMenuViewController.m in Sources */,
+				D7735226156C2E0D007BD887 /* NWSPerformanceViewController.m in Sources */,
+				2372D9A91573C1EF009E7F50 /* NWSBasicExampleTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7836CDE14A38027006AC672 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7FBA72B14CF6A62004AC5FA /* NWSPathTest.m in Sources */,
+				D731352214FF7ECF0050CBBD /* NWSScheduleTest.m in Sources */,
+				D77498A41507E573001F2FE4 /* NWSObjectIDTest.m in Sources */,
+				D77498AC1507F5E9001F2FE4 /* NWSObjectTypeTest.m in Sources */,
+				D77498B01507FCDD001F2FE4 /* NWSMappingTest.m in Sources */,
+				D77498B41507FFC4001F2FE4 /* NWSHTTPTest.m in Sources */,
+				D77498BC1508059A001F2FE4 /* NWSCommonTest.m in Sources */,
+				D70B6F75151CE97F00E0CEF0 /* NWSCallTest.m in Sources */,
+				D70B6F7D151CEEB600E0CEF0 /* Recordshop.xcdatamodeld in Sources */,
+				D70B6F81151CEF7C00E0CEF0 /* NWSRecordshopBackend.m in Sources */,
+				D70B6F9C151D299800E0CEF0 /* NWSTestTools.m in Sources */,
+				D7A4EF18155A6DAA00D3F850 /* NWSMapsTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7DA99D714DAD931008496B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7DA9B2314DAE171008496B3 /* NWSCommon.m in Sources */,
+				D7DA9B2814DAE171008496B3 /* NWSVarStat.m in Sources */,
+				D7DA9B2C14DAE171008496B3 /* NWSMapping.m in Sources */,
+				D7DA9B2E14DAE171008496B3 /* NWSMappingContext.m in Sources */,
+				D7DA9B3214DAE171008496B3 /* NWSMappingValidator.m in Sources */,
+				D7DA9B3414DAE171008496B3 /* NWSPolicy.m in Sources */,
+				D7DA9B3614DAE171008496B3 /* NWSArrayObjectID.m in Sources */,
+				D7DA9B3814DAE171008496B3 /* NWSManagedObjectID.m in Sources */,
+				D7DA9B3A14DAE171008496B3 /* NWSMemoryObjectID.m in Sources */,
+				D7DA9B3C14DAE171008496B3 /* NWSObjectID.m in Sources */,
+				D7DA9B3E14DAE171008496B3 /* NWSClassObjectType.m in Sources */,
+				D7DA9B4014DAE171008496B3 /* NWSEntityObjectType.m in Sources */,
+				D7DA9B4214DAE171008496B3 /* NWSObjectType.m in Sources */,
+				D7DA9B4414DAE171008496B3 /* NWSCompositePath.m in Sources */,
+				D7DA9B4614DAE171008496B3 /* NWSConstantValuePath.m in Sources */,
+				D7DA9B4814DAE171008496B3 /* NWSIndexPath.m in Sources */,
+				D7DA9B4A14DAE171008496B3 /* NWSKeyPathPath.m in Sources */,
+				D7DA9B4C14DAE171008496B3 /* NWSPath.m in Sources */,
+				D7DA9B4E14DAE171008496B3 /* NWSSelfPath.m in Sources */,
+				D7DA9B5014DAE171008496B3 /* NWSSingleKeyPath.m in Sources */,
+				D7DA9B5214DAE171008496B3 /* NWSBasicStore.m in Sources */,
+				D7DA9B5414DAE171008496B3 /* NWSCoreDataStore.m in Sources */,
+				D7DA9B5614DAE171008496B3 /* NWSMultiStore.m in Sources */,
+				D7DA9B5814DAE171008496B3 /* NWSRecordingStore.m in Sources */,
+				D7DA9B5A14DAE171008496B3 /* NWSStore.m in Sources */,
+				D7DA9B5C14DAE171008496B3 /* NWSArrayTransform.m in Sources */,
+				D7DA9B5E14DAE171008496B3 /* NWSDateFormatterTransform.m in Sources */,
+				D7DA9B6014DAE171008496B3 /* NWSIdentityTransform.m in Sources */,
+				D7DA9B6214DAE171008496B3 /* NWSIDToObjectTransform.m in Sources */,
+				D7DA9B6414DAE171008496B3 /* NWSMappingTransform.m in Sources */,
+				D7DA9B6614DAE171008496B3 /* NWSTimeStampTransform.m in Sources */,
+				D7DA9B6814DAE171008496B3 /* NWSTransform.m in Sources */,
+				D7AE374514F3ADBE008A5EBC /* NWSObjectReference.m in Sources */,
+				D786B8031505007600E9AD53 /* NWSCompositeTransform.m in Sources */,
+				D786B808150501AF00E9AD53 /* NWSStringToNumberTransform.m in Sources */,
+				155C743F15060AA700735C3C /* NWSOrderKeyTransform.m in Sources */,
+				DE0BCBDC150F66AA00E9A51B /* NWSBlockTransform.m in Sources */,
+				DE94AA85150FA8DB007AC934 /* NWSAssertTransform.m in Sources */,
+				D70B6F64151CD73100E0CEF0 /* NWSTestCall.m in Sources */,
+				D70B6F68151CD73100E0CEF0 /* NWSTestDialogue.m in Sources */,
+				D70B6F6C151CD73100E0CEF0 /* NWSTestEndpoint.m in Sources */,
+				D7929E1015220157006E3F1C /* NWSAmnesicStore.m in Sources */,
+				D7A4EEF6155A5D5E00D3F850 /* NWSParser.m in Sources */,
+				D7A4EEFC155A5EBE00D3F850 /* NWSJSONKitParser.m in Sources */,
+				D7A4EF02155A61DB00D3F850 /* NWSXMLParser.m in Sources */,
+				D7D5172D156BE17600F49F46 /* NWSBackend.m in Sources */,
+				D7D51731156BE17600F49F46 /* NWSOperation.m in Sources */,
+				D7D51735156BE17600F49F46 /* NWSSchedule.m in Sources */,
+				D7D5177B156BED0000F49F46 /* NWSActivityIndicator.m in Sources */,
+				D7D5177F156BED0000F49F46 /* NWSCall.m in Sources */,
+				D7D51783156BED0000F49F46 /* NWSDialogue.m in Sources */,
+				D7D51787156BED0000F49F46 /* NWSEndpoint.m in Sources */,
+				D7D5178B156BED0000F49F46 /* NWSHTTPCall.m in Sources */,
+				D7D5178F156BED0000F49F46 /* NWSHTTPConnection.m in Sources */,
+				D7D51793156BED0000F49F46 /* NWSHTTPDialogue.m in Sources */,
+				D7D51797156BED0000F49F46 /* NWSHTTPEndpoint.m in Sources */,
+				1500CDAB15889FEB00DFAEB9 /* NWSStringParser.m in Sources */,
+				D7E46C9015B6F91500E29206 /* NWSURLParser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D756FB5D150754E800FF6730 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D756FADB1507522800FF6730 /* NWServiceMac */;
+			targetProxy = D756FB5C150754E800FF6730 /* PBXContainerItemProxy */;
+		};
+		D75EB5A4150CC77C00BCD9C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D7DA99DA14DAD931008496B3 /* NWService */;
+			targetProxy = D75EB5A3150CC77C00BCD9C0 /* PBXContainerItemProxy */;
+		};
+		D7DA9ABC14DAE15A008496B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D7DA99DA14DAD931008496B3 /* NWService */;
+			targetProxy = D7DA9ABB14DAE15A008496B3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D756FB3F1507522800FF6730 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DSTROOT = /tmp/NWServiceLibrary.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Library/NWServiceLibrary-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = "$(DT_TOOLCHAIN_DIR)/usr/lib";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-fprofile-arcs",
+					"-ftest-coverage",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lprofile_rt",
+				);
+				PRODUCT_NAME = NWServiceMacLibrary;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D756FB401507522800FF6730 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DSTROOT = /tmp/NWServiceLibrary.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Library/NWServiceLibrary-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = NWServiceMacLibrary;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		D756FB5A150754D400FF6730 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Library/NWServiceLibrary-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "Test/NWServiceTest-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		D756FB5B150754D400FF6730 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Library/NWServiceLibrary-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "Test/NWServiceTest-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		D756FBA415075A9600FF6730 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_THUMB_SUPPORT = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D756FBA515075A9600FF6730 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_THUMB_SUPPORT = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D7836CF414A38027006AC672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Martijn The (WMK4PFZD6Y)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks\"";
+				OTHER_LDFLAGS = "-ObjC";
+				PROVISIONING_PROFILE = "D61D6F0A-23AA-400F-80F4-ACDCC24477C6";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		D7836CF514A38027006AC672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Martijn The (WMK4PFZD6Y)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks\"";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-ObjC";
+				PROVISIONING_PROFILE = "D61D6F0A-23AA-400F-80F4-ACDCC24477C6";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D7836CF714A38027006AC672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Demo/NWServiceDemo-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				INFOPLIST_FILE = "Demo/NWServiceDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D7836CF814A38027006AC672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Demo/NWServiceDemo-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				INFOPLIST_FILE = "Demo/NWServiceDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D7836CFA14A38027006AC672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NWServiceDemo.app/NWServiceDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Library/NWService-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				INFOPLIST_FILE = "Test/NWServiceTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		D7836CFB14A38027006AC672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NWServiceDemo.app/NWServiceDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Library/NWService-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				INFOPLIST_FILE = "Test/NWServiceTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		D7DA99E314DAD931008496B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/NWService.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Library/NWService-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D7DA99E414DAD931008496B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/NWService.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Library/NWService-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D756FB3E1507522800FF6730 /* Build configuration list for PBXNativeTarget "NWServiceMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D756FB3F1507522800FF6730 /* Debug */,
+				D756FB401507522800FF6730 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D756FB59150754D400FF6730 /* Build configuration list for PBXNativeTarget "NWServiceMacTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D756FB5A150754D400FF6730 /* Debug */,
+				D756FB5B150754D400FF6730 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D756FBA315075A9600FF6730 /* Build configuration list for PBXAggregateTarget "NWServiceAppledoc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D756FBA415075A9600FF6730 /* Debug */,
+				D756FBA515075A9600FF6730 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7836CBD14A38027006AC672 /* Build configuration list for PBXProject "NWService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7836CF414A38027006AC672 /* Debug */,
+				D7836CF514A38027006AC672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7836CF614A38027006AC672 /* Build configuration list for PBXNativeTarget "NWServiceDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7836CF714A38027006AC672 /* Debug */,
+				D7836CF814A38027006AC672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7836CF914A38027006AC672 /* Build configuration list for PBXNativeTarget "NWServiceTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7836CFA14A38027006AC672 /* Debug */,
+				D7836CFB14A38027006AC672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7DA99E514DAD931008496B3 /* Build configuration list for PBXNativeTarget "NWService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7DA99E314DAD931008496B3 /* Debug */,
+				D7DA99E414DAD931008496B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D70B6F7B151CEEB500E0CEF0 /* Recordshop.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D70B6F7C151CEEB600E0CEF0 /* Recordshop.xcdatamodel */,
+			);
+			currentVersion = D70B6F7C151CEEB600E0CEF0 /* Recordshop.xcdatamodel */;
+			path = Recordshop.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D7836CBA14A38027006AC672 /* Project object */;
+}
