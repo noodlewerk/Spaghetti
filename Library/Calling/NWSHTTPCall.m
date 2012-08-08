@@ -66,13 +66,13 @@
 {
     NSString *dereffed = [NWSCall dereference:urlString parameters:self.parameters];
     NSURL *result = [[NSURL alloc] initWithString:dereffed]; 
-    NWLogWarnIfNot(result, @"Malformed URL string: %@", dereffed);
     return result;
 }
 
 - (NSString *)name
 {
-    return self.resolvedURL.absoluteString;
+    NSString *result = [NWSCall dereference:urlString parameters:self.parameters];
+    return result;
 }
 
 

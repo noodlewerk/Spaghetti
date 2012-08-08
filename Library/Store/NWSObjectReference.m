@@ -34,7 +34,7 @@
         if ([reference isKindOfClass:NWSObjectReference.class]) {
             return [self dereference:reference.object];
         }
-        return reference;
+        return (id)reference;
     }];
 }
 

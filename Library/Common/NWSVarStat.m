@@ -51,12 +51,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p count:%u sum:%f>", NSStringFromClass(self.class), self, count, (double)sum];
+    return [NSString stringWithFormat:@"<%@:%p count:%lu sum:%f>", NSStringFromClass(self.class), self, count, (double)sum];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"%f±%f (#%u)", self.average, self.deviation, count] readable:prefix];
+    return [[NSString stringWithFormat:@"%f±%f (#%lu)", self.average, self.deviation, count] readable:prefix];
 }
 
 @end

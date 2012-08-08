@@ -93,7 +93,7 @@
                 }
             }
         } else {
-            NWLogWarn(@"Unknown node type: %@", node->type);
+            NWLogWarn(@"Unknown node type: %i", node->type);
         }
     }
     

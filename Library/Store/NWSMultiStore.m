@@ -208,7 +208,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p #stores:%@>", NSStringFromClass(self.class), self, stores.count];
+    return [NSString stringWithFormat:@"<%@:%p #stores:%u>", NSStringFromClass(self.class), self, stores.count];
 }
 
 - (NSString *)readable:(NSString *)prefix

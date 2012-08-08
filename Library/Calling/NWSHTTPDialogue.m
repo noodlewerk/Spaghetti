@@ -100,6 +100,8 @@
     
     // compose http request
     NSURL *u = httpCall.resolvedURL;
+    NWLogWarnIfNot(u, @"Expecting valid url from: %@", httpCall.urlString);
+
     NSMutableURLRequest *r = [[NSMutableURLRequest alloc] initWithURL:u];
     for (NSString *key in httpCall.headers) {
         NSString *v = [httpCall.headers objectForKey:key];
