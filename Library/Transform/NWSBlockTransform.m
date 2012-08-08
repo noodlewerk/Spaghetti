@@ -54,7 +54,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p transform:%@ reverse:%@>", NSStringFromClass(self.class), transformBlock ? @"Y" : @"N", reverseBlock ? @"Y" : @"N"];
+    return [NSString stringWithFormat:@"<%@:%p transform:%@ reverse:%@>", NSStringFromClass(self.class), self, transformBlock ? @"Y" : @"N", reverseBlock ? @"Y" : @"N"];
 }
 
 - (NSString *)readable:(NSString *)prefix

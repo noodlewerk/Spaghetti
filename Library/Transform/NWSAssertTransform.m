@@ -82,7 +82,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p>", NSStringFromClass(self.class)];
+    return [NSString stringWithFormat:@"<%@:%p>", NSStringFromClass(self.class), self];
 }
 
 - (NSString *)readable:(NSString *)prefix

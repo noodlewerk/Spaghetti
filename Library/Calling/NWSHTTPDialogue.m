@@ -92,7 +92,7 @@
     [connection start];
 }
 
-- (void)compose
+- (NSURLRequest *)composeRequest
 {
     NWLogWarnIfNot(NSOperationQueue.currentQueue == self.operationQueue, @"Expecting to run on queue: %@", self.operationQueue);
     
@@ -100,30 +100,32 @@
     
     // compose http request
     NSURL *u = httpCall.resolvedURL;
-    NWLogWarnIfNot(u, @"Expecting valid url from: %@", httpCall.urlString);
-
-    NSMutableURLRequest *r = [[NSMutableURLRequest alloc] initWithURL:u];
-    for (NSString *key in httpCall.headers) {
-        NSString *v = [httpCall.headers objectForKey:key];
-        NSString *value = [NWSCall dereference:v parameters:self.call.parameters];
-        [r setValue:value forHTTPHeaderField:key];
+    if (u) {
+        NSMutableURLRequest *result = [[NSMutableURLRequest alloc] initWithURL:u];
+        for (NSString *key in httpCall.headers) {
+            NSString *v = [httpCall.headers objectForKey:key];
+            NSString *value = [NWSCall dereference:v parameters:self.call.parameters];
+            [result setValue:value forHTTPHeaderField:key];
+        }
+        if (httpCall.method) {
+            result.HTTPMethod = httpCall.method;
+        }
+        
+        // TODO: remove!
+        //    r.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
+        
+        // compose body
+        NSObject *bodyObject = self.call.requestObject;
+        if (bodyObject) {
+            NSData *bodyData = [self mapObject:bodyObject];
+            result.HTTPBody = bodyData;
+        }
+        
+        return result;
+    } else {
+        NWLogWarn(@"Expecting valid url: %@", httpCall.urlString);
     }
-    if (httpCall.method) {
-        r.HTTPMethod = httpCall.method;
-    }
-    
-    // TODO: remove!
-    //    r.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
-    
-    // compose body
-    NSObject *bodyObject = self.call.requestObject;
-    if (bodyObject) {
-        NSData *bodyData = [self mapObject:bodyObject];
-        r.HTTPBody = bodyData;
-    }
-    
-    request = r;
-    [self connect];
+    return nil;
 }
 
 - (void)start
@@ -154,7 +156,13 @@
     NWLogWarnIfNot(self.operationQueue.maxConcurrentOperationCount == 1, @"Concurrent mapping not allowed.");
     
     void(^requestBlock)() = ^{
-        [self compose];
+        NSURLRequest *r = [self composeRequest];
+        if (r) {
+            request = r;
+            [self connect];
+        } else {
+            NWLogWarn(@"Unable to compse request, call cancelled");
+        }
     };
     [self.operationQueue addOperationWithBlock:requestBlock];
 }
