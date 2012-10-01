@@ -7,5 +7,4 @@
     #import <CoreData/CoreData.h>
 #endif
 
-#define NWL_LIB NWService
-#import "NWLCore.h"
+#include <NWLoggingTouch/NWLCore.h>

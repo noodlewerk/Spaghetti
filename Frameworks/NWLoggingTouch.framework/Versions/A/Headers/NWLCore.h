@@ -23,40 +23,60 @@
 extern "C" {
 #endif
 
-#ifndef _NWLOGGING_H_
-#define _NWLOGGING_H_
+#ifndef _NWLCORE_H_
+#define _NWLCORE_H_
 
+/** Logging active in debug by default. */
+#ifdef NWL_LIB
+    #define NWL_ACTIVE 1
+    #define NWL_LIB_ NWL_LIB
+    #define NWL_LIB_STR NWL_STR(NWL_LIB)
+#else
+    #if DEBUG
+        #define NWL_ACTIVE 1
+    #else
+        #define NWL_ACTIVE 0
+    #endif
+    #define NWL_LIB_
+    #define NWL_LIB_STR NULL
+#endif
 
+#if DEBUG
+    #define NWL_DEBUG 1
+#else
+    #define NWL_DEBUG 0
+#endif
+
+    
 #pragma mark - Convenient logging operations
     
-#ifdef NWL_LIB
+#if NWL_ACTIVE
     
-#define NWL_LIB_STR NWL_STR(NWL_LIB)
-
 /** Log directly. */
-#define NWLog(_format, ...)                      NWLLogWithoutFilter(, NWL_LIB, _format, ##__VA_ARGS__)
+#define NWLog(_format, ...)                      NWLLogWithoutFilter(, NWL_LIB_, _format, ##__VA_ARGS__)
 
 /** Log on the 'dbug' tag. */
-#define NWLogDbug(_format, ...)                  NWLLogWithFilter(dbug, NWL_LIB, _format, ##__VA_ARGS__)
+#define NWLogDbug(_format, ...)                  NWLLogWithFilter(dbug, NWL_LIB_, _format, ##__VA_ARGS__)
     
 /** Log on the 'info' tag. */
-#define NWLogInfo(_format, ...)                  NWLLogWithFilter(info, NWL_LIB, _format, ##__VA_ARGS__)
+#define NWLogInfo(_format, ...)                  NWLLogWithFilter(info, NWL_LIB_, _format, ##__VA_ARGS__)
     
 /** Log on the 'warn' tag. */
-#define NWLogWarn(_format, ...)                  NWLLogWithFilter(warn, NWL_LIB, _format, ##__VA_ARGS__)
+#define NWLogWarn(_format, ...)                  NWLLogWithFilter(warn, NWL_LIB_, _format, ##__VA_ARGS__)
 
 /** Log on an 'warn' tag if the condition is false. */
-#define NWLogWarnIfNot(_condition, _format, ...) do {if (!(_condition)) NWLLogWithFilter(warn, NWL_LIB, _format, ##__VA_ARGS__);} while (0)
+#define NWLogWarnIfNot(_condition, _format, ...) do {if (!(_condition)) NWLLogWithFilter(warn, NWL_LIB_, _format, ##__VA_ARGS__);} while (0)
+#define NWAssert(_condition, _format, ...)       NWLogWarnIfNot(_condition, _format, ##__VA_ARGS__)
 
 /** Log on an error object on the 'warn' tag. */
-#define NWLogWarnIfError(_error)                 do {if(_error) NWLLogWithFilter(warn, NWL_LIB, @"Caught: %@", _error);} while (0)
-    
+#define NWLogWarnIfError(_error)                 do {if(_error) NWLLogWithFilter(warn, NWL_LIB_, @"Caught: %@", _error);} while (0)
+#define NWError(_error)                          NWLogWarnIfError(_error)
+
 /** Log on a custom tag. */
-#define NWLogTag(_tag, _format, ...)             NWLLogWithFilter(_tag, NWL_LIB, _format, ##__VA_ARGS__)
-    
+#define NWLogTag(_tag, _format, ...)             NWLLogWithFilter(_tag, NWL_LIB_, _format, ##__VA_ARGS__)
+
 #else
     
-#define NWL_LIB_STR NWL_STR()
 #define NWLog(_format, ...)                      
 #define NWLogDbug(_format, ...)
 #define NWLogInfo(_format, ...)                  
@@ -73,9 +93,15 @@ extern "C" {
 #define NWL_STR(_a) NWL_STR_(_a)
 #define NWL_STR_(_a) #_a
 
+#if __has_feature(objc_arc)
+    #define _NWL_BRIDGE_ __bridge
+#else
+    #define _NWL_BRIDGE_
+#endif
+
 // Objective-C support
 #ifdef __OBJC__
-    #define _NWL_CFSTRING_(_str) ((__bridge CFStringRef)_str)
+    #define _NWL_CFSTRING_(_str) ((_NWL_BRIDGE_ CFStringRef)_str)
     #define _NWL_EXCEPTION_(_msg) [NSException raise:@"NWLogging" format:@"%@", _msg]
     #define _NWL_ASSERT_(_msg) NSCAssert1(NO, @"%@", _msg)
     #define _NWL_LOG_(_msg, _fmt, ...) NSLog(_fmt, ##__VA_ARGS__)
@@ -102,7 +128,7 @@ extern "C" {
 #define NWLLogWithFilter(_tag, _lib, _fmt, ...) NWLLogWithFilter_(_tag, _lib, _fmt, ##__VA_ARGS__)
 #define NWLLogWithFilter_(_tag, _lib, _fmt, ...) do {\
         NWLContext __context = {(#_tag), (#_lib), _NWL_FILE_, __LINE__, __PRETTY_FUNCTION__};\
-        NWLAction __type = NWLActionForContext(__context);\
+        NWLAction __type = NWLMatchingActionForContext(__context);\
         if (__type) {\
             CFStringRef __message = CFStringCreateWithFormat(NULL, 0, _NWL_CFSTRING_(_fmt), ##__VA_ARGS__);\
             switch (__type) {\
@@ -115,24 +141,6 @@ extern "C" {
             CFRelease(__message);\
         }\
     } while (0)
-
-
-/** Add a logging action for context properties. */
-#define NWLAddFilter0(_action) NWLAddFilter0_(_action)
-#define NWLAddFilter0_(_action) \
-    NWLAddActionForContextProperties(kNWLProperty_none, NULL, kNWLProperty_none, NULL, kNWLProperty_none, NULL, (kNWLAction_##_action))
-
-#define NWLAddFilter(_property1, _value1, _action) NWLAddFilter_(_property1, _value1, _action)
-#define NWLAddFilter_(_property1, _value1, _action) \
-    NWLAddActionForContextProperties((kNWLProperty_##_property1), (_value1), kNWLProperty_none, NULL, kNWLProperty_none, NULL, (kNWLAction_##_action))
-
-#define NWLAddFilter2(_property1, _value1, _property2, _value2, _action) NWLAddFilter2_(_property1, _value1, _property2, _value2, _action)
-#define NWLAddFilter2_(_property1, _value1, _property2, _value2, _action) \
-    NWLAddActionForContextProperties((kNWLProperty_##_property1), (_value1), (kNWLProperty_##_property2), (_value2), kNWLProperty_none, NULL, (kNWLAction_##_action))
-
-#define NWLAddFilter3(_property1, _value1, _property2, _value2, _property3, _value3, _action) NWLAddFilter3_(_property1, _value1, _property2, _value2, _property3, _value3, _action)
-#define NWLAddFilter3_(_property1, _value1, _property2, _value2, _property3, _value3, _action) \
-    NWLAddActionForContextProperties((kNWLProperty_##_property1), (_value1), (kNWLProperty_##_property2), (_value2), (kNWLProperty_##_property3), (_value3), (kNWLAction_##_action))
 
 
 #pragma mark - Type definitions
@@ -173,10 +181,10 @@ typedef struct {
 extern void NWLForwardToPrinters(NWLContext context, CFStringRef message);
 
 /** Forward printing of line to printers, return true if added. */
-extern int NWLAddPrinter(void(*)(NWLContext, CFStringRef, void *), void *info);
+extern int NWLAddPrinter(const char *name, void(*)(NWLContext, CFStringRef, void *), void *info);
 
-/** Remove a printer, return true if one was removed. */
-extern int NWLRemovePrinter(void(*)(NWLContext, CFStringRef, void *), void *info);
+/** Remove a printer, returns info of the printer. */
+extern void * NWLRemovePrinter(const char *name);
 
 /** Clear the printer list. */
 extern void NWLRemoveAllPrinters(void);
@@ -184,28 +192,49 @@ extern void NWLRemoveAllPrinters(void);
 /** Restore the default stderr printer. */
 extern void NWLRestoreDefaultPrinters(void);
 
+/** Add the default stderr printer. */
+extern void NWLAddDefaultPrinter(void);
+
 /** Formatter tailored for debugging, with format: "[hr:mn:sc:micros Library File:line] [tag] message", to stderr. */
 extern void NWLDefaultPrinter(NWLContext context, CFStringRef message, void *info);
 
-/** Tests context (like lib and file name) and returns the matching action. */
-extern NWLAction NWLActionForContext(NWLContext context);
 
-/** Activates and action for three context properties. */
-extern int NWLAddActionForContextProperties(NWLProperty property1, const char *value1, NWLProperty property2, const char *value2, NWLProperty property3, const char *value3, NWLAction action);
+/** Tests context (like lib and file name) and returns the matching action. */
+extern NWLAction NWLMatchingActionForContext(NWLContext context);
+
+/** Activates and action for these filter properties. */
+extern int NWLAddFilter(const char *tag, const char *lib, const char *file, const char *function, NWLAction action);
+
+/** Finds filter that machtes these filter properties and returns its action. */
+extern NWLAction NWLHasFilter(const char *tag, const char *lib, const char *file, const char *function);
+
+/** Remove all filters that are included by these filter properties. */
+extern int NWLRemoveMatchingFilters(const char *tag, const char *lib, const char *file, const char *function);
 
 /** Remove all actions for all properties. */
-extern void NWLRemoveAllActions(void);
+extern void NWLRemoveAllFilters(void);
 
-extern void NWLRestoreDefaultActions(void);
+/** Restore the default print-on-warn filter. */
+extern void NWLRestoreDefaultFilters(void);
+
 
 /** Reset the clock on log prints to 00:00:00. */
 extern void NWLResetPrintClock(void);
 
+/** Offset the clock on log prints with seconds. */
+extern void NWLOffsetPrintClock(double seconds);
+
 /** Restore the clock on log prints to UTC time. */
 extern void NWLRestorePrintClock(void);
 
-/** Returns a human-readable summary of this logger. */
-extern void NWLAboutString(char *buffer, int size);
+/** Provides clock values, returns time since epoch or since reset. */
+extern double NWLClock(int *hour, int *minute, int *second, int *micro);
+
+/** Returns a human-readable summary of this logger, returns the length of the about text excluding the null byte independent of 'size'. */
+extern int NWLAboutString(char *buffer, int size);
+
+/** Log the internal state. */
+extern void NWLogAbout(void);
 
 
 #pragma mark - Convenient logging configuration
@@ -281,11 +310,18 @@ extern void NWLClearAllInLib(const char *lib);
 extern void NWLClearAll(void);
 
     
-/** Log the interal state. */
-extern void NWLAbout(void);
+/** Print internal state info to stderr. */
+extern void NWLDump(void);
+extern void NWLDumpFlags(int active, const char *lib, int debug, const char *file, int line, const char *function);
+extern void NWLDumpConfig(void);
+#define NWLDump() do {NWLDumpFlags(NWL_ACTIVE, NWL_LIB_STR, NWL_DEBUG, _NWL_FILE_, __LINE__, __PRETTY_FUNCTION__);if(NWL_ACTIVE){NWLDumpConfig();}} while (0)
 
+/** Print help info for developers to stderr. */
+extern void NWLDumpHelp(int active, const char *lib, int debug, const char *file, int line, const char *function);
+#define NWLHelp() NWLDumpHelp(NWL_ACTIVE, NWL_LIB_STR, NWL_DEBUG, _NWL_FILE_, __LINE__, __PRETTY_FUNCTION__)
 
-#endif // _NWLOGGING_H_
+    
+#endif // _NWLCORE_H_
     
 #ifdef __cplusplus
 } // extern "C"

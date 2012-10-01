@@ -25,6 +25,7 @@
 		1500CDAB15889FEB00DFAEB9 /* NWSStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1500CDA915889FEB00DFAEB9 /* NWSStringParser.m */; };
 		155C743F15060AA700735C3C /* NWSOrderKeyTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7871A6614FD17DC000C2FA0 /* NWSOrderKeyTransform.m */; };
 		2372D9A91573C1EF009E7F50 /* NWSBasicExampleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2372D9A81573C1EF009E7F50 /* NWSBasicExampleTableViewController.m */; };
+		38024A6A1619D1C7002CC536 /* NWLoggingTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38024A691619D1C7002CC536 /* NWLoggingTouch.framework */; };
 		D70B6F62151CD73100E0CEF0 /* NWSTestCall.h in Headers */ = {isa = PBXBuildFile; fileRef = D70B6F5C151CD73100E0CEF0 /* NWSTestCall.h */; settings = {ATTRIBUTES = (); }; };
 		D70B6F63151CD73100E0CEF0 /* NWSTestCall.h in Headers */ = {isa = PBXBuildFile; fileRef = D70B6F5C151CD73100E0CEF0 /* NWSTestCall.h */; };
 		D70B6F64151CD73100E0CEF0 /* NWSTestCall.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F5D151CD73100E0CEF0 /* NWSTestCall.m */; };
@@ -47,10 +48,7 @@
 		D70B6F9D151D299800E0CEF0 /* NWSTestTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F9B151D299800E0CEF0 /* NWSTestTools.m */; };
 		D71F41C915A2E99500E99BD8 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D71F41C715A2E99500E99BD8 /* JSONKit.h */; };
 		D71F41CA15A2E99500E99BD8 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D71F41C715A2E99500E99BD8 /* JSONKit.h */; };
-		D71F41CB15A2E99500E99BD8 /* NWLCore.h in Headers */ = {isa = PBXBuildFile; fileRef = D71F41C815A2E99500E99BD8 /* NWLCore.h */; };
-		D71F41CC15A2E99500E99BD8 /* NWLCore.h in Headers */ = {isa = PBXBuildFile; fileRef = D71F41C815A2E99500E99BD8 /* NWLCore.h */; };
 		D71F41CD15A2EA1200E99BD8 /* libJSONKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D71F419A15A2E7D200E99BD8 /* libJSONKit.a */; };
-		D71F41CE15A2EA1200E99BD8 /* libNWLoggingCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D71F41C515A2E92F00E99BD8 /* libNWLoggingCore.a */; };
 		D731352214FF7ECF0050CBBD /* NWSScheduleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D731351F14FF7EB50050CBBD /* NWSScheduleTest.m */; };
 		D756FAE01507522800FF6730 /* NWSCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9ACB14DAE171008496B3 /* NWSCommon.m */; };
 		D756FAE21507522800FF6730 /* NWSVarStat.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AD014DAE171008496B3 /* NWSVarStat.m */; };
@@ -336,6 +334,7 @@
 		1500CDA915889FEB00DFAEB9 /* NWSStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSStringParser.m; sourceTree = "<group>"; };
 		2372D9A71573C1EF009E7F50 /* NWSBasicExampleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSBasicExampleTableViewController.h; sourceTree = "<group>"; };
 		2372D9A81573C1EF009E7F50 /* NWSBasicExampleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSBasicExampleTableViewController.m; sourceTree = "<group>"; };
+		38024A691619D1C7002CC536 /* NWLoggingTouch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NWLoggingTouch.framework; path = Frameworks/NWLoggingTouch.framework; sourceTree = "<group>"; };
 		D70B6F5C151CD73100E0CEF0 /* NWSTestCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSTestCall.h; sourceTree = "<group>"; };
 		D70B6F5D151CD73100E0CEF0 /* NWSTestCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSTestCall.m; sourceTree = "<group>"; };
 		D70B6F5E151CD73100E0CEF0 /* NWSTestDialogue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSTestDialogue.h; sourceTree = "<group>"; };
@@ -349,9 +348,7 @@
 		D70B6F9A151D299800E0CEF0 /* NWSTestTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSTestTools.h; sourceTree = "<group>"; };
 		D70B6F9B151D299800E0CEF0 /* NWSTestTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSTestTools.m; sourceTree = "<group>"; };
 		D71F419A15A2E7D200E99BD8 /* libJSONKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJSONKit.a; path = Frameworks/libJSONKit.a; sourceTree = "<group>"; };
-		D71F41C515A2E92F00E99BD8 /* libNWLoggingCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNWLoggingCore.a; path = Frameworks/libNWLoggingCore.a; sourceTree = "<group>"; };
 		D71F41C715A2E99500E99BD8 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = Frameworks/JSONKit.h; sourceTree = "<group>"; };
-		D71F41C815A2E99500E99BD8 /* NWLCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NWLCore.h; path = Frameworks/NWLCore.h; sourceTree = "<group>"; };
 		D72EDCD114DAE7D900913E13 /* NWService-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NWService-Prefix.pch"; sourceTree = "<group>"; };
 		D72EDCD214DAE8C200913E13 /* NWServiceDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NWServiceDemo-Prefix.pch"; path = "Demo/NWServiceDemo-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		D72EDCD314DAE8C200913E13 /* NWServiceDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "NWServiceDemo-Info.plist"; path = "Demo/NWServiceDemo-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -534,7 +531,7 @@
 				D7836CCC14A38027006AC672 /* CoreGraphics.framework in Frameworks */,
 				D7836CCE14A38027006AC672 /* CoreData.framework in Frameworks */,
 				D71F41CD15A2EA1200E99BD8 /* libJSONKit.a in Frameworks */,
-				D71F41CE15A2EA1200E99BD8 /* libNWLoggingCore.a in Frameworks */,
+				38024A6A1619D1C7002CC536 /* NWLoggingTouch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,10 +660,9 @@
 		D7836CC614A38027006AC672 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38024A691619D1C7002CC536 /* NWLoggingTouch.framework */,
 				D71F41C715A2E99500E99BD8 /* JSONKit.h */,
-				D71F41C815A2E99500E99BD8 /* NWLCore.h */,
 				D71F419A15A2E7D200E99BD8 /* libJSONKit.a */,
-				D71F41C515A2E92F00E99BD8 /* libNWLoggingCore.a */,
 				D763039C15591884005A0428 /* libxml2.dylib */,
 				D75EB5A9150CC9A700BCD9C0 /* CoreData.framework */,
 				D75EB5A7150CC99900BCD9C0 /* Foundation.framework */,
@@ -1031,7 +1027,6 @@
 				D7D51792156BED0000F49F46 /* NWSHTTPDialogue.h in Headers */,
 				D7D51796156BED0000F49F46 /* NWSHTTPEndpoint.h in Headers */,
 				D71F41CA15A2E99500E99BD8 /* JSONKit.h in Headers */,
-				D71F41CC15A2E99500E99BD8 /* NWLCore.h in Headers */,
 				D7E46C8F15B6F91500E29206 /* NWSURLParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1097,7 +1092,6 @@
 				D7D51795156BED0000F49F46 /* NWSHTTPEndpoint.h in Headers */,
 				1500CDAA15889FEB00DFAEB9 /* NWSStringParser.h in Headers */,
 				D71F41C915A2E99500E99BD8 /* JSONKit.h in Headers */,
-				D71F41CB15A2E99500E99BD8 /* NWLCore.h in Headers */,
 				D7E46C8E15B6F91500E29206 /* NWSURLParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1601,6 +1595,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Martijn The (WMK4PFZD6Y)";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1638,6 +1633,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Martijn The (WMK4PFZD6Y)";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1662,6 +1658,10 @@
 		D7836CF714A38027006AC672 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo/NWServiceDemo-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
@@ -1674,6 +1674,10 @@
 		D7836CF814A38027006AC672 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo/NWServiceDemo-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
