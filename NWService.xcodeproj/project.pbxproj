@@ -1601,6 +1601,7 @@
 				ARCHS = (
 					armv6,
 					armv7,
+					armv7s,
 				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Martijn The (WMK4PFZD6Y)";
@@ -1640,6 +1641,7 @@
 				ARCHS = (
 					armv6,
 					armv7,
+					armv7s,
 				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Martijn The (WMK4PFZD6Y)";
