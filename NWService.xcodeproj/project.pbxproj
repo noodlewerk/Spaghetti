@@ -30,7 +30,16 @@
 		1500CDAB15889FEB00DFAEB9 /* NWSStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1500CDA915889FEB00DFAEB9 /* NWSStringParser.m */; };
 		155C743F15060AA700735C3C /* NWSOrderKeyTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = D7871A6614FD17DC000C2FA0 /* NWSOrderKeyTransform.m */; };
 		2372D9A91573C1EF009E7F50 /* NWSBasicExampleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2372D9A81573C1EF009E7F50 /* NWSBasicExampleTableViewController.m */; };
-		38024A6A1619D1C7002CC536 /* NWLoggingTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38024A691619D1C7002CC536 /* NWLoggingTouch.framework */; };
+		B31F444C1628C15C0013BB35 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B31F44471628C1080013BB35 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		B31F444D1628C15C0013BB35 /* NWLCore.c in Sources */ = {isa = PBXBuildFile; fileRef = B31F444A1628C14F0013BB35 /* NWLCore.c */; };
+		B31F444E1628C15C0013BB35 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B31F44471628C1080013BB35 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		B31F444F1628C15C0013BB35 /* NWLCore.c in Sources */ = {isa = PBXBuildFile; fileRef = B31F444A1628C14F0013BB35 /* NWLCore.c */; };
+		B31F44501628C15D0013BB35 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B31F44471628C1080013BB35 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		B31F44511628C15D0013BB35 /* NWLCore.c in Sources */ = {isa = PBXBuildFile; fileRef = B31F444A1628C14F0013BB35 /* NWLCore.c */; };
+		B31F44561628C3EB0013BB35 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = B31F44521628C3EB0013BB35 /* Icon-72.png */; };
+		B31F44571628C3EB0013BB35 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B31F44531628C3EB0013BB35 /* Icon-72@2x.png */; };
+		B31F44581628C3EB0013BB35 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B31F44541628C3EB0013BB35 /* Icon.png */; };
+		B31F44591628C3EB0013BB35 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B31F44551628C3EB0013BB35 /* Icon@2x.png */; };
 		D70B6F62151CD73100E0CEF0 /* NWSTestCall.h in Headers */ = {isa = PBXBuildFile; fileRef = D70B6F5C151CD73100E0CEF0 /* NWSTestCall.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D70B6F63151CD73100E0CEF0 /* NWSTestCall.h in Headers */ = {isa = PBXBuildFile; fileRef = D70B6F5C151CD73100E0CEF0 /* NWSTestCall.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D70B6F64151CD73100E0CEF0 /* NWSTestCall.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F5D151CD73100E0CEF0 /* NWSTestCall.m */; };
@@ -51,9 +60,6 @@
 		D70B6F82151CEF7C00E0CEF0 /* NWSRecordshopBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F80151CEF7C00E0CEF0 /* NWSRecordshopBackend.m */; };
 		D70B6F9C151D299800E0CEF0 /* NWSTestTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F9B151D299800E0CEF0 /* NWSTestTools.m */; };
 		D70B6F9D151D299800E0CEF0 /* NWSTestTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B6F9B151D299800E0CEF0 /* NWSTestTools.m */; };
-		D71F41C915A2E99500E99BD8 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D71F41C715A2E99500E99BD8 /* JSONKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D71F41CA15A2E99500E99BD8 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D71F41C715A2E99500E99BD8 /* JSONKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D71F41CD15A2EA1200E99BD8 /* libJSONKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D71F419A15A2E7D200E99BD8 /* libJSONKit.a */; };
 		D731352214FF7ECF0050CBBD /* NWSScheduleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D731351F14FF7EB50050CBBD /* NWSScheduleTest.m */; };
 		D756FAE01507522800FF6730 /* NWSCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9ACB14DAE171008496B3 /* NWSCommon.m */; };
 		D756FAE21507522800FF6730 /* NWSVarStat.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DA9AD014DAE171008496B3 /* NWSVarStat.m */; };
@@ -339,7 +345,14 @@
 		1500CDA915889FEB00DFAEB9 /* NWSStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSStringParser.m; sourceTree = "<group>"; };
 		2372D9A71573C1EF009E7F50 /* NWSBasicExampleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSBasicExampleTableViewController.h; sourceTree = "<group>"; };
 		2372D9A81573C1EF009E7F50 /* NWSBasicExampleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSBasicExampleTableViewController.m; sourceTree = "<group>"; };
-		38024A691619D1C7002CC536 /* NWLoggingTouch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NWLoggingTouch.framework; path = Frameworks/NWLoggingTouch.framework; sourceTree = "<group>"; };
+		B31F44461628C1080013BB35 /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		B31F44471628C1080013BB35 /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		B31F444A1628C14F0013BB35 /* NWLCore.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = NWLCore.c; sourceTree = "<group>"; };
+		B31F444B1628C14F0013BB35 /* NWLCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWLCore.h; sourceTree = "<group>"; };
+		B31F44521628C3EB0013BB35 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Demo/Icon-72.png"; sourceTree = SOURCE_ROOT; };
+		B31F44531628C3EB0013BB35 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "Demo/Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
+		B31F44541628C3EB0013BB35 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Demo/Icon.png; sourceTree = SOURCE_ROOT; };
+		B31F44551628C3EB0013BB35 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Demo/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		D70B6F5C151CD73100E0CEF0 /* NWSTestCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSTestCall.h; sourceTree = "<group>"; };
 		D70B6F5D151CD73100E0CEF0 /* NWSTestCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSTestCall.m; sourceTree = "<group>"; };
 		D70B6F5E151CD73100E0CEF0 /* NWSTestDialogue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSTestDialogue.h; sourceTree = "<group>"; };
@@ -352,8 +365,6 @@
 		D70B6F80151CEF7C00E0CEF0 /* NWSRecordshopBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSRecordshopBackend.m; sourceTree = "<group>"; };
 		D70B6F9A151D299800E0CEF0 /* NWSTestTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSTestTools.h; sourceTree = "<group>"; };
 		D70B6F9B151D299800E0CEF0 /* NWSTestTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSTestTools.m; sourceTree = "<group>"; };
-		D71F419A15A2E7D200E99BD8 /* libJSONKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJSONKit.a; path = Frameworks/libJSONKit.a; sourceTree = "<group>"; };
-		D71F41C715A2E99500E99BD8 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = Frameworks/JSONKit.h; sourceTree = "<group>"; };
 		D72EDCD114DAE7D900913E13 /* NWService-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NWService-Prefix.pch"; sourceTree = "<group>"; };
 		D72EDCD214DAE8C200913E13 /* NWServiceDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NWServiceDemo-Prefix.pch"; path = "Demo/NWServiceDemo-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		D72EDCD314DAE8C200913E13 /* NWServiceDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "NWServiceDemo-Info.plist"; path = "Demo/NWServiceDemo-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -404,7 +415,6 @@
 		D7A4EF17155A6DAA00D3F850 /* NWSMapsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSMapsTest.m; sourceTree = "<group>"; };
 		D7CC008D14ED5AC00058CA40 /* NWSObjectReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSObjectReference.h; sourceTree = "<group>"; };
 		D7CC008E14ED5AC00058CA40 /* NWSObjectReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSObjectReference.m; sourceTree = "<group>"; };
-		D7D516F3156BD61C00F49F46 /* Overview.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = Overview.md; sourceTree = "<group>"; };
 		D7D51725156BE17600F49F46 /* NWSBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSBackend.h; sourceTree = "<group>"; };
 		D7D51726156BE17600F49F46 /* NWSBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSBackend.m; sourceTree = "<group>"; };
 		D7D51727156BE17600F49F46 /* NWSOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSOperation.h; sourceTree = "<group>"; };
@@ -535,8 +545,6 @@
 				D7836CCA14A38027006AC672 /* Foundation.framework in Frameworks */,
 				D7836CCC14A38027006AC672 /* CoreGraphics.framework in Frameworks */,
 				D7836CCE14A38027006AC672 /* CoreData.framework in Frameworks */,
-				D71F41CD15A2EA1200E99BD8 /* libJSONKit.a in Frameworks */,
-				38024A6A1619D1C7002CC536 /* NWLoggingTouch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +578,26 @@
 			name = BasicExample;
 			path = Demo/BasicExample;
 			sourceTree = SOURCE_ROOT;
+		};
+		B31F44451628C1080013BB35 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				B31F44461628C1080013BB35 /* JSONKit.h */,
+				B31F44471628C1080013BB35 /* JSONKit.m */,
+			);
+			name = JSONKit;
+			path = Frameworks/JSONKit;
+			sourceTree = "<group>";
+		};
+		B31F44491628C14F0013BB35 /* NWLogging */ = {
+			isa = PBXGroup;
+			children = (
+				B31F444B1628C14F0013BB35 /* NWLCore.h */,
+				B31F444A1628C14F0013BB35 /* NWLCore.c */,
+			);
+			name = NWLogging;
+			path = Frameworks/NWLogging;
+			sourceTree = "<group>";
 		};
 		D70B6F5B151CD73100E0CEF0 /* Test */ = {
 			isa = PBXGroup;
@@ -642,7 +670,6 @@
 			children = (
 				D7FEEE4514EDC71A0091A49F /* README.md */,
 				D7DA9ABD14DAE171008496B3 /* Library */,
-				D7D516F1156BD54200F49F46 /* Documentation */,
 				D7836CCF14A38027006AC672 /* Demo */,
 				D7836CEB14A38027006AC672 /* Test */,
 				D7836CC614A38027006AC672 /* Frameworks */,
@@ -665,9 +692,8 @@
 		D7836CC614A38027006AC672 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				38024A691619D1C7002CC536 /* NWLoggingTouch.framework */,
-				D71F41C715A2E99500E99BD8 /* JSONKit.h */,
-				D71F419A15A2E7D200E99BD8 /* libJSONKit.a */,
+				B31F44451628C1080013BB35 /* JSONKit */,
+				B31F44491628C14F0013BB35 /* NWLogging */,
 				D763039C15591884005A0428 /* libxml2.dylib */,
 				D75EB5A9150CC9A700BCD9C0 /* CoreData.framework */,
 				D75EB5A7150CC99900BCD9C0 /* Foundation.framework */,
@@ -699,6 +725,10 @@
 				D72EDCD214DAE8C200913E13 /* NWServiceDemo-Prefix.pch */,
 				D72EDCD314DAE8C200913E13 /* NWServiceDemo-Info.plist */,
 				D7D9A84614B4B3B600BF0A77 /* main.m */,
+				B31F44521628C3EB0013BB35 /* Icon-72.png */,
+				B31F44531628C3EB0013BB35 /* Icon-72@2x.png */,
+				B31F44541628C3EB0013BB35 /* Icon.png */,
+				B31F44551628C3EB0013BB35 /* Icon@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -762,14 +792,6 @@
 			name = Maps;
 			path = Test/Maps;
 			sourceTree = SOURCE_ROOT;
-		};
-		D7D516F1156BD54200F49F46 /* Documentation */ = {
-			isa = PBXGroup;
-			children = (
-				D7D516F3156BD61C00F49F46 /* Overview.md */,
-			);
-			path = Documentation;
-			sourceTree = "<group>";
 		};
 		D7D51724156BE17500F49F46 /* Service */ = {
 			isa = PBXGroup;
@@ -1031,7 +1053,6 @@
 				D7D5178E156BED0000F49F46 /* NWSHTTPConnection.h in Headers */,
 				D7D51792156BED0000F49F46 /* NWSHTTPDialogue.h in Headers */,
 				D7D51796156BED0000F49F46 /* NWSHTTPEndpoint.h in Headers */,
-				D71F41CA15A2E99500E99BD8 /* JSONKit.h in Headers */,
 				D7E46C8F15B6F91500E29206 /* NWSURLParser.h in Headers */,
 				0AE3261A161C3C1900FF50C7 /* NWSObjectReference.h in Headers */,
 				0AE3261C161C3C4A00FF50C7 /* NWSStringParser.h in Headers */,
@@ -1099,7 +1120,6 @@
 				D7D51791156BED0000F49F46 /* NWSHTTPDialogue.h in Headers */,
 				D7D51795156BED0000F49F46 /* NWSHTTPEndpoint.h in Headers */,
 				1500CDAA15889FEB00DFAEB9 /* NWSStringParser.h in Headers */,
-				D71F41C915A2E99500E99BD8 /* JSONKit.h in Headers */,
 				D7E46C8E15B6F91500E29206 /* NWSURLParser.h in Headers */,
 				0AE3261B161C3C1A00FF50C7 /* NWSObjectReference.h in Headers */,
 				0AE3261E161C3C6600FF50C7 /* NWSOrderKeyTransform.h in Headers */,
@@ -1221,8 +1241,8 @@
 			projectRoot = "";
 			targets = (
 				D7DA99DA14DAD931008496B3 /* NWService */,
-				D7836CE214A38027006AC672 /* NWServiceTest */,
 				D756FADB1507522800FF6730 /* NWServiceMac */,
+				D7836CE214A38027006AC672 /* NWServiceTest */,
 				D756FB46150754D400FF6730 /* NWServiceMacTest */,
 				D7836CC214A38027006AC672 /* NWServiceDemo */,
 				D756FBA215075A9600FF6730 /* NWServiceAppledoc */,
@@ -1247,6 +1267,10 @@
 				D7A4EF12155A6D0B00D3F850 /* directions.xml in Resources */,
 				D7A4EF13155A6D0B00D3F850 /* directions.xml.json in Resources */,
 				D7735225156C2E0D007BD887 /* NWSPerformanceData.plist in Resources */,
+				B31F44561628C3EB0013BB35 /* Icon-72.png in Resources */,
+				B31F44571628C3EB0013BB35 /* Icon-72@2x.png in Resources */,
+				B31F44581628C3EB0013BB35 /* Icon.png in Resources */,
+				B31F44591628C3EB0013BB35 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1382,6 +1406,8 @@
 				D70B6F82151CEF7C00E0CEF0 /* NWSRecordshopBackend.m in Sources */,
 				D70B6F9D151D299800E0CEF0 /* NWSTestTools.m in Sources */,
 				D7A4EF19155A6DAA00D3F850 /* NWSMapsTest.m in Sources */,
+				B31F444E1628C15C0013BB35 /* JSONKit.m in Sources */,
+				B31F444F1628C15C0013BB35 /* NWLCore.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1395,6 +1421,8 @@
 				D773521F156C2DEB007BD887 /* NWSMenuViewController.m in Sources */,
 				D7735226156C2E0D007BD887 /* NWSPerformanceViewController.m in Sources */,
 				2372D9A91573C1EF009E7F50 /* NWSBasicExampleTableViewController.m in Sources */,
+				B31F44501628C15D0013BB35 /* JSONKit.m in Sources */,
+				B31F44511628C15D0013BB35 /* NWLCore.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1414,6 +1442,8 @@
 				D70B6F81151CEF7C00E0CEF0 /* NWSRecordshopBackend.m in Sources */,
 				D70B6F9C151D299800E0CEF0 /* NWSTestTools.m in Sources */,
 				D7A4EF18155A6DAA00D3F850 /* NWSMapsTest.m in Sources */,
+				B31F444C1628C15C0013BB35 /* JSONKit.m in Sources */,
+				B31F444D1628C15C0013BB35 /* NWLCore.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1511,6 +1541,11 @@
 				DSTROOT = /tmp/NWServiceLibrary.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Library/NWServiceLibrary-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"NWL_LIB=NWService",
+					"$(inherited)",
+				);
 				LIBRARY_SEARCH_PATHS = "$(DT_TOOLCHAIN_DIR)/usr/lib";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
@@ -1550,6 +1585,11 @@
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Library/NWServiceLibrary-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"NWL_LIB=NWServiceTest",
+					"$(inherited)",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				INFOPLIST_FILE = "Test/NWServiceTest-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
@@ -1610,10 +1650,6 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1678,6 +1714,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo/NWServiceDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"NWL_LIB=NWServiceDemo",
+					"$(inherited)",
+				);
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "Demo/NWServiceDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1694,6 +1735,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo/NWServiceDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"NWL_LIB=NWServiceDemo",
+					"$(inherited)",
+				);
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "Demo/NWServiceDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1711,6 +1756,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Library/NWService-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"NWL_LIB=NWServiceTest",
+					"$(inherited)",
+				);
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "Test/NWServiceTest-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1743,6 +1793,11 @@
 				DSTROOT = /tmp/NWService.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Library/NWService-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"NWL_LIB=NWService",
+					"$(inherited)",
+				);
 				GCC_THUMB_SUPPORT = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

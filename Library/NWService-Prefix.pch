@@ -7,4 +7,4 @@
     #import <CoreData/CoreData.h>
 #endif
 
-#include <NWLoggingTouch/NWLCore.h>
+#include "NWLCore.h"
