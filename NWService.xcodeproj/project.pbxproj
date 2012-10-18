@@ -275,8 +275,6 @@
 		B388341516309E6D0082F729 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B388341416309E6D0082F729 /* libxml2.dylib */; };
 		B388341716309E720082F729 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388341616309E720082F729 /* UIKit.framework */; };
 		B388341816309F3B0082F729 /* NWSTestTools.m in Sources */ = {isa = PBXBuildFile; fileRef = B388331316309C5E0082F729 /* NWSTestTools.m */; };
-		B388341A16309F3B0082F729 /* NWSCallTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B388331816309C5E0082F729 /* NWSCallTest.m */; };
-		B388341B16309F3B0082F729 /* NWSRecordshopBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = B388331A16309C5E0082F729 /* NWSRecordshopBackend.m */; };
 		B388341C16309F3B0082F729 /* NWSCommonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B388331E16309C5E0082F729 /* NWSCommonTest.m */; };
 		B388341D16309F3B0082F729 /* NWSHTTPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B388331F16309C5E0082F729 /* NWSHTTPTest.m */; };
 		B388341E16309F3B0082F729 /* NWSMappingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B388332016309C5E0082F729 /* NWSMappingTest.m */; };
@@ -285,8 +283,6 @@
 		B388342116309F3B0082F729 /* NWSPathTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B388332316309C5E0082F729 /* NWSPathTest.m */; };
 		B388342216309F3B0082F729 /* NWSScheduleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B388332416309C5E0082F729 /* NWSScheduleTest.m */; };
 		B388342316309F3B0082F729 /* NWSTestTools.m in Sources */ = {isa = PBXBuildFile; fileRef = B388331316309C5E0082F729 /* NWSTestTools.m */; };
-		B388342516309F3B0082F729 /* NWSCallTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B388331816309C5E0082F729 /* NWSCallTest.m */; };
-		B388342616309F3B0082F729 /* NWSRecordshopBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = B388331A16309C5E0082F729 /* NWSRecordshopBackend.m */; };
 		B388342716309F3B0082F729 /* NWSCommonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B388331E16309C5E0082F729 /* NWSCommonTest.m */; };
 		B388342816309F3B0082F729 /* NWSHTTPTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B388331F16309C5E0082F729 /* NWSHTTPTest.m */; };
 		B388342916309F3B0082F729 /* NWSMappingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B388332016309C5E0082F729 /* NWSMappingTest.m */; };
@@ -294,8 +290,6 @@
 		B388342B16309F3B0082F729 /* NWSObjectTypeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B388332216309C5E0082F729 /* NWSObjectTypeTest.m */; };
 		B388342C16309F3B0082F729 /* NWSPathTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B388332316309C5E0082F729 /* NWSPathTest.m */; };
 		B388342D16309F3B0082F729 /* NWSScheduleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B388332416309C5E0082F729 /* NWSScheduleTest.m */; };
-		B388342E16309F3E0082F729 /* Recordshop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B388331B16309C5E0082F729 /* Recordshop.xcdatamodeld */; };
-		B388342F16309F3F0082F729 /* Recordshop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B388331B16309C5E0082F729 /* Recordshop.xcdatamodeld */; };
 		B388343116309F9B0082F729 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B388341416309E6D0082F729 /* libxml2.dylib */; };
 		B38834331630A0070082F729 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B38834321630A0070082F729 /* libxml2.dylib */; };
 		B38834351630A01F0082F729 /* NWLCore.c in Sources */ = {isa = PBXBuildFile; fileRef = B388328C16309C5E0082F729 /* NWLCore.c */; };
@@ -304,14 +298,10 @@
 		B388343B1630A11E0082F729 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388343A1630A11E0082F729 /* SenTestingKit.framework */; };
 		B388343C1630A1210082F729 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388343A1630A11E0082F729 /* SenTestingKit.framework */; };
 		B388343D1630A14C0082F729 /* NWSBasicExampleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B388327016309C5E0082F729 /* NWSBasicExampleTableViewController.m */; };
-		B388343E1630A14C0082F729 /* NWSMapsService.m in Sources */ = {isa = PBXBuildFile; fileRef = B388327B16309C5E0082F729 /* NWSMapsService.m */; };
 		B388343F1630A14C0082F729 /* NWSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B388327E16309C5E0082F729 /* NWSAppDelegate.m */; };
 		B38834401630A14C0082F729 /* NWSMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B388328016309C5E0082F729 /* NWSMenuViewController.m */; };
 		B38834411630A14C0082F729 /* NWSPerformanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B388328616309C5E0082F729 /* NWSPerformanceViewController.m */; };
 		B38834421630A14C0082F729 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B388327516309C5E0082F729 /* main.m */; };
-		B38834431630A1560082F729 /* directions.json in Resources */ = {isa = PBXBuildFile; fileRef = B388327716309C5E0082F729 /* directions.json */; };
-		B38834441630A1560082F729 /* directions.xml in Resources */ = {isa = PBXBuildFile; fileRef = B388327816309C5E0082F729 /* directions.xml */; };
-		B38834451630A1560082F729 /* directions.xml.json in Resources */ = {isa = PBXBuildFile; fileRef = B388327916309C5E0082F729 /* directions.xml.json */; };
 		B38834461630A1560082F729 /* NWSPerformanceData.plist in Resources */ = {isa = PBXBuildFile; fileRef = B388328416309C5E0082F729 /* NWSPerformanceData.plist */; };
 		B38834471630A1560082F729 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = B388327116309C5E0082F729 /* Icon-72.png */; };
 		B38834481630A1560082F729 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B388327216309C5E0082F729 /* Icon-72@2x.png */; };
@@ -365,11 +355,6 @@
 		B388327316309C5E0082F729 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		B388327416309C5E0082F729 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		B388327516309C5E0082F729 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B388327716309C5E0082F729 /* directions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = directions.json; sourceTree = "<group>"; };
-		B388327816309C5E0082F729 /* directions.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = directions.xml; sourceTree = "<group>"; };
-		B388327916309C5E0082F729 /* directions.xml.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = directions.xml.json; sourceTree = "<group>"; };
-		B388327A16309C5E0082F729 /* NWSMapsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSMapsService.h; sourceTree = "<group>"; };
-		B388327B16309C5E0082F729 /* NWSMapsService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSMapsService.m; sourceTree = "<group>"; };
 		B388327D16309C5E0082F729 /* NWSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSAppDelegate.h; sourceTree = "<group>"; };
 		B388327E16309C5E0082F729 /* NWSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSAppDelegate.m; sourceTree = "<group>"; };
 		B388327F16309C5E0082F729 /* NWSMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSMenuViewController.h; sourceTree = "<group>"; };
@@ -501,12 +486,7 @@
 		B388330F16309C5E0082F729 /* NWSTransform.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSTransform.m; sourceTree = "<group>"; };
 		B388331216309C5E0082F729 /* NWSTestTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSTestTools.h; sourceTree = "<group>"; };
 		B388331316309C5E0082F729 /* NWSTestTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSTestTools.m; sourceTree = "<group>"; };
-		B388331516309C5E0082F729 /* NWSMapsTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSMapsTest.m; sourceTree = "<group>"; };
 		B388331616309C5E0082F729 /* NWServiceTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NWServiceTest-Info.plist"; sourceTree = "<group>"; };
-		B388331816309C5E0082F729 /* NWSCallTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSCallTest.m; sourceTree = "<group>"; };
-		B388331916309C5E0082F729 /* NWSRecordshopBackend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSRecordshopBackend.h; sourceTree = "<group>"; };
-		B388331A16309C5E0082F729 /* NWSRecordshopBackend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSRecordshopBackend.m; sourceTree = "<group>"; };
-		B388331C16309C5E0082F729 /* Recordshop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Recordshop.xcdatamodel; sourceTree = "<group>"; };
 		B388331E16309C5E0082F729 /* NWSCommonTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSCommonTest.m; sourceTree = "<group>"; };
 		B388331F16309C5E0082F729 /* NWSHTTPTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSHTTPTest.m; sourceTree = "<group>"; };
 		B388332016309C5E0082F729 /* NWSMappingTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSMappingTest.m; sourceTree = "<group>"; };
@@ -623,7 +603,6 @@
 			isa = PBXGroup;
 			children = (
 				B388326E16309C5E0082F729 /* BasicExample */,
-				B388327616309C5E0082F729 /* Maps */,
 				B388327C16309C5E0082F729 /* Menu */,
 				B388328316309C5E0082F729 /* Performance */,
 				B388332516309C950082F729 /* Supporting Files */,
@@ -638,18 +617,6 @@
 				B388327016309C5E0082F729 /* NWSBasicExampleTableViewController.m */,
 			);
 			path = BasicExample;
-			sourceTree = "<group>";
-		};
-		B388327616309C5E0082F729 /* Maps */ = {
-			isa = PBXGroup;
-			children = (
-				B388327716309C5E0082F729 /* directions.json */,
-				B388327816309C5E0082F729 /* directions.xml */,
-				B388327916309C5E0082F729 /* directions.xml.json */,
-				B388327A16309C5E0082F729 /* NWSMapsService.h */,
-				B388327B16309C5E0082F729 /* NWSMapsService.m */,
-			);
-			path = Maps;
 			sourceTree = "<group>";
 		};
 		B388327C16309C5E0082F729 /* Menu */ = {
@@ -900,8 +867,6 @@
 			isa = PBXGroup;
 			children = (
 				B388331116309C5E0082F729 /* Common */,
-				B388331416309C5E0082F729 /* Maps */,
-				B388331716309C5E0082F729 /* Recordshop */,
 				B388331D16309C5E0082F729 /* Unit */,
 				B388332716309D370082F729 /* Supporting Files */,
 			);
@@ -915,25 +880,6 @@
 				B388331316309C5E0082F729 /* NWSTestTools.m */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		B388331416309C5E0082F729 /* Maps */ = {
-			isa = PBXGroup;
-			children = (
-				B388331516309C5E0082F729 /* NWSMapsTest.m */,
-			);
-			path = Maps;
-			sourceTree = "<group>";
-		};
-		B388331716309C5E0082F729 /* Recordshop */ = {
-			isa = PBXGroup;
-			children = (
-				B388331816309C5E0082F729 /* NWSCallTest.m */,
-				B388331916309C5E0082F729 /* NWSRecordshopBackend.h */,
-				B388331A16309C5E0082F729 /* NWSRecordshopBackend.m */,
-				B388331B16309C5E0082F729 /* Recordshop.xcdatamodeld */,
-			);
-			path = Recordshop;
 			sourceTree = "<group>";
 		};
 		B388331D16309C5E0082F729 /* Unit */ = {
@@ -1259,9 +1205,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B38834431630A1560082F729 /* directions.json in Resources */,
-				B38834441630A1560082F729 /* directions.xml in Resources */,
-				B38834451630A1560082F729 /* directions.xml.json in Resources */,
 				B38834461630A1560082F729 /* NWSPerformanceData.plist in Resources */,
 				B38834471630A1560082F729 /* Icon-72.png in Resources */,
 				B38834481630A1560082F729 /* Icon-72@2x.png in Resources */,
@@ -1400,8 +1343,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B388341816309F3B0082F729 /* NWSTestTools.m in Sources */,
-				B388341A16309F3B0082F729 /* NWSCallTest.m in Sources */,
-				B388341B16309F3B0082F729 /* NWSRecordshopBackend.m in Sources */,
 				B388341C16309F3B0082F729 /* NWSCommonTest.m in Sources */,
 				B388341D16309F3B0082F729 /* NWSHTTPTest.m in Sources */,
 				B388341E16309F3B0082F729 /* NWSMappingTest.m in Sources */,
@@ -1409,7 +1350,6 @@
 				B388342016309F3B0082F729 /* NWSObjectTypeTest.m in Sources */,
 				B388342116309F3B0082F729 /* NWSPathTest.m in Sources */,
 				B388342216309F3B0082F729 /* NWSScheduleTest.m in Sources */,
-				B388342E16309F3E0082F729 /* Recordshop.xcdatamodeld in Sources */,
 				B38834351630A01F0082F729 /* NWLCore.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1484,8 +1424,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B388342316309F3B0082F729 /* NWSTestTools.m in Sources */,
-				B388342516309F3B0082F729 /* NWSCallTest.m in Sources */,
-				B388342616309F3B0082F729 /* NWSRecordshopBackend.m in Sources */,
 				B388342716309F3B0082F729 /* NWSCommonTest.m in Sources */,
 				B388342816309F3B0082F729 /* NWSHTTPTest.m in Sources */,
 				B388342916309F3B0082F729 /* NWSMappingTest.m in Sources */,
@@ -1493,7 +1431,6 @@
 				B388342B16309F3B0082F729 /* NWSObjectTypeTest.m in Sources */,
 				B388342C16309F3B0082F729 /* NWSPathTest.m in Sources */,
 				B388342D16309F3B0082F729 /* NWSScheduleTest.m in Sources */,
-				B388342F16309F3F0082F729 /* Recordshop.xcdatamodeld in Sources */,
 				B38834371630A01F0082F729 /* NWLCore.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1504,7 +1441,6 @@
 			files = (
 				B38834391630A0200082F729 /* NWLCore.c in Sources */,
 				B388343D1630A14C0082F729 /* NWSBasicExampleTableViewController.m in Sources */,
-				B388343E1630A14C0082F729 /* NWSMapsService.m in Sources */,
 				B388343F1630A14C0082F729 /* NWSAppDelegate.m in Sources */,
 				B38834401630A14C0082F729 /* NWSMenuViewController.m in Sources */,
 				B38834411630A14C0082F729 /* NWSPerformanceViewController.m in Sources */,
@@ -1993,19 +1929,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		B388331B16309C5E0082F729 /* Recordshop.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				B388331C16309C5E0082F729 /* Recordshop.xcdatamodel */,
-			);
-			currentVersion = B388331C16309C5E0082F729 /* Recordshop.xcdatamodel */;
-			path = Recordshop.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = B38831E7163099C90082F729 /* Project object */;
 }

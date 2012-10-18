@@ -2,7 +2,7 @@
 NWService
 =========
 
-*NWService is a client-side connection and mapping layer between client and server, for example to connect a RESTful json from a server to Core Data on the client.*
+*A Cocoa framework for object mapping to and from not-so-RESTful webservices.*
 
 
 Introduction
