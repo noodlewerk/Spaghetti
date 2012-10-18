@@ -7,7 +7,7 @@
 //
 
 #import "NWSParser.h"
-#import "NWSJSONKitParser.h"
+#import "NWSJSONParser.h"
 
 
 @implementation NWSParser
@@ -26,7 +26,7 @@
 
 + (id)defaultParser
 {
-    return NWSJSONKitParser.shared;
+    return NWSJSONParser.shared;
 }
 
 @end

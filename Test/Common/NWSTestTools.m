@@ -6,7 +6,6 @@
 //
 
 #import "NWSTestTools.h"
-#import "JSONKit.h"
 
 
 @implementation NWSTestTools
@@ -26,9 +25,8 @@
 {
     NSString *json = [self jsonForSQON:singlyQuotedObjectNotation];
     NSData *data = [json dataUsingEncoding:NSUTF8StringEncoding];
-    JSONDecoder *decoder = [[JSONDecoder alloc] initWithParseOptions:JKParseOptionStrict];
     NSError *error = nil;
-    id result = [decoder objectWithData:data error:&error];
+    id result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     NWLogWarnIfError(error);
     return result;
 }

@@ -7,7 +7,6 @@
 
 #import "NWSPerformanceViewController.h"
 #import "NWService.h"
-#import "JSONKit.h"
 #import "NWSVarStat.h"
 #import "NWSCommon.h"
 #import "NWSMapsService.h"
@@ -109,7 +108,8 @@
     Log(@"");
     Log(@"Mapping channel %u times:", count);
     
-    NSDictionary *json = [[NSString stringWithContentsOfURL:[[NSBundle bundleForClass:self.class] URLForResource:@"channel" withExtension:@"json"] encoding:NSUTF8StringEncoding error:nil] objectFromJSONString];
+    NSData *data = [NSData dataWithContentsOfURL:[[NSBundle bundleForClass:self.class] URLForResource:@"channel" withExtension:@"json"]];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
     NWSStore *s = [store beginTransaction];
     
@@ -128,7 +128,8 @@
 {    
     static NSUInteger count = 20;
 
-    NSArray *json = [[[NSString stringWithContentsOfURL:[[NSBundle bundleForClass:self.class] URLForResource:@"channels" withExtension:@"json"] encoding:NSUTF8StringEncoding error:nil] objectFromJSONString] objectForKey:@"results"];
+    NSData *data = [NSData dataWithContentsOfURL:[[NSBundle bundleForClass:self.class] URLForResource:@"channels" withExtension:@"json"]];
+    NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
     Log(@"");
     Log(@"Mapping %u channels %u times:", json.count, count);

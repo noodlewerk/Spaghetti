@@ -70,8 +70,8 @@
 		B388335016309D710082F729 /* NWSEntityObjectType.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832BD16309C5E0082F729 /* NWSEntityObjectType.m */; };
 		B388335116309D710082F729 /* NWSObjectType.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832BE16309C5E0082F729 /* NWSObjectType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B388335216309D710082F729 /* NWSObjectType.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832BF16309C5E0082F729 /* NWSObjectType.m */; };
-		B388335316309D710082F729 /* NWSJSONKitParser.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832C116309C5E0082F729 /* NWSJSONKitParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B388335416309D710082F729 /* NWSJSONKitParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832C216309C5E0082F729 /* NWSJSONKitParser.m */; };
+		B388335316309D710082F729 /* NWSJSONParser.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832C116309C5E0082F729 /* NWSJSONParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B388335416309D710082F729 /* NWSJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832C216309C5E0082F729 /* NWSJSONParser.m */; };
 		B388335516309D710082F729 /* NWSParser.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832C316309C5E0082F729 /* NWSParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B388335616309D710082F729 /* NWSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832C416309C5E0082F729 /* NWSParser.m */; };
 		B388335716309D710082F729 /* NWSStringParser.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832C516309C5E0082F729 /* NWSStringParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -187,8 +187,8 @@
 		B38833C616309DC90082F729 /* NWSEntityObjectType.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832BD16309C5E0082F729 /* NWSEntityObjectType.m */; };
 		B38833C716309DC90082F729 /* NWSObjectType.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832BE16309C5E0082F729 /* NWSObjectType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B38833C816309DC90082F729 /* NWSObjectType.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832BF16309C5E0082F729 /* NWSObjectType.m */; };
-		B38833C916309DC90082F729 /* NWSJSONKitParser.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832C116309C5E0082F729 /* NWSJSONKitParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B38833CA16309DC90082F729 /* NWSJSONKitParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832C216309C5E0082F729 /* NWSJSONKitParser.m */; };
+		B38833C916309DC90082F729 /* NWSJSONParser.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832C116309C5E0082F729 /* NWSJSONParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B38833CA16309DC90082F729 /* NWSJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832C216309C5E0082F729 /* NWSJSONParser.m */; };
 		B38833CB16309DC90082F729 /* NWSParser.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832C316309C5E0082F729 /* NWSParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B38833CC16309DC90082F729 /* NWSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832C416309C5E0082F729 /* NWSParser.m */; };
 		B38833CD16309DC90082F729 /* NWSStringParser.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832C516309C5E0082F729 /* NWSStringParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -287,11 +287,8 @@
 		B388342F16309F3F0082F729 /* Recordshop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B388331B16309C5E0082F729 /* Recordshop.xcdatamodeld */; };
 		B388343116309F9B0082F729 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B388341416309E6D0082F729 /* libxml2.dylib */; };
 		B38834331630A0070082F729 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B38834321630A0070082F729 /* libxml2.dylib */; };
-		B38834341630A01F0082F729 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B388328A16309C5E0082F729 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B38834351630A01F0082F729 /* NWLCore.c in Sources */ = {isa = PBXBuildFile; fileRef = B388328C16309C5E0082F729 /* NWLCore.c */; };
-		B38834361630A01F0082F729 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B388328A16309C5E0082F729 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B38834371630A01F0082F729 /* NWLCore.c in Sources */ = {isa = PBXBuildFile; fileRef = B388328C16309C5E0082F729 /* NWLCore.c */; };
-		B38834381630A0200082F729 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B388328A16309C5E0082F729 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B38834391630A0200082F729 /* NWLCore.c in Sources */ = {isa = PBXBuildFile; fileRef = B388328C16309C5E0082F729 /* NWLCore.c */; };
 		B388343B1630A11E0082F729 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388343A1630A11E0082F729 /* SenTestingKit.framework */; };
 		B388343C1630A1210082F729 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388343A1630A11E0082F729 /* SenTestingKit.framework */; };
@@ -371,8 +368,6 @@
 		B388328416309C5E0082F729 /* NWSPerformanceData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NWSPerformanceData.plist; sourceTree = "<group>"; };
 		B388328516309C5E0082F729 /* NWSPerformanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSPerformanceViewController.h; sourceTree = "<group>"; };
 		B388328616309C5E0082F729 /* NWSPerformanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSPerformanceViewController.m; sourceTree = "<group>"; };
-		B388328916309C5E0082F729 /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		B388328A16309C5E0082F729 /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		B388328C16309C5E0082F729 /* NWLCore.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = NWLCore.c; sourceTree = "<group>"; };
 		B388328D16309C5E0082F729 /* NWLCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWLCore.h; sourceTree = "<group>"; };
 		B388329016309C5E0082F729 /* NWSActivityIndicator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSActivityIndicator.h; sourceTree = "<group>"; };
@@ -419,8 +414,8 @@
 		B38832BD16309C5E0082F729 /* NWSEntityObjectType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSEntityObjectType.m; sourceTree = "<group>"; };
 		B38832BE16309C5E0082F729 /* NWSObjectType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSObjectType.h; sourceTree = "<group>"; };
 		B38832BF16309C5E0082F729 /* NWSObjectType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSObjectType.m; sourceTree = "<group>"; };
-		B38832C116309C5E0082F729 /* NWSJSONKitParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSJSONKitParser.h; sourceTree = "<group>"; };
-		B38832C216309C5E0082F729 /* NWSJSONKitParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSJSONKitParser.m; sourceTree = "<group>"; };
+		B38832C116309C5E0082F729 /* NWSJSONParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSJSONParser.h; sourceTree = "<group>"; };
+		B38832C216309C5E0082F729 /* NWSJSONParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSJSONParser.m; sourceTree = "<group>"; };
 		B38832C316309C5E0082F729 /* NWSParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSParser.h; sourceTree = "<group>"; };
 		B38832C416309C5E0082F729 /* NWSParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSParser.m; sourceTree = "<group>"; };
 		B38832C516309C5E0082F729 /* NWSStringParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSStringParser.h; sourceTree = "<group>"; };
@@ -600,7 +595,6 @@
 		B38831F716309B730082F729 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B388328816309C5E0082F729 /* JSONKit */,
 				B388328B16309C5E0082F729 /* NWLogging */,
 				B388341416309E6D0082F729 /* libxml2.dylib */,
 				B38834321630A0070082F729 /* libxml2.dylib */,
@@ -666,16 +660,6 @@
 				B388328616309C5E0082F729 /* NWSPerformanceViewController.m */,
 			);
 			path = Performance;
-			sourceTree = "<group>";
-		};
-		B388328816309C5E0082F729 /* JSONKit */ = {
-			isa = PBXGroup;
-			children = (
-				B388328916309C5E0082F729 /* JSONKit.h */,
-				B388328A16309C5E0082F729 /* JSONKit.m */,
-			);
-			name = JSONKit;
-			path = Frameworks/JSONKit;
 			sourceTree = "<group>";
 		};
 		B388328B16309C5E0082F729 /* NWLogging */ = {
@@ -788,8 +772,8 @@
 		B38832C016309C5E0082F729 /* Parsing */ = {
 			isa = PBXGroup;
 			children = (
-				B38832C116309C5E0082F729 /* NWSJSONKitParser.h */,
-				B38832C216309C5E0082F729 /* NWSJSONKitParser.m */,
+				B38832C116309C5E0082F729 /* NWSJSONParser.h */,
+				B38832C216309C5E0082F729 /* NWSJSONParser.m */,
 				B38832C316309C5E0082F729 /* NWSParser.h */,
 				B38832C416309C5E0082F729 /* NWSParser.m */,
 				B38832C516309C5E0082F729 /* NWSStringParser.h */,
@@ -1015,7 +999,7 @@
 				B388334D16309D710082F729 /* NWSClassObjectType.h in Headers */,
 				B388334F16309D710082F729 /* NWSEntityObjectType.h in Headers */,
 				B388335116309D710082F729 /* NWSObjectType.h in Headers */,
-				B388335316309D710082F729 /* NWSJSONKitParser.h in Headers */,
+				B388335316309D710082F729 /* NWSJSONParser.h in Headers */,
 				B388335516309D710082F729 /* NWSParser.h in Headers */,
 				B388335716309D710082F729 /* NWSStringParser.h in Headers */,
 				B388335916309D710082F729 /* NWSURLParser.h in Headers */,
@@ -1081,7 +1065,7 @@
 				B38833C316309DC90082F729 /* NWSClassObjectType.h in Headers */,
 				B38833C516309DC90082F729 /* NWSEntityObjectType.h in Headers */,
 				B38833C716309DC90082F729 /* NWSObjectType.h in Headers */,
-				B38833C916309DC90082F729 /* NWSJSONKitParser.h in Headers */,
+				B38833C916309DC90082F729 /* NWSJSONParser.h in Headers */,
 				B38833CB16309DC90082F729 /* NWSParser.h in Headers */,
 				B38833CD16309DC90082F729 /* NWSStringParser.h in Headers */,
 				B38833CF16309DC90082F729 /* NWSURLParser.h in Headers */,
@@ -1345,7 +1329,7 @@
 				B38833C416309DC90082F729 /* NWSClassObjectType.m in Sources */,
 				B38833C616309DC90082F729 /* NWSEntityObjectType.m in Sources */,
 				B38833C816309DC90082F729 /* NWSObjectType.m in Sources */,
-				B38833CA16309DC90082F729 /* NWSJSONKitParser.m in Sources */,
+				B38833CA16309DC90082F729 /* NWSJSONParser.m in Sources */,
 				B38833CC16309DC90082F729 /* NWSParser.m in Sources */,
 				B38833CE16309DC90082F729 /* NWSStringParser.m in Sources */,
 				B38833D016309DC90082F729 /* NWSURLParser.m in Sources */,
@@ -1400,7 +1384,6 @@
 				B388342116309F3B0082F729 /* NWSPathTest.m in Sources */,
 				B388342216309F3B0082F729 /* NWSScheduleTest.m in Sources */,
 				B388342E16309F3E0082F729 /* Recordshop.xcdatamodeld in Sources */,
-				B38834341630A01F0082F729 /* JSONKit.m in Sources */,
 				B38834351630A01F0082F729 /* NWLCore.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1430,7 +1413,7 @@
 				B388334E16309D710082F729 /* NWSClassObjectType.m in Sources */,
 				B388335016309D710082F729 /* NWSEntityObjectType.m in Sources */,
 				B388335216309D710082F729 /* NWSObjectType.m in Sources */,
-				B388335416309D710082F729 /* NWSJSONKitParser.m in Sources */,
+				B388335416309D710082F729 /* NWSJSONParser.m in Sources */,
 				B388335616309D710082F729 /* NWSParser.m in Sources */,
 				B388335816309D710082F729 /* NWSStringParser.m in Sources */,
 				B388335A16309D710082F729 /* NWSURLParser.m in Sources */,
@@ -1485,7 +1468,6 @@
 				B388342C16309F3B0082F729 /* NWSPathTest.m in Sources */,
 				B388342D16309F3B0082F729 /* NWSScheduleTest.m in Sources */,
 				B388342F16309F3F0082F729 /* Recordshop.xcdatamodeld in Sources */,
-				B38834361630A01F0082F729 /* JSONKit.m in Sources */,
 				B38834371630A01F0082F729 /* NWLCore.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1494,7 +1476,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B38834381630A0200082F729 /* JSONKit.m in Sources */,
 				B38834391630A0200082F729 /* NWLCore.c in Sources */,
 				B388343D1630A14C0082F729 /* NWSBasicExampleTableViewController.m in Sources */,
 				B388343E1630A14C0082F729 /* NWSMapsService.m in Sources */,

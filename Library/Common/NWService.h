@@ -61,7 +61,7 @@
 #pragma mark - Parser
 
 #import "NWSParser.h"
-#import "NWSJSONKitParser.h"
+#import "NWSJSONParser.h"
 #import "NWSXMLParser.h"
 #import "NWSStringParser.h"
 
