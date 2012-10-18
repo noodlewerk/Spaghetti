@@ -366,7 +366,10 @@ int NWLAboutString(char *buffer, int size) {
 void NWLogAbout(void) {
     char buffer[256];
     int length = NWLAboutString(buffer, sizeof(buffer));
-    NWLLogWithoutFilter(NULL, "NWLogging", "About NWLogging\n%s%s", buffer, length <= sizeof(buffer) - 1 ? "" : "\n   ...");
+    NWLContext context = {NULL, "NWLogging", NULL, 0, NULL};
+    CFStringRef message = CFStringCreateWithFormat(NULL, 0, CFSTR("About NWLogging\n%s%s"), buffer, length <= sizeof(buffer) - 1 ? "" : "\n   ...");\
+    NWLForwardToPrinters(context, message);
+    CFRelease(message);
 }
 
 
