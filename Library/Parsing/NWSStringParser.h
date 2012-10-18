@@ -2,7 +2,6 @@
 //  NWSStringParser.h
 //  NWService
 //
-//  Created by Bruno Scheele on 6/13/12.
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
