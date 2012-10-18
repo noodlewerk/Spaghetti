@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
+		B30D2F671630AE4C007834AA /* NWServiceUniversal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = B30D2F681630AE4C007834AA /* Build configuration list for PBXAggregateTarget "NWServiceUniversal" */;
+			buildPhases = (
+				B30D2F6B1630AE53007834AA /* Build Cocoa Touch Static */,
+			);
+			dependencies = (
+			);
+			name = NWServiceUniversal;
+			productName = NWServiceUniversal;
+		};
 		B38834501630A2000082F729 /* NWServiceDocs */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = B38834511630A2000082F729 /* Build configuration list for PBXAggregateTarget "NWServiceDocs" */;
@@ -22,9 +33,9 @@
 
 /* Begin PBXBuildFile section */
 		B388320B16309B730082F729 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F816309B730082F729 /* Foundation.framework */; };
-		B388320E16309B730082F729 /* libNWServiceTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F516309B730082F729 /* libNWServiceTouch.a */; };
+		B388320E16309B730082F729 /* libNWService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F516309B730082F729 /* libNWService.a */; };
 		B388323B16309BB90082F729 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388322816309BB80082F729 /* Cocoa.framework */; };
-		B388323E16309BB90082F729 /* libNWServiceCocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B388322716309BB80082F729 /* libNWServiceCocoa.a */; };
+		B388323E16309BB90082F729 /* libNWService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B388322716309BB80082F729 /* libNWService.a */; };
 		B388325516309C060082F729 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F816309B730082F729 /* Foundation.framework */; };
 		B388325716309C060082F729 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388325616309C060082F729 /* CoreGraphics.framework */; };
 		B388332816309D710082F729 /* NWSActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = B388329016309C5E0082F729 /* NWSActivityIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -306,7 +317,7 @@
 		B38834481630A1560082F729 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B388327216309C5E0082F729 /* Icon-72@2x.png */; };
 		B38834491630A1560082F729 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B388327316309C5E0082F729 /* Icon.png */; };
 		B388344A1630A1560082F729 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B388327416309C5E0082F729 /* Icon@2x.png */; };
-		B388344D1630A19B0082F729 /* libNWServiceTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F516309B730082F729 /* libNWServiceTouch.a */; };
+		B388344D1630A19B0082F729 /* libNWService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F516309B730082F729 /* libNWService.a */; };
 		B388344F1630A1A60082F729 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388344E1630A1A60082F729 /* CoreData.framework */; };
 		B38834551630A2BB0082F729 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388344E1630A1A60082F729 /* CoreData.framework */; };
 		B38834561630A2BB0082F729 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388344E1630A1A60082F729 /* CoreData.framework */; };
@@ -339,10 +350,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B38831F516309B730082F729 /* libNWServiceTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNWServiceTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B38831F516309B730082F729 /* libNWService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNWService.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38831F816309B730082F729 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B388320616309B730082F729 /* NWServiceTouchTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NWServiceTouchTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B388322716309BB80082F729 /* libNWServiceCocoa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNWServiceCocoa.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B388322716309BB80082F729 /* libNWService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNWService.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B388322816309BB80082F729 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B388323916309BB90082F729 /* NWServiceCocoaTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NWServiceCocoaTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B388325216309C060082F729 /* NWServiceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NWServiceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -525,7 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B388320B16309B730082F729 /* Foundation.framework in Frameworks */,
-				B388320E16309B730082F729 /* libNWServiceTouch.a in Frameworks */,
+				B388320E16309B730082F729 /* libNWService.a in Frameworks */,
 				B388343116309F9B0082F729 /* libxml2.dylib in Frameworks */,
 				B388343C1630A1210082F729 /* SenTestingKit.framework in Frameworks */,
 				B38834561630A2BB0082F729 /* CoreData.framework in Frameworks */,
@@ -546,7 +557,7 @@
 			files = (
 				B388343B1630A11E0082F729 /* SenTestingKit.framework in Frameworks */,
 				B388323B16309BB90082F729 /* Cocoa.framework in Frameworks */,
-				B388323E16309BB90082F729 /* libNWServiceCocoa.a in Frameworks */,
+				B388323E16309BB90082F729 /* libNWService.a in Frameworks */,
 				B38834331630A0070082F729 /* libxml2.dylib in Frameworks */,
 				B38834551630A2BB0082F729 /* CoreData.framework in Frameworks */,
 			);
@@ -556,7 +567,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B388344D1630A19B0082F729 /* libNWServiceTouch.a in Frameworks */,
+				B388344D1630A19B0082F729 /* libNWService.a in Frameworks */,
 				B388341516309E6D0082F729 /* libxml2.dylib in Frameworks */,
 				B388341716309E720082F729 /* UIKit.framework in Frameworks */,
 				B388325516309C060082F729 /* Foundation.framework in Frameworks */,
@@ -583,9 +594,9 @@
 		B38831F616309B730082F729 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B38831F516309B730082F729 /* libNWServiceTouch.a */,
+				B38831F516309B730082F729 /* libNWService.a */,
 				B388320616309B730082F729 /* NWServiceTouchTest.octest */,
-				B388322716309BB80082F729 /* libNWServiceCocoa.a */,
+				B388322716309BB80082F729 /* libNWService.a */,
 				B388323916309BB90082F729 /* NWServiceCocoaTest.octest */,
 				B388325216309C060082F729 /* NWServiceDemo.app */,
 			);
@@ -1108,9 +1119,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		B38831F416309B730082F729 /* NWServiceTouch */ = {
+		B38831F416309B730082F729 /* NWServiceTouchStatic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B388321C16309B730082F729 /* Build configuration list for PBXNativeTarget "NWServiceTouch" */;
+			buildConfigurationList = B388321C16309B730082F729 /* Build configuration list for PBXNativeTarget "NWServiceTouchStatic" */;
 			buildPhases = (
 				B38831F116309B730082F729 /* Sources */,
 				B38831F216309B730082F729 /* Frameworks */,
@@ -1120,9 +1131,9 @@
 			);
 			dependencies = (
 			);
-			name = NWServiceTouch;
+			name = NWServiceTouchStatic;
 			productName = NWServiceTouch;
-			productReference = B38831F516309B730082F729 /* libNWServiceTouch.a */;
+			productReference = B38831F516309B730082F729 /* libNWService.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		B388320516309B730082F729 /* NWServiceTouchTest */ = {
@@ -1144,9 +1155,9 @@
 			productReference = B388320616309B730082F729 /* NWServiceTouchTest.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		B388322616309BB80082F729 /* NWServiceCocoa */ = {
+		B388322616309BB80082F729 /* NWServiceCocoaStatic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B388324816309BB90082F729 /* Build configuration list for PBXNativeTarget "NWServiceCocoa" */;
+			buildConfigurationList = B388324816309BB90082F729 /* Build configuration list for PBXNativeTarget "NWServiceCocoaStatic" */;
 			buildPhases = (
 				B388322316309BB80082F729 /* Sources */,
 				B388322416309BB80082F729 /* Frameworks */,
@@ -1156,9 +1167,9 @@
 			);
 			dependencies = (
 			);
-			name = NWServiceCocoa;
+			name = NWServiceCocoaStatic;
 			productName = NWServiceCocoa;
-			productReference = B388322716309BB80082F729 /* libNWServiceCocoa.a */;
+			productReference = B388322716309BB80082F729 /* libNWService.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		B388323816309BB90082F729 /* NWServiceCocoaTest */ = {
@@ -1218,11 +1229,12 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B38831F416309B730082F729 /* NWServiceTouch */,
-				B388322616309BB80082F729 /* NWServiceCocoa */,
+				B38831F416309B730082F729 /* NWServiceTouchStatic */,
+				B388322616309BB80082F729 /* NWServiceCocoaStatic */,
 				B388320516309B730082F729 /* NWServiceTouchTest */,
 				B388323816309BB90082F729 /* NWServiceCocoaTest */,
 				B388325116309C060082F729 /* NWServiceTouchDemo */,
+				B30D2F671630AE4C007834AA /* NWServiceUniversal */,
 				B38834501630A2000082F729 /* NWServiceDocs */,
 			);
 		};
@@ -1262,6 +1274,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		B30D2F6B1630AE53007834AA /* Build Cocoa Touch Static */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Cocoa Touch Static";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#set -e\n\nPROJECT=\"NWService\"\nTARGET_TOUCH=\"NWServiceTouchStatic\"\nTARGET_COCOA=\"NWServiceCocoaStatic\"\nHEADERS=\"usr/local/include\"\nPRODUCT=\"NWService\"\nOUTPUT=\"NWService\"\n\necho \"Remove previous\"\nrm -rf \"${SRCROOT}/build/$OUTPUT/\"\nrm -rf \"${SRCROOT}/build/$OUTPUT.framework/\"\n\necho \"Building iphoneos and iphonesimulator\"\nxcodebuild -project \"${SRCROOT}/$PROJECT.xcodeproj\" -target $TARGET_TOUCH -configuration Release -arch \"armv6 armv7 armv7s\" -sdk iphoneos\nxcodebuild -project \"${SRCROOT}/$PROJECT.xcodeproj\" -target $TARGET_TOUCH -configuration Release -arch i386 -sdk iphonesimulator\nxcodebuild -project \"${SRCROOT}/$PROJECT.xcodeproj\" -target $TARGET_COCOA -configuration Release -arch x86_64 -sdk macosx\n\necho \"Lipoing things together\"\nmkdir \"${SRCROOT}/build/$OUTPUT\"\nlipo -create -output \"${SRCROOT}/build/$OUTPUT/lib$OUTPUT.a\" \"${SRCROOT}/build/Release/lib$PRODUCT.a\" \"${SRCROOT}/build/Release-iphoneos/lib$PRODUCT.a\" \"${SRCROOT}/build/Release-iphonesimulator/lib$PRODUCT.a\"\ncp -R \"${SRCROOT}/build/Release/$HEADERS\" \"${SRCROOT}/build/$OUTPUT/Headers\"\n\necho \"Create framework\"\nmkdir -p \"${SRCROOT}/build/$OUTPUT.framework/Versions/A\"\ncp -R \"${SRCROOT}/build/$OUTPUT/Headers\" \"${SRCROOT}/build/$OUTPUT.framework/Versions/A\"\ncp \"${SRCROOT}/build/$OUTPUT/lib$OUTPUT.a\" \"${SRCROOT}/build/$OUTPUT.framework/Versions/A/$OUTPUT\"\n\nln -s \"A\" \"${SRCROOT}/build/$OUTPUT.framework/Versions/Current\"\nln -s \"Versions/Current/Headers\" \"${SRCROOT}/build/$OUTPUT.framework/Headers\"\nln -s \"Versions/Current/$OUTPUT\" \"${SRCROOT}/build/$OUTPUT.framework/$OUTPUT\"\n\necho \"Cleaning up\"\nrm -rf \"${SRCROOT}/build/Release/\"\nrm -rf \"${SRCROOT}/build/Release-iphoneos/\"\nrm -rf \"${SRCROOT}/build/Release-iphonesimulator/\"\nrm -rf \"${SRCROOT}/build/$PROJECT.build/\"\n\necho \"Done\"\n";
+		};
 		B388320416309B730082F729 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1491,22 +1517,36 @@
 /* Begin PBXTargetDependency section */
 		B388320D16309B730082F729 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B38831F416309B730082F729 /* NWServiceTouch */;
+			target = B38831F416309B730082F729 /* NWServiceTouchStatic */;
 			targetProxy = B388320C16309B730082F729 /* PBXContainerItemProxy */;
 		};
 		B388323D16309BB90082F729 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B388322616309BB80082F729 /* NWServiceCocoa */;
+			target = B388322616309BB80082F729 /* NWServiceCocoaStatic */;
 			targetProxy = B388323C16309BB90082F729 /* PBXContainerItemProxy */;
 		};
 		B388344C1630A1970082F729 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B38831F416309B730082F729 /* NWServiceTouch */;
+			target = B38831F416309B730082F729 /* NWServiceTouchStatic */;
 			targetProxy = B388344B1630A1970082F729 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		B30D2F691630AE4C007834AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B30D2F6A1630AE4C007834AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		B38831EC163099C90082F729 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1553,7 +1593,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NWService;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -1582,7 +1622,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NWService;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = YES;
@@ -1687,7 +1727,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NWService;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -1717,7 +1757,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NWService;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -1881,6 +1921,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B30D2F681630AE4C007834AA /* Build configuration list for PBXAggregateTarget "NWServiceUniversal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B30D2F691630AE4C007834AA /* Debug */,
+				B30D2F6A1630AE4C007834AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B38831EA163099C90082F729 /* Build configuration list for PBXProject "NWService" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1890,7 +1938,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B388321C16309B730082F729 /* Build configuration list for PBXNativeTarget "NWServiceTouch" */ = {
+		B388321C16309B730082F729 /* Build configuration list for PBXNativeTarget "NWServiceTouchStatic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B388321816309B730082F729 /* Debug */,
@@ -1908,7 +1956,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B388324816309BB90082F729 /* Build configuration list for PBXNativeTarget "NWServiceCocoa" */ = {
+		B388324816309BB90082F729 /* Build configuration list for PBXNativeTarget "NWServiceCocoaStatic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B388324916309BB90082F729 /* Debug */,
