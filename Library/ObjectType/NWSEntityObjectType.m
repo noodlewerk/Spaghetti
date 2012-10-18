@@ -51,6 +51,11 @@
     }
 }
 
++ (BOOL)supports:(NSObject *)object
+{
+    return [object isKindOfClass:NSManagedObject.class];
+}
+
 - (BOOL)hasAttribute:(NWSPath *)attribute
 {
     if ([attribute isKindOfClass:NWSSingleKeyPath.class]) {

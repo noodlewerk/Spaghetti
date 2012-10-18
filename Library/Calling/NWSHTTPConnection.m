@@ -134,7 +134,7 @@
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"connection to %@ (%u,%u)", request.URL, response.statusCode, responseData.length] readable:prefix];
+    return [[NSString stringWithFormat:@"connection to %@ (%u,%u)", request.URL, (int)response.statusCode, (int)responseData.length] readable:prefix];
 }
 
 @end

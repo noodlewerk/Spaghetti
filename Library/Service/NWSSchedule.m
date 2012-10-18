@@ -108,7 +108,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"schedule-item on:%@ every:%u call:%@", [NSDate dateWithTimeIntervalSince1970:self.startTime], (NSInteger)self.intervalTime, [call readable:prefix]] readable:prefix];
+    return [[NSString stringWithFormat:@"schedule-item on:%@ every:%u call:%@", [NSDate dateWithTimeIntervalSince1970:self.startTime], (int)self.intervalTime, [call readable:prefix]] readable:prefix];
 }
 
 @end
@@ -171,7 +171,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"schedule-group on:%@ every:%u #%u", [NSDate dateWithTimeIntervalSince1970:self.startTime], (NSInteger)self.intervalTime, items.count] readable:prefix];
+    return [[NSString stringWithFormat:@"schedule-group on:%@ every:%u #%u", [NSDate dateWithTimeIntervalSince1970:self.startTime], (int)self.intervalTime, (int)items.count] readable:prefix];
 }
 
 @end
@@ -357,12 +357,12 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p #%u %@>", NSStringFromClass(self.class), self, self.count, self.running ? @"R" : @"P"];
+    return [NSString stringWithFormat:@"<%@:%p #%u %@>", NSStringFromClass(self.class), self, (int)self.count, self.running ? @"R" : @"P"];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"schedule %@ with %u items", self.running ? @"running" : @"paused", self.count] readable:prefix];
+    return [[NSString stringWithFormat:@"schedule %@ with %u items", self.running ? @"running" : @"paused", (int)self.count] readable:prefix];
 }
 
 - (NSString *)about
@@ -370,7 +370,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
     NSMutableString *result = [[NSMutableString alloc] init];
     [result appendFormat:@"\n[%@]\n", NSStringFromClass(self.class)];
     dispatch_sync(scheduleQueue, ^{
-        [result appendFormat:@"Currently %@ with %u scheduled calls.\n", cancelled ? @"paused" : @"running", schedule.count];
+        [result appendFormat:@"Currently %@ with %u scheduled calls.\n", cancelled ? @"paused" : @"running", (int)schedule.count];
         [result appendFormat:@"Next run will be on %@.\n", nextRun];
         [result appendString:@"Scheduled items:\n"];
         for (NWSScheduleItem *item in schedule) {

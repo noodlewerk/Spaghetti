@@ -5,8 +5,6 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 #import "NWSAppDelegate.h"
 
 int main(int argc, char *argv[]) {

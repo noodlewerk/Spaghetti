@@ -452,7 +452,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p type:%@ #attributes:%u #relations:%u #primaries:%u>", NSStringFromClass(self.class), self, objectType, attributes.count, relations.count, primaries.count];
+    return [NSString stringWithFormat:@"<%@:%p type:%@ #attributes:%u #relations:%u #primaries:%u>", NSStringFromClass(self.class), self, objectType, (int)attributes.count, (int)relations.count, (int)primaries.count];
 }
 
 - (NSString *)readable:(NSString *)prefix

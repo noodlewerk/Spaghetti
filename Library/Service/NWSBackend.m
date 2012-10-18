@@ -247,23 +247,23 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p m:%u e:%u>", NSStringFromClass(self.class), self, mappings.count, endpoints.count];
+    return [NSString stringWithFormat:@"<%@:%p m:%u e:%u>", NSStringFromClass(self.class), self, (int)mappings.count, (int)endpoints.count];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"backend with %u mappings and %u endpoints", mappings.count, endpoints.count] readable:prefix];
+    return [[NSString stringWithFormat:@"backend with %u mappings and %u endpoints", (int)mappings.count, (int)endpoints.count] readable:prefix];
 }
 
 - (NSString *)about
 {
     NSMutableString *result = [[NSMutableString alloc] init];
     [result appendFormat:@"\n[%@]\n", NSStringFromClass(self.class)];
-    [result appendFormat:@"Mappings: (#%u)\n", mappings.count];
+    [result appendFormat:@"Mappings: (#%u)\n", (int)mappings.count];
     for (NSString *name in mappings) {
         [result appendFormat:@"   %@: %@\n", name, [[mappings objectForKey:name] readable:@"   "]];
     }
-    [result appendFormat:@"Endpoints: (#%u)\n", endpoints.count];
+    [result appendFormat:@"Endpoints: (#%u)\n", (int)endpoints.count];
     for (NSString *name in endpoints) {
         [result appendFormat:@"   %@: %@\n", name, [[endpoints objectForKey:name] readable:@"   "]];
     }

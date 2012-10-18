@@ -45,8 +45,8 @@
 
 - (void)addStore:(NWSStore *)store objectTypeClass:(Class)objectTypeClass objectIDClass:(Class)objectIDClass
 {
-    [storeForObjectTypeClass setObject:store forKey:objectTypeClass];
-    [storeForObjectIDClass setObject:store forKey:objectIDClass];
+    [storeForObjectTypeClass setObject:store forKey:NSStringFromClass(objectTypeClass)];
+    [storeForObjectIDClass setObject:store forKey:NSStringFromClass(objectIDClass)];
     [stores addObject:store];
     [objectTypeClasses addObject:objectTypeClass];
     [objectIDClasses addObject:objectIDClass];
@@ -57,7 +57,7 @@
 
 - (NWSObjectID *)identifierWithType:(NWSObjectType *)type primaryPathsAndValues:(NSArray *)pathsAndValues create:(BOOL)create
 {
-    NWSStore *store = [storeForObjectTypeClass objectForKey:type.class];
+    NWSStore *store = [storeForObjectTypeClass objectForKey:NSStringFromClass(type.class)];
     NWLogWarnIfNot(store, @"No store for object type: %@", type);
     return [store identifierWithType:type primaryPathsAndValues:pathsAndValues create:create];
 }
@@ -72,7 +72,7 @@
         }
         return result;
     } else {
-        NWSStore *store = [storeForObjectIDClass objectForKey:identifier.class];
+        NWSStore *store = [storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         return [store attributeForIdentifier:identifier path:path];
     }
@@ -88,7 +88,7 @@
         }
         return [[NWSArrayObjectID alloc] initWithIdentifiers:result];
     } else {
-        NWSStore *store = [storeForObjectIDClass objectForKey:identifier.class];
+        NWSStore *store = [storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         return [store relationForIdentifier:identifier path:path];
     }
@@ -102,7 +102,7 @@
             [self setAttributeForIdentifier:j value:value path:path];
         }
     } else {
-        NWSStore *store = [storeForObjectIDClass objectForKey:identifier.class];
+        NWSStore *store = [storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         [store setAttributeForIdentifier:identifier value:value path:path];
     }
@@ -116,7 +116,7 @@
             [self setRelationForIdentifier:j value:value path:path policy:policy baseStore:baseStore];
         }
     } else {
-        NWSStore *store = [storeForObjectIDClass objectForKey:identifier.class];
+        NWSStore *store = [storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         [store setRelationForIdentifier:identifier value:value path:path policy:policy baseStore:baseStore ? baseStore : self];
     }
@@ -130,7 +130,7 @@
             [self deleteObjectWithIdentifier:j];
         }
     } else {
-        NWSStore *store = [storeForObjectIDClass objectForKey:identifier.class];
+        NWSStore *store = [storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         [store deleteObjectWithIdentifier:identifier];
     }
@@ -146,7 +146,7 @@
         }
         return [[NWSObjectReference alloc] initWithObject:array];
     } else {
-        NWSStore *store = [storeForObjectIDClass objectForKey:identifier.class];
+        NWSStore *store = [storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         return [store referenceForIdentifier:identifier];
     }
@@ -154,8 +154,9 @@
 
 - (NWSObjectID *)identifierForObject:(id)object
 {
-    for (NWSObjectType *type in storeForObjectTypeClass) {
-        if ([type matches:object]) {
+    for (NSString *type in storeForObjectTypeClass) {
+        Class c = NSClassFromString(type);
+        if ([c supports:object]) {
             NWSStore *store = [storeForObjectTypeClass objectForKey:type];
             return [store identifierForObject:object];
         }
@@ -208,7 +209,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p #stores:%u>", NSStringFromClass(self.class), self, stores.count];
+    return [NSString stringWithFormat:@"<%@:%p #stores:%u>", NSStringFromClass(self.class), self, (int)stores.count];
 }
 
 - (NSString *)readable:(NSString *)prefix

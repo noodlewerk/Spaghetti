@@ -185,7 +185,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p #internal:%u>", NSStringFromClass(self.class), self, objects.count];
+    return [NSString stringWithFormat:@"<%@:%p #internal:%u>", NSStringFromClass(self.class), self, (int)objects.count];
 }
 
 - (NSString *)readable:(NSString *)prefix

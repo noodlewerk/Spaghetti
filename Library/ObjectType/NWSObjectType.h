@@ -21,6 +21,7 @@
  * @param object The subject of the test.
  */
 - (BOOL)matches:(NSObject *)object;
++ (BOOL)supports:(NSObject *)object;
 
 /**
  * Returns YES if instances of this type have a certain attribute.

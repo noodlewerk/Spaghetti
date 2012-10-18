@@ -216,7 +216,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p #records:%u>", NSStringFromClass(self.class), self, records.count];
+    return [NSString stringWithFormat:@"<%@:%p #records:%u>", NSStringFromClass(self.class), self, (int)records.count];
 }
 
 - (NSString *)readable:(NSString *)prefix

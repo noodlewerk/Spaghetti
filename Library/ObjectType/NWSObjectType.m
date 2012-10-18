@@ -21,6 +21,12 @@
     return NO;
 } // COV_NF_END
 
++ (BOOL)supports:(NSObject *)object // COV_NF_START
+{
+    NWLogWarn(@"Abstract method requires implementation");
+    return NO;
+} // COV_NF_END
+
 - (BOOL)hasAttribute:(NWSPath *)attribute // COV_NF_START
 {
     NWLogWarn(@"Abstract method requires implementation");

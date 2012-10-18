@@ -105,7 +105,7 @@
     id result = nil;
     xmlParserCtxtPtr context = xmlNewParserCtxt();
     if (context) {
-        xmlDocPtr document = xmlParseMemory(data.bytes, data.length);
+        xmlDocPtr document = xmlParseMemory(data.bytes, (int)data.length);
         if (document) {
             result = [self parseNode:document->xmlRootNode];
             xmlFreeDoc(document);

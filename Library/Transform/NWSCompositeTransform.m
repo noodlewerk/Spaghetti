@@ -51,7 +51,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p #transforms:%u>", NSStringFromClass(self.class), self, transforms.count];
+    return [NSString stringWithFormat:@"<%@:%p #transforms:%u>", NSStringFromClass(self.class), self, (int)transforms.count];
 }
 
 - (NSString *)readable:(NSString *)prefix

@@ -92,7 +92,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p #paths:%u>", NSStringFromClass(self.class), self, paths.count];
+    return [NSString stringWithFormat:@"<%@:%p #paths:%u>", NSStringFromClass(self.class), self, (int)paths.count];
 }
 
 - (NSString *)readable:(NSString *)prefix
