@@ -1528,8 +1528,8 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "";
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = NWService;
+				PUBLIC_HEADERS_FOLDER_PATH = ../../Headers;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -1559,6 +1559,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = NWService;
+				PUBLIC_HEADERS_FOLDER_PATH = ../../Headers;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = YES;
@@ -1662,7 +1663,6 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = NWService;
 				SDKROOT = macosx;
 			};
@@ -1864,6 +1864,7 @@
 				B30D2F6A1630AE4C007834AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B38831EA163099C90082F729 /* Build configuration list for PBXProject "NWService" */ = {
 			isa = XCConfigurationList;
