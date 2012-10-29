@@ -33,9 +33,9 @@
 
 /* Begin PBXBuildFile section */
 		B388320B16309B730082F729 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F816309B730082F729 /* Foundation.framework */; };
-		B388320E16309B730082F729 /* libNWService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F516309B730082F729 /* libNWService.a */; };
+		B388320E16309B730082F729 /* libNWServiceTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F516309B730082F729 /* libNWServiceTouch.a */; };
 		B388323B16309BB90082F729 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388322816309BB80082F729 /* Cocoa.framework */; };
-		B388323E16309BB90082F729 /* libNWService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B388322716309BB80082F729 /* libNWService.a */; };
+		B388323E16309BB90082F729 /* libNWServiceCocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B388322716309BB80082F729 /* libNWServiceCocoa.a */; };
 		B388325516309C060082F729 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F816309B730082F729 /* Foundation.framework */; };
 		B388325716309C060082F729 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388325616309C060082F729 /* CoreGraphics.framework */; };
 		B388332816309D710082F729 /* NWSActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = B388329016309C5E0082F729 /* NWSActivityIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -307,7 +307,7 @@
 		B38834481630A1560082F729 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B388327216309C5E0082F729 /* Icon-72@2x.png */; };
 		B38834491630A1560082F729 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B388327316309C5E0082F729 /* Icon.png */; };
 		B388344A1630A1560082F729 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B388327416309C5E0082F729 /* Icon@2x.png */; };
-		B388344D1630A19B0082F729 /* libNWService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F516309B730082F729 /* libNWService.a */; };
+		B388344D1630A19B0082F729 /* libNWServiceTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F516309B730082F729 /* libNWServiceTouch.a */; };
 		B388344F1630A1A60082F729 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388344E1630A1A60082F729 /* CoreData.framework */; };
 		B38834551630A2BB0082F729 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388344E1630A1A60082F729 /* CoreData.framework */; };
 		B38834561630A2BB0082F729 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388344E1630A1A60082F729 /* CoreData.framework */; };
@@ -340,10 +340,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B38831F516309B730082F729 /* libNWService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNWService.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B38831F516309B730082F729 /* libNWServiceTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNWServiceTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38831F816309B730082F729 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B388320616309B730082F729 /* NWServiceTouchTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NWServiceTouchTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B388322716309BB80082F729 /* libNWService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNWService.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B388322716309BB80082F729 /* libNWServiceCocoa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNWServiceCocoa.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B388322816309BB80082F729 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B388323916309BB90082F729 /* NWServiceCocoaTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NWServiceCocoaTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B388325216309C060082F729 /* NWServiceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NWServiceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -516,7 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B388320B16309B730082F729 /* Foundation.framework in Frameworks */,
-				B388320E16309B730082F729 /* libNWService.a in Frameworks */,
+				B388320E16309B730082F729 /* libNWServiceTouch.a in Frameworks */,
 				B388343116309F9B0082F729 /* libxml2.dylib in Frameworks */,
 				B388343C1630A1210082F729 /* SenTestingKit.framework in Frameworks */,
 				B38834561630A2BB0082F729 /* CoreData.framework in Frameworks */,
@@ -537,7 +537,7 @@
 			files = (
 				B388343B1630A11E0082F729 /* SenTestingKit.framework in Frameworks */,
 				B388323B16309BB90082F729 /* Cocoa.framework in Frameworks */,
-				B388323E16309BB90082F729 /* libNWService.a in Frameworks */,
+				B388323E16309BB90082F729 /* libNWServiceCocoa.a in Frameworks */,
 				B38834331630A0070082F729 /* libxml2.dylib in Frameworks */,
 				B38834551630A2BB0082F729 /* CoreData.framework in Frameworks */,
 			);
@@ -547,7 +547,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B388344D1630A19B0082F729 /* libNWService.a in Frameworks */,
+				B388344D1630A19B0082F729 /* libNWServiceTouch.a in Frameworks */,
 				B388341516309E6D0082F729 /* libxml2.dylib in Frameworks */,
 				B388341716309E720082F729 /* UIKit.framework in Frameworks */,
 				B388325516309C060082F729 /* Foundation.framework in Frameworks */,
@@ -574,9 +574,9 @@
 		B38831F616309B730082F729 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B38831F516309B730082F729 /* libNWService.a */,
+				B38831F516309B730082F729 /* libNWServiceTouch.a */,
 				B388320616309B730082F729 /* NWServiceTouchTest.octest */,
-				B388322716309BB80082F729 /* libNWService.a */,
+				B388322716309BB80082F729 /* libNWServiceCocoa.a */,
 				B388323916309BB90082F729 /* NWServiceCocoaTest.octest */,
 				B388325216309C060082F729 /* NWServiceDemo.app */,
 			);
@@ -1079,7 +1079,7 @@
 			);
 			name = NWServiceTouchStatic;
 			productName = NWServiceTouch;
-			productReference = B38831F516309B730082F729 /* libNWService.a */;
+			productReference = B38831F516309B730082F729 /* libNWServiceTouch.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		B388320516309B730082F729 /* NWServiceTouchTest */ = {
@@ -1115,7 +1115,7 @@
 			);
 			name = NWServiceCocoaStatic;
 			productName = NWServiceCocoa;
-			productReference = B388322716309BB80082F729 /* libNWService.a */;
+			productReference = B388322716309BB80082F729 /* libNWServiceCocoa.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		B388323816309BB90082F729 /* NWServiceCocoaTest */ = {
@@ -1528,7 +1528,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_NAME = NWService;
+				PRODUCT_NAME = NWServiceTouch;
 				PUBLIC_HEADERS_FOLDER_PATH = ../../Headers;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1558,7 +1558,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_NAME = NWService;
+				PRODUCT_NAME = NWServiceTouch;
 				PUBLIC_HEADERS_FOLDER_PATH = ../../Headers;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1663,7 +1663,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = NWService;
+				PRODUCT_NAME = NWServiceCocoa;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -1693,7 +1693,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = NWService;
+				PRODUCT_NAME = NWServiceCocoa;
 				SDKROOT = macosx;
 			};
 			name = Release;
