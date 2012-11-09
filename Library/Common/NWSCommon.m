@@ -74,14 +74,28 @@ static const NSUInteger NWSMaxReadableArrayLength = 24;
     if (!self.length) {
         return nil;
     }
-    static NSNumberFormatter *formatter = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        formatter = [[NSNumberFormatter alloc] init];
-        formatter.numberStyle = NSNumberFormatterDecimalStyle;
-    });
-    NSNumber *result = [formatter numberFromString:self];
-    return result;
+    if ([self isEqualToString:@"true"] || [self isEqualToString:@"YES"]) {
+        return [NSNumber numberWithBool:YES];
+    }
+    if ([self isEqualToString:@"false"] || [self isEqualToString:@"NO"]) {
+        return [NSNumber numberWithBool:NO];
+    }
+    if ([self rangeOfString:@"e"].length || [self rangeOfString:@"E"].length) {
+        // TODO
+        return nil;
+    }
+    if ([self rangeOfString:@"."].length) {
+        double d = [self doubleValue];
+        if (d || [self isEqualToString:@"0"] || [self isEqualToString:@".0"] || [self isEqualToString:@"0."] || [self isEqualToString:@"0.0"]) {
+            return [NSNumber numberWithDouble:d];
+        }
+    } else if ([self rangeOfString:@"."].length) {
+        int i = [self intValue];
+        if (i || [self isEqualToString:@"0"] || [self isEqualToString:@"00"]) {
+            return [NSNumber numberWithInt:[self intValue]];
+        }
+    }
+    return nil;
 }
 
 @end
