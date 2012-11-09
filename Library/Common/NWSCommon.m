@@ -69,6 +69,20 @@ static const NSUInteger NWSMaxReadableArrayLength = 24;
 
 @implementation NSString (NWSCommon)
 
+- (BOOL)isZero
+{
+    NSUInteger i = 0, length = self.length;
+    if (i == length) return NO;
+    if ([self characterAtIndex:i] == '+' || [self characterAtIndex:i] == '-') i++;
+    if (i == length) return NO;
+    while (i < length && [self characterAtIndex:i] == '0') i++;
+    if (i == length) return YES;
+    if ([self characterAtIndex:i] == '.') i++;
+    if (i == length) return YES;
+    while (i < length && [self characterAtIndex:i] == '0') i++;
+    return i == self.length;
+}
+
 - (NSNumber *)number
 {
     if (!self.length) {
@@ -81,18 +95,29 @@ static const NSUInteger NWSMaxReadableArrayLength = 24;
         return [NSNumber numberWithBool:NO];
     }
     if ([self rangeOfString:@"e"].length || [self rangeOfString:@"E"].length) {
-        // TODO
+        NSRange r = [self rangeOfString:@"e"];
+        if (!r.length) r = [self rangeOfString:@"E"];
+        NSString *coe = [self substringToIndex:r.location];
+        double c = [coe doubleValue];
+        if (c || [coe isZero]) {
+            NSString *exp = [self substringFromIndex:r.location + r.length];
+            int e = [exp intValue];
+            if (e || [exp isZero]) {
+                double d = c * pow(10, e);
+                return [NSNumber numberWithDouble:d];
+            }
+        }
         return nil;
     }
     if ([self rangeOfString:@"."].length) {
         double d = [self doubleValue];
-        if (d || [self isEqualToString:@"0"] || [self isEqualToString:@".0"] || [self isEqualToString:@"0."] || [self isEqualToString:@"0.0"]) {
+        if (d || [self isZero]) {
             return [NSNumber numberWithDouble:d];
         }
-    } else if ([self rangeOfString:@"."].length) {
-        int i = [self intValue];
-        if (i || [self isEqualToString:@"0"] || [self isEqualToString:@"00"]) {
-            return [NSNumber numberWithInt:[self intValue]];
+    } else {
+        long long i = [self longLongValue];
+        if (i || [self isZero]) {
+            return [NSNumber numberWithLongLong:i];
         }
     }
     return nil;
