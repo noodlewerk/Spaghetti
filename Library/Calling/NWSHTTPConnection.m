@@ -47,7 +47,7 @@
         [indicator registerActivity];
     } else {
         NWLogWarn(@"Failed to init NSURLConnection");
-        if (doneBlock) doneBlock(nil, nil);
+        if (doneBlock) doneBlock(nil, nil); doneBlock = nil;
     }
 }
 

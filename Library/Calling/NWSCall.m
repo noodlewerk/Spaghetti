@@ -71,6 +71,15 @@
     return result;
 }
 
+- (void)doneWithResult:(id)result
+{
+    if (doneBlock) {
+        NWSCallDoneBlock b = doneBlock;
+        doneBlock = nil;
+        b(result);
+    }
+}
+
 
 #pragma mark - Accessors
 

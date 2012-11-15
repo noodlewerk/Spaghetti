@@ -33,7 +33,7 @@
             NWLogInfo(@"cancelled");
             return;
         }
-        if (self.call.doneBlock) self.call.doneBlock(result);
+        [self.call doneWithResult:result];
         if (result) {
             NWLogInfo(@"done call (total:%.3fs)", DEBUG_STAT_INTERVAL_IN(startCall));
             DEBUG_STAT_STOP_IN(startCall, self.call.endpoint.totalTime);

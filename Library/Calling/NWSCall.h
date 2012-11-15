@@ -153,4 +153,7 @@ typedef void(^NWSCallDoneBlock)(id result);
  */
 - (id)newDialogue;
 
+
+- (void)doneWithResult:(id)result;
+
 @end

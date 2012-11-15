@@ -41,7 +41,7 @@
     
     NSData *data = [response dataUsingEncoding:NSUTF8StringEncoding];
     id result = [self mapData:data useTransactionStore:NO];
-    if (self.call.doneBlock) self.call.doneBlock(result);
+    [self.call doneWithResult:result];
 }
 
 - (void)cancel

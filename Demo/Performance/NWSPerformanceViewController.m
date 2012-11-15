@@ -9,7 +9,7 @@
 #import "NWService.h"
 #import "NWSVarStat.h"
 #import "NWSCommon.h"
-#import "NWSMapsService.h"
+//#import "NWSMapsService.h"
 
 
 #define Log(__a, ...) [self printLine:YES format:__a, ##__VA_ARGS__]
@@ -42,7 +42,7 @@
     NSManagedObjectContext *result = [[NSManagedObjectContext alloc] init];
     [result setPersistentStoreCoordinator:coordinator];
     
-    backend = NWSMapsService.backend;
+//    backend = NWSMapsService.backend;
     store = [[NWSCoreDataStore alloc] initWithContext:context queue:NSOperationQueue.mainQueue];
 }
 
