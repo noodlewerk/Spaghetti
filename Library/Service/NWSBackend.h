@@ -34,6 +34,9 @@
  */
 @property (nonatomic, readonly) NSArray *endpointNames;
 
+@property (nonatomic, strong) Class defaultMappingClass;
+@property (nonatomic, strong) Class defaultEndpointClass;
+
 /**
  * Stores a mapping under a given name.
  * @param mapping The subject mapping.

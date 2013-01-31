@@ -28,6 +28,8 @@
         mappings = [[NSMutableDictionary alloc] init];
         endpoints = [[NSMutableDictionary alloc] init];
         schedule = [[NWSSchedule alloc] init];
+        _defaultEndpointClass = [NWSHTTPEndpoint class];
+        _defaultMappingClass = [NWSMapping class];
     }
     return self;
 }
@@ -53,12 +55,12 @@
 
 - (id)mappingWithName:(NSString *)name
 {
-    return [self mappingWithName:name createWithClass:nil];
+    return [self mappingWithName:name createWithClass:_defaultMappingClass];
 }
 
 - (id)endpointWithName:(NSString *)name
 {
-    return [self endpointWithName:name createWithClass:nil];
+    return [self endpointWithName:name createWithClass:_defaultEndpointClass];
 }
 
 - (id)mappingWithName:(NSString *)name createWithClass:(Class)clas
