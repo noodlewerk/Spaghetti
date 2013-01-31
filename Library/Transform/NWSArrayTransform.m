@@ -41,15 +41,26 @@
                 [identifiers addObject:transformed];
                 [context incIndexInArray];
             } else {
-                NWLogWarn(@"Unable to add nil to object array (untranformed:%@ path:%@)", array, context.path);
+                NWLogWarn(@"Unable to add nil to object array (untransformed:%@ path:%@)", array, context.path);
             }
         }
         [context popIndexInArray];
         NWSArrayObjectID *result = [[NWSArrayObjectID alloc] initWithIdentifiers:identifiers];
         return result;
     } else {
-        NWLogWarn(@"Expecting NSArray instead of %@ (path:%@)", array.class, context.path);
-        return nil;
+        NSArray *identifiers = nil;
+        [context pushIndexInArray];
+        id transformed = [transform transform:array context:context];
+        if (transformed) {
+            identifiers = @[transformed];
+            [context incIndexInArray];
+        } else {
+            identifiers = @[];
+            NWLogWarn(@"Unable to set nil to object array (untransformed:%@ path:%@)", array, context.path);
+        }
+        [context popIndexInArray];
+        NWSArrayObjectID *result = [[NWSArrayObjectID alloc] initWithIdentifiers:identifiers];
+        return result;
     }
 }
 
