@@ -1,13 +1,13 @@
 //
 //  NWSBasicExampleTableViewController.m
-//  NWService
+//  Spaghetti
 //
 //  Created by Bruno Scheele on 5/28/12.
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
 #import "NWSBasicExampleTableViewController.h"
-#import "NWService.h"
+#import "NWSpaghetti.h"
 
 #pragma mark -
 
@@ -110,7 +110,7 @@
             [self.tableView reloadData];
         }
         else {
-            // Something went wrong. The top layers of NWService already got all of the heavy errors, so this part is better off handling any user interaction.
+            // Something went wrong. The top layers of Spaghetti already got all of the heavy errors, so this part is better off handling any user interaction.
         }
     };
     

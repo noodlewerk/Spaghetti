@@ -1,12 +1,12 @@
 //
 //  NWSScheduleTest.m
-//  NWService
+//  Spaghetti
 //
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "NWService.h"
+#import "NWSpaghetti.h"
 
 
 @interface NWSScheduleTest : SenTestCase

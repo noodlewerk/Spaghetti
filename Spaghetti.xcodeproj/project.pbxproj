@@ -7,35 +7,35 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		B30D2F671630AE4C007834AA /* NWServiceUniversal */ = {
+		B30D2F671630AE4C007834AA /* SpaghettiUniversal */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = B30D2F681630AE4C007834AA /* Build configuration list for PBXAggregateTarget "NWServiceUniversal" */;
+			buildConfigurationList = B30D2F681630AE4C007834AA /* Build configuration list for PBXAggregateTarget "SpaghettiUniversal" */;
 			buildPhases = (
 				B30D2F6B1630AE53007834AA /* Build Cocoa Touch Static */,
 			);
 			dependencies = (
 			);
-			name = NWServiceUniversal;
-			productName = NWServiceUniversal;
+			name = SpaghettiUniversal;
+			productName = SpaghettiUniversal;
 		};
-		B38834501630A2000082F729 /* NWServiceDocs */ = {
+		B38834501630A2000082F729 /* SpaghettiDocs */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = B38834511630A2000082F729 /* Build configuration list for PBXAggregateTarget "NWServiceDocs" */;
+			buildConfigurationList = B38834511630A2000082F729 /* Build configuration list for PBXAggregateTarget "SpaghettiDocs" */;
 			buildPhases = (
 				B38834541630A20F0082F729 /* ShellScript */,
 			);
 			dependencies = (
 			);
-			name = NWServiceDocs;
-			productName = NWServiceDocs;
+			name = SpaghettiDocs;
+			productName = SpaghettiDocs;
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
 		B388320B16309B730082F729 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F816309B730082F729 /* Foundation.framework */; };
-		B388320E16309B730082F729 /* libNWServiceTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F516309B730082F729 /* libNWServiceTouch.a */; };
+		B388320E16309B730082F729 /* libSpaghettiTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F516309B730082F729 /* libSpaghettiTouch.a */; };
 		B388323B16309BB90082F729 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388322816309BB80082F729 /* Cocoa.framework */; };
-		B388323E16309BB90082F729 /* libNWServiceCocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B388322716309BB80082F729 /* libNWServiceCocoa.a */; };
+		B388323E16309BB90082F729 /* libSpaghettiCocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B388322716309BB80082F729 /* libSpaghettiCocoa.a */; };
 		B388325516309C060082F729 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F816309B730082F729 /* Foundation.framework */; };
 		B388325716309C060082F729 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388325616309C060082F729 /* CoreGraphics.framework */; };
 		B388332816309D710082F729 /* NWSActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = B388329016309C5E0082F729 /* NWSActivityIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -56,7 +56,7 @@
 		B388333716309D710082F729 /* NWSHTTPEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = B388329F16309C5E0082F729 /* NWSHTTPEndpoint.m */; };
 		B388333816309D710082F729 /* NWSCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A116309C5E0082F729 /* NWSCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B388333916309D710082F729 /* NWSCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832A216309C5E0082F729 /* NWSCommon.m */; };
-		B388333A16309D710082F729 /* NWService.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A316309C5E0082F729 /* NWService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B388333A16309D710082F729 /* NWSpaghetti.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A316309C5E0082F729 /* NWSpaghetti.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B388333B16309D710082F729 /* NWSVarStat.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A416309C5E0082F729 /* NWSVarStat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B388333C16309D710082F729 /* NWSVarStat.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832A516309C5E0082F729 /* NWSVarStat.m */; };
 		B388333D16309D710082F729 /* NWSMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A716309C5E0082F729 /* NWSMapping.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -173,7 +173,7 @@
 		B38833AD16309DC90082F729 /* NWSHTTPEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = B388329F16309C5E0082F729 /* NWSHTTPEndpoint.m */; };
 		B38833AE16309DC90082F729 /* NWSCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A116309C5E0082F729 /* NWSCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B38833AF16309DC90082F729 /* NWSCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832A216309C5E0082F729 /* NWSCommon.m */; };
-		B38833B016309DC90082F729 /* NWService.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A316309C5E0082F729 /* NWService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B38833B016309DC90082F729 /* NWSpaghetti.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A316309C5E0082F729 /* NWSpaghetti.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B38833B116309DC90082F729 /* NWSVarStat.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A416309C5E0082F729 /* NWSVarStat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B38833B216309DC90082F729 /* NWSVarStat.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832A516309C5E0082F729 /* NWSVarStat.m */; };
 		B38833B316309DC90082F729 /* NWSMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A716309C5E0082F729 /* NWSMapping.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -307,7 +307,7 @@
 		B38834481630A1560082F729 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B388327216309C5E0082F729 /* Icon-72@2x.png */; };
 		B38834491630A1560082F729 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B388327316309C5E0082F729 /* Icon.png */; };
 		B388344A1630A1560082F729 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B388327416309C5E0082F729 /* Icon@2x.png */; };
-		B388344D1630A19B0082F729 /* libNWServiceTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F516309B730082F729 /* libNWServiceTouch.a */; };
+		B388344D1630A19B0082F729 /* libSpaghettiTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F516309B730082F729 /* libSpaghettiTouch.a */; };
 		B388344F1630A1A60082F729 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388344E1630A1A60082F729 /* CoreData.framework */; };
 		B38834551630A2BB0082F729 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388344E1630A1A60082F729 /* CoreData.framework */; };
 		B38834561630A2BB0082F729 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388344E1630A1A60082F729 /* CoreData.framework */; };
@@ -321,32 +321,32 @@
 			containerPortal = B38831E7163099C90082F729 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B38831F416309B730082F729;
-			remoteInfo = NWServiceTouch;
+			remoteInfo = SpaghettiTouch;
 		};
 		B388323C16309BB90082F729 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B38831E7163099C90082F729 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B388322616309BB80082F729;
-			remoteInfo = NWServiceCocoa;
+			remoteInfo = SpaghettiCocoa;
 		};
 		B388344B1630A1970082F729 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B38831E7163099C90082F729 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B38831F416309B730082F729;
-			remoteInfo = NWServiceTouch;
+			remoteInfo = SpaghettiTouch;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B38831F516309B730082F729 /* libNWServiceTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNWServiceTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B38831F516309B730082F729 /* libSpaghettiTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpaghettiTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38831F816309B730082F729 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B388320616309B730082F729 /* NWServiceTouchTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NWServiceTouchTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B388322716309BB80082F729 /* libNWServiceCocoa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNWServiceCocoa.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B388320616309B730082F729 /* SpaghettiTouchTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaghettiTouchTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B388322716309BB80082F729 /* libSpaghettiCocoa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpaghettiCocoa.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B388322816309BB80082F729 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		B388323916309BB90082F729 /* NWServiceCocoaTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NWServiceCocoaTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B388325216309C060082F729 /* NWServiceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NWServiceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B388323916309BB90082F729 /* SpaghettiCocoaTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaghettiCocoaTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B388325216309C060082F729 /* SpaghettiDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaghettiDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B388325616309C060082F729 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B388326F16309C5E0082F729 /* NWSBasicExampleTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSBasicExampleTableViewController.h; sourceTree = "<group>"; };
 		B388327016309C5E0082F729 /* NWSBasicExampleTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSBasicExampleTableViewController.m; sourceTree = "<group>"; };
@@ -359,8 +359,8 @@
 		B388327E16309C5E0082F729 /* NWSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSAppDelegate.m; sourceTree = "<group>"; };
 		B388327F16309C5E0082F729 /* NWSMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSMenuViewController.h; sourceTree = "<group>"; };
 		B388328016309C5E0082F729 /* NWSMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSMenuViewController.m; sourceTree = "<group>"; };
-		B388328116309C5E0082F729 /* NWServiceDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NWServiceDemo-Info.plist"; sourceTree = "<group>"; };
-		B388328216309C5E0082F729 /* NWServiceDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NWServiceDemo-Prefix.pch"; sourceTree = "<group>"; };
+		B388328116309C5E0082F729 /* SpaghettiDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpaghettiDemo-Info.plist"; sourceTree = "<group>"; };
+		B388328216309C5E0082F729 /* SpaghettiDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpaghettiDemo-Prefix.pch"; sourceTree = "<group>"; };
 		B388328416309C5E0082F729 /* NWSPerformanceData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NWSPerformanceData.plist; sourceTree = "<group>"; };
 		B388328516309C5E0082F729 /* NWSPerformanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSPerformanceViewController.h; sourceTree = "<group>"; };
 		B388328616309C5E0082F729 /* NWSPerformanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSPerformanceViewController.m; sourceTree = "<group>"; };
@@ -384,7 +384,7 @@
 		B388329F16309C5E0082F729 /* NWSHTTPEndpoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSHTTPEndpoint.m; sourceTree = "<group>"; };
 		B38832A116309C5E0082F729 /* NWSCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSCommon.h; sourceTree = "<group>"; };
 		B38832A216309C5E0082F729 /* NWSCommon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSCommon.m; sourceTree = "<group>"; };
-		B38832A316309C5E0082F729 /* NWService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWService.h; sourceTree = "<group>"; };
+		B38832A316309C5E0082F729 /* NWSpaghetti.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSpaghetti.h; sourceTree = "<group>"; };
 		B38832A416309C5E0082F729 /* NWSVarStat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSVarStat.h; sourceTree = "<group>"; };
 		B38832A516309C5E0082F729 /* NWSVarStat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSVarStat.m; sourceTree = "<group>"; };
 		B38832A716309C5E0082F729 /* NWSMapping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSMapping.h; sourceTree = "<group>"; };
@@ -395,7 +395,7 @@
 		B38832AC16309C5E0082F729 /* NWSMappingValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSMappingValidator.m; sourceTree = "<group>"; };
 		B38832AD16309C5E0082F729 /* NWSPolicy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSPolicy.h; sourceTree = "<group>"; };
 		B38832AE16309C5E0082F729 /* NWSPolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSPolicy.m; sourceTree = "<group>"; };
-		B38832AF16309C5E0082F729 /* NWService-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NWService-Prefix.pch"; sourceTree = "<group>"; };
+		B38832AF16309C5E0082F729 /* Spaghetti-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spaghetti-Prefix.pch"; sourceTree = "<group>"; };
 		B38832B116309C5E0082F729 /* NWSArrayObjectID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSArrayObjectID.h; sourceTree = "<group>"; };
 		B38832B216309C5E0082F729 /* NWSArrayObjectID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSArrayObjectID.m; sourceTree = "<group>"; };
 		B38832B316309C5E0082F729 /* NWSManagedObjectID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSManagedObjectID.h; sourceTree = "<group>"; };
@@ -486,7 +486,7 @@
 		B388330F16309C5E0082F729 /* NWSTransform.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSTransform.m; sourceTree = "<group>"; };
 		B388331216309C5E0082F729 /* NWSTestTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSTestTools.h; sourceTree = "<group>"; };
 		B388331316309C5E0082F729 /* NWSTestTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSTestTools.m; sourceTree = "<group>"; };
-		B388331616309C5E0082F729 /* NWServiceTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NWServiceTest-Info.plist"; sourceTree = "<group>"; };
+		B388331616309C5E0082F729 /* SpaghettiTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpaghettiTest-Info.plist"; sourceTree = "<group>"; };
 		B388331E16309C5E0082F729 /* NWSCommonTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSCommonTest.m; sourceTree = "<group>"; };
 		B388331F16309C5E0082F729 /* NWSHTTPTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSHTTPTest.m; sourceTree = "<group>"; };
 		B388332016309C5E0082F729 /* NWSMappingTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSMappingTest.m; sourceTree = "<group>"; };
@@ -516,7 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B388320B16309B730082F729 /* Foundation.framework in Frameworks */,
-				B388320E16309B730082F729 /* libNWServiceTouch.a in Frameworks */,
+				B388320E16309B730082F729 /* libSpaghettiTouch.a in Frameworks */,
 				B388343116309F9B0082F729 /* libxml2.dylib in Frameworks */,
 				B388343C1630A1210082F729 /* SenTestingKit.framework in Frameworks */,
 				B38834561630A2BB0082F729 /* CoreData.framework in Frameworks */,
@@ -537,7 +537,7 @@
 			files = (
 				B388343B1630A11E0082F729 /* SenTestingKit.framework in Frameworks */,
 				B388323B16309BB90082F729 /* Cocoa.framework in Frameworks */,
-				B388323E16309BB90082F729 /* libNWServiceCocoa.a in Frameworks */,
+				B388323E16309BB90082F729 /* libSpaghettiCocoa.a in Frameworks */,
 				B38834331630A0070082F729 /* libxml2.dylib in Frameworks */,
 				B38834551630A2BB0082F729 /* CoreData.framework in Frameworks */,
 			);
@@ -547,7 +547,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B388344D1630A19B0082F729 /* libNWServiceTouch.a in Frameworks */,
+				B388344D1630A19B0082F729 /* libSpaghettiTouch.a in Frameworks */,
 				B388341516309E6D0082F729 /* libxml2.dylib in Frameworks */,
 				B388341716309E720082F729 /* UIKit.framework in Frameworks */,
 				B388325516309C060082F729 /* Foundation.framework in Frameworks */,
@@ -574,11 +574,11 @@
 		B38831F616309B730082F729 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B38831F516309B730082F729 /* libNWServiceTouch.a */,
-				B388320616309B730082F729 /* NWServiceTouchTest.octest */,
-				B388322716309BB80082F729 /* libNWServiceCocoa.a */,
-				B388323916309BB90082F729 /* NWServiceCocoaTest.octest */,
-				B388325216309C060082F729 /* NWServiceDemo.app */,
+				B38831F516309B730082F729 /* libSpaghettiTouch.a */,
+				B388320616309B730082F729 /* SpaghettiTouchTest.octest */,
+				B388322716309BB80082F729 /* libSpaghettiCocoa.a */,
+				B388323916309BB90082F729 /* SpaghettiCocoaTest.octest */,
+				B388325216309C060082F729 /* SpaghettiDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -697,7 +697,7 @@
 			children = (
 				B38832A116309C5E0082F729 /* NWSCommon.h */,
 				B38832A216309C5E0082F729 /* NWSCommon.m */,
-				B38832A316309C5E0082F729 /* NWService.h */,
+				B38832A316309C5E0082F729 /* NWSpaghetti.h */,
 				B38832A416309C5E0082F729 /* NWSVarStat.h */,
 				B38832A516309C5E0082F729 /* NWSVarStat.m */,
 			);
@@ -905,8 +905,8 @@
 				B388327316309C5E0082F729 /* Icon.png */,
 				B388327416309C5E0082F729 /* Icon@2x.png */,
 				B388327516309C5E0082F729 /* main.m */,
-				B388328116309C5E0082F729 /* NWServiceDemo-Info.plist */,
-				B388328216309C5E0082F729 /* NWServiceDemo-Prefix.pch */,
+				B388328116309C5E0082F729 /* SpaghettiDemo-Info.plist */,
+				B388328216309C5E0082F729 /* SpaghettiDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -914,7 +914,7 @@
 		B388332616309D160082F729 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B38832AF16309C5E0082F729 /* NWService-Prefix.pch */,
+				B38832AF16309C5E0082F729 /* Spaghetti-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -922,7 +922,7 @@
 		B388332716309D370082F729 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B388331616309C5E0082F729 /* NWServiceTest-Info.plist */,
+				B388331616309C5E0082F729 /* SpaghettiTest-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -943,7 +943,7 @@
 				B388333416309D710082F729 /* NWSHTTPDialogue.h in Headers */,
 				B388333616309D710082F729 /* NWSHTTPEndpoint.h in Headers */,
 				B388333816309D710082F729 /* NWSCommon.h in Headers */,
-				B388333A16309D710082F729 /* NWService.h in Headers */,
+				B388333A16309D710082F729 /* NWSpaghetti.h in Headers */,
 				B388333B16309D710082F729 /* NWSVarStat.h in Headers */,
 				B388333D16309D710082F729 /* NWSMapping.h in Headers */,
 				B388333F16309D710082F729 /* NWSMappingContext.h in Headers */,
@@ -1009,7 +1009,7 @@
 				B38833AA16309DC90082F729 /* NWSHTTPDialogue.h in Headers */,
 				B38833AC16309DC90082F729 /* NWSHTTPEndpoint.h in Headers */,
 				B38833AE16309DC90082F729 /* NWSCommon.h in Headers */,
-				B38833B016309DC90082F729 /* NWService.h in Headers */,
+				B38833B016309DC90082F729 /* NWSpaghetti.h in Headers */,
 				B38833B116309DC90082F729 /* NWSVarStat.h in Headers */,
 				B38833B316309DC90082F729 /* NWSMapping.h in Headers */,
 				B38833B516309DC90082F729 /* NWSMappingContext.h in Headers */,
@@ -1065,9 +1065,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		B38831F416309B730082F729 /* NWServiceTouchStatic */ = {
+		B38831F416309B730082F729 /* SpaghettiTouchStatic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B388321C16309B730082F729 /* Build configuration list for PBXNativeTarget "NWServiceTouchStatic" */;
+			buildConfigurationList = B388321C16309B730082F729 /* Build configuration list for PBXNativeTarget "SpaghettiTouchStatic" */;
 			buildPhases = (
 				B38831F116309B730082F729 /* Sources */,
 				B38831F216309B730082F729 /* Frameworks */,
@@ -1077,14 +1077,14 @@
 			);
 			dependencies = (
 			);
-			name = NWServiceTouchStatic;
-			productName = NWServiceTouch;
-			productReference = B38831F516309B730082F729 /* libNWServiceTouch.a */;
+			name = SpaghettiTouchStatic;
+			productName = SpaghettiTouch;
+			productReference = B38831F516309B730082F729 /* libSpaghettiTouch.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		B388320516309B730082F729 /* NWServiceTouchTest */ = {
+		B388320516309B730082F729 /* SpaghettiTouchTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B388321D16309B730082F729 /* Build configuration list for PBXNativeTarget "NWServiceTouchTest" */;
+			buildConfigurationList = B388321D16309B730082F729 /* Build configuration list for PBXNativeTarget "SpaghettiTouchTest" */;
 			buildPhases = (
 				B388320116309B730082F729 /* Sources */,
 				B388320216309B730082F729 /* Frameworks */,
@@ -1096,14 +1096,14 @@
 			dependencies = (
 				B388320D16309B730082F729 /* PBXTargetDependency */,
 			);
-			name = NWServiceTouchTest;
-			productName = NWServiceTouchTests;
-			productReference = B388320616309B730082F729 /* NWServiceTouchTest.octest */;
+			name = SpaghettiTouchTest;
+			productName = SpaghettiTouchTests;
+			productReference = B388320616309B730082F729 /* SpaghettiTouchTest.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		B388322616309BB80082F729 /* NWServiceCocoaStatic */ = {
+		B388322616309BB80082F729 /* SpaghettiCocoaStatic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B388324816309BB90082F729 /* Build configuration list for PBXNativeTarget "NWServiceCocoaStatic" */;
+			buildConfigurationList = B388324816309BB90082F729 /* Build configuration list for PBXNativeTarget "SpaghettiCocoaStatic" */;
 			buildPhases = (
 				B388322316309BB80082F729 /* Sources */,
 				B388322416309BB80082F729 /* Frameworks */,
@@ -1113,14 +1113,14 @@
 			);
 			dependencies = (
 			);
-			name = NWServiceCocoaStatic;
-			productName = NWServiceCocoa;
-			productReference = B388322716309BB80082F729 /* libNWServiceCocoa.a */;
+			name = SpaghettiCocoaStatic;
+			productName = SpaghettiCocoa;
+			productReference = B388322716309BB80082F729 /* libSpaghettiCocoa.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		B388323816309BB90082F729 /* NWServiceCocoaTest */ = {
+		B388323816309BB90082F729 /* SpaghettiCocoaTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B388324B16309BB90082F729 /* Build configuration list for PBXNativeTarget "NWServiceCocoaTest" */;
+			buildConfigurationList = B388324B16309BB90082F729 /* Build configuration list for PBXNativeTarget "SpaghettiCocoaTest" */;
 			buildPhases = (
 				B388323416309BB90082F729 /* Sources */,
 				B388323516309BB90082F729 /* Frameworks */,
@@ -1132,14 +1132,14 @@
 			dependencies = (
 				B388323D16309BB90082F729 /* PBXTargetDependency */,
 			);
-			name = NWServiceCocoaTest;
-			productName = NWServiceCocoaTests;
-			productReference = B388323916309BB90082F729 /* NWServiceCocoaTest.octest */;
+			name = SpaghettiCocoaTest;
+			productName = SpaghettiCocoaTests;
+			productReference = B388323916309BB90082F729 /* SpaghettiCocoaTest.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		B388325116309C060082F729 /* NWServiceTouchDemo */ = {
+		B388325116309C060082F729 /* SpaghettiTouchDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B388326A16309C060082F729 /* Build configuration list for PBXNativeTarget "NWServiceTouchDemo" */;
+			buildConfigurationList = B388326A16309C060082F729 /* Build configuration list for PBXNativeTarget "SpaghettiTouchDemo" */;
 			buildPhases = (
 				B388324E16309C060082F729 /* Sources */,
 				B388324F16309C060082F729 /* Frameworks */,
@@ -1150,9 +1150,9 @@
 			dependencies = (
 				B388344C1630A1970082F729 /* PBXTargetDependency */,
 			);
-			name = NWServiceTouchDemo;
-			productName = NWServiceTouchDemo;
-			productReference = B388325216309C060082F729 /* NWServiceDemo.app */;
+			name = SpaghettiTouchDemo;
+			productName = SpaghettiTouchDemo;
+			productReference = B388325216309C060082F729 /* SpaghettiDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1163,7 +1163,7 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 			};
-			buildConfigurationList = B38831EA163099C90082F729 /* Build configuration list for PBXProject "NWService" */;
+			buildConfigurationList = B38831EA163099C90082F729 /* Build configuration list for PBXProject "Spaghetti" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1175,13 +1175,13 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B38831F416309B730082F729 /* NWServiceTouchStatic */,
-				B388322616309BB80082F729 /* NWServiceCocoaStatic */,
-				B388320516309B730082F729 /* NWServiceTouchTest */,
-				B388323816309BB90082F729 /* NWServiceCocoaTest */,
-				B388325116309C060082F729 /* NWServiceTouchDemo */,
-				B30D2F671630AE4C007834AA /* NWServiceUniversal */,
-				B38834501630A2000082F729 /* NWServiceDocs */,
+				B38831F416309B730082F729 /* SpaghettiTouchStatic */,
+				B388322616309BB80082F729 /* SpaghettiCocoaStatic */,
+				B388320516309B730082F729 /* SpaghettiTouchTest */,
+				B388323816309BB90082F729 /* SpaghettiCocoaTest */,
+				B388325116309C060082F729 /* SpaghettiTouchDemo */,
+				B30D2F671630AE4C007834AA /* SpaghettiUniversal */,
+				B38834501630A2000082F729 /* SpaghettiDocs */,
 			);
 		};
 /* End PBXProject section */
@@ -1229,7 +1229,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#set -e\n\nPROJECT=\"NWService\"\nTARGET_TOUCH=\"NWServiceTouchStatic\"\nTARGET_COCOA=\"NWServiceCocoaStatic\"\nHEADERS=\"usr/local/include\"\nPRODUCT=\"NWService\"\nOUTPUT=\"NWService\"\n\necho \"Remove previous\"\nrm -rf \"${SRCROOT}/build/$OUTPUT/\"\nrm -rf \"${SRCROOT}/build/$OUTPUT.framework/\"\n\necho \"Building iphoneos and iphonesimulator\"\nxcodebuild -project \"${SRCROOT}/$PROJECT.xcodeproj\" -target $TARGET_TOUCH -configuration Release -arch \"armv6 armv7 armv7s\" -sdk iphoneos\nxcodebuild -project \"${SRCROOT}/$PROJECT.xcodeproj\" -target $TARGET_TOUCH -configuration Release -arch i386 -sdk iphonesimulator\nxcodebuild -project \"${SRCROOT}/$PROJECT.xcodeproj\" -target $TARGET_COCOA -configuration Release -arch x86_64 -sdk macosx\n\necho \"Lipoing things together\"\nmkdir \"${SRCROOT}/build/$OUTPUT\"\nlipo -create -output \"${SRCROOT}/build/$OUTPUT/lib$OUTPUT.a\" \"${SRCROOT}/build/Release/lib$PRODUCT.a\" \"${SRCROOT}/build/Release-iphoneos/lib$PRODUCT.a\" \"${SRCROOT}/build/Release-iphonesimulator/lib$PRODUCT.a\"\ncp -R \"${SRCROOT}/build/Release/$HEADERS\" \"${SRCROOT}/build/$OUTPUT/Headers\"\n\necho \"Create framework\"\nmkdir -p \"${SRCROOT}/build/$OUTPUT.framework/Versions/A\"\ncp -R \"${SRCROOT}/build/$OUTPUT/Headers\" \"${SRCROOT}/build/$OUTPUT.framework/Versions/A\"\ncp \"${SRCROOT}/build/$OUTPUT/lib$OUTPUT.a\" \"${SRCROOT}/build/$OUTPUT.framework/Versions/A/$OUTPUT\"\n\nln -s \"A\" \"${SRCROOT}/build/$OUTPUT.framework/Versions/Current\"\nln -s \"Versions/Current/Headers\" \"${SRCROOT}/build/$OUTPUT.framework/Headers\"\nln -s \"Versions/Current/$OUTPUT\" \"${SRCROOT}/build/$OUTPUT.framework/$OUTPUT\"\n\necho \"Cleaning up\"\nrm -rf \"${SRCROOT}/build/Release/\"\nrm -rf \"${SRCROOT}/build/Release-iphoneos/\"\nrm -rf \"${SRCROOT}/build/Release-iphonesimulator/\"\nrm -rf \"${SRCROOT}/build/$PROJECT.build/\"\n\necho \"Done\"\n";
+			shellScript = "#set -e\n\nPROJECT=\"Spaghetti\"\nTARGET_TOUCH=\"SpaghettiTouchStatic\"\nTARGET_COCOA=\"SpaghettiCocoaStatic\"\nHEADERS=\"usr/local/include\"\nPRODUCT=\"Spaghetti\"\nOUTPUT=\"Spaghetti\"\n\necho \"Remove previous\"\nrm -rf \"${SRCROOT}/build/$OUTPUT/\"\nrm -rf \"${SRCROOT}/build/$OUTPUT.framework/\"\n\necho \"Building iphoneos and iphonesimulator\"\nxcodebuild -project \"${SRCROOT}/$PROJECT.xcodeproj\" -target $TARGET_TOUCH -configuration Release -arch \"armv6 armv7 armv7s\" -sdk iphoneos\nxcodebuild -project \"${SRCROOT}/$PROJECT.xcodeproj\" -target $TARGET_TOUCH -configuration Release -arch i386 -sdk iphonesimulator\nxcodebuild -project \"${SRCROOT}/$PROJECT.xcodeproj\" -target $TARGET_COCOA -configuration Release -arch x86_64 -sdk macosx\n\necho \"Lipoing things together\"\nmkdir \"${SRCROOT}/build/$OUTPUT\"\nlipo -create -output \"${SRCROOT}/build/$OUTPUT/lib$OUTPUT.a\" \"${SRCROOT}/build/Release/lib$PRODUCT.a\" \"${SRCROOT}/build/Release-iphoneos/lib$PRODUCT.a\" \"${SRCROOT}/build/Release-iphonesimulator/lib$PRODUCT.a\"\ncp -R \"${SRCROOT}/build/Release/$HEADERS\" \"${SRCROOT}/build/$OUTPUT/Headers\"\n\necho \"Create framework\"\nmkdir -p \"${SRCROOT}/build/$OUTPUT.framework/Versions/A\"\ncp -R \"${SRCROOT}/build/$OUTPUT/Headers\" \"${SRCROOT}/build/$OUTPUT.framework/Versions/A\"\ncp \"${SRCROOT}/build/$OUTPUT/lib$OUTPUT.a\" \"${SRCROOT}/build/$OUTPUT.framework/Versions/A/$OUTPUT\"\n\nln -s \"A\" \"${SRCROOT}/build/$OUTPUT.framework/Versions/Current\"\nln -s \"Versions/Current/Headers\" \"${SRCROOT}/build/$OUTPUT.framework/Headers\"\nln -s \"Versions/Current/$OUTPUT\" \"${SRCROOT}/build/$OUTPUT.framework/$OUTPUT\"\n\necho \"Cleaning up\"\nrm -rf \"${SRCROOT}/build/Release/\"\nrm -rf \"${SRCROOT}/build/Release-iphoneos/\"\nrm -rf \"${SRCROOT}/build/Release-iphonesimulator/\"\nrm -rf \"${SRCROOT}/build/$PROJECT.build/\"\n\necho \"Done\"\n";
 		};
 		B388320416309B730082F729 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1268,7 +1268,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\necho \"Running appledoc...\"\n/usr/local/bin/appledoc -p NWService -v 0.2 -c noodlewerk --company-id com.noodlewerk -o $TEMP_DIR --logformat xcode --exit-threshold 2 $SRCROOT/Library\n";
+			shellScript = "#!/bin/sh\n\necho \"Running appledoc...\"\n/usr/local/bin/appledoc -p Spaghetti -v 0.2 -c noodlewerk --company-id com.noodlewerk -o $TEMP_DIR --logformat xcode --exit-threshold 2 $SRCROOT/Library\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1453,17 +1453,17 @@
 /* Begin PBXTargetDependency section */
 		B388320D16309B730082F729 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B38831F416309B730082F729 /* NWServiceTouchStatic */;
+			target = B38831F416309B730082F729 /* SpaghettiTouchStatic */;
 			targetProxy = B388320C16309B730082F729 /* PBXContainerItemProxy */;
 		};
 		B388323D16309BB90082F729 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B388322616309BB80082F729 /* NWServiceCocoaStatic */;
+			target = B388322616309BB80082F729 /* SpaghettiCocoaStatic */;
 			targetProxy = B388323C16309BB90082F729 /* PBXContainerItemProxy */;
 		};
 		B388344C1630A1970082F729 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B38831F416309B730082F729 /* NWServiceTouchStatic */;
+			target = B38831F416309B730082F729 /* SpaghettiTouchStatic */;
 			targetProxy = B388344B1630A1970082F729 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1509,15 +1509,15 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/NWServiceTouch.dst;
+				DSTROOT = /tmp/SpaghettiTouch.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Library/NWService-Prefix.pch";
+				GCC_PREFIX_HEADER = "Library/Spaghetti-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
-					"NWL_LIB=NWService",
+					"NWL_LIB=Spaghetti",
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -1530,7 +1530,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_NAME = NWServiceTouch;
+				PRODUCT_NAME = SpaghettiTouch;
 				PUBLIC_HEADERS_FOLDER_PATH = ../../Headers;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1547,10 +1547,10 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/NWServiceTouch.dst;
+				DSTROOT = /tmp/SpaghettiTouch.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Library/NWService-Prefix.pch";
+				GCC_PREFIX_HEADER = "Library/Spaghetti-Prefix.pch";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1560,7 +1560,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_NAME = NWServiceTouch;
+				PRODUCT_NAME = SpaghettiTouch;
 				PUBLIC_HEADERS_FOLDER_PATH = ../../Headers;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1586,7 +1586,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Library/NWService-Prefix.pch";
+				GCC_PREFIX_HEADER = "Library/Spaghetti-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1595,7 +1595,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Test/NWServiceTest-Info.plist";
+				INFOPLIST_FILE = "Test/SpaghettiTest-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1620,11 +1620,11 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Library/NWService-Prefix.pch";
+				GCC_PREFIX_HEADER = "Library/Spaghetti-Prefix.pch";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Test/NWServiceTest-Info.plist";
+				INFOPLIST_FILE = "Test/SpaghettiTest-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1650,10 +1650,10 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Library/NWService-Prefix.pch";
+				GCC_PREFIX_HEADER = "Library/Spaghetti-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
-					"NWL_LIB=NWService",
+					"NWL_LIB=Spaghetti",
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -1666,7 +1666,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = NWServiceCocoa;
+				PRODUCT_NAME = SpaghettiCocoa;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -1687,7 +1687,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Library/NWService-Prefix.pch";
+				GCC_PREFIX_HEADER = "Library/Spaghetti-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -1697,7 +1697,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = NWServiceCocoa;
+				PRODUCT_NAME = SpaghettiCocoa;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -1720,7 +1720,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Library/NWService-Prefix.pch";
+				GCC_PREFIX_HEADER = "Library/Spaghetti-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1730,7 +1730,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Test/NWServiceTest-Info.plist";
+				INFOPLIST_FILE = "Test/SpaghettiTest-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1756,12 +1756,12 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Library/NWService-Prefix.pch";
+				GCC_PREFIX_HEADER = "Library/Spaghetti-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Test/NWServiceTest-Info.plist";
+				INFOPLIST_FILE = "Test/SpaghettiTest-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1788,20 +1788,20 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Demo/NWServiceDemo-Prefix.pch";
+				GCC_PREFIX_HEADER = "Demo/SpaghettiDemo-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
-					"NWL_LIB=NWServiceDemo",
+					"NWL_LIB=SpaghettiDemo",
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Demo/NWServiceDemo-Info.plist";
+				INFOPLIST_FILE = "Demo/SpaghettiDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = NWServiceDemo;
+				PRODUCT_NAME = SpaghettiDemo;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -1825,18 +1825,18 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Demo/NWServiceDemo-Prefix.pch";
+				GCC_PREFIX_HEADER = "Demo/SpaghettiDemo-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"NWL_LIB=NWServiceDemo",
+					"NWL_LIB=SpaghettiDemo",
 					"$(inherited)",
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Demo/NWServiceDemo-Info.plist";
+				INFOPLIST_FILE = "Demo/SpaghettiDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PRODUCT_NAME = NWServiceDemo;
+				PRODUCT_NAME = SpaghettiDemo;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1863,7 +1863,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B30D2F681630AE4C007834AA /* Build configuration list for PBXAggregateTarget "NWServiceUniversal" */ = {
+		B30D2F681630AE4C007834AA /* Build configuration list for PBXAggregateTarget "SpaghettiUniversal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B30D2F691630AE4C007834AA /* Debug */,
@@ -1872,7 +1872,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B38831EA163099C90082F729 /* Build configuration list for PBXProject "NWService" */ = {
+		B38831EA163099C90082F729 /* Build configuration list for PBXProject "Spaghetti" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B38831EC163099C90082F729 /* Debug */,
@@ -1881,7 +1881,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B388321C16309B730082F729 /* Build configuration list for PBXNativeTarget "NWServiceTouchStatic" */ = {
+		B388321C16309B730082F729 /* Build configuration list for PBXNativeTarget "SpaghettiTouchStatic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B388321816309B730082F729 /* Debug */,
@@ -1890,7 +1890,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B388321D16309B730082F729 /* Build configuration list for PBXNativeTarget "NWServiceTouchTest" */ = {
+		B388321D16309B730082F729 /* Build configuration list for PBXNativeTarget "SpaghettiTouchTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B388321A16309B730082F729 /* Debug */,
@@ -1899,7 +1899,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B388324816309BB90082F729 /* Build configuration list for PBXNativeTarget "NWServiceCocoaStatic" */ = {
+		B388324816309BB90082F729 /* Build configuration list for PBXNativeTarget "SpaghettiCocoaStatic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B388324916309BB90082F729 /* Debug */,
@@ -1908,7 +1908,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B388324B16309BB90082F729 /* Build configuration list for PBXNativeTarget "NWServiceCocoaTest" */ = {
+		B388324B16309BB90082F729 /* Build configuration list for PBXNativeTarget "SpaghettiCocoaTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B388324C16309BB90082F729 /* Debug */,
@@ -1917,7 +1917,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B388326A16309C060082F729 /* Build configuration list for PBXNativeTarget "NWServiceTouchDemo" */ = {
+		B388326A16309C060082F729 /* Build configuration list for PBXNativeTarget "SpaghettiTouchDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B388326B16309C060082F729 /* Debug */,
@@ -1926,7 +1926,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B38834511630A2000082F729 /* Build configuration list for PBXAggregateTarget "NWServiceDocs" */ = {
+		B38834511630A2000082F729 /* Build configuration list for PBXAggregateTarget "SpaghettiDocs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B38834521630A2000082F729 /* Debug */,

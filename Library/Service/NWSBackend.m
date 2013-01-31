@@ -1,12 +1,12 @@
 //
 //  NWSBackend.m
-//  NWService
+//  Spaghetti
 //
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
 #import "NWSBackend.h"
-#import "NWService.h"
+#import "NWSpaghetti.h"
 #import "NWSSchedule.h"
 #import "NWSOperation.h"
 #import "NWSCommon.h"

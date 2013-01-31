@@ -1,15 +1,14 @@
 //
 //  NWSPerformanceViewController.m
-//  NWService
+//  Spaghetti
 //
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
 #import "NWSPerformanceViewController.h"
-#import "NWService.h"
+#import "NWSpaghetti.h"
 #import "NWSVarStat.h"
 #import "NWSCommon.h"
-//#import "NWSMapsService.h"
 
 
 #define Log(__a, ...) [self printLine:YES format:__a, ##__VA_ARGS__]
@@ -42,7 +41,6 @@
     NSManagedObjectContext *result = [[NSManagedObjectContext alloc] init];
     [result setPersistentStoreCoordinator:coordinator];
     
-//    backend = NWSMapsService.backend;
     store = [[NWSCoreDataStore alloc] initWithContext:context queue:NSOperationQueue.mainQueue];
 }
 
@@ -61,7 +59,7 @@
     textView = [[UITextView alloc] initWithFrame:self.view.bounds];
     indent = @"   ";
     Log(@"");
-    Log(@"== NWService performance test ==");
+    Log(@"== Spaghetti performance test ==");
     [self.view addSubview:textView];
 }
 

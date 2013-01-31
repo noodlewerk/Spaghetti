@@ -1,5 +1,5 @@
 
-NWService
+Spaghetti
 =========
 
 *A Cocoa framework for object mapping to and from not-so-RESTful webservices.*
@@ -57,21 +57,21 @@ The mapping and storing of data use a set of custom utilities that provide funct
   
 Build in XCode
 --------------
-The source comes with an XCode 4 project file that should take care of building the library and running the demo app. To use NWService in your project, you can link to its static library, or directly include those source files needed. The latter does require your project to use the LLVM 3.0 compiler with ARC.
+The source comes with an XCode 4 project file that should take care of building the library and running the demo app. To use Spaghetti in your project, you can link to its static library, or directly include those source files needed. The latter does require your project to use the LLVM 3.0 compiler with ARC.
 
 
 Documentation
 -------------
 Documentation generated and installed by running from the project root:
 
-`appledoc -p NWService -v 0.1 -c Noodlewerk --company-id com.noodlewerk -o . .`
+`appledoc -p Spaghetti -v 0.1 -c Noodlewerk --company-id com.noodlewerk -o . .`
 
 See the [appledoc documentation](http://gentlebytes.com/appledoc/) for more info.
 
 
 License
 -------
-NWLogging is licensed under the terms of the BSD 2-Clause License, see the included LICENSE file.
+Spaghetti is licensed under the terms of the BSD 2-Clause License, see the included LICENSE file.
 
 
 Authors

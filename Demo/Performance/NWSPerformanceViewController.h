@@ -1,6 +1,6 @@
 //
 //  NWSPerformanceViewController.h
-//  NWService
+//  Spaghetti
 //
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //

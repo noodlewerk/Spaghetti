@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'NWService' target in the 'NWService' project
+// Prefix header for all source files of the 'Spaghetti' target in the 'Spaghetti' project
 //
 
 #import <Availability.h>
@@ -14,5 +14,5 @@
     #import <CoreData/CoreData.h>
 #endif
 
-#define NWL_LIB NWServiceDemo
+#define NWL_LIB SpaghettiDemo
 #import "NWLCore.h"

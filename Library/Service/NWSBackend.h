@@ -1,6 +1,6 @@
 //
 //  NWSBackend.h
-//  NWService
+//  Spaghetti
 //
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
@@ -9,7 +9,7 @@
 
 
 /**
- * A comfortable entrance point to NWService, NWSBackend represents the backend being serviced by providing all endpoints, calls and mapping it contains.
+ * A comfortable entrance point to Spaghetti, NWSBackend represents the backend being serviced by providing all endpoints, calls and mapping it contains.
  *
  * By fully configuring a backend on application startup, making a call becomes a small effort. All calls, but also mappings and endpoints, will be available under their given name, which provides a descriptive tag.
  *
