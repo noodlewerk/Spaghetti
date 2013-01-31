@@ -7,7 +7,7 @@
 //
 
 #import "NWSBasicExampleTableViewController.h"
-#import "NWSpaghetti.h"
+#import "Spaghetti.h"
 
 #pragma mark -
 

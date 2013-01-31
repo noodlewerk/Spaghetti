@@ -6,7 +6,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "NWSpaghetti.h"
+#import "Spaghetti.h"
 
 
 @interface NWSScheduleTest : SenTestCase

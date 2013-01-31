@@ -6,7 +6,7 @@
 //
 
 #import "NWSPerformanceViewController.h"
-#import "NWSpaghetti.h"
+#import "Spaghetti.h"
 #import "NWSVarStat.h"
 #import "NWSCommon.h"
 

@@ -6,7 +6,7 @@
 //
 
 #import "NWSBackend.h"
-#import "NWSpaghetti.h"
+#import "Spaghetti.h"
 #import "NWSSchedule.h"
 #import "NWSOperation.h"
 #import "NWSCommon.h"

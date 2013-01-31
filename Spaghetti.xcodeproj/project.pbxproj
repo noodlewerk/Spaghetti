@@ -56,7 +56,7 @@
 		B388333716309D710082F729 /* NWSHTTPEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = B388329F16309C5E0082F729 /* NWSHTTPEndpoint.m */; };
 		B388333816309D710082F729 /* NWSCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A116309C5E0082F729 /* NWSCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B388333916309D710082F729 /* NWSCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832A216309C5E0082F729 /* NWSCommon.m */; };
-		B388333A16309D710082F729 /* NWSpaghetti.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A316309C5E0082F729 /* NWSpaghetti.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B388333A16309D710082F729 /* Spaghetti.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A316309C5E0082F729 /* Spaghetti.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B388333B16309D710082F729 /* NWSVarStat.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A416309C5E0082F729 /* NWSVarStat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B388333C16309D710082F729 /* NWSVarStat.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832A516309C5E0082F729 /* NWSVarStat.m */; };
 		B388333D16309D710082F729 /* NWSMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A716309C5E0082F729 /* NWSMapping.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -173,7 +173,7 @@
 		B38833AD16309DC90082F729 /* NWSHTTPEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = B388329F16309C5E0082F729 /* NWSHTTPEndpoint.m */; };
 		B38833AE16309DC90082F729 /* NWSCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A116309C5E0082F729 /* NWSCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B38833AF16309DC90082F729 /* NWSCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832A216309C5E0082F729 /* NWSCommon.m */; };
-		B38833B016309DC90082F729 /* NWSpaghetti.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A316309C5E0082F729 /* NWSpaghetti.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B38833B016309DC90082F729 /* Spaghetti.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A316309C5E0082F729 /* Spaghetti.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B38833B116309DC90082F729 /* NWSVarStat.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A416309C5E0082F729 /* NWSVarStat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B38833B216309DC90082F729 /* NWSVarStat.m in Sources */ = {isa = PBXBuildFile; fileRef = B38832A516309C5E0082F729 /* NWSVarStat.m */; };
 		B38833B316309DC90082F729 /* NWSMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = B38832A716309C5E0082F729 /* NWSMapping.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -384,7 +384,7 @@
 		B388329F16309C5E0082F729 /* NWSHTTPEndpoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSHTTPEndpoint.m; sourceTree = "<group>"; };
 		B38832A116309C5E0082F729 /* NWSCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSCommon.h; sourceTree = "<group>"; };
 		B38832A216309C5E0082F729 /* NWSCommon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSCommon.m; sourceTree = "<group>"; };
-		B38832A316309C5E0082F729 /* NWSpaghetti.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSpaghetti.h; sourceTree = "<group>"; };
+		B38832A316309C5E0082F729 /* Spaghetti.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spaghetti.h; sourceTree = "<group>"; };
 		B38832A416309C5E0082F729 /* NWSVarStat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSVarStat.h; sourceTree = "<group>"; };
 		B38832A516309C5E0082F729 /* NWSVarStat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSVarStat.m; sourceTree = "<group>"; };
 		B38832A716309C5E0082F729 /* NWSMapping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSMapping.h; sourceTree = "<group>"; };
@@ -697,7 +697,7 @@
 			children = (
 				B38832A116309C5E0082F729 /* NWSCommon.h */,
 				B38832A216309C5E0082F729 /* NWSCommon.m */,
-				B38832A316309C5E0082F729 /* NWSpaghetti.h */,
+				B38832A316309C5E0082F729 /* Spaghetti.h */,
 				B38832A416309C5E0082F729 /* NWSVarStat.h */,
 				B38832A516309C5E0082F729 /* NWSVarStat.m */,
 			);
@@ -943,7 +943,7 @@
 				B388333416309D710082F729 /* NWSHTTPDialogue.h in Headers */,
 				B388333616309D710082F729 /* NWSHTTPEndpoint.h in Headers */,
 				B388333816309D710082F729 /* NWSCommon.h in Headers */,
-				B388333A16309D710082F729 /* NWSpaghetti.h in Headers */,
+				B388333A16309D710082F729 /* Spaghetti.h in Headers */,
 				B388333B16309D710082F729 /* NWSVarStat.h in Headers */,
 				B388333D16309D710082F729 /* NWSMapping.h in Headers */,
 				B388333F16309D710082F729 /* NWSMappingContext.h in Headers */,
@@ -1009,7 +1009,7 @@
 				B38833AA16309DC90082F729 /* NWSHTTPDialogue.h in Headers */,
 				B38833AC16309DC90082F729 /* NWSHTTPEndpoint.h in Headers */,
 				B38833AE16309DC90082F729 /* NWSCommon.h in Headers */,
-				B38833B016309DC90082F729 /* NWSpaghetti.h in Headers */,
+				B38833B016309DC90082F729 /* Spaghetti.h in Headers */,
 				B38833B116309DC90082F729 /* NWSVarStat.h in Headers */,
 				B38833B316309DC90082F729 /* NWSMapping.h in Headers */,
 				B38833B516309DC90082F729 /* NWSMappingContext.h in Headers */,
