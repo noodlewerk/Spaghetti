@@ -16,7 +16,7 @@
 @implementation NWSHTTPDialogue {
     NSDate *startCall;
     NSDate *startRequest;
-    NWSHTTPConnection *connection;
+    NWSHTTPConnection *_connection;
     BOOL cancelled;
 }
 
@@ -66,7 +66,7 @@
     DEBUG_STAT_START_IN(startRequest);
     
     NWSConnectionDoneBlock doneBlock = ^(NSHTTPURLResponse *_response, NSData *_data) {
-        connection = nil;
+        _connection = nil;
         DEBUG_STAT_STOP_IN(startRequest, self.call.endpoint.requestTime);
         // check cancel
         if (cancelled) {
@@ -84,12 +84,13 @@
         [self map];
     };
     
-    NWLogWarnIfNot(!connection, @"Dialogue should not run twice");
-    connection = [[NWSHTTPConnection alloc] initWithRequest:request];
+    NWSHTTPConnection *connection = [[NWSHTTPConnection alloc] initWithRequest:request];
     connection.doneBlock = doneBlock;
     connection.callbackQueue = self.operationQueue;
     connection.indicator = self.indicator;
     [connection start];
+    NWLogWarnIfNot(!_connection, @"Dialogue should not run twice");
+    _connection = connection;
 }
 
 - (NSURLRequest *)composeRequest
@@ -170,7 +171,7 @@
 - (void)cancel
 {
     cancelled = YES;
-    [connection cancel]; connection = nil;
+    [_connection cancel]; _connection = nil;
 }
 
 
