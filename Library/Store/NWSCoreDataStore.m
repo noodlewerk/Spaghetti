@@ -60,8 +60,8 @@
     NWLogWarnIfNot(pathsAndValues.count % 2 == 0, @"Every path needs a value");
     NSMutableArray *predicates = [[NSMutableArray alloc] initWithCapacity:pathsAndValues.count / 2];
     for (NSUInteger i = 1; i < pathsAndValues.count; i += 2) {
-        NWSPath *path = [pathsAndValues objectAtIndex:i - 1];
-        id value = [pathsAndValues objectAtIndex:i];
+        NWSPath *path = pathsAndValues[i - 1];
+        id value = pathsAndValues[i];
         NSString *pathString = nil;
         if ([path isKindOfClass:NWSSingleKeyPath.class]) {
             pathString = [(NWSSingleKeyPath *)path key];
@@ -96,11 +96,11 @@
 - (NSManagedObjectID *)fetchCachedWithEntity:(NSEntityDescription *)entity primaryPathsAndValues:(NSArray *)pathsAndValues
 {
     NWSStoreCacheKey *key = [[NWSStoreCacheKey alloc] initWithEntity:entity primaryPathsAndValues:pathsAndValues];
-    NSManagedObjectID *result = [_cache objectForKey:key];
+    NSManagedObjectID *result = _cache[key];
     if (!result) {
         result = [self fetchWithEntity:entity primaryPathsAndValues:pathsAndValues];
         if (result) {
-            [_cache setObject:result forKey:key];
+            _cache[key] = result;
         }
 #ifdef DEBUG_CACHE_CHECK
     } else {
@@ -134,8 +134,8 @@
         NSManagedObject *object = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:_context];
         // assign new object its primary values
         for (NSUInteger i = 1; i < pathsAndValues.count; i+=2) {
-            NWSPath *path = [pathsAndValues objectAtIndex:i-1];
-            id value = [pathsAndValues objectAtIndex:i];
+            NWSPath *path = pathsAndValues[i-1];
+            id value = pathsAndValues[i];
             [object setValue:value forPath:path];
         }
         return [[NWSManagedObjectID alloc] initWithID:object.objectID];
@@ -394,7 +394,7 @@
     };
     // TODO: waiting, is it safe?
     if (baseStore.queue != NSOperationQueue.currentQueue) {
-        [baseStore.queue addOperations:[NSArray arrayWithObject:[NSBlockOperation blockOperationWithBlock:[finishMigrateBlock copy]]] waitUntilFinished:YES];
+        [baseStore.queue addOperations:@[[NSBlockOperation blockOperationWithBlock:[finishMigrateBlock copy]]] waitUntilFinished:YES];
     } else {
         finishMigrateBlock();
     }
@@ -415,7 +415,7 @@
         NSNotificationCenter *center = NSNotificationCenter.defaultCenter;
         id observer = [center addObserverForName:NSManagedObjectContextDidSaveNotification object:tempStore.context queue:_queue usingBlock:^(NSNotification *notification) {
             // update fetched result controllers, see also: http://www.mlsite.net/blog/?p=518
-            NSArray* updates = [[notification.userInfo objectForKey:@"updated"] allObjects];
+            NSArray* updates = [(notification.userInfo)[@"updated"] allObjects];
             for (NSManagedObject *o in updates.reverseObjectEnumerator) {
                 id object = [_context objectWithID:o.objectID];
                 [object willAccessValueForKey:nil];

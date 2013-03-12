@@ -101,7 +101,7 @@
     if (u) {
         NSMutableURLRequest *result = [[NSMutableURLRequest alloc] initWithURL:u];
         for (NSString *key in httpCall.headers) {
-            NSString *v = [httpCall.headers objectForKey:key];
+            NSString *v = (httpCall.headers)[key];
             NSString *value = [NWSCall dereference:v parameters:self.call.parameters];
             [result setValue:value forHTTPHeaderField:key];
         }

@@ -35,7 +35,7 @@
             key = [self.class unescapeForURL:pair];
             value = NSNull.null;
         }
-        [result setObject:value forKey:key];
+        result[key] = value;
     }
     return result;
 }
@@ -44,7 +44,7 @@
 {
     NSMutableString *s = [[NSMutableString alloc] init];
     for (NSString *key in dictionary) {
-        id value = [dictionary objectForKey:key];
+        id value = dictionary[key];
         NSString *k = [self.class escapeForURL:key.description];
         if ([value isKindOfClass:NSArray.class]) {
             for (NSString *val in value) {

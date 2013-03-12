@@ -113,7 +113,7 @@
 
 - (void)setObjectEntityName:(NSString *)entityName model:(NSManagedObjectModel *)model
 {
-    NSEntityDescription *entity = [model.entitiesByName objectForKey:entityName];
+    NSEntityDescription *entity = (model.entitiesByName)[entityName];
     NWLogWarnIfNot(entity, @"Entity not found: %@", entityName);
     self.objectType = [[NWSEntityObjectType alloc] initWithEntity:entity];
 }
@@ -219,7 +219,7 @@
 
 - (void)addRelationWithElementPath:(NSString *)elementPath objectPath:(NSString *)objectPath entityName:(NSString *)entityName model:(NSManagedObjectModel *)model primary:(NSString *)primary policy:(NWSPolicy *)policy
 {
-    NSEntityDescription *entity = [model.entitiesByName objectForKey:entityName];
+    NSEntityDescription *entity = (model.entitiesByName)[entityName];
     if (entity) {
         NWSTransform *transform = [[NWSIDToObjectTransform alloc] initWithType:[[NWSEntityObjectType alloc] initWithEntity:entity] path:[NWSPath pathFromString:primary]];
         [self addRelationWithElementPath:elementPath objectPath:objectPath transform:transform policy:policy];

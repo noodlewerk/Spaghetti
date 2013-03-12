@@ -39,7 +39,7 @@
 
 + (id)transformWithInteger:(NSInteger)integer
 {
-    return [[self alloc] initWithValue:[NSNumber numberWithInteger:integer]];
+    return [[self alloc] initWithValue:@(integer)];
 }
 
 

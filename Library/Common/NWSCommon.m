@@ -89,10 +89,10 @@ static const NSUInteger NWSMaxReadableArrayLength = 24;
         return nil;
     }
     if ([self isEqualToString:@"true"] || [self isEqualToString:@"YES"]) {
-        return [NSNumber numberWithBool:YES];
+        return @YES;
     }
     if ([self isEqualToString:@"false"] || [self isEqualToString:@"NO"]) {
-        return [NSNumber numberWithBool:NO];
+        return @NO;
     }
     if ([self rangeOfString:@"e"].length || [self rangeOfString:@"E"].length) {
         NSRange r = [self rangeOfString:@"e"];
@@ -104,7 +104,7 @@ static const NSUInteger NWSMaxReadableArrayLength = 24;
             int e = [exp intValue];
             if (e || [exp isZero]) {
                 double d = c * pow(10, e);
-                return [NSNumber numberWithDouble:d];
+                return @(d);
             }
         }
         return nil;
@@ -112,12 +112,12 @@ static const NSUInteger NWSMaxReadableArrayLength = 24;
     if ([self rangeOfString:@"."].length) {
         double d = [self doubleValue];
         if (d || [self isZero]) {
-            return [NSNumber numberWithDouble:d];
+            return @(d);
         }
     } else {
         long long i = [self longLongValue];
         if (i || [self isZero]) {
-            return [NSNumber numberWithLongLong:i];
+            return @(i);
         }
     }
     return nil;

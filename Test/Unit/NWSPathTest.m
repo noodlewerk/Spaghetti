@@ -23,14 +23,14 @@
     _dictionary = [[NSMutableDictionary alloc] init];
     _array = [[NSMutableArray alloc] init];
     
-    [_dictionary setObject:@"string-1" forKey:@"string"];
-    [_dictionary setObject:[NSNumber numberWithInteger:1] forKey:@"integer"];
-    [_dictionary setObject:NSNull.null forKey:@"null"];
-    [_dictionary setObject:_dictionary forKey:@"dictionary"];
-    [_dictionary setObject:_array forKey:@"array"];
+    _dictionary[@"string"] = @"string-1";
+    _dictionary[@"integer"] = @1;
+    _dictionary[@"null"] = NSNull.null;
+    _dictionary[@"dictionary"] = _dictionary;
+    _dictionary[@"array"] = _array;
 
     [_array addObject:@"string-2"];
-    [_array addObject:[NSNumber numberWithInteger:2]];
+    [_array addObject:@2];
     [_array addObject:NSNull.null];
     [_array addObject:_dictionary];
     [_array addObject:_array];

@@ -22,7 +22,7 @@
 
 - (void)testReadable
 {
-    NSArray *i = [NSArray arrayWithObject:@"                                  "];
+    NSArray *i = @[@"                                  "];
     STAssertNotNil(i.readable, @"");
 }
 

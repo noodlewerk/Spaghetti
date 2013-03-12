@@ -57,7 +57,7 @@
 
 - (void)pushIndexInArray
 {
-    [_indexStack addObject:[NSNumber numberWithUnsignedInteger:_indexInArray]];
+    [_indexStack addObject:@(_indexInArray)];
     _indexInArray = 0;
 }
 

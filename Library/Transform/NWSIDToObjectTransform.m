@@ -35,7 +35,7 @@
 {
     if (value) {
         NWSStore *store = context.store;
-        NSArray *pathsAndValues = [[NSArray alloc] initWithObjects:_path, value, nil];
+        NSArray *pathsAndValues = @[_path, value];
         NWSObjectID *identifier = [store identifierWithType:_type primaryPathsAndValues:pathsAndValues create:_create];
         return identifier;
     } else {

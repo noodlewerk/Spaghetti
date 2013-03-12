@@ -58,7 +58,7 @@
 {
     if ([attribute isKindOfClass:NWSSingleKeyPath.class]) {
         NWSSingleKeyPath *path = (NWSSingleKeyPath *)attribute;
-        NSAttributeDescription *description = [_entity.attributesByName objectForKey:path.key];
+        NSAttributeDescription *description = (_entity.attributesByName)[path.key];
         return description != nil;
     } else if ([attribute isKindOfClass:NWSSelfPath.class]) {
         return YES;
@@ -72,7 +72,7 @@
 {
     if ([relation isKindOfClass:NWSSingleKeyPath.class]) {
         NWSSingleKeyPath *path = (NWSSingleKeyPath *)relation;
-        NSRelationshipDescription *description = [_entity.relationshipsByName objectForKey:path.key];
+        NSRelationshipDescription *description = (_entity.relationshipsByName)[path.key];
         if (!description) {
             return NO;
         }

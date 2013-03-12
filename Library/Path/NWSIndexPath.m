@@ -44,7 +44,7 @@
             NWLogWarn(@"Index path out of bounds: %i", (int)i);
             return nil;
         }
-        return [array objectAtIndex:i];
+        return array[i];
     } else if ((id)array == NSNull.null) {
         return NSNull.null; 
     } else if (array) {
@@ -64,7 +64,7 @@
             NWLogWarn(@"Index path out of bounds: %i", (int)i);
             return;
         }
-        [array replaceObjectAtIndex:i withObject:value];
+        array[i] = value;
     } else if ((id)array == NSNull.null) {
     } else if (array)  {
         NWLogWarn(@"Expecting mutable array to apply index path to: %@", array);
@@ -93,7 +93,7 @@
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSNumber numberWithInteger:_index] readable:prefix];
+    return [@(_index) readable:prefix];
 }
 
 

@@ -41,7 +41,7 @@
 - (NSNumber *)reverse:(NSDate *)date context:(NWSMappingContext *)context
 {
     if ([date isKindOfClass:NSDate.class]) {
-        return [NSNumber numberWithDouble:[date timeIntervalSince1970]];
+        return @([date timeIntervalSince1970]);
     } else {
         NWLogWarn(@"Expecting NSDate instead of %@ (path:%@)", date.class, context.path);
         return nil;

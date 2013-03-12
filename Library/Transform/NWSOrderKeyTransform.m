@@ -46,7 +46,7 @@
 - (id)transform:(id)value context:(NWSMappingContext *)context
 {
     NSInteger order = context.indexInArray * _step + _begin;
-    return [NSNumber numberWithInteger:order];
+    return @(order);
 }
 
 - (id)reverse:(id)value context:(NWSMappingContext *)context

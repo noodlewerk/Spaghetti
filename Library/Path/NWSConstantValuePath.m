@@ -67,17 +67,17 @@
     } else if ([type isEqualToString:@"string"]) {
         return [[NWSConstantValuePath alloc] initWithValue:value];
     } else if ([type isEqualToString:@"int"]) {
-        return [[NWSConstantValuePath alloc] initWithValue:[NSNumber numberWithInt:[value intValue]]];
+        return [[NWSConstantValuePath alloc] initWithValue:@([value intValue])];
     } else if ([type isEqualToString:@"bool"]) {
-        return [[NWSConstantValuePath alloc] initWithValue:[NSNumber numberWithBool:[value boolValue]]];
+        return [[NWSConstantValuePath alloc] initWithValue:@([value boolValue])];
     } else if ([type isEqualToString:@"integer"]) {
-        return [[NWSConstantValuePath alloc] initWithValue:[NSNumber numberWithInteger:[value integerValue]]];
+        return [[NWSConstantValuePath alloc] initWithValue:@([value integerValue])];
     } else if ([type isEqualToString:@"longlong"]) {
-        return [[NWSConstantValuePath alloc] initWithValue:[NSNumber numberWithLongLong:[value longLongValue]]];
+        return [[NWSConstantValuePath alloc] initWithValue:@([value longLongValue])];
     } else if ([type isEqualToString:@"float"]) {
-        return [[NWSConstantValuePath alloc] initWithValue:[NSNumber numberWithFloat:[value floatValue]]];
+        return [[NWSConstantValuePath alloc] initWithValue:@([value floatValue])];
     } else if ([type isEqualToString:@"double"]) {
-        return [[NWSConstantValuePath alloc] initWithValue:[NSNumber numberWithDouble:[value doubleValue]]];
+        return [[NWSConstantValuePath alloc] initWithValue:@([value doubleValue])];
     }
     NWLogWarn(@"Unknown type in parsing constant path: %@", type);
     return nil;

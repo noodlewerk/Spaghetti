@@ -30,7 +30,7 @@
     } else if (![_headers isKindOfClass:NSMutableDictionary.class]) {
         _headers = [[NSMutableDictionary alloc] initWithDictionary:_headers];
     }
-    [_headers setObject:value forKey:key];
+    _headers[key] = value;
 }
 
 - (id)copyWithZone:(NSZone *)zone

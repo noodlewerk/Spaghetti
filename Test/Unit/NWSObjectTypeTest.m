@@ -27,7 +27,7 @@
 
 - (NSDictionary *)attributesByName
 {
-    return [NSDictionary dictionaryWithObjectsAndKeys:@"", @"property", @"", @"ivar", nil];
+    return @{@"property": @"", @"ivar": @""};
 }
 
 - (NSDictionary *)relationshipsByName
@@ -36,7 +36,7 @@
     toOne.isToMany = NO;
     NWSTestClass *toMany = [[NWSTestClass alloc] init];
     toMany.isToMany = YES;
-    return [NSDictionary dictionaryWithObjectsAndKeys:toOne, @"propertyToOne", toOne, @"ivarToOne", toMany, @"propertyToMany", nil];
+    return @{@"propertyToOne": toOne, @"ivarToOne": toOne, @"propertyToMany": toMany};
 }
 
 - (NSString *)name

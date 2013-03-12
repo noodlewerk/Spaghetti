@@ -239,7 +239,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
         return;
     }
     if (_schedule.count) {
-        NWSScheduleItem *item = [_schedule objectAtIndex:0];
+        NWSScheduleItem *item = _schedule[0];
         NSTimeInterval now = [NSDate.date timeIntervalSince1970];
         NSTimeInterval delay = item.startTime - now;
         if (delay <= 0) {
@@ -256,7 +256,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
             }
             // schedule next
             if (_schedule.count) {
-                NWSScheduleItem *next = [_schedule objectAtIndex:0];
+                NWSScheduleItem *next = _schedule[0];
                 [self dequeueItemAfterDelay:next.startTime - now + minOperationInterval];
             } else {
                 NWLogInfo(@"on-queue: pausing");

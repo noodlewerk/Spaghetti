@@ -73,13 +73,13 @@
         NWSSingleKeyPath *path = (NWSSingleKeyPath *)relation;
         objc_property_t property = class_getProperty(_clas, path.key.UTF8String);
         if (property) {
-            NSString *type = [NSString stringWithUTF8String:property_getAttributes(property)];
+            NSString *type = @(property_getAttributes(property));
             BOOL isToMany = [type rangeOfString:@"NSSet"].length != 0;
             return toMany == isToMany;
         }
         Ivar ivar = class_getInstanceVariable(_clas, path.key.UTF8String);
         if (ivar) {
-            NSString *type = [NSString stringWithUTF8String:ivar_getTypeEncoding(ivar)];
+            NSString *type = @(ivar_getTypeEncoding(ivar));
             // TODO: this condition is a bit too fuzzy
             BOOL isToMany = [type rangeOfString:@"NSSet"].length != 0;
             return toMany == isToMany;

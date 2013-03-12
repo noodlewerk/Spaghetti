@@ -83,7 +83,7 @@
     if (!_parameters) {
         _parameters = [[NSMutableDictionary alloc] initWithObjectsAndKeys:value, key, nil];
     } else {
-        [_parameters setObject:value forKey:key];
+        _parameters[key] = value;
     }
 }
 
@@ -102,7 +102,7 @@
     if ([_indicator isKindOfClass:NWSCombinedActivityIndicator.class]) {
         [(NWSCombinedActivityIndicator *)_indicator addIndicator:indicator];
     } else if (_indicator) {
-        _indicator = [[NWSCombinedActivityIndicator alloc] initWithIndicators:[NSArray arrayWithObjects:indicator, indicator, nil]];
+        _indicator = [[NWSCombinedActivityIndicator alloc] initWithIndicators:@[indicator, indicator]];
     } else {
         _indicator = indicator;
     }
@@ -148,7 +148,7 @@
         NSRange s = [format rangeOfString:@")" options:0 range:NSMakeRange(i, format.length - i)];
         if (s.length) {
             NSString *key = [format substringWithRange:NSMakeRange(i, s.location - i)];
-            id value = [parameters objectForKey:key];
+            id value = parameters[key];
             if (value) {
                 if (type == '%') {
                     value = (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)value, NULL, CFSTR("*'();:@&=+$,/?!%#[]"), kCFStringEncodingUTF8);

@@ -47,7 +47,7 @@
     if (!_headers) {
         _headers = [[NSMutableDictionary alloc] initWithObjectsAndKeys:value, key, nil];
     } else {
-        [_headers setObject:value forKey:key];
+        _headers[key] = value;
     }
 }
 

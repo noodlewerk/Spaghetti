@@ -28,7 +28,7 @@
     NWSHTTPCall *i = [[NWSHTTPCall alloc] init];
     i.urlString = @"";
     [i setHeaderValue:@"" forKey:@""];
-    [i setHeaders:[NSDictionary dictionary]];
+    [i setHeaders:@{}];
     
     STAssertNotNil(i.resolvedURL, @"");
     STAssertNotNil(i.newDialogue, @"");
@@ -71,23 +71,23 @@
     STAssertEqualObjects([NWSCall dereference:@"%()" parameters:d], @"?()", @"");
     STAssertEqualObjects([NWSCall dereference:@"$(a)" parameters:d], @"?(a)", @"");
     STAssertEqualObjects([NWSCall dereference:@"%(a)" parameters:d], @"?(a)", @"");
-    [d setObject:@"" forKey:@""];
+    d[@""] = @"";
     STAssertEqualObjects([NWSCall dereference:@"$()" parameters:d], @"", @"");
     STAssertEqualObjects([NWSCall dereference:@"%()" parameters:d], @"", @"");
-    [d setObject:@"." forKey:@""];
+    d[@""] = @".";
     STAssertEqualObjects([NWSCall dereference:@"$()" parameters:d], @".", @"");
     STAssertEqualObjects([NWSCall dereference:@"%()" parameters:d], @".", @"");
-    [d setObject:@"a." forKey:@"a"];
+    d[@"a"] = @"a.";
     STAssertEqualObjects([NWSCall dereference:@"$(a)" parameters:d], @"a.", @"");
     STAssertEqualObjects([NWSCall dereference:@"%(a)" parameters:d], @"a.", @"");
-    [d setObject:@"" forKey:@"a"];
+    d[@"a"] = @"";
     STAssertEqualObjects([NWSCall dereference:@"x$(a)" parameters:d], @"x", @"");
     STAssertEqualObjects([NWSCall dereference:@"$(a)y" parameters:d], @"y", @"");
     STAssertEqualObjects([NWSCall dereference:@"x$(a)y" parameters:d], @"xy", @"");
-    [d setObject:@"aa." forKey:@"aa"];
+    d[@"aa"] = @"aa.";
     STAssertEqualObjects([NWSCall dereference:@"$(aa)" parameters:d], @"aa.", @"");
     STAssertEqualObjects([NWSCall dereference:@"%(aa)" parameters:d], @"aa.", @"");
-    [d setObject:@"±!@#$%^&*()_+z" forKey:@"a"];
+    d[@"a"] = @"±!@#$%^&*()_+z";
     STAssertEqualObjects([NWSCall dereference:@"$(a)" parameters:d], @"±!@#$%^&*()_+z", @"");
     STAssertEqualObjects([NWSCall dereference:@"%(a)" parameters:d], @"%C2%B1%21%40%23%24%25%5E%26%2A%28%29_%2Bz", @"");
     STAssertEqualObjects([NWSCall dereference:@"*$(a)*%(a)*" parameters:d], @"*±!@#$%^&*()_+z*%C2%B1%21%40%23%24%25%5E%26%2A%28%29_%2Bz*", @"");

@@ -48,8 +48,8 @@
         if ([type matches:object]) {
             BOOL match = YES;
             for (NSUInteger i = 1; i < pathsAndValues.count && match; i+=2) {
-                NWSPath *path = [pathsAndValues objectAtIndex:i-1];
-                id value = [pathsAndValues objectAtIndex:i];
+                NWSPath *path = pathsAndValues[i-1];
+                id value = pathsAndValues[i];
                 id v = [object valueForPath:path];
                 if (v != value && ![v isEqual:value]) {
                     match = NO;

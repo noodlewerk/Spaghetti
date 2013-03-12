@@ -70,7 +70,7 @@
 
 - (NWSObjectID *)identifierWithType:(NSString *)type primaryPath:(NSString *)path value:(id)value
 {
-    NSArray *pathsAndValues = [[NSArray alloc] initWithObjects:[NWSPath pathFromString:path], value, nil];
+    NSArray *pathsAndValues = @[[NWSPath pathFromString:path], value];
     NWSObjectType *t = [self typeFromString:type];
     return [self identifierWithType:t primaryPathsAndValues:pathsAndValues create:NO];
 }

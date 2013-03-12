@@ -43,10 +43,10 @@
 
 - (void)testArrayObjectID
 {
-    NSArray *identifiers = [NSArray arrayWithObjects:[[NWSObjectID alloc] init], [[NWSObjectID alloc] init], nil];
+    NSArray *identifiers = @[[[NWSObjectID alloc] init], [[NWSObjectID alloc] init]];
     NWSArrayObjectID *i = [[NWSArrayObjectID alloc] initWithIdentifiers:identifiers];
     NWSArrayObjectID *j = [[NWSArrayObjectID alloc] initWithIdentifiers:identifiers];
-    NWSArrayObjectID *k = [[NWSArrayObjectID alloc] initWithIdentifiers:[NSArray arrayWithObject:i]];
+    NWSArrayObjectID *k = [[NWSArrayObjectID alloc] initWithIdentifiers:@[i]];
     
     STAssertTrue([i isEqual: j], @"");
     STAssertTrue(![i isEqual: k], @"");

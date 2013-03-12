@@ -131,7 +131,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
     }
     
-    NWSBasicExampleTwitterMessage *tweet = [_tweets objectAtIndex:indexPath.row];
+    NWSBasicExampleTwitterMessage *tweet = _tweets[indexPath.row];
     NSString *senderAndMessageString = [NSString stringWithFormat:@"@%@: %@", tweet.sender, tweet.text];
     int maximumCharacters = 40;
     if ([senderAndMessageString length] > maximumCharacters) {

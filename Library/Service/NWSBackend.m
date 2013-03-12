@@ -45,12 +45,12 @@
 
 - (void)setMapping:(NWSMapping *)mapping name:(NSString *)name
 {
-    [_mappings setObject:mapping forKey:name];
+    _mappings[name] = mapping;
 }
 
 - (void)setEndpoint:(NWSEndpoint *)endpoint name:(NSString *)name
 {
-    [_endpoints setObject:endpoint forKey:name];
+    _endpoints[name] = endpoint;
 }
 
 - (id)mappingWithName:(NSString *)name
@@ -65,20 +65,20 @@
 
 - (id)mappingWithName:(NSString *)name createWithClass:(Class)clas
 {
-    NWSMapping *result = [_mappings objectForKey:name];
+    NWSMapping *result = _mappings[name];
     if (!result && clas) {
         result = [[clas alloc] init];
-        [_mappings setObject:result forKey:name];
+        _mappings[name] = result;
     }
     return result;
 }
 
 - (id)endpointWithName:(NSString *)name createWithClass:(Class)clas
 {
-    NWSEndpoint *result = [_endpoints objectForKey:name];
+    NWSEndpoint *result = _endpoints[name];
     if (!result && clas) {
         result = [[clas alloc] init];
-        [_endpoints setObject:result forKey:name];
+        _endpoints[name] = result;
     }
     return result;
 }
@@ -98,7 +98,7 @@
 
 - (NWSCall *)callWithEndpoint:(NSString *)endpointName
 {
-    NWSEndpoint *endpoint = [_endpoints objectForKey:endpointName];
+    NWSEndpoint *endpoint = _endpoints[endpointName];
     NWSCall *result = [endpoint newCall];
     return result;
 }
@@ -263,11 +263,11 @@
     [result appendFormat:@"\n[%@]\n", NSStringFromClass(self.class)];
     [result appendFormat:@"Mappings: (#%u)\n", (int)_mappings.count];
     for (NSString *name in _mappings) {
-        [result appendFormat:@"   %@: %@\n", name, [[_mappings objectForKey:name] readable:@"   "]];
+        [result appendFormat:@"   %@: %@\n", name, [_mappings[name] readable:@"   "]];
     }
     [result appendFormat:@"Endpoints: (#%u)\n", (int)_endpoints.count];
     for (NSString *name in _endpoints) {
-        [result appendFormat:@"   %@: %@\n", name, [[_endpoints objectForKey:name] readable:@"   "]];
+        [result appendFormat:@"   %@: %@\n", name, [_endpoints[name] readable:@"   "]];
     }
     [result appendFormat:@"Schedule: %@", _schedule.readable];
     return result;

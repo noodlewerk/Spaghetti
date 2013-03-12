@@ -43,8 +43,8 @@
 
 - (void)addStore:(NWSStore *)store objectTypeClass:(Class)objectTypeClass objectIDClass:(Class)objectIDClass
 {
-    [_storeForObjectTypeClass setObject:store forKey:NSStringFromClass(objectTypeClass)];
-    [_storeForObjectIDClass setObject:store forKey:NSStringFromClass(objectIDClass)];
+    _storeForObjectTypeClass[NSStringFromClass(objectTypeClass)] = store;
+    _storeForObjectIDClass[NSStringFromClass(objectIDClass)] = store;
     [_stores addObject:store];
     [_objectTypeClasses addObject:objectTypeClass];
     [_objectIDClasses addObject:objectIDClass];
@@ -55,7 +55,7 @@
 
 - (NWSObjectID *)identifierWithType:(NWSObjectType *)type primaryPathsAndValues:(NSArray *)pathsAndValues create:(BOOL)create
 {
-    NWSStore *store = [_storeForObjectTypeClass objectForKey:NSStringFromClass(type.class)];
+    NWSStore *store = _storeForObjectTypeClass[NSStringFromClass(type.class)];
     NWLogWarnIfNot(store, @"No store for object type: %@", type);
     return [store identifierWithType:type primaryPathsAndValues:pathsAndValues create:create];
 }
@@ -70,7 +70,7 @@
         }
         return result;
     } else {
-        NWSStore *store = [_storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
+        NWSStore *store = _storeForObjectIDClass[NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         return [store attributeForIdentifier:identifier path:path];
     }
@@ -86,7 +86,7 @@
         }
         return [[NWSArrayObjectID alloc] initWithIdentifiers:result];
     } else {
-        NWSStore *store = [_storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
+        NWSStore *store = _storeForObjectIDClass[NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         return [store relationForIdentifier:identifier path:path];
     }
@@ -100,7 +100,7 @@
             [self setAttributeForIdentifier:j value:value path:path];
         }
     } else {
-        NWSStore *store = [_storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
+        NWSStore *store = _storeForObjectIDClass[NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         [store setAttributeForIdentifier:identifier value:value path:path];
     }
@@ -114,7 +114,7 @@
             [self setRelationForIdentifier:j value:value path:path policy:policy baseStore:baseStore];
         }
     } else {
-        NWSStore *store = [_storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
+        NWSStore *store = _storeForObjectIDClass[NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         [store setRelationForIdentifier:identifier value:value path:path policy:policy baseStore:baseStore ? baseStore : self];
     }
@@ -128,7 +128,7 @@
             [self deleteObjectWithIdentifier:j];
         }
     } else {
-        NWSStore *store = [_storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
+        NWSStore *store = _storeForObjectIDClass[NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         [store deleteObjectWithIdentifier:identifier];
     }
@@ -144,7 +144,7 @@
         }
         return [[NWSObjectReference alloc] initWithObject:array];
     } else {
-        NWSStore *store = [_storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
+        NWSStore *store = _storeForObjectIDClass[NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         return [store referenceForIdentifier:identifier];
     }
@@ -155,7 +155,7 @@
     for (NSString *type in _storeForObjectTypeClass) {
         Class c = NSClassFromString(type);
         if ([c supports:object]) {
-            NWSStore *store = [_storeForObjectTypeClass objectForKey:type];
+            NWSStore *store = _storeForObjectTypeClass[type];
             return [store identifierForObject:object];
         }
     }
@@ -182,9 +182,9 @@
 {
     NWSMultiStore *result = [[NWSMultiStore alloc] init];
     for (NSUInteger i = 0; i < _stores.count; i++) {
-        NWSStore *store = [_stores objectAtIndex:i];
-        Class typeClass = [_objectTypeClasses objectAtIndex:i];
-        Class idClass = [_objectIDClasses objectAtIndex:i];
+        NWSStore *store = _stores[i];
+        Class typeClass = _objectTypeClasses[i];
+        Class idClass = _objectIDClasses[i];
         [result addStore:[store beginTransaction] objectTypeClass:typeClass objectIDClass:idClass];
     }
     return result;
@@ -195,7 +195,7 @@
     NWLogWarnIfNot([store isKindOfClass:NWSMultiStore.class], @"Multi store can only merge with multi store.");
     if (store.stores.count == _stores.count) {
         for (NSUInteger i = 0; i < _stores.count; i++) {
-            [[_stores objectAtIndex:i] mergeTransaction:[store.stores objectAtIndex:i]];
+            [_stores[i] mergeTransaction:(store.stores)[i]];
         }
     } else {
         NWLogWarn(@"Multi stores should have equal number of sub-stores: %i %i", (int)_stores.count, (int)store.stores.count);
