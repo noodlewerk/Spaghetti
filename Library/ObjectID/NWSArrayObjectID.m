@@ -11,16 +11,14 @@
 
 @implementation NWSArrayObjectID
 
-@synthesize identifiers;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithIdentifiers:(NSArray *)_identifiers
+- (id)initWithIdentifiers:(NSArray *)identifiers
 {
     self = [super init];
     if (self) {
-        identifiers = _identifiers;
+        _identifiers = identifiers;
     }
     return self;
 }
@@ -33,7 +31,7 @@
 - (NSUInteger)hash
 {
     NSUInteger result = 6773872643;
-    for (NWSObjectID *i in identifiers) {
+    for (NWSObjectID *i in _identifiers) {
         result = 31 * result + i.hash;
     }
     return result;
@@ -44,12 +42,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p identifiers:%@>", NSStringFromClass(self.class), self, identifiers];
+    return [NSString stringWithFormat:@"<%@:%p identifiers:%@>", NSStringFromClass(self.class), self, _identifiers];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [identifiers readable:prefix];
+    return [_identifiers readable:prefix];
 }
 
 @end

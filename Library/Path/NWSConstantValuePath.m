@@ -11,16 +11,14 @@
 
 @implementation NWSConstantValuePath
 
-@synthesize value;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithValue:(id)_value
+- (id)initWithValue:(id)value
 {
     self = [super init];
     if (self) {
-        value = _value;
+        _value = value;
     }
     return self;
 }
@@ -32,7 +30,7 @@
 
 - (NSUInteger)hash
 {
-    return 6770730819 + [value hash];
+    return 6770730819 + [_value hash];
 }
 
 
@@ -40,7 +38,7 @@
 
 - (id)valueWithObject:(NSObject *)object
 {
-    return value;
+    return _value;
 }
 
 - (void)setWithObject:(NSObject *)object value:(id)value
@@ -90,12 +88,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p key:%@>", NSStringFromClass(self.class), self, value];
+    return [NSString stringWithFormat:@"<%@:%p key:%@>", NSStringFromClass(self.class), self, _value];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [value readable:prefix];
+    return [_value readable:prefix];
 }
 
 @end

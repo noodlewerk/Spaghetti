@@ -11,16 +11,14 @@
 
 @implementation NWSSingleKeyPath
 
-@synthesize key;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithKey:(NSString *)_key
+- (id)initWithKey:(NSString *)key
 {
     self = [super init];
     if (self) {
-        key = _key;
+        _key = key;
     }
     return self;
 }
@@ -32,7 +30,7 @@
 
 - (NSUInteger)hash
 {
-    return 8606977022 + key.hash;
+    return 8606977022 + _key.hash;
 }
 
 
@@ -41,7 +39,7 @@
 - (id)valueWithObject:(NSObject *)object
 {
     if (object != NSNull.null) {
-        return [object valueForKey:key];
+        return [object valueForKey:_key];
     }
     return NSNull.null;
 }
@@ -49,7 +47,7 @@
 - (void)setWithObject:(NSObject *)object value:(id)value
 {
     if (object != NSNull.null) {
-        [object setValue:value forKey:key];
+        [object setValue:value forKey:_key];
     }
 }
 
@@ -58,12 +56,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p key:%@>", NSStringFromClass(self.class), self, key];
+    return [NSString stringWithFormat:@"<%@:%p key:%@>", NSStringFromClass(self.class), self, _key];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [key readable:prefix];
+    return [_key readable:prefix];
 }
 
 @end

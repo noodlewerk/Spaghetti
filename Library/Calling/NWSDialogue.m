@@ -19,17 +19,15 @@
 
 @implementation NWSDialogue
 
-@synthesize call, operationQueue, callbackQueue, indicator;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithCall:(NWSCall *)_call
+- (id)initWithCall:(NWSCall *)call
 {
     self = [super init];
     if (self) {
-        call = _call;
-        indicator = _call.indicator;
+        _call = call;
+        _indicator = call.indicator;
     }
     return self;
 }
@@ -56,21 +54,21 @@
     }
     
     // parsing
-    NWSParser *parser = call.responseParser;
+    NWSParser *parser = _call.responseParser;
     if (!parser) {
         parser = NWSParser.defaultParser;
     }
-    NWLogInfo(@"parsing data (expected:%.3fs)", call.endpoint.parseTime.average);
+    NWLogInfo(@"parsing data (expected:%.3fs)", _call.endpoint.parseTime.average);
     DEBUG_STAT_START(parseTime);
     id parsed = [parser parse:data];
-    DEBUG_STAT_STOP(parseTime, call.endpoint);
+    DEBUG_STAT_STOP(parseTime, _call.endpoint);
     if (!parsed) {
         NWLogWarn(@"failed to parse");
         return nil;
     }
     
     // take value at response path
-    NWSPath *p = call.responsePath;
+    NWSPath *p = _call.responsePath;
     if (!p) {
         p = NWSSelfPath.shared;
     }
@@ -81,10 +79,10 @@
     }
     
     id result = nil;
-    NWSMapping *mapping = call.responseMapping;
+    NWSMapping *mapping = _call.responseMapping;
     if (mapping) {
         // if needed, default to amnesic store
-        NWSStore *store = call.store;
+        NWSStore *store = _call.store;
         if (!store) {
             store = NWSAmnesicStore.shared;
         }
@@ -99,21 +97,21 @@
         }
         
         // perform actual mapping
-        NWLogInfo(@"mapping tree (expected:%.3fs)", call.endpoint.mappingTime.average);
+        NWLogInfo(@"mapping tree (expected:%.3fs)", _call.endpoint.mappingTime.average);
         DEBUG_STAT_START(mappingTime);
         NWSObjectID *identifier = [mapping mapElement:value store:tempStore];
-        DEBUG_STAT_STOP(mappingTime, call.endpoint);
+        DEBUG_STAT_STOP(mappingTime, _call.endpoint);
         if (!identifier) {
             NWLogWarn(@"mapping result is nil");
             return nil;
         }
         
         // parent assignment
-        if (call.parent) {
-            NWLogWarnIfNot(call.parentPath, @"Parent was set, but no path provided");
-            NWLogWarnIfNot(call.parentPolicy, @"Parent was set, but no setter policy");
-            NWSObjectID *parentIdentifier = [tempStore identifierForObject:call.parent];
-            [tempStore setRelationForIdentifier:parentIdentifier value:identifier path:call.parentPath policy:call.parentPolicy baseStore:nil];
+        if (_call.parent) {
+            NWLogWarnIfNot(_call.parentPath, @"Parent was set, but no path provided");
+            NWLogWarnIfNot(_call.parentPolicy, @"Parent was set, but no setter policy");
+            NWSObjectID *parentIdentifier = [tempStore identifierForObject:_call.parent];
+            [tempStore setRelationForIdentifier:parentIdentifier value:identifier path:_call.parentPath policy:_call.parentPolicy baseStore:nil];
         }
         
         // extract result
@@ -140,9 +138,9 @@
     }
     
     id data = nil;
-    NWSMapping *mapping = call.requestMapping;
+    NWSMapping *mapping = _call.requestMapping;
     if (mapping) {
-        NWSStore *store = call.store;
+        NWSStore *store = _call.store;
         NWLogWarnIfNot(store, @"Unable to map response without a store (with objects)");
         NWSObjectID *identifier = [store identifierForObject:object];
         data = [mapping mapIdentifier:identifier store:store];
@@ -150,7 +148,7 @@
         data = object;
     }
     
-    NWSParser *parser = call.requestParser;
+    NWSParser *parser = _call.requestParser;
     if (!parser) {
         parser = NWSParser.defaultParser;
     }

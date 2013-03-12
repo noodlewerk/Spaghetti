@@ -12,13 +12,12 @@
 
 @implementation NWSDateFormatterTransform
 
-@synthesize formatter;
 
-- (id)initWithFormatter:(NSDateFormatter *)_formatter
+- (id)initWithFormatter:(NSDateFormatter *)formatter
 {
     self = [super init];
     if (self) {
-        formatter = _formatter;
+        _formatter = formatter;
     }
     return self;
 }
@@ -43,7 +42,7 @@
 - (NSDate *)transform:(NSString *)string context:(NWSMappingContext *)context
 {
     if ([string isKindOfClass:NSString.class]) {
-        NSDate *result = [formatter dateFromString:string];
+        NSDate *result = [_formatter dateFromString:string];
         if (!result) {
             NWLogWarn(@"Unable to parse string %@ (path:%@)", string, context.path);
         }
@@ -57,7 +56,7 @@
 - (NSString *)reverse:(NSDate *)date context:(NWSMappingContext *)context
 {
     if ([date isKindOfClass:NSDate.class]) {
-        NSString *result = [formatter stringFromDate:date];
+        NSString *result = [_formatter stringFromDate:date];
         if (!result) {
             NWLogWarn(@"Unable to format date %@ (path:%@)", date, context.path);
         }
@@ -73,7 +72,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p formatter:%@>", NSStringFromClass(self.class), self, formatter];
+    return [NSString stringWithFormat:@"<%@:%p formatter:%@>", NSStringFromClass(self.class), self, _formatter];
 }
 
 - (NSString *)readable:(NSString *)prefix

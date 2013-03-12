@@ -12,16 +12,14 @@
 
 @implementation NWSMappingTransform
 
-@synthesize mapping;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithMapping:(NWSMapping *)_mapping
+- (id)initWithMapping:(NWSMapping *)mapping
 {
     self = [super init];
     if (self) {
-        mapping = _mapping;
+        _mapping = mapping;
     }
     return self;
 }
@@ -32,7 +30,7 @@
 - (NWSObjectID *)transform:(NSObject *)value context:(NWSMappingContext *)context
 {
     if (value) {
-        return [mapping mapElement:value context:context];
+        return [_mapping mapElement:value context:context];
     } else {
         // object is nil, so we return nil object id
         return nil;
@@ -42,7 +40,7 @@
 - (NSObject *)reverse:(NWSObjectID *)identifier context:(NWSMappingContext *)context
 {
     if (identifier) {
-        return [mapping mapIdentifier:identifier context:context];
+        return [_mapping mapIdentifier:identifier context:context];
     } else {
         // object id is nil, so we return nil object
         return nil;
@@ -54,12 +52,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p mapping:%@>", NSStringFromClass(self.class), self, mapping];
+    return [NSString stringWithFormat:@"<%@:%p mapping:%@>", NSStringFromClass(self.class), self, _mapping];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"transform with %@", [mapping readable:prefix]] readable:prefix];
+    return [[NSString stringWithFormat:@"transform with %@", [_mapping readable:prefix]] readable:prefix];
 }
 
 @end

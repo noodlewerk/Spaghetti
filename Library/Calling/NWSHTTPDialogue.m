@@ -14,14 +14,11 @@
 
 
 @implementation NWSHTTPDialogue {
-    NSDate *startCall;
-    NSDate *startRequest;
+    NSDate *_startCall;
+    NSDate *_startRequest;
     NWSHTTPConnection *_connection;
-    BOOL cancelled;
+    BOOL _cancelled;
 }
-
-@synthesize request, response, data;
-
 
 #pragma mark - Vallbacks
 
@@ -29,14 +26,14 @@
 {
     void(^callbackBlock)() = ^{        
         // check cancel
-        if (cancelled) {
+        if (_cancelled) {
             NWLogInfo(@"cancelled");
             return;
         }
         [self.call doneWithResult:result];
         if (result) {
-            NWLogInfo(@"done call (total:%.3fs)", DEBUG_STAT_INTERVAL_IN(startCall));
-            DEBUG_STAT_STOP_IN(startCall, self.call.endpoint.totalTime);
+            NWLogInfo(@"done call (total:%.3fs)", DEBUG_STAT_INTERVAL_IN(_startCall));
+            DEBUG_STAT_STOP_IN(_startCall, self.call.endpoint.totalTime);
         } else {
             NWLogInfo(@"failed call");
         }
@@ -50,12 +47,12 @@
 {
     NWLogWarnIfNot(NSOperationQueue.currentQueue == self.operationQueue, @"Expecting to run on queue: %@", self.operationQueue);
     // check cancel
-    if (cancelled) {
+    if (_cancelled) {
         NWLogInfo(@"cancelled");
         return;
     }
     
-    id result = [self mapData:data useTransactionStore:YES];
+    id result = [self mapData:_data useTransactionStore:YES];
     [self doneWithResult:result];
 }
 
@@ -63,20 +60,20 @@
 {
     // send request
     NWLogInfo(@"sending request (expected:%.3fs)", self.call.endpoint.requestTime.average);
-    DEBUG_STAT_START_IN(startRequest);
+    DEBUG_STAT_START_IN(_startRequest);
     
-    NWSConnectionDoneBlock doneBlock = ^(NSHTTPURLResponse *_response, NSData *_data) {
+    NWSConnectionDoneBlock doneBlock = ^(NSHTTPURLResponse *response, NSData *data) {
         _connection = nil;
-        DEBUG_STAT_STOP_IN(startRequest, self.call.endpoint.requestTime);
+        DEBUG_STAT_STOP_IN(_startRequest, self.call.endpoint.requestTime);
         // check cancel
-        if (cancelled) {
+        if (_cancelled) {
             NWLogInfo(@"cancelled");
             return;
         }
         // keep response
-        response = (NSHTTPURLResponse *)_response;
-        data = _data;
-        if (!data) {
+        _response = (NSHTTPURLResponse *)response;
+        _data = data;
+        if (!_data) {
             NWLogWarn(@"response data is nil");
             [self doneWithResult:nil];
             return;
@@ -84,7 +81,7 @@
         [self map];
     };
     
-    NWSHTTPConnection *connection = [[NWSHTTPConnection alloc] initWithRequest:request];
+    NWSHTTPConnection *connection = [[NWSHTTPConnection alloc] initWithRequest:_request];
     connection.doneBlock = doneBlock;
     connection.callbackQueue = self.operationQueue;
     connection.indicator = self.indicator;
@@ -131,13 +128,13 @@
 
 - (void)start
 {
-    DEBUG_STAT_START_IN(startCall);
+    DEBUG_STAT_START_IN(_startCall);
     
     NWLogWarnIfNot(self.call.store, @"Expecting a store to map to on dialogue start");
     
     NWLogInfo(@"start call (expected:%.3fs)", self.call.endpoint.totalTime.average);
     // check cancel
-    if (cancelled) {
+    if (_cancelled) {
         NWLogInfo(@"cancelled");
         return;
     }
@@ -159,7 +156,7 @@
     void(^requestBlock)() = ^{
         NSURLRequest *r = [self composeRequest];
         if (r) {
-            request = r;
+            _request = r;
             [self connect];
         } else {
             NWLogWarn(@"Unable to compse request, call cancelled");
@@ -170,7 +167,7 @@
 
 - (void)cancel
 {
-    cancelled = YES;
+    _cancelled = YES;
     [_connection cancel]; _connection = nil;
 }
 
@@ -179,12 +176,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p url:%@>", NSStringFromClass(self.class), self, request.URL];
+    return [NSString stringWithFormat:@"<%@:%p url:%@>", NSStringFromClass(self.class), self, _request.URL];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"dialogue with %@", request.URL] readable:prefix];
+    return [[NSString stringWithFormat:@"dialogue with %@", _request.URL] readable:prefix];
 }
 
 @end

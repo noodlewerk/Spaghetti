@@ -11,16 +11,14 @@
 
 @implementation NWSMemoryObjectID
 
-@synthesize object;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithObject:(NSObject *)_object
+- (id)initWithObject:(NSObject *)object
 {
     self = [super init];
     if (self) {
-        object = _object;
+        _object = object;
     }
     return self;
 }
@@ -33,7 +31,7 @@
 
 - (NSUInteger)hash
 {
-    return 5982874419 + object.hash;
+    return 5982874419 + _object.hash;
 }
 
 
@@ -41,12 +39,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p object:%@>", NSStringFromClass(self.class), self, object];
+    return [NSString stringWithFormat:@"<%@:%p object:%@>", NSStringFromClass(self.class), self, _object];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"id %@ in memory", NSStringFromClass(object.class)] readable:prefix];
+    return [[NSString stringWithFormat:@"id %@ in memory", NSStringFromClass(_object.class)] readable:prefix];
 }
 
 @end

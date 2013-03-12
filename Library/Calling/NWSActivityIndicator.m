@@ -9,12 +9,10 @@
 
 
 @implementation NWSBasicActivityIndicator {
-    NSUInteger count;
-    BOOL showingActivity;
-    dispatch_queue_t queue;
+    NSUInteger _count;
+    BOOL _showingActivity;
+    dispatch_queue_t _queue;
 }
-
-@synthesize switchBlock, callbackQueue, delay;
 
 
 #pragma mark - Object life cycle
@@ -24,28 +22,28 @@
     return [self initWithBlock:nil callbackQueue:nil delay:0];
 }
 
-- (id)initWithBlock:(NWSActivityIndicatorSwitchBlock)_switchBlock callbackQueue:(NSOperationQueue *)_callbackQueue delay:(NSTimeInterval)_delay
+- (id)initWithBlock:(NWSActivityIndicatorSwitchBlock)switchBlock callbackQueue:(NSOperationQueue *)callbackQueue delay:(NSTimeInterval)delay
 {
     self = [super init];
     if (self) {
-        switchBlock = [_switchBlock copy];
-        callbackQueue = _callbackQueue;
-        delay = _delay;
-        queue = dispatch_queue_create("NWSBasicActivityIndicator", DISPATCH_QUEUE_SERIAL);
+        _switchBlock = [switchBlock copy];
+        _callbackQueue = callbackQueue;
+        _delay = delay;
+        _queue = dispatch_queue_create("NWSBasicActivityIndicator", DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
 
 - (void)dealloc
 {
-    dispatch_release(queue);
+    dispatch_release(_queue);
 }
 
 - (BOOL)activity
 {
     __block BOOL result;
-    dispatch_sync(queue, ^{
-        result = count > 0;
+    dispatch_sync(_queue, ^{
+        result = _count > 0;
     });
     return result;
 }
@@ -63,26 +61,26 @@
         NWLogWarn(@"Expecting non-nil switchBlock, to call with activity indication");
         return;
     }
-    if (hasActivity != showingActivity) {
-        showingActivity = hasActivity;
+    if (hasActivity != _showingActivity) {
+        _showingActivity = hasActivity;
         void(^block)() = ^{
-            switchBlock(hasActivity);
+            _switchBlock(hasActivity);
         };
-        [callbackQueue addOperationWithBlock:block];
+        [_callbackQueue addOperationWithBlock:block];
     }
 }
 
 - (void)update
 {
-    BOOL hasActivity = count > 0;
-    BOOL hasDelay = delay > 0;
+    BOOL hasActivity = _count > 0;
+    BOOL hasDelay = _delay > 0;
     if (hasActivity || !hasDelay) {
         [self showActivity:hasActivity];
     } else {
         // delay call
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delay * NSEC_PER_SEC);
-        dispatch_after(popTime, queue, ^(void) {
-            BOOL hasActivity = count > 0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, _delay * NSEC_PER_SEC);
+        dispatch_after(popTime, _queue, ^(void) {
+            BOOL hasActivity = _count > 0;
             if (!hasActivity) {
                 // still no activity, time to report
                 [self showActivity:hasActivity];
@@ -93,9 +91,9 @@
 
 - (void)registerActivity
 {
-    dispatch_async(queue, ^{
-        count++;
-        if (count == 1) {
+    dispatch_async(_queue, ^{
+        _count++;
+        if (_count == 1) {
             [self update];
         }
     });
@@ -103,10 +101,10 @@
 
 - (void)unregisterActivity
 {
-    dispatch_async(queue, ^{
-        if (count) {
-            count--;
-            if (count == 0) {
+    dispatch_async(_queue, ^{
+        if (_count) {
+            _count--;
+            if (_count == 0) {
                 [self update];
             }
         } else {
@@ -120,10 +118,8 @@
 
 
 @implementation NWSCombinedActivityIndicator {
-    NSMutableArray *indicators;
+    NSMutableArray *_indicators;
 }
-
-@synthesize indicators;
 
 
 #pragma mark - Object life cycle
@@ -132,7 +128,7 @@
 {
     self = [super init];
     if (self) {
-        indicators = [[NSMutableArray alloc] init];
+        _indicators = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -141,33 +137,33 @@
 {
     self = [super init];
     if (self) {
-        indicators = [[NSMutableArray alloc] initWithObjects:indicator, nil];
+        _indicators = [[NSMutableArray alloc] initWithObjects:indicator, nil];
     }
     return self;
 }
 
-- (id)initWithIndicators:(NSArray *)_indicators
+- (id)initWithIndicators:(NSArray *)indicators
 {
     self = [super init];
     if (self) {
-        indicators = [[NSMutableArray alloc] initWithArray:_indicators];
+        _indicators = [[NSMutableArray alloc] initWithArray:indicators];
     }
     return self;
 }
 
 - (void)addIndicator:(id<NWSActivityIndicator>)indicator
 {
-    [indicators addObject:indicator];    
+    [_indicators addObject:indicator];    
 }
 
-- (void)addIndicators:(NSArray *)_indicators
+- (void)addIndicators:(NSArray *)indicators
 {
-    [indicators addObjectsFromArray:_indicators];
+    [_indicators addObjectsFromArray:indicators];
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    NWSCombinedActivityIndicator *result = [[self.class allocWithZone:zone] initWithArray:indicators];
+    NWSCombinedActivityIndicator *result = [[self.class allocWithZone:zone] initWithArray:_indicators];
     return result;
 }
 
@@ -175,14 +171,14 @@
 
 - (void)registerActivity
 {
-    for (id<NWSActivityIndicator> indicator in indicators) {
+    for (id<NWSActivityIndicator> indicator in _indicators) {
         [indicator registerActivity];
     }
 }
 
 - (void)unregisterActivity
 {
-    for (id<NWSActivityIndicator> indicator in indicators) {
+    for (id<NWSActivityIndicator> indicator in _indicators) {
         [indicator unregisterActivity];
     }
 }
@@ -192,19 +188,17 @@
 
 
 @implementation NWSSloppyActivityIndicator {
-    NSUInteger count;
+    NSUInteger _count;
 }
-
-@synthesize indicator;
 
 
 #pragma mark - Object life cycle
 
-- (id)initWithIndicator:(id<NWSActivityIndicator>)_indicator
+- (id)initWithIndicator:(id<NWSActivityIndicator>)indicator
 {
     self = [super init];
     if (self) {
-        indicator = _indicator;
+        _indicator = indicator;
     }
     return self;
 }
@@ -219,22 +213,22 @@
 
 - (void)unregisterRemainingActivity
 {
-    while (count--) {
-        [indicator unregisterActivity];
+    while (_count--) {
+        [_indicator unregisterActivity];
     }
 }
 
 - (void)registerActivity
 {
-    count++;
-    [indicator registerActivity];    
+    _count++;
+    [_indicator registerActivity];    
 }
 
 - (void)unregisterActivity
 {
-    if (count) {
-        count--;
-        [indicator unregisterActivity];
+    if (_count) {
+        _count--;
+        [_indicator unregisterActivity];
     }
 }
 

@@ -11,18 +11,16 @@
 
 
 @implementation NWSHTTPCall {
-    NSMutableDictionary *headers;
+    NSMutableDictionary *_headers;
 }
 
-@synthesize urlString, headers, method;
-
-- (id)initWithEndpoint:(NWSHTTPEndpoint *)_endpoint
+- (id)initWithEndpoint:(NWSHTTPEndpoint *)endpoint
 {
-    self = [super initWithEndpoint:_endpoint];
+    self = [super initWithEndpoint:endpoint];
     if (self) {
-        urlString = [_endpoint.urlString copy];
-        headers = [[NSMutableDictionary alloc] initWithDictionary:_endpoint.headers];
-        method = [_endpoint.method copy];
+        _urlString = [endpoint.urlString copy];
+        _headers = [[NSMutableDictionary alloc] initWithDictionary:endpoint.headers];
+        _method = [endpoint.method copy];
     }
     return self;
 }
@@ -35,9 +33,9 @@
 - (id)copyWithZone:(NSZone *)zone
 {
     NWSHTTPCall *result = [super copyWithZone:zone];
-    result.urlString = urlString;
-    result.headers = [headers mutableCopy];
-    result.method = method;
+    result.urlString = _urlString;
+    result.headers = [_headers mutableCopy];
+    result.method = _method;
     return result;
 }
 
@@ -46,32 +44,32 @@
 
 - (void)setHeaderValue:(NSString *)value forKey:(NSString *)key
 {
-    if (!headers) {
-        headers = [[NSMutableDictionary alloc] initWithObjectsAndKeys:value, key, nil];
+    if (!_headers) {
+        _headers = [[NSMutableDictionary alloc] initWithObjectsAndKeys:value, key, nil];
     } else {
-        [headers setObject:value forKey:key];
+        [_headers setObject:value forKey:key];
     }
 }
 
-- (void)setHeaders:(NSDictionary *)_headers
+- (void)setHeaders:(NSDictionary *)headers
 {
-    if (!headers) {
-        headers = [[NSMutableDictionary alloc] initWithDictionary:_headers];
+    if (!_headers) {
+        _headers = [[NSMutableDictionary alloc] initWithDictionary:headers];
     } else {
-        [headers addEntriesFromDictionary:_headers];
+        [_headers addEntriesFromDictionary:headers];
     }
 }
 
 - (NSURL *)resolvedURL
 {
-    NSString *dereffed = [NWSCall dereference:urlString parameters:self.parameters];
+    NSString *dereffed = [NWSCall dereference:_urlString parameters:self.parameters];
     NSURL *result = [[NSURL alloc] initWithString:dereffed]; 
     return result;
 }
 
 - (NSString *)name
 {
-    NSString *result = [NWSCall dereference:urlString parameters:self.parameters];
+    NSString *result = [NWSCall dereference:_urlString parameters:self.parameters];
     return result;
 }
 
@@ -80,7 +78,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p url:%@ req-map:%@ res-map:%@ store:%@>", NSStringFromClass(self.class), self, urlString, self.requestMapping, self.responseMapping, self.store];
+    return [NSString stringWithFormat:@"<%@:%p url:%@ req-map:%@ res-map:%@ store:%@>", NSStringFromClass(self.class), self, _urlString, self.requestMapping, self.responseMapping, self.store];
 }
 
 - (NSString *)readable:(NSString *)prefix

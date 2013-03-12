@@ -13,16 +13,14 @@
 
 @implementation NWSTestCall
 
-@synthesize response;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithEndpoint:(NWSTestEndpoint *)_endpoint
+- (id)initWithEndpoint:(NWSTestEndpoint *)endpoint
 {
-    self = [super initWithEndpoint:_endpoint];
+    self = [super initWithEndpoint:endpoint];
     if (self) {
-        response = _endpoint.response;
+        _response = endpoint.response;
     }
     return self;
 }

@@ -11,22 +11,20 @@
 
 @implementation NWSBlockTransform
 
-@synthesize transformBlock, reverseBlock;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithBlock:(NWSTransformBlock)_transformBlock
+- (id)initWithBlock:(NWSTransformBlock)transformBlock
 {
-    return [self initWithTransformBlock:_transformBlock reverseBlock:nil];
+    return [self initWithTransformBlock:transformBlock reverseBlock:nil];
 }
 
-- (id)initWithTransformBlock:(NWSTransformBlock)_transformBlock reverseBlock:(NWSTransformBlock)_reverseBlock
+- (id)initWithTransformBlock:(NWSTransformBlock)transformBlock reverseBlock:(NWSTransformBlock)reverseBlock
 {
     self = [super init];
     if (self) {
-        transformBlock = [_transformBlock copy];
-        reverseBlock = [_reverseBlock copy];
+        _transformBlock = [transformBlock copy];
+        _reverseBlock = [reverseBlock copy];
     }
     return self;
 }
@@ -36,13 +34,13 @@
 
 - (id)transform:(id)value context:(NWSMappingContext *)context
 {
-    return transformBlock(value, context);
+    return _transformBlock(value, context);
 }
 
 - (id)reverse:(id)value context:(NWSMappingContext *)context
 {
-    if(reverseBlock){
-        return reverseBlock(value, context);
+    if(_reverseBlock){
+        return _reverseBlock(value, context);
     } else {
         NWLogWarn(@"No reverseBlock set");
         return nil;
@@ -54,7 +52,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p transform:%@ reverse:%@>", NSStringFromClass(self.class), self, transformBlock ? @"Y" : @"N", reverseBlock ? @"Y" : @"N"];
+    return [NSString stringWithFormat:@"<%@:%p transform:%@ reverse:%@>", NSStringFromClass(self.class), self, _transformBlock ? @"Y" : @"N", _reverseBlock ? @"Y" : @"N"];
 }
 
 - (NSString *)readable:(NSString *)prefix

@@ -10,22 +10,20 @@
 
 
 @implementation NWSHTTPConnection {
-    NSURLRequest *request;
-    NSURLConnection *connection;
-    NSHTTPURLResponse *response;
-    NSMutableData *responseData;
+    NSURLRequest *_request;
+    NSURLConnection *_connection;
+    NSHTTPURLResponse *_response;
+    NSMutableData *_responseData;
 }
-
-@synthesize doneBlock, callbackQueue, indicator;
 
 
 #pragma mark - Object life cycle
 
-- (id)initWithRequest:(NSURLRequest *)_request
+- (id)initWithRequest:(NSURLRequest *)request
 {
     self = [super init];
     if (self) {
-        request = _request;
+        _request = request;
     }
     return self;
 }
@@ -34,60 +32,60 @@
 
 - (void)start
 {
-    NWLogWarnIfNot(!connection, @"A started connection cannot be restarted");
-    NWLogWarnIfNot(request, @"Cannot start a connection without request");
-    connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
-    [connection scheduleInRunLoop:NSRunLoop.mainRunLoop forMode:NSDefaultRunLoopMode];
-    if (connection) {
-        if (!callbackQueue) {
-            callbackQueue = NSOperationQueue.currentQueue;
+    NWLogWarnIfNot(!_connection, @"A started connection cannot be restarted");
+    NWLogWarnIfNot(_request, @"Cannot start a connection without request");
+    _connection = [[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:NO];
+    [_connection scheduleInRunLoop:NSRunLoop.mainRunLoop forMode:NSDefaultRunLoopMode];
+    if (_connection) {
+        if (!_callbackQueue) {
+            _callbackQueue = NSOperationQueue.currentQueue;
         }
-        [connection start];
-        NWLogInfo(@"Registering call: %@", request.URL);
-        [indicator registerActivity];
+        [_connection start];
+        NWLogInfo(@"Registering call: %@", _request.URL);
+        [_indicator registerActivity];
     } else {
         NWLogWarn(@"Failed to init NSURLConnection");
-        if (doneBlock) doneBlock(nil, nil); doneBlock = nil;
+        if (_doneBlock) _doneBlock(nil, nil); _doneBlock = nil;
     }
 }
 
 - (void)cancel
 {
-    [connection cancel]; connection = nil;
-    NWLogInfo(@"Unregistering call: %@", request.URL);
-    [indicator unregisterActivity];
-    doneBlock = nil;
+    [_connection cancel]; _connection = nil;
+    NWLogInfo(@"Unregistering call: %@", _request.URL);
+    [_indicator unregisterActivity];
+    _doneBlock = nil;
 }
 
 
 #pragma mark - URL Connection Delegate
 
 #ifdef DEBUG
-- (BOOL)connection:(NSURLConnection *)_connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace
+- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace
 {
     return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
 }
 
-- (void)connection:(NSURLConnection *)_connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
     [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
 } 
 #endif
 
-//- (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)_request redirectResponse:(NSURLResponse *)_response
+//- (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)response
 
-- (void)connection:(NSURLConnection *)_connection didReceiveResponse:(NSHTTPURLResponse *)_response
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response
 {
-    NWLogWarnIfNot(!response, @"Receiving a response twice");
-    response = _response;
+    NWLogWarnIfNot(!_response, @"Receiving a response twice");
+    _response = response;
 }
 
-- (void)connection:(NSURLConnection *)_connection didReceiveData:(NSData *)data
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    if (!responseData) {
-        responseData = [NSMutableData dataWithData:data];
+    if (!_responseData) {
+        _responseData = [NSMutableData dataWithData:data];
     } else {
-        [responseData appendData:data];
+        [_responseData appendData:data];
     }
 }
 
@@ -95,33 +93,33 @@
 //- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
 //- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)_connection
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    connection = nil;
-    NWLogInfo(@"Unregistering call: %@", request.URL);
-    [indicator unregisterActivity];
-    if (doneBlock) {
-        NWSConnectionDoneBlock b = doneBlock;
-        void(^block)() = ^{b(response, responseData);};
-        [callbackQueue addOperationWithBlock:block];
+    _connection = nil;
+    NWLogInfo(@"Unregistering call: %@", _request.URL);
+    [_indicator unregisterActivity];
+    if (_doneBlock) {
+        NWSConnectionDoneBlock b = _doneBlock;
+        void(^block)() = ^{b(_response, _responseData);};
+        [_callbackQueue addOperationWithBlock:block];
     }
     // break retain cycles
-    doneBlock = nil;
+    _doneBlock = nil;
 }
 
-- (void)connection:(NSURLConnection *)_connection didFailWithError:(NSError *)error
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     NWLogWarnIfError(error);
-    connection = nil;
-    NWLogInfo(@"Unregistering call: %@", request.URL);
-    [indicator unregisterActivity];
-    if (doneBlock) {
-        NWSConnectionDoneBlock b = doneBlock;
-        void(^block)() = ^{b(response, responseData);};
-        [callbackQueue addOperationWithBlock:block];
+    _connection = nil;
+    NWLogInfo(@"Unregistering call: %@", _request.URL);
+    [_indicator unregisterActivity];
+    if (_doneBlock) {
+        NWSConnectionDoneBlock b = _doneBlock;
+        void(^block)() = ^{b(_response, _responseData);};
+        [_callbackQueue addOperationWithBlock:block];
     }
     // break retain cycles
-    doneBlock = nil;
+    _doneBlock = nil;
 }
 
 
@@ -129,12 +127,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p url:%@>", NSStringFromClass(self.class), self, request.URL];
+    return [NSString stringWithFormat:@"<%@:%p url:%@>", NSStringFromClass(self.class), self, _request.URL];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"connection to %@ (%u,%u)", request.URL, (int)response.statusCode, (int)responseData.length] readable:prefix];
+    return [[NSString stringWithFormat:@"connection to %@ (%u,%u)", _request.URL, (int)_response.statusCode, (int)_responseData.length] readable:prefix];
 }
 
 @end

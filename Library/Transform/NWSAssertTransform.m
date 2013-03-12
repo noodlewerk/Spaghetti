@@ -11,17 +11,15 @@
 
 @implementation NWSAssertTransform
 
-@synthesize forward, reverse, logInstead;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithForward:(id)_forward reverse:(id)_reverse
+- (id)initWithForward:(id)forward reverse:(id)reverse
 {
     self = [super init];
     if (self) {
-        forward = _forward;
-        reverse = _reverse;
+        _forward = forward;
+        _reverse = reverse;
     }
     return self;
 }
@@ -50,9 +48,9 @@
 - (id)transform:(id)value context:(NWSMappingContext *)context
 {
 #if DEBUG
-    if (![forward isEqual:value]) {
-        NSString *message = [NSString stringWithFormat:@"Assert transform failed on: %@ != %@", forward, value];
-        if (logInstead) {
+    if (![_forward isEqual:value]) {
+        NSString *message = [NSString stringWithFormat:@"Assert transform failed on: %@ != %@", _forward, value];
+        if (_logInstead) {
             NWLogWarn(@"%@", message);
         } else {
             NSAssert(NO, @"%@", message);        
@@ -65,9 +63,9 @@
 - (id)reverse:(id)value context:(NWSMappingContext *)context
 {
 #if DEBUG
-    if (![reverse isEqual:value]) {
-        NSString *message = [NSString stringWithFormat:@"Assert reverse failed on: %@ != %@", reverse, value];
-        if (logInstead) {
+    if (![_reverse isEqual:value]) {
+        NSString *message = [NSString stringWithFormat:@"Assert reverse failed on: %@ != %@", _reverse, value];
+        if (_logInstead) {
             NWLogWarn(@"%@", message);
         } else {
             NSAssert(NO, @"%@", message);        

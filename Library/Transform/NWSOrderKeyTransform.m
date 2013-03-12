@@ -12,8 +12,6 @@
 
 @implementation NWSOrderKeyTransform
 
-@synthesize begin, step;
-
 
 #pragma mark - Object life cycle
 
@@ -22,12 +20,12 @@
     return [self initWithBegin:0 step:1];
 }
 
-- (id)initWithBegin:(NSInteger)_begin step:(NSInteger)_step
+- (id)initWithBegin:(NSInteger)begin step:(NSInteger)step
 {
     self = [super init];
     if (self) {
-        begin = _begin;
-        step = _step;
+        _begin = begin;
+        _step = step;
     }
     return self;
 }
@@ -47,7 +45,7 @@
 
 - (id)transform:(id)value context:(NWSMappingContext *)context
 {
-    NSInteger order = context.indexInArray * step + begin;
+    NSInteger order = context.indexInArray * _step + _begin;
     return [NSNumber numberWithInteger:order];
 }
 

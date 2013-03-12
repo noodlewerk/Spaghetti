@@ -11,16 +11,14 @@
 
 @implementation NWSKeyPathPath
 
-@synthesize keyPath;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithKeyPath:(NSString *)_keyPath
+- (id)initWithKeyPath:(NSString *)keyPath
 {
     self = [super init];
     if (self) {
-        keyPath = [_keyPath copy];
+        _keyPath = [keyPath copy];
     }
     return self;
 }
@@ -32,7 +30,7 @@
 
 - (NSUInteger)hash
 {
-    return 1012023143 + keyPath.hash;
+    return 1012023143 + _keyPath.hash;
 }
 
 
@@ -41,7 +39,7 @@
 - (id)valueWithObject:(NSObject *)object
 {
     if (object != NSNull.null) {
-        return [object valueForKeyPath:keyPath];
+        return [object valueForKeyPath:_keyPath];
     }
     return NSNull.null; 
 }
@@ -49,7 +47,7 @@
 - (void)setWithObject:(NSObject *)object value:(id)value
 {
     if (object != NSNull.null) {
-        [object setValue:value forKeyPath:keyPath];
+        [object setValue:value forKeyPath:_keyPath];
     }
 }
 
@@ -58,12 +56,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p keyPath:%@>", NSStringFromClass(self.class), self, keyPath];
+    return [NSString stringWithFormat:@"<%@:%p keyPath:%@>", NSStringFromClass(self.class), self, _keyPath];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [keyPath readable:prefix];
+    return [_keyPath readable:prefix];
 }
 
 @end

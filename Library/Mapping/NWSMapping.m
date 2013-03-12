@@ -27,20 +27,18 @@
 
 @implementation NWSMappingEntry
 
-@synthesize elementPath, objectPath, transform, policy;
-
-- (id)initWithElementPath:(NWSPath *)_elementPath objectPath:(NWSPath *)_objectPath transform:(NWSTransform *)_transform policy:(NWSPolicy *)_policy
+- (id)initWithElementPath:(NWSPath *)elementPath objectPath:(NWSPath *)objectPath transform:(NWSTransform *)transform policy:(NWSPolicy *)policy
 {
-    NWLogWarnIfNot(_elementPath, @"Element path should be non-nil");
-    NWLogWarnIfNot(_objectPath, @"Object path should be non-nil");
-    NWLogWarnIfNot(_transform, @"Transform should be non-nil");
-    NWLogWarnIfNot(_policy, @"Policy should be non-nil");
+    NWLogWarnIfNot(elementPath, @"Element path should be non-nil");
+    NWLogWarnIfNot(objectPath, @"Object path should be non-nil");
+    NWLogWarnIfNot(transform, @"Transform should be non-nil");
+    NWLogWarnIfNot(policy, @"Policy should be non-nil");
     self = [super init];
     if (self) {
-        elementPath = _elementPath;
-        objectPath = _objectPath;
-        transform = _transform;
-        policy = _policy;
+        _elementPath = elementPath;
+        _objectPath = objectPath;
+        _transform = transform;
+        _policy = policy;
     }
     return self;
 }
@@ -50,24 +48,22 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p element:%@ attribute:%@ transform:%@>", NSStringFromClass(self.class), self, elementPath, objectPath, transform];
+    return [NSString stringWithFormat:@"<%@:%p element:%@ attribute:%@ transform:%@>", NSStringFromClass(self.class), self, _elementPath, _objectPath, _transform];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"map-entry %@ -> %@ using %@", [elementPath readable:prefix], [objectPath readable:prefix], [transform readable:prefix]] readable:prefix];
+    return [[NSString stringWithFormat:@"map-entry %@ -> %@ using %@", [_elementPath readable:prefix], [_objectPath readable:prefix], [_transform readable:prefix]] readable:prefix];
 }
 
 @end
 
 
 @implementation NWSMapping {
-    NSMutableArray *attributes;
-    NSMutableArray *relations;
-    NSMutableArray *primaries;
+    NSMutableArray *_attributes;
+    NSMutableArray *_relations;
+    NSMutableArray *_primaries;
 }
-
-@synthesize attributes, relations, primaries, objectType;
 
 
 #pragma mark - Object life cycle
@@ -76,33 +72,33 @@
 {
     self = [super init];
     if (self) {
-        attributes = [[NSMutableArray alloc] init];
-        relations = [[NSMutableArray alloc] init];
-        primaries = [[NSMutableArray alloc] init];
+        _attributes = [[NSMutableArray alloc] init];
+        _relations = [[NSMutableArray alloc] init];
+        _primaries = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
-- (id)initWithAttributes:(NSMutableArray *)_attributes relations:(NSMutableArray *)_relations primaries:(NSMutableArray *)_primaries
+- (id)initWithAttributes:(NSMutableArray *)attributes relations:(NSMutableArray *)relations primaries:(NSMutableArray *)primaries
 {
     self = [super init];
     if (self) {
-        attributes = _attributes;
-        relations = _relations;
-        primaries = _primaries;
+        _attributes = attributes;
+        _relations = relations;
+        _primaries = primaries;
     }
     return self;
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    NWSMapping *result = [[self.class allocWithZone:zone] initWithAttributes:[attributes mutableCopy] relations:[relations mutableCopy] primaries:[primaries mutableCopy]];
+    NWSMapping *result = [[self.class allocWithZone:zone] initWithAttributes:[_attributes mutableCopy] relations:[_relations mutableCopy] primaries:[_primaries mutableCopy]];
     return result;
 }
 
 - (void)breakCycles
 {
-    [relations removeAllObjects];
+    [_relations removeAllObjects];
 }
 
 
@@ -124,15 +120,15 @@
 
 - (void)addAttributeEntry:(NWSMappingEntry *)entry isPrimary:(BOOL)isPrimary
 {
-    [attributes addObject:entry];
+    [_attributes addObject:entry];
     if (isPrimary) {
-        [primaries addObject:entry];
+        [_primaries addObject:entry];
     }
 }
 
 - (void)addRelationEntry:(NWSMappingEntry *)entry
 {
-    [relations addObject:entry];
+    [_relations addObject:entry];
 }
 
 
@@ -276,9 +272,9 @@
     
     if ([element isKindOfClass:NSDictionary.class]) {    
         // if we have a primary path, first search for existing object to map to
-        if (objectType) {
-            NSMutableArray *pathsAndValues = [[NSMutableArray alloc] initWithCapacity:primaries.count * 2];
-            for (NWSMappingEntry *primary in primaries) {
+        if (_objectType) {
+            NSMutableArray *pathsAndValues = [[NSMutableArray alloc] initWithCapacity:_primaries.count * 2];
+            for (NWSMappingEntry *primary in _primaries) {
                 id value = [element valueForPath:primary.elementPath];
                 if (value == NSNull.null) {
                     value = nil;
@@ -289,13 +285,13 @@
                     [pathsAndValues addObject:transformed];
                 }
             }
-            result = [context.store identifierWithType:objectType primaryPathsAndValues:pathsAndValues create:YES];
+            result = [context.store identifierWithType:_objectType primaryPathsAndValues:pathsAndValues create:YES];
             NWLogWarnIfNot(result, @"No identifier found or created");
             NWLogInfo(@"found/created object: %@", result);
         }   
         
         // perform individual mapEntries
-        for (NWSMappingEntry *attribute in attributes) {
+        for (NWSMappingEntry *attribute in _attributes) {
             id value = [element valueForPath:attribute.elementPath];
             if (value) {
                 if (value == NSNull.null) {
@@ -316,7 +312,7 @@
         }
         
         // queue individual relations
-        for (NWSMappingEntry *relation in relations) {
+        for (NWSMappingEntry *relation in _relations) {
             id value = [element valueForPath:relation.elementPath];
             if (value) {
                 if (value == NSNull.null) {
@@ -404,7 +400,7 @@
         
         if ([context did:identifier]) {
             // we already did this one, so only map primaries
-            for (NWSMappingEntry *primary in primaries) {
+            for (NWSMappingEntry *primary in _primaries) {
                 id value = [context.store attributeForIdentifier:identifier path:primary.objectPath];
                 if (value == NSNull.null) {
                     value = nil;
@@ -418,7 +414,7 @@
         [context doing:identifier];
         
         // perform individual mapEntries
-        for (NWSMappingEntry *attribute in attributes) {
+        for (NWSMappingEntry *attribute in _attributes) {
             id value = [context.store attributeForIdentifier:identifier path:attribute.objectPath];
             DEBUG_CONTEXT_PUSH(context, attribute.objectPath);
             NWLogInfo(@"mapElement attribute: %@ = %@", context.path, value);
@@ -431,7 +427,7 @@
         }
         
         // queue individual relations
-        for (NWSMappingEntry *relation in relations) {
+        for (NWSMappingEntry *relation in _relations) {
             id value = [context.store relationForIdentifier:identifier path:relation.objectPath];
             DEBUG_CONTEXT_PUSH(context, relation.objectPath);
             NWLogInfo(@"mapElement relation: %@", context.path);
@@ -452,12 +448,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p type:%@ #attributes:%u #relations:%u #primaries:%u>", NSStringFromClass(self.class), self, objectType, (int)attributes.count, (int)relations.count, (int)primaries.count];
+    return [NSString stringWithFormat:@"<%@:%p type:%@ #attributes:%u #relations:%u #primaries:%u>", NSStringFromClass(self.class), self, _objectType, (int)_attributes.count, (int)_relations.count, (int)_primaries.count];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"mapping for %@", [objectType readable:prefix]] readable:prefix];
+    return [[NSString stringWithFormat:@"mapping for %@", [_objectType readable:prefix]] readable:prefix];
 }
 
 @end

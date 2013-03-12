@@ -24,8 +24,6 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 @implementation NWSScheduleItem
 
-@synthesize startTime, intervalTime, callbackQueue, cancelled;
-
 
 #pragma mark - Schedule Item
 
@@ -44,7 +42,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p s:%f i:%f q:%@>", NSStringFromClass(self.class), self, startTime, intervalTime, callbackQueue ? @"Y" : @"N"];
+    return [NSString stringWithFormat:@"<%@:%p s:%f i:%f q:%@>", NSStringFromClass(self.class), self, _startTime, _intervalTime, _callbackQueue ? @"Y" : @"N"];
 }
 
 - (NSString *)readable:(NSString *)prefix
@@ -64,19 +62,17 @@ static const NSTimeInterval minOperationInterval = 0.1;
 @end
 
 @implementation NWSCallScheduleItem {
-    NWSDialogue *dialogue;
+    NWSDialogue *_dialogue;
 }
-
-@synthesize call;
 
 
 #pragma mark - Object life cycle
 
-- (id)initWithCall:(NWSCall *)_call
+- (id)initWithCall:(NWSCall *)call
 {
     self = [super init];
     if (self) {
-        call = _call;
+        _call = call;
     }
     return self;
 }
@@ -86,16 +82,16 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (void)start:(NSOperationQueue *)queue
 {
-    dialogue = [call newDialogue];
-    dialogue.operationQueue = queue;
-    dialogue.callbackQueue = self.callbackQueue;
-    [dialogue start];
+    _dialogue = [_call newDialogue];
+    _dialogue.operationQueue = queue;
+    _dialogue.callbackQueue = self.callbackQueue;
+    [_dialogue start];
 }
 
 - (void)cancel
 {
     self.cancelled = YES;
-    [dialogue cancel];
+    [_dialogue cancel];
 }
 
 
@@ -108,7 +104,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"schedule-item on:%@ every:%u call:%@", [NSDate dateWithTimeIntervalSince1970:self.startTime], (int)self.intervalTime, [call readable:prefix]] readable:prefix];
+    return [[NSString stringWithFormat:@"schedule-item on:%@ every:%u call:%@", [NSDate dateWithTimeIntervalSince1970:self.startTime], (int)self.intervalTime, [_call readable:prefix]] readable:prefix];
 }
 
 @end
@@ -117,16 +113,14 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 @implementation NWSGroupedScheduleItem
 
-@synthesize items;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithItemArray:(NSArray *)_items
+- (id)initWithItemArray:(NSArray *)items
 {
     self = [super init];
     if (self) {
-        items = _items;
+        _items = items;
     }
     return self;
 }
@@ -148,7 +142,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (void)start:(NSOperationQueue *)queue
 {
-    for (NWSScheduleItem *item in items) {
+    for (NWSScheduleItem *item in _items) {
         [item start:queue];
     }    
 }
@@ -156,7 +150,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
 - (void)cancel
 {
     self.cancelled = YES;
-    for (NWSScheduleItem *item in items) {
+    for (NWSScheduleItem *item in _items) {
         [item cancel];
     }
 }
@@ -171,44 +165,44 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"schedule-group on:%@ every:%u #%u", [NSDate dateWithTimeIntervalSince1970:self.startTime], (int)self.intervalTime, (int)items.count] readable:prefix];
+    return [[NSString stringWithFormat:@"schedule-group on:%@ every:%u #%u", [NSDate dateWithTimeIntervalSince1970:self.startTime], (int)self.intervalTime, (int)_items.count] readable:prefix];
 }
 
 @end
 
 
 @implementation NWSSchedule {
-    NSOperationQueue *operationQueue;
-    dispatch_queue_t scheduleQueue;
-    NSMutableArray *schedule;
-    BOOL cancelled;
-    NSRunLoop *runloop;
-    NSDate *nextRun;
+    NSOperationQueue *_operationQueue;
+    dispatch_queue_t _scheduleQueue;
+    NSMutableArray *_schedule;
+    BOOL _cancelled;
+    NSRunLoop *_runloop;
+    NSDate *_nextRun;
 }
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        operationQueue = [[NSOperationQueue alloc] init];
-        operationQueue.maxConcurrentOperationCount = 1;
-        scheduleQueue = dispatch_queue_create("NWSSchedule", DISPATCH_QUEUE_SERIAL);
-        schedule = [[NSMutableArray alloc] init];
+        _operationQueue = [[NSOperationQueue alloc] init];
+        _operationQueue.maxConcurrentOperationCount = 1;
+        _scheduleQueue = dispatch_queue_create("NWSSchedule", DISPATCH_QUEUE_SERIAL);
+        _schedule = [[NSMutableArray alloc] init];
    }
     return self;
 }
 
 - (void)dealloc
 {
-    dispatch_release(scheduleQueue); scheduleQueue = nil;
+    dispatch_release(_scheduleQueue); _scheduleQueue = nil;
 }
 
 - (void)queueItem:(NWSScheduleItem *)item
 {
     NWLogInfo(@"on-queue: queueing item");
     // TODO: more efficient sorted insert
-    [schedule addObject:item];
-    [schedule sortUsingComparator:^NSComparisonResult(NWSScheduleItem *a, NWSScheduleItem *b) {
+    [_schedule addObject:item];
+    [_schedule sortUsingComparator:^NSComparisonResult(NWSScheduleItem *a, NWSScheduleItem *b) {
         if (a.startTime < b.startTime) {
             return NSOrderedAscending;
         } else if (a.startTime > b.startTime) {
@@ -226,11 +220,11 @@ static const NSTimeInterval minOperationInterval = 0.1;
 {
     delay = MAX(delay, 0);
     NSDate *next = [NSDate dateWithTimeIntervalSinceNow:delay];
-    if (!nextRun || [next compare:nextRun] == NSOrderedAscending) {
+    if (!_nextRun || [next compare:_nextRun] == NSOrderedAscending) {
         NWLogInfo(@"on-queue: re-run");
-        nextRun = next;
+        _nextRun = next;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delay * NSEC_PER_SEC);
-        dispatch_after(popTime, scheduleQueue, ^(void) {
+        dispatch_after(popTime, _scheduleQueue, ^(void) {
             [self dequeueItem];
         });
     }
@@ -239,30 +233,30 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (void)dequeueItem
 {
-    nextRun = nil;
-    if (cancelled) {
+    _nextRun = nil;
+    if (_cancelled) {
         NWLogInfo(@"on-queue: cancelled");
         return;
     }
-    if (schedule.count) {
-        NWSScheduleItem *item = [schedule objectAtIndex:0];
+    if (_schedule.count) {
+        NWSScheduleItem *item = [_schedule objectAtIndex:0];
         NSTimeInterval now = [NSDate.date timeIntervalSince1970];
         NSTimeInterval delay = item.startTime - now;
         if (delay <= 0) {
             // update schedule
             NWLogInfo(@"on-queue: running item");
-            [schedule removeObjectAtIndex:0];
+            [_schedule removeObjectAtIndex:0];
             if (!item.cancelled) {
                 if (item.intervalTime > 0) {
                     item.startTime = now + item.intervalTime;
                     [self queueItem:item];
                 }
                 // run item
-                [item start:operationQueue];
+                [item start:_operationQueue];
             }
             // schedule next
-            if (schedule.count) {
-                NWSScheduleItem *next = [schedule objectAtIndex:0];
+            if (_schedule.count) {
+                NWSScheduleItem *next = [_schedule objectAtIndex:0];
                 [self dequeueItemAfterDelay:next.startTime - now + minOperationInterval];
             } else {
                 NWLogInfo(@"on-queue: pausing");
@@ -279,16 +273,16 @@ static const NSTimeInterval minOperationInterval = 0.1;
 - (void)start
 {
     NWLogInfo(@"off-queue: starting");
-    dispatch_async(scheduleQueue, ^{
-        cancelled = NO;
+    dispatch_async(_scheduleQueue, ^{
+        _cancelled = NO;
     });
 }
 
 - (void)cancel
 {
     NWLogInfo(@"off-queue: cancelling");
-    dispatch_async(scheduleQueue, ^{
-        cancelled = YES;
+    dispatch_async(_scheduleQueue, ^{
+        _cancelled = YES;
     });
 }
 
@@ -298,7 +292,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
     if (!item.callbackQueue) {
         item.callbackQueue = NSOperationQueue.currentQueue;
     }
-    dispatch_async(scheduleQueue, ^{
+    dispatch_async(_scheduleQueue, ^{
         [self queueItem:item];
     });
 }
@@ -306,8 +300,8 @@ static const NSTimeInterval minOperationInterval = 0.1;
 - (NSUInteger)count
 {
     __block NSUInteger result = 0;
-    dispatch_sync(scheduleQueue, ^{
-        result = schedule.count;
+    dispatch_sync(_scheduleQueue, ^{
+        result = _schedule.count;
     });
     return result;
 }
@@ -315,8 +309,8 @@ static const NSTimeInterval minOperationInterval = 0.1;
 - (BOOL)running
 {
     __block BOOL result = NO;
-    dispatch_sync(scheduleQueue, ^{
-        result = !cancelled;
+    dispatch_sync(_scheduleQueue, ^{
+        result = !_cancelled;
     });
     return result;
 }
@@ -369,11 +363,11 @@ static const NSTimeInterval minOperationInterval = 0.1;
 {
     NSMutableString *result = [[NSMutableString alloc] init];
     [result appendFormat:@"\n[%@]\n", NSStringFromClass(self.class)];
-    dispatch_sync(scheduleQueue, ^{
-        [result appendFormat:@"Currently %@ with %u scheduled calls.\n", cancelled ? @"paused" : @"running", (int)schedule.count];
-        [result appendFormat:@"Next run will be on %@.\n", nextRun];
+    dispatch_sync(_scheduleQueue, ^{
+        [result appendFormat:@"Currently %@ with %u scheduled calls.\n", _cancelled ? @"paused" : @"running", (int)_schedule.count];
+        [result appendFormat:@"Next run will be on %@.\n", _nextRun];
         [result appendString:@"Scheduled items:\n"];
-        for (NWSScheduleItem *item in schedule) {
+        for (NWSScheduleItem *item in _schedule) {
             [result appendFormat:@"   %@\n", [item readable:@"   "]];
         }
     });

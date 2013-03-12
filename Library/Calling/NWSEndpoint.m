@@ -14,15 +14,6 @@
 
 @implementation NWSEndpoint
 
-@synthesize store;
-@synthesize requestParser, requestMapping, requestObject, responseParser, responseMapping, responsePath;
-@synthesize parentPath, parentPolicy;
-@synthesize indicator;
-
-#if DEBUG
-@synthesize mappingTime, parseTime, totalTime, requestTime;
-#endif
-
 
 #pragma mark - Object life cycle
 
@@ -31,10 +22,10 @@
     self = [super init];
     if (self) {
 #if DEBUG
-        mappingTime = [[NWSVarStat alloc] init];
-        parseTime = [[NWSVarStat alloc] init];
-        totalTime = [[NWSVarStat alloc] init];
-        requestTime = [[NWSVarStat alloc] init];
+        _mappingTime = [[NWSVarStat alloc] init];
+        _parseTime = [[NWSVarStat alloc] init];
+        _totalTime = [[NWSVarStat alloc] init];
+        _requestTime = [[NWSVarStat alloc] init];
 #endif
     }
     return self;
@@ -49,16 +40,16 @@
 - (id)copyWithZone:(NSZone *)zone
 {
     NWSEndpoint *result = [[self.class allocWithZone:zone] init];
-    result.store = store;
-    result.requestParser = requestParser;
-    result.requestMapping = requestMapping;
-    result.requestObject = requestObject;
-    result.responseParser = responseParser;
-    result.responseMapping = responseMapping;
-    result.responsePath = responsePath;
-    result.parentPath = parentPath;
-    result.parentPolicy = parentPolicy;
-    result.indicator = indicator;
+    result.store = _store;
+    result.requestParser = _requestParser;
+    result.requestMapping = _requestMapping;
+    result.requestObject = _requestObject;
+    result.responseParser = _responseParser;
+    result.responseMapping = _responseMapping;
+    result.responsePath = _responsePath;
+    result.parentPath = _parentPath;
+    result.parentPolicy = _parentPolicy;
+    result.indicator = _indicator;
     return result;
 }
 

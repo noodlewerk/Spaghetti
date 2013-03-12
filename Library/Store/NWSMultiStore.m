@@ -18,14 +18,12 @@
 
 
 @implementation NWSMultiStore {
-    NSMutableDictionary *storeForObjectTypeClass;
-    NSMutableDictionary *storeForObjectIDClass;
-    NSMutableArray *objectTypeClasses;
-    NSMutableArray *objectIDClasses;
-    NSMutableArray *stores;
+    NSMutableDictionary *_storeForObjectTypeClass;
+    NSMutableDictionary *_storeForObjectIDClass;
+    NSMutableArray *_objectTypeClasses;
+    NSMutableArray *_objectIDClasses;
+    NSMutableArray *_stores;
 }
-
-@synthesize stores;
 
 
 #pragma mark - Object life cycle
@@ -34,22 +32,22 @@
 {
     self = [super init];
     if (self) {
-        storeForObjectTypeClass = [[NSMutableDictionary alloc] init];
-        storeForObjectIDClass = [[NSMutableDictionary alloc] init];
-        stores = [[NSMutableArray alloc] init];
-        objectTypeClasses = [[NSMutableArray alloc] init];
-        objectIDClasses = [[NSMutableArray alloc] init];
+        _storeForObjectTypeClass = [[NSMutableDictionary alloc] init];
+        _storeForObjectIDClass = [[NSMutableDictionary alloc] init];
+        _stores = [[NSMutableArray alloc] init];
+        _objectTypeClasses = [[NSMutableArray alloc] init];
+        _objectIDClasses = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (void)addStore:(NWSStore *)store objectTypeClass:(Class)objectTypeClass objectIDClass:(Class)objectIDClass
 {
-    [storeForObjectTypeClass setObject:store forKey:NSStringFromClass(objectTypeClass)];
-    [storeForObjectIDClass setObject:store forKey:NSStringFromClass(objectIDClass)];
-    [stores addObject:store];
-    [objectTypeClasses addObject:objectTypeClass];
-    [objectIDClasses addObject:objectIDClass];
+    [_storeForObjectTypeClass setObject:store forKey:NSStringFromClass(objectTypeClass)];
+    [_storeForObjectIDClass setObject:store forKey:NSStringFromClass(objectIDClass)];
+    [_stores addObject:store];
+    [_objectTypeClasses addObject:objectTypeClass];
+    [_objectIDClasses addObject:objectIDClass];
 }
 
 
@@ -57,7 +55,7 @@
 
 - (NWSObjectID *)identifierWithType:(NWSObjectType *)type primaryPathsAndValues:(NSArray *)pathsAndValues create:(BOOL)create
 {
-    NWSStore *store = [storeForObjectTypeClass objectForKey:NSStringFromClass(type.class)];
+    NWSStore *store = [_storeForObjectTypeClass objectForKey:NSStringFromClass(type.class)];
     NWLogWarnIfNot(store, @"No store for object type: %@", type);
     return [store identifierWithType:type primaryPathsAndValues:pathsAndValues create:create];
 }
@@ -72,7 +70,7 @@
         }
         return result;
     } else {
-        NWSStore *store = [storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
+        NWSStore *store = [_storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         return [store attributeForIdentifier:identifier path:path];
     }
@@ -88,7 +86,7 @@
         }
         return [[NWSArrayObjectID alloc] initWithIdentifiers:result];
     } else {
-        NWSStore *store = [storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
+        NWSStore *store = [_storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         return [store relationForIdentifier:identifier path:path];
     }
@@ -102,7 +100,7 @@
             [self setAttributeForIdentifier:j value:value path:path];
         }
     } else {
-        NWSStore *store = [storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
+        NWSStore *store = [_storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         [store setAttributeForIdentifier:identifier value:value path:path];
     }
@@ -116,7 +114,7 @@
             [self setRelationForIdentifier:j value:value path:path policy:policy baseStore:baseStore];
         }
     } else {
-        NWSStore *store = [storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
+        NWSStore *store = [_storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         [store setRelationForIdentifier:identifier value:value path:path policy:policy baseStore:baseStore ? baseStore : self];
     }
@@ -130,7 +128,7 @@
             [self deleteObjectWithIdentifier:j];
         }
     } else {
-        NWSStore *store = [storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
+        NWSStore *store = [_storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         [store deleteObjectWithIdentifier:identifier];
     }
@@ -146,7 +144,7 @@
         }
         return [[NWSObjectReference alloc] initWithObject:array];
     } else {
-        NWSStore *store = [storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
+        NWSStore *store = [_storeForObjectIDClass objectForKey:NSStringFromClass(identifier.class)];
         NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
         return [store referenceForIdentifier:identifier];
     }
@@ -154,10 +152,10 @@
 
 - (NWSObjectID *)identifierForObject:(id)object
 {
-    for (NSString *type in storeForObjectTypeClass) {
+    for (NSString *type in _storeForObjectTypeClass) {
         Class c = NSClassFromString(type);
         if ([c supports:object]) {
-            NWSStore *store = [storeForObjectTypeClass objectForKey:type];
+            NWSStore *store = [_storeForObjectTypeClass objectForKey:type];
             return [store identifierForObject:object];
         }
     }
@@ -167,7 +165,7 @@
 
 - (NWSObjectType *)typeFromString:(NSString *)string
 {
-    for (NWSStore *store in stores) {
+    for (NWSStore *store in _stores) {
         NWSObjectType *type = [store typeFromString:string];
         if (type) {
             return type;
@@ -183,10 +181,10 @@
 - (NWSStore *)beginTransaction
 {
     NWSMultiStore *result = [[NWSMultiStore alloc] init];
-    for (NSUInteger i = 0; i < stores.count; i++) {
-        NWSStore *store = [stores objectAtIndex:i];
-        Class typeClass = [objectTypeClasses objectAtIndex:i];
-        Class idClass = [objectIDClasses objectAtIndex:i];
+    for (NSUInteger i = 0; i < _stores.count; i++) {
+        NWSStore *store = [_stores objectAtIndex:i];
+        Class typeClass = [_objectTypeClasses objectAtIndex:i];
+        Class idClass = [_objectIDClasses objectAtIndex:i];
         [result addStore:[store beginTransaction] objectTypeClass:typeClass objectIDClass:idClass];
     }
     return result;
@@ -195,12 +193,12 @@
 - (void)mergeTransaction:(NWSMultiStore *)store
 {
     NWLogWarnIfNot([store isKindOfClass:NWSMultiStore.class], @"Multi store can only merge with multi store.");
-    if (store.stores.count == stores.count) {
-        for (NSUInteger i = 0; i < stores.count; i++) {
-            [[stores objectAtIndex:i] mergeTransaction:[store.stores objectAtIndex:i]];
+    if (store.stores.count == _stores.count) {
+        for (NSUInteger i = 0; i < _stores.count; i++) {
+            [[_stores objectAtIndex:i] mergeTransaction:[store.stores objectAtIndex:i]];
         }
     } else {
-        NWLogWarn(@"Multi stores should have equal number of sub-stores: %i %i", (int)stores.count, (int)store.stores.count);
+        NWLogWarn(@"Multi stores should have equal number of sub-stores: %i %i", (int)_stores.count, (int)store.stores.count);
     }
 }
 
@@ -209,7 +207,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p #stores:%u>", NSStringFromClass(self.class), self, (int)stores.count];
+    return [NSString stringWithFormat:@"<%@:%p #stores:%u>", NSStringFromClass(self.class), self, (int)_stores.count];
 }
 
 - (NSString *)readable:(NSString *)prefix
@@ -223,7 +221,7 @@
 - (NSArray *)allObjects
 {
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    for (NWSStore *store in stores) {
+    for (NWSStore *store in _stores) {
         [result addObjectsFromArray:[store allObjects]];
     }
     return result;

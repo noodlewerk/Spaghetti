@@ -12,24 +12,23 @@
 
 
 @implementation NWSMappingContext {
-    NSMutableArray *done;
-    NSMutableArray *indexStack;
+    NSMutableArray *_done;
+    NSMutableArray *_indexStack;
 #if DEBUG
-    NSMutableArray *pathStack;
+    NSMutableArray *_pathStack;
 #endif
 }
 
-@synthesize store, indexInArray;
 
-- (id)initWithStore:(NWSStore *)_store
+- (id)initWithStore:(NWSStore *)store
 {
     self = [super init];
     if (self) {
-        store = _store;
-        done = [[NSMutableArray alloc] init];
-        indexStack = [[NSMutableArray alloc] init];
+        _store = store;
+        _done = [[NSMutableArray alloc] init];
+        _indexStack = [[NSMutableArray alloc] init];
 #if DEBUG
-        pathStack = [[NSMutableArray alloc] init];
+        _pathStack = [[NSMutableArray alloc] init];
 #endif
     }
     return self;
@@ -40,12 +39,12 @@
 
 - (void)doing:(id)value
 {
-    [done addObject:value];
+    [_done addObject:value];
 }
 
 - (BOOL)did:(id)value
 {
-    for (id i in done) {
+    for (id i in _done) {
         if ([value isEqual:i]) {
             return YES;
         }
@@ -58,26 +57,26 @@
 
 - (void)pushIndexInArray
 {
-    [indexStack addObject:[NSNumber numberWithUnsignedInteger:indexInArray]];
-    indexInArray = 0;
+    [_indexStack addObject:[NSNumber numberWithUnsignedInteger:_indexInArray]];
+    _indexInArray = 0;
 }
 
 - (void)incIndexInArray
 {
-    indexInArray++;
+    _indexInArray++;
 }
 
 - (void)popIndexInArray
 {
-    indexInArray = [[indexStack lastObject] unsignedIntegerValue];
-    [indexStack removeLastObject];
+    _indexInArray = [[_indexStack lastObject] unsignedIntegerValue];
+    [_indexStack removeLastObject];
 }
 
 #pragma mark - Logging
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p store:%@>", NSStringFromClass(self.class), self, store];
+    return [NSString stringWithFormat:@"<%@:%p store:%@>", NSStringFromClass(self.class), self, _store];
 }
 
 - (NSString *)readable:(NSString *)prefix
@@ -90,17 +89,17 @@
 
 - (void)pushPath:(NWSPath *)path
 {
-    [pathStack addObject:path];
+    [_pathStack addObject:path];
 }
 
 - (void)popPath
 {
-    [pathStack removeLastObject];
+    [_pathStack removeLastObject];
 }
 
 - (NWSPath *)pathStack
 {
-    return [[NWSCompositePath alloc] initWithPaths:pathStack];
+    return [[NWSCompositePath alloc] initWithPaths:_pathStack];
 }
 
 - (NSString *)path

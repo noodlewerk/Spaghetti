@@ -11,32 +11,27 @@
 #import "NWSActivityIndicator.h"
 
 @implementation NWSCall {
-    NSMutableDictionary *parameters;
+    NSMutableDictionary *_parameters;
 }
-
-@synthesize endpoint, doneBlock, parameters, store;
-@synthesize requestParser, requestMapping, requestObject, responseParser, responseMapping, responsePath;
-@synthesize parent, parentPath, parentPolicy;
-@synthesize indicator;
 
 
 #pragma mark - Object life cycle
 
-- (id)initWithEndpoint:(NWSEndpoint *)_endpoint
+- (id)initWithEndpoint:(NWSEndpoint *)endpoint
 {
     self = [super init];
     if (self) {
-        endpoint = _endpoint;
-        store = _endpoint.store;
-        requestParser = _endpoint.requestParser;
-        requestMapping = _endpoint.requestMapping;
-        requestObject = _endpoint.requestObject;
-        responseParser = _endpoint.responseParser;
-        responseMapping = _endpoint.responseMapping;
-        responsePath = _endpoint.responsePath;
-        parentPath = _endpoint.parentPath;
-        parentPolicy = _endpoint.parentPolicy;
-        indicator = _endpoint.indicator;
+        _endpoint = endpoint;
+        _store = endpoint.store;
+        _requestParser = endpoint.requestParser;
+        _requestMapping = endpoint.requestMapping;
+        _requestObject = endpoint.requestObject;
+        _responseParser = endpoint.responseParser;
+        _responseMapping = endpoint.responseMapping;
+        _responsePath = endpoint.responsePath;
+        _parentPath = endpoint.parentPath;
+        _parentPolicy = endpoint.parentPolicy;
+        _indicator = endpoint.indicator;
     }
     return self;
 }
@@ -50,32 +45,32 @@
 - (id)copyWithZone:(NSZone *)zone
 {
     NWSCall *result = [[self.class allocWithZone:zone] init];
-    result.endpoint = endpoint;
-    result.doneBlock = doneBlock;
-    result.parameters = [parameters mutableCopy];
-    result.store = store;
-    result.requestParser = requestParser;
-    result.requestMapping = requestMapping;
-    result.requestObject = requestObject;
-    result.responseParser = responseParser;
-    result.responseMapping = responseMapping;
-    result.responsePath = responsePath;
-    result.parent = parent;
-    result.parentPath = parentPath;
-    result.parentPolicy = parentPolicy;
-    if ([indicator isKindOfClass:NWSCombinedActivityIndicator.class]) {
-        result.indicator = [(NWSCombinedActivityIndicator *)indicator copy];
+    result.endpoint = _endpoint;
+    result.doneBlock = _doneBlock;
+    result.parameters = [_parameters mutableCopy];
+    result.store = _store;
+    result.requestParser = _requestParser;
+    result.requestMapping = _requestMapping;
+    result.requestObject = _requestObject;
+    result.responseParser = _responseParser;
+    result.responseMapping = _responseMapping;
+    result.responsePath = _responsePath;
+    result.parent = _parent;
+    result.parentPath = _parentPath;
+    result.parentPolicy = _parentPolicy;
+    if ([_indicator isKindOfClass:NWSCombinedActivityIndicator.class]) {
+        result.indicator = [(NWSCombinedActivityIndicator *)_indicator copy];
     } else {
-        result.indicator = indicator;
+        result.indicator = _indicator;
     }
     return result;
 }
 
 - (void)doneWithResult:(id)result
 {
-    if (doneBlock) {
-        NWSCallDoneBlock b = doneBlock;
-        doneBlock = nil;
+    if (_doneBlock) {
+        NWSCallDoneBlock b = _doneBlock;
+        _doneBlock = nil;
         b(result);
     }
 }
@@ -85,31 +80,31 @@
 
 - (void)setParameterValue:(NSString *)value forKey:(NSString *)key
 {
-    if (!parameters) {
-        parameters = [[NSMutableDictionary alloc] initWithObjectsAndKeys:value, key, nil];
+    if (!_parameters) {
+        _parameters = [[NSMutableDictionary alloc] initWithObjectsAndKeys:value, key, nil];
     } else {
-        [parameters setObject:value forKey:key];
+        [_parameters setObject:value forKey:key];
     }
 }
 
-- (void)setParameters:(NSDictionary *)_parameters
+- (void)setParameters:(NSDictionary *)parameters
 {
     if (!parameters) {
-        parameters = [[NSMutableDictionary alloc] initWithDictionary:_parameters];
+        _parameters = [[NSMutableDictionary alloc] initWithDictionary:parameters];
     } else {
-        [parameters addEntriesFromDictionary:_parameters];
+        [_parameters addEntriesFromDictionary:parameters];
     }
 }
 
-- (void)addIndicator:(id<NWSActivityIndicator>)_indicator
+- (void)addIndicator:(id<NWSActivityIndicator>)indicator
 {
     NWLogWarnIfNot(_indicator, @"Expecting non-nil indicator to add");
-    if ([indicator isKindOfClass:NWSCombinedActivityIndicator.class]) {
-        [(NWSCombinedActivityIndicator *)indicator addIndicator:_indicator];
-    } else if (indicator) {
-        indicator = [[NWSCombinedActivityIndicator alloc] initWithIndicators:[NSArray arrayWithObjects:indicator, _indicator, nil]];
+    if ([_indicator isKindOfClass:NWSCombinedActivityIndicator.class]) {
+        [(NWSCombinedActivityIndicator *)_indicator addIndicator:indicator];
+    } else if (_indicator) {
+        _indicator = [[NWSCombinedActivityIndicator alloc] initWithIndicators:[NSArray arrayWithObjects:indicator, indicator, nil]];
     } else {
-        indicator = _indicator;
+        _indicator = indicator;
     }
 }
 
@@ -177,12 +172,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p endpoint:%@>", NSStringFromClass(self.class), self, endpoint];
+    return [NSString stringWithFormat:@"<%@:%p endpoint:%@>", NSStringFromClass(self.class), self, _endpoint];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"call to %@", endpoint] readable:prefix];
+    return [[NSString stringWithFormat:@"call to %@", _endpoint] readable:prefix];
 }
 
 @end

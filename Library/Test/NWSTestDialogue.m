@@ -11,19 +11,17 @@
 
 
 @implementation NWSTestDialogue {
-    BOOL cancelled;
+    BOOL _cancelled;
 }
-
-@synthesize response;
 
 
 #pragma mark - Object life cycle
 
-- (id)initWithCall:(NWSTestCall *)_call
+- (id)initWithCall:(NWSTestCall *)call
 {
-    self = [super initWithCall:_call];
+    self = [super initWithCall:call];
     if (self) {
-        response = _call.response;
+        _response = call.response;
     }
     return self;
 }
@@ -33,20 +31,20 @@
 
 - (void)start
 {
-    if (cancelled) {
+    if (_cancelled) {
         return;
     }
     
-    NWLogWarnIfNot(response, @"Test requires response data to map");
+    NWLogWarnIfNot(_response, @"Test requires response data to map");
     
-    NSData *data = [response dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [_response dataUsingEncoding:NSUTF8StringEncoding];
     id result = [self mapData:data useTransactionStore:NO];
     [self.call doneWithResult:result];
 }
 
 - (void)cancel
 {
-    cancelled = YES;
+    _cancelled = YES;
 }
 
 

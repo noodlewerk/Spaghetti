@@ -14,16 +14,14 @@
 
 @implementation NWSClassObjectType
 
-@synthesize clas;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithClass:(Class)_clas
+- (id)initWithClass:(Class)clas
 {
     self = [super init];
     if (self) {
-        clas = _clas;
+        _clas = clas;
     }
     return self;
 }
@@ -35,7 +33,7 @@
 
 - (NSUInteger)hash
 {
-    return 8132572160 + [clas hash];
+    return 8132572160 + [_clas hash];
 }
 
 
@@ -43,7 +41,7 @@
 
 - (BOOL)matches:(id)object
 {
-    return [object isKindOfClass:clas];
+    return [object isKindOfClass:_clas];
 }
 
 + (BOOL)supports:(NSObject *)object
@@ -55,11 +53,11 @@
 {
     if ([attribute isKindOfClass:NWSSingleKeyPath.class]) {
         NWSSingleKeyPath *path = (NWSSingleKeyPath *)attribute;
-        objc_property_t property = class_getProperty(clas, path.key.UTF8String);
+        objc_property_t property = class_getProperty(_clas, path.key.UTF8String);
         if (property) {
             return YES;
         }
-        Ivar ivar = class_getInstanceVariable(clas, path.key.UTF8String);
+        Ivar ivar = class_getInstanceVariable(_clas, path.key.UTF8String);
         if (ivar) {
             return YES;
         }
@@ -73,13 +71,13 @@
 {
     if ([relation isKindOfClass:NWSSingleKeyPath.class]) {
         NWSSingleKeyPath *path = (NWSSingleKeyPath *)relation;
-        objc_property_t property = class_getProperty(clas, path.key.UTF8String);
+        objc_property_t property = class_getProperty(_clas, path.key.UTF8String);
         if (property) {
             NSString *type = [NSString stringWithUTF8String:property_getAttributes(property)];
             BOOL isToMany = [type rangeOfString:@"NSSet"].length != 0;
             return toMany == isToMany;
         }
-        Ivar ivar = class_getInstanceVariable(clas, path.key.UTF8String);
+        Ivar ivar = class_getInstanceVariable(_clas, path.key.UTF8String);
         if (ivar) {
             NSString *type = [NSString stringWithUTF8String:ivar_getTypeEncoding(ivar)];
             // TODO: this condition is a bit too fuzzy
@@ -97,12 +95,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p class:%@>", NSStringFromClass(self.class), self, NSStringFromClass(clas)];
+    return [NSString stringWithFormat:@"<%@:%p class:%@>", NSStringFromClass(self.class), self, NSStringFromClass(_clas)];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [clas readable:prefix];
+    return [_clas readable:prefix];
 }
 
 @end

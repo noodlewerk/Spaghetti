@@ -13,16 +13,14 @@
 
 @implementation NWSArrayTransform
 
-@synthesize transform;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithTransform:(NWSTransform *)_transform
+- (id)initWithTransform:(NWSTransform *)transform
 {
     self = [super init];
     if (self) {
-        transform = _transform;
+        _transform = transform;
     }
     return self;
 }
@@ -36,7 +34,7 @@
         NSMutableArray *identifiers = [[NSMutableArray alloc] initWithCapacity:array.count];
         [context pushIndexInArray];
         for (id i in array) {
-            id transformed = [transform transform:i context:context];
+            id transformed = [_transform transform:i context:context];
             if (transformed) {
                 [identifiers addObject:transformed];
                 [context incIndexInArray];
@@ -50,7 +48,7 @@
     } else {
         NSArray *identifiers = nil;
         [context pushIndexInArray];
-        id transformed = [transform transform:array context:context];
+        id transformed = [_transform transform:array context:context];
         if (transformed) {
             identifiers = @[transformed];
             [context incIndexInArray];
@@ -70,7 +68,7 @@
         NSArray *array = [identifier identifiers];
         NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:array.count];
         for (id i in array) {
-            id reversed = [transform reverse:i context:context];
+            id reversed = [_transform reverse:i context:context];
             if (reversed) {
                 [result addObject:reversed];
             } else {
@@ -89,12 +87,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p transform:%@>", NSStringFromClass(self.class), self, transform];
+    return [NSString stringWithFormat:@"<%@:%p transform:%@>", NSStringFromClass(self.class), self, _transform];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"repeated %@", [transform readable:prefix]] readable:prefix];
+    return [[NSString stringWithFormat:@"repeated %@", [_transform readable:prefix]] readable:prefix];
 }
 
 @end

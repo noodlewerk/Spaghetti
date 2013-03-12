@@ -11,16 +11,14 @@
 
 @implementation NWSObjectReference
 
-@synthesize object;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithObject:(id)_object
+- (id)initWithObject:(id)object
 {
     self = [super init];
     if (self) {
-        object = _object;
+        _object = object;
     }
     return self;
 }
@@ -40,7 +38,7 @@
 
 - (id)dereference
 {
-    return [NWSObjectReference dereference:object];
+    return [NWSObjectReference dereference:_object];
 }
 
 @end

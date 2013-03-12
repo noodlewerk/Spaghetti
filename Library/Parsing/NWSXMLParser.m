@@ -11,8 +11,6 @@
 
 @implementation NWSXMLParser
 
-@synthesize isFoldArray, isFoldContent, attributeKeyFormatter, contentKey;
-
 - (id)init
 {
     self = [super init];
@@ -44,13 +42,13 @@
                 NSString *value = [NSString stringWithCString:(char *)str encoding:NSUTF8StringEncoding];
                 xmlFree(str);
                 // add attribute (as prefixed child) to the children
-                NSString *key = [NSString stringWithFormat:attributeKeyFormatter, name];
+                NSString *key = [NSString stringWithFormat:_attributeKeyFormatter, name];
                 if (!children) {
                     children = [NSMutableDictionary dictionaryWithObject:value forKey:key];
                 } else if ([children isKindOfClass:NSDictionary.class]) {
                     [children setObject:value forKey:key];
                 } else {
-                    children = [NSMutableDictionary dictionaryWithObjectsAndKeys:children, contentKey, value, key, nil];
+                    children = [NSMutableDictionary dictionaryWithObjectsAndKeys:children, _contentKey, value, key, nil];
                 }
             }
             
@@ -61,7 +59,7 @@
                 } else if([result isKindOfClass:NSDictionary.class]) {
                     id existing = [result objectForKey:nodeName];
                     if (!existing) {
-                        if (isFoldArray) {
+                        if (_isFoldArray) {
                             [result setObject:children forKey:nodeName];
                         } else {
                             [result setObject:[NSMutableArray arrayWithObject:children] forKey:nodeName];
@@ -72,7 +70,7 @@
                         [result setObject:[NSMutableArray arrayWithObjects:existing, children, nil] forKey:nodeName];
                     }
                 } else {
-                    result = [NSMutableDictionary dictionaryWithObjectsAndKeys:result, contentKey, children, nodeName, nil];
+                    result = [NSMutableDictionary dictionaryWithObjectsAndKeys:result, _contentKey, children, nodeName, nil];
                 }
             }
         } else if (node->type == XML_TEXT_NODE || node->type == XML_CDATA_SECTION_NODE) {
@@ -83,13 +81,13 @@
             // add content to result
             if (content.length) {
                 if (!result) {
-                    if (isFoldContent) {
+                    if (_isFoldContent) {
                         result = content;
                     } else {
-                        result = [NSMutableDictionary dictionaryWithObject:content forKey:contentKey];
+                        result = [NSMutableDictionary dictionaryWithObject:content forKey:_contentKey];
                     }
                 } else {
-                    [result setObject:content forKey:contentKey];
+                    [result setObject:content forKey:_contentKey];
                 }
             }
         } else {

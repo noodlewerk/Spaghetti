@@ -11,17 +11,15 @@
 
 @implementation NWSPolicy
 
-@synthesize type, toMany;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithPolicy:(NWSPolicyType)_type toMany:(BOOL)_toMany;
+- (id)initWithPolicy:(NWSPolicyType)type toMany:(BOOL)toMany;
 {
     self = [super init];
     if (self) {
-        type = _type;
-        toMany = _toMany;
+        _type = type;
+        _toMany = toMany;
     }
     return self;
 }
@@ -90,7 +88,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p %@>", NSStringFromClass(self.class), self, [NWSPolicy stringFromType:type]];
+    return [NSString stringWithFormat:@"<%@:%p %@>", NSStringFromClass(self.class), self, [NWSPolicy stringFromType:_type]];
 }
 
 - (NSString *)readable:(NSString *)prefix

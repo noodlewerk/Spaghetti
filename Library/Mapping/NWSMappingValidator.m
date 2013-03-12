@@ -15,54 +15,52 @@
 
 @implementation NWSMappingValidator
 
-@synthesize mapping;
-
 - (void)validateAttributes
 {
-    if (mapping.objectType) {
-        for (NWSMappingEntry *entry in mapping.attributes) {
-            if (![mapping.objectType hasAttribute:entry.objectPath]) {
-                NWLogWarn(@"Mapping %@ does not have to-attribute: %@", mapping.readable, entry.objectPath.readable); // COV_NF_LINE
+    if (_mapping.objectType) {
+        for (NWSMappingEntry *entry in _mapping.attributes) {
+            if (![_mapping.objectType hasAttribute:entry.objectPath]) {
+                NWLogWarn(@"Mapping %@ does not have to-attribute: %@", _mapping.readable, entry.objectPath.readable); // COV_NF_LINE
             }
         }
     } else {
-        NWLogWarn(@"Mapping %@ attributes cannot be validated without objectType", mapping.readable); // COV_NF_LINE
+        NWLogWarn(@"Mapping %@ attributes cannot be validated without objectType", _mapping.readable); // COV_NF_LINE
     }
 }
 
 - (void)validateRelations
 {
-    if (mapping.objectType) {
-        for (NWSMappingEntry *entry in mapping.relations) {
+    if (_mapping.objectType) {
+        for (NWSMappingEntry *entry in _mapping.relations) {
             BOOL isToMany = [entry.transform isKindOfClass:NWSArrayTransform.class];
-            if (![mapping.objectType hasRelation:entry.objectPath toMany:isToMany]) {
-                NWLogWarn(@"Mapping %@ does not have to-relation: %@", mapping, entry.objectPath); // COV_NF_LINE
+            if (![_mapping.objectType hasRelation:entry.objectPath toMany:isToMany]) {
+                NWLogWarn(@"Mapping %@ does not have to-relation: %@", _mapping, entry.objectPath); // COV_NF_LINE
             }
         }
     } else {
-        NWLogWarn(@"Mapping %@ relations cannot be validated without objectType", mapping.readable); // COV_NF_LINE
+        NWLogWarn(@"Mapping %@ relations cannot be validated without objectType", _mapping.readable); // COV_NF_LINE
     }
 }
 
 - (void)validatePrimaryPath
 {
-    for (NWSMappingEntry *primary in mapping.primaries) {
+    for (NWSMappingEntry *primary in _mapping.primaries) {
         if (!primary.objectPath) {
-            NWLogWarn(@"Mapping %@ does not have primary path set", mapping); // COV_NF_LINE
+            NWLogWarn(@"Mapping %@ does not have primary path set", _mapping); // COV_NF_LINE
         }
-        if (![mapping.objectType hasAttribute:primary.objectPath]) {
-            NWLogWarn(@"Mapping %@ does not have primary attribute: %@", mapping.readable, primary.objectPath.readable); // COV_NF_LINE
+        if (![_mapping.objectType hasAttribute:primary.objectPath]) {
+            NWLogWarn(@"Mapping %@ does not have primary attribute: %@", _mapping.readable, primary.objectPath.readable); // COV_NF_LINE
         }
         if (!primary.elementPath) {
-            NWLogWarn(@"Mapping %@ does not map primary element", mapping.readable); // COV_NF_LINE
+            NWLogWarn(@"Mapping %@ does not map primary element", _mapping.readable); // COV_NF_LINE
         }
     }
 }
 
 - (void)validateMisc
 {
-    if (!mapping.attributes.count && !mapping.relations.count) {
-        NWLogWarn(@"Mapping %@ has no attributes and no relations", mapping.readable); // COV_NF_LINE
+    if (!_mapping.attributes.count && !_mapping.relations.count) {
+        NWLogWarn(@"Mapping %@ has no attributes and no relations", _mapping.readable); // COV_NF_LINE
     }
 }
 
@@ -86,12 +84,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p mapping:%@>", NSStringFromClass(self.class), self, mapping.readable];
+    return [NSString stringWithFormat:@"<%@:%p mapping:%@>", NSStringFromClass(self.class), self, _mapping.readable];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"validator for %@", [mapping readable:prefix]] readable:prefix];
+    return [[NSString stringWithFormat:@"validator for %@", [_mapping readable:prefix]] readable:prefix];
 }
           
 @end

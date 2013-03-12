@@ -20,14 +20,13 @@
 @property (nonatomic, assign) BOOL create;
 @end
 @implementation NWSRecordObjectID;
-@synthesize type, pathsAndValues, create;
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p type:%@ pathsAndValues:%@ %@>", NSStringFromClass(self.class), self, type, pathsAndValues, create ? @"create" : @"do-not-create"];
+    return [NSString stringWithFormat:@"<%@:%p type:%@ pathsAndValues:%@ %@>", NSStringFromClass(self.class), self, _type, _pathsAndValues, _create ? @"create" : @"do-not-create"];
 }
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"%@ with %@", [type readable:prefix], [pathsAndValues readable:prefix]] readable:prefix];    
+    return [[NSString stringWithFormat:@"%@ with %@", [_type readable:prefix], [_pathsAndValues readable:prefix]] readable:prefix];    
 }
 @end
 
@@ -37,50 +36,45 @@
 @property (nonatomic, copy) NSString *type;
 @end
 @implementation NWSRecordObjectType;
-@synthesize type;
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p type:%@>", NSStringFromClass(self.class), self, type];
+    return [NSString stringWithFormat:@"<%@:%p type:%@>", NSStringFromClass(self.class), self, _type];
 }
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"%@-type", [type readable:prefix]] readable:prefix];    
+    return [[NSString stringWithFormat:@"%@-type", [_type readable:prefix]] readable:prefix];    
 }
 @end
 
 
 
 @implementation NWSAttributeRecord;
-@synthesize identifier, path, value;
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p identifier:%@ path:%@ value:%@>", NSStringFromClass(self.class), self, identifier, path, value];
+    return [NSString stringWithFormat:@"<%@:%p identifier:%@ path:%@ value:%@>", NSStringFromClass(self.class), self, _identifier, _path, _value];
 }
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"On %@ set %@ := %@", [identifier readable:prefix], [path.readable readable:prefix], [value readable:prefix]] readable:prefix];    
+    return [[NSString stringWithFormat:@"On %@ set %@ := %@", [_identifier readable:prefix], [_path.readable readable:prefix], [_value readable:prefix]] readable:prefix];    
 }
 @end
 
 
 
 @implementation NWSRelationRecord;
-@synthesize identifier, path, value, policy;
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p identifier:%@ path:%@ value:%@ policy:%@>", NSStringFromClass(self.class), self, identifier, path, value, policy];
+    return [NSString stringWithFormat:@"<%@:%p identifier:%@ path:%@ value:%@ policy:%@>", NSStringFromClass(self.class), self, _identifier, _path, _value, _policy];
 }
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"On %@ set %@ := %@ (%@)", [identifier readable:prefix], [path readable:prefix], [value readable:prefix], [policy readable:prefix]] readable:prefix];    
+    return [[NSString stringWithFormat:@"On %@ set %@ := %@ (%@)", [_identifier readable:prefix], [_path readable:prefix], [_value readable:prefix], [_policy readable:prefix]] readable:prefix];    
 }
 @end
 
 
 
 @implementation NWSRecordingStore
-
-@synthesize records;
 
 
 #pragma mark - Object life cycle
@@ -89,7 +83,7 @@
 {
     self = [super init];
     if (self) {
-        records = [[NSMutableArray alloc] init];
+        _records = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -126,7 +120,7 @@
     record.identifier = identifier;
     record.value = value;
     record.path = path;
-    [records addObject:record];
+    [_records addObject:record];
 }
 
 - (void)setRelationForIdentifier:(NWSObjectID *)identifier value:(NWSObjectID *)value path:(NWSPath *)path policy:(NWSPolicy *)policy baseStore:(NWSStore *)baseStore
@@ -137,7 +131,7 @@
     record.value = value;
     record.path = path;
     record.policy = policy;
-    [records addObject:record];
+    [_records addObject:record];
 }
 
 - (void)deleteObjectWithIdentifier:(NWSObjectID *)identifier
@@ -174,7 +168,7 @@
 
 - (void)applyToStore:(NWSStore *)store
 {
-    for (id record in records) {
+    for (id record in _records) {
         if ([record isKindOfClass:NWSAttributeRecord.class]) {
             NWSAttributeRecord *r = (NWSAttributeRecord *)record;
             NWSObjectID *identifier = [self applyIdentifier:r.identifier store:store];
@@ -188,7 +182,7 @@
             NWLogWarn(@"Record class not supported: %@", record);
         }
     }
-    [records removeAllObjects];
+    [_records removeAllObjects];
 }
 
 - (NWSObjectType *)typeFromString:(NSString *)string
@@ -216,7 +210,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p #records:%u>", NSStringFromClass(self.class), self, (int)records.count];
+    return [NSString stringWithFormat:@"<%@:%p #records:%u>", NSStringFromClass(self.class), self, (int)_records.count];
 }
 
 - (NSString *)readable:(NSString *)prefix

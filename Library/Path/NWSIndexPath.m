@@ -11,16 +11,14 @@
 
 @implementation NWSIndexPath
 
-@synthesize index;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithIndex:(NSInteger)_index
+- (id)initWithIndex:(NSInteger)index
 {
     self = [super init];
     if (self) {
-        index = _index;
+        _index = index;
     }
     return self;
 }
@@ -32,7 +30,7 @@
 
 - (NSUInteger)hash
 {
-    return 1842738790 + (NSUInteger)index;
+    return 1842738790 + (NSUInteger)_index;
 }
 
 
@@ -41,7 +39,7 @@
 - (id)valueWithObject:(NSArray *)array
 {
     if ([array isKindOfClass:NSArray.class]) {
-        NSInteger i = index < 0 ? index + array.count : index;
+        NSInteger i = _index < 0 ? _index + array.count : _index;
         if (i < 0 || i >= array.count) {
             NWLogWarn(@"Index path out of bounds: %i", (int)i);
             return nil;
@@ -58,7 +56,7 @@
 - (void)setWithObject:(NSMutableArray *)array value:(id)value
 {
     if ([array isKindOfClass:NSMutableArray.class]) {
-        NSInteger i = index < 0 ? index + array.count : index;
+        NSInteger i = _index < 0 ? _index + array.count : _index;
         while (i >= array.count) {
             [array addObject:NSNull.null];
         }
@@ -90,12 +88,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p index:%i>", NSStringFromClass(self.class), self, (int)index];
+    return [NSString stringWithFormat:@"<%@:%p index:%i>", NSStringFromClass(self.class), self, (int)_index];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSNumber numberWithInteger:index] readable:prefix];
+    return [[NSNumber numberWithInteger:_index] readable:prefix];
 }
 
 

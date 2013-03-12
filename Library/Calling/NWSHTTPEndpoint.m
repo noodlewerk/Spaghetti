@@ -12,10 +12,8 @@
 
 
 @implementation NWSHTTPEndpoint {
-    NSMutableDictionary *headers;
+    NSMutableDictionary *_headers;
 }
-
-@synthesize urlString, headers, method;
 
 
 #pragma mark - Object life cycle
@@ -27,20 +25,20 @@
 
 - (void)setHeaderValue:(NSString *)value forKey:(NSString *)key
 {
-    if (!headers) {
-        headers = [[NSMutableDictionary alloc] init];
-    } else if (![headers isKindOfClass:NSMutableDictionary.class]) {
-        headers = [[NSMutableDictionary alloc] initWithDictionary:headers];
+    if (!_headers) {
+        _headers = [[NSMutableDictionary alloc] init];
+    } else if (![_headers isKindOfClass:NSMutableDictionary.class]) {
+        _headers = [[NSMutableDictionary alloc] initWithDictionary:_headers];
     }
-    [headers setObject:value forKey:key];
+    [_headers setObject:value forKey:key];
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
     NWSHTTPEndpoint *result = [super copyWithZone:zone];
-    result.urlString = urlString;
-    result.headers = headers;
-    result.method = method;
+    result.urlString = _urlString;
+    result.headers = _headers;
+    result.method = _method;
     return result;
 }
 
@@ -49,12 +47,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p url:%@ req-map:%@ res-map:%@ store:%@>", NSStringFromClass(self.class), self, urlString, self.requestMapping, self.responseMapping, self.store];
+    return [NSString stringWithFormat:@"<%@:%p url:%@ req-map:%@ res-map:%@ store:%@>", NSStringFromClass(self.class), self, _urlString, self.requestMapping, self.responseMapping, self.store];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"http-endpoint on %@", urlString] readable:prefix];
+    return [[NSString stringWithFormat:@"http-endpoint on %@", _urlString] readable:prefix];
 }
 
 @end

@@ -13,16 +13,14 @@
 
 @implementation NWSCompositePath
 
-@synthesize paths;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithPaths:(NSArray *)_paths
+- (id)initWithPaths:(NSArray *)paths
 {
     self = [super init];
     if (self) {
-        paths = _paths;
+        _paths = paths;
     }
     return self;
 }
@@ -35,7 +33,7 @@
 - (NSUInteger)hash
 {
     NSUInteger result = 1510641772;
-    for (NWSPath *path in paths) {
+    for (NWSPath *path in _paths) {
         result = 31 * result + path.hash;
     }
     return result;
@@ -47,7 +45,7 @@
 - (id)valueWithObject:(NSObject *)object
 {
     NSObject *result = object;
-    for (NWSPath *path in paths) {
+    for (NWSPath *path in _paths) {
         result = [path valueWithObject:result];
         if (!result || result == NSNull.null) {
             // optimize on nil/null
@@ -60,8 +58,8 @@
 - (void)setWithObject:(NSObject *)object value:(id)value
 {
     NSObject *o = object;
-    NSUInteger i = paths.count;
-    for (NWSPath *path in paths) {
+    NSUInteger i = _paths.count;
+    for (NWSPath *path in _paths) {
         if (--i) {
             o = [path valueWithObject:o];
         } else {
@@ -92,14 +90,14 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p #paths:%u>", NSStringFromClass(self.class), self, (int)paths.count];
+    return [NSString stringWithFormat:@"<%@:%p #paths:%u>", NSStringFromClass(self.class), self, (int)_paths.count];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
     NSMutableString *result = [[NSMutableString alloc] init];
     BOOL separator = NO;
-    for (NWSPath *path in paths) {
+    for (NWSPath *path in _paths) {
         if (separator) {
             [result appendString:@"."];
         } else {

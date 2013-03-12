@@ -11,17 +11,15 @@
 
 @implementation NWSManagedObjectID
 
-@synthesize ID;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithID:(NSManagedObjectID *)_ID
+- (id)initWithID:(NSManagedObjectID *)ID
 {
     self = [super init];
     if (self) {
-        NWLogWarnIfNot(_ID, @"Initializing an managed object ID with nil ID");
-        ID = _ID;
+        NWLogWarnIfNot(ID, @"Initializing an managed object ID with nil ID");
+        _ID = ID;
     }
     return self;
 }
@@ -33,7 +31,7 @@
 
 - (NSUInteger)hash
 {
-    return 1680565761 + ID.hash;
+    return 1680565761 + _ID.hash;
 }
 
 
@@ -41,12 +39,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p ID:%@>", NSStringFromClass(self.class), self, ID];
+    return [NSString stringWithFormat:@"<%@:%p ID:%@>", NSStringFromClass(self.class), self, _ID];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"id of %@", ID.entity.name] readable:prefix];
+    return [[NSString stringWithFormat:@"id of %@", _ID.entity.name] readable:prefix];
 }
 
 @end

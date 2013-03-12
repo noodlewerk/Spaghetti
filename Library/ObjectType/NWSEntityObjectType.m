@@ -13,16 +13,14 @@
 
 @implementation NWSEntityObjectType
 
-@synthesize entity;
-
 
 #pragma mark - Object life cycle
 
-- (id)initWithEntity:(NSEntityDescription *)_entity
+- (id)initWithEntity:(NSEntityDescription *)entity
 {
     self = [super init];
     if (self) {
-        entity = _entity;
+        _entity = entity;
     }
     return self;
 }
@@ -34,7 +32,7 @@
 
 - (NSUInteger)hash
 {
-    return 8132572160 + entity.hash;
+    return 8132572160 + _entity.hash;
 }
 
 
@@ -44,7 +42,7 @@
 {
     if ([object isKindOfClass:NSManagedObject.class]) {
         NSManagedObject *o = (NSManagedObject *)object;
-        return [entity isEqual:o.entity];
+        return [_entity isEqual:o.entity];
     } else {
         NWLogWarn(@"object not supported: %@", object); // COV_NF_LINE
         return NO; // COV_NF_LINE
@@ -60,7 +58,7 @@
 {
     if ([attribute isKindOfClass:NWSSingleKeyPath.class]) {
         NWSSingleKeyPath *path = (NWSSingleKeyPath *)attribute;
-        NSAttributeDescription *description = [entity.attributesByName objectForKey:path.key];
+        NSAttributeDescription *description = [_entity.attributesByName objectForKey:path.key];
         return description != nil;
     } else if ([attribute isKindOfClass:NWSSelfPath.class]) {
         return YES;
@@ -74,7 +72,7 @@
 {
     if ([relation isKindOfClass:NWSSingleKeyPath.class]) {
         NWSSingleKeyPath *path = (NWSSingleKeyPath *)relation;
-        NSRelationshipDescription *description = [entity.relationshipsByName objectForKey:path.key];
+        NSRelationshipDescription *description = [_entity.relationshipsByName objectForKey:path.key];
         if (!description) {
             return NO;
         }
@@ -93,12 +91,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p entity:%@>", NSStringFromClass(self.class), self, entity.name];
+    return [NSString stringWithFormat:@"<%@:%p entity:%@>", NSStringFromClass(self.class), self, _entity.name];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [entity.name readable:prefix];
+    return [_entity.name readable:prefix];
 }
 
 @end

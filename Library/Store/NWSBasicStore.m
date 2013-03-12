@@ -16,7 +16,7 @@
 
 
 @implementation NWSBasicStore {
-    NSMutableArray *objects;
+    NSMutableArray *_objects;
 }
 
 
@@ -26,14 +26,14 @@
 {
     self = [super init];
     if (self) {
-        objects = [[NSMutableArray alloc] init];
+        _objects = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (void)addObject:(NSObject *)object
 {
-    [objects addObject:object];
+    [_objects addObject:object];
 }
 
 
@@ -44,7 +44,7 @@
     // NOTE: no restrictions on type, unless create is YES
     
     // search for object in internal data store
-    for (NSObject *object in objects) {
+    for (NSObject *object in _objects) {
         if ([type matches:object]) {
             BOOL match = YES;
             for (NSUInteger i = 1; i < pathsAndValues.count && match; i+=2) {
@@ -63,10 +63,10 @@
 
     // no object found
     if (create) {
-        NWLogWarnIfNot(objects.count != 10, @"Basic store is not well suited for 'large' amounts of objects");
+        NWLogWarnIfNot(_objects.count != 10, @"Basic store is not well suited for 'large' amounts of objects");
         NWLogWarnIfNot([type isKindOfClass:NWSClassObjectType.class], @"parameter 'type' should be a NWSClassObjectType");
         id object = [[((NWSClassObjectType *)type).clas alloc] init];
-        [objects addObject:object];
+        [_objects addObject:object];
         NWSObjectID *identifier = [[NWSMemoryObjectID alloc] initWithObject:object];
         return identifier;
     }
@@ -141,9 +141,9 @@
 - (void)deleteObjectWithIdentifier:(NWSMemoryObjectID *)identifier
 {
     id object = identifier.object;
-    NSUInteger index = [objects indexOfObject:object];
+    NSUInteger index = [_objects indexOfObject:object];
     if (index != NSNotFound) {
-        [objects removeObjectAtIndex:index];
+        [_objects removeObjectAtIndex:index];
     }
 }
 
@@ -185,7 +185,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p #internal:%u>", NSStringFromClass(self.class), self, (int)objects.count];
+    return [NSString stringWithFormat:@"<%@:%p #internal:%u>", NSStringFromClass(self.class), self, (int)_objects.count];
 }
 
 - (NSString *)readable:(NSString *)prefix
@@ -198,7 +198,7 @@
 
 - (NSArray *)allObjects
 {
-    return objects;
+    return _objects;
 }
 
 #endif

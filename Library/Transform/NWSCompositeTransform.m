@@ -10,19 +10,17 @@
 
 
 @implementation NWSCompositeTransform {
-    NSMutableArray *transforms;
+    NSMutableArray *_transforms;
 }
-
-@synthesize transforms;
 
 
 #pragma mark - Object life cycle
 
-- (id)initWithTransforms:(NSArray *)_transforms
+- (id)initWithTransforms:(NSArray *)transforms
 {
     self = [super init];
     if (self) {
-        transforms = [[NSMutableArray alloc] initWithArray:_transforms];
+        _transforms = [[NSMutableArray alloc] initWithArray:transforms];
     }
     return self;
 }
@@ -32,7 +30,7 @@
 
 - (id)transform:(id)value context:(NWSMappingContext *)context
 {
-    for (NWSTransform *transform in transforms) {
+    for (NWSTransform *transform in _transforms) {
         value = [transform transform:value context:context];
     }
     return value;
@@ -40,7 +38,7 @@
 
 - (id)reverse:(id)value context:(NWSMappingContext *)context
 {
-    for (NWSTransform *transform in transforms) {
+    for (NWSTransform *transform in _transforms) {
         value = [transform reverse:value context:context];
     }
     return value;
@@ -51,12 +49,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p #transforms:%u>", NSStringFromClass(self.class), self, (int)transforms.count];
+    return [NSString stringWithFormat:@"<%@:%p #transforms:%u>", NSStringFromClass(self.class), self, (int)_transforms.count];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"compound %@", [transforms readable:prefix]] readable:prefix];
+    return [[NSString stringWithFormat:@"compound %@", [_transforms readable:prefix]] readable:prefix];
 }
 
 @end

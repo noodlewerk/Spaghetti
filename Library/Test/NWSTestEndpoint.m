@@ -11,10 +11,8 @@
 
 
 @implementation NWSTestEndpoint {
-    NSMutableDictionary *headers;
+    NSMutableDictionary *_headers;
 }
-
-@synthesize response;
 
 
 #pragma mark - Object life cycle

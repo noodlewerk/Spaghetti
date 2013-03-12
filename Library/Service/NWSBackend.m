@@ -13,9 +13,9 @@
 
 
 @implementation NWSBackend {
-    NSMutableDictionary *mappings;
-    NSMutableDictionary *endpoints;
-    NWSSchedule *schedule;
+    NSMutableDictionary *_mappings;
+    NSMutableDictionary *_endpoints;
+    NWSSchedule *_schedule;
 }
 
 
@@ -25,9 +25,9 @@
 {
     self = [super init];
     if (self) {
-        mappings = [[NSMutableDictionary alloc] init];
-        endpoints = [[NSMutableDictionary alloc] init];
-        schedule = [[NWSSchedule alloc] init];
+        _mappings = [[NSMutableDictionary alloc] init];
+        _endpoints = [[NSMutableDictionary alloc] init];
+        _schedule = [[NWSSchedule alloc] init];
         _defaultEndpointClass = [NWSHTTPEndpoint class];
         _defaultMappingClass = [NWSMapping class];
     }
@@ -36,7 +36,7 @@
 
 - (void)dealloc
 {
-    for (NWSMapping *mapping in mappings.allValues) {
+    for (NWSMapping *mapping in _mappings.allValues) {
         [mapping breakCycles];
     }
 }
@@ -45,12 +45,12 @@
 
 - (void)setMapping:(NWSMapping *)mapping name:(NSString *)name
 {
-    [mappings setObject:mapping forKey:name];
+    [_mappings setObject:mapping forKey:name];
 }
 
 - (void)setEndpoint:(NWSEndpoint *)endpoint name:(NSString *)name
 {
-    [endpoints setObject:endpoint forKey:name];
+    [_endpoints setObject:endpoint forKey:name];
 }
 
 - (id)mappingWithName:(NSString *)name
@@ -65,32 +65,32 @@
 
 - (id)mappingWithName:(NSString *)name createWithClass:(Class)clas
 {
-    NWSMapping *result = [mappings objectForKey:name];
+    NWSMapping *result = [_mappings objectForKey:name];
     if (!result && clas) {
         result = [[clas alloc] init];
-        [mappings setObject:result forKey:name];
+        [_mappings setObject:result forKey:name];
     }
     return result;
 }
 
 - (id)endpointWithName:(NSString *)name createWithClass:(Class)clas
 {
-    NWSEndpoint *result = [endpoints objectForKey:name];
+    NWSEndpoint *result = [_endpoints objectForKey:name];
     if (!result && clas) {
         result = [[clas alloc] init];
-        [endpoints setObject:result forKey:name];
+        [_endpoints setObject:result forKey:name];
     }
     return result;
 }
 
 - (NSArray *)mappingNames
 {
-    return mappings.allKeys;
+    return _mappings.allKeys;
 }
 
 - (NSArray *)endpointNames
 {
-    return endpoints.allKeys;
+    return _endpoints.allKeys;
 }
 
 
@@ -98,7 +98,7 @@
 
 - (NWSCall *)callWithEndpoint:(NSString *)endpointName
 {
-    NWSEndpoint *endpoint = [endpoints objectForKey:endpointName];
+    NWSEndpoint *endpoint = [_endpoints objectForKey:endpointName];
     NWSCall *result = [endpoint newCall];
     return result;
 }
@@ -144,7 +144,7 @@
 
 - (NWSScheduleItem *)scheduleCall:(NWSCall *)call owner:(NWSOperationOwner *)owner
 {
-    NWSScheduleItem *result = [schedule addCall:call];
+    NWSScheduleItem *result = [_schedule addCall:call];
     if (owner) {
         [owner addOperation:result];
     } else {
@@ -155,7 +155,7 @@
 
 - (NWSScheduleItem *)scheduleCall:(NWSCall *)call repeat:(NSTimeInterval)repeat owner:(NWSOperationOwner *)owner
 {
-    NWSScheduleItem *result = [schedule addCall:call repeatInterval:repeat];
+    NWSScheduleItem *result = [_schedule addCall:call repeatInterval:repeat];
     if (owner) {
         [owner addOperation:result];
     } else {
@@ -166,7 +166,7 @@
 
 - (NWSScheduleItem *)scheduleCall:(NWSCall *)call afterDelay:(NSTimeInterval)delay owner:(NWSOperationOwner *)owner
 {
-    NWSScheduleItem *result = [schedule addCall:call afterDelay:delay];
+    NWSScheduleItem *result = [_schedule addCall:call afterDelay:delay];
     if (owner) {
         [owner addOperation:result];
     } else {
@@ -177,7 +177,7 @@
 
 - (NWSScheduleItem *)scheduleCall:(NWSCall *)call onDate:(NSDate *)date owner:(NWSOperationOwner *)owner
 {
-    NWSScheduleItem *result = [schedule addCall:call onDate:date];
+    NWSScheduleItem *result = [_schedule addCall:call onDate:date];
     if (owner) {
         [owner addOperation:result];
     } else {
@@ -191,7 +191,7 @@
 
 - (NWSScheduleItem *)scheduleCallWithEndpoint:(NSString *)endpointName owner:(NWSOperationOwner *)owner
 {
-    NWSScheduleItem *result = [schedule addCall:[self callWithEndpoint:endpointName]];
+    NWSScheduleItem *result = [_schedule addCall:[self callWithEndpoint:endpointName]];
     if (owner) {
         [owner addOperation:result];
     } else {
@@ -202,7 +202,7 @@
 
 - (NWSScheduleItem *)scheduleCallWithEndpoint:(NSString *)endpointName value:(id)value key:(NSString *)key owner:(NWSOperationOwner *)owner
 {
-    NWSScheduleItem *result = [schedule addCall:[self callWithEndpoint:endpointName value:value key:key]];
+    NWSScheduleItem *result = [_schedule addCall:[self callWithEndpoint:endpointName value:value key:key]];
     if (owner) {
         [owner addOperation:result];
     } else {
@@ -213,7 +213,7 @@
 
 - (NWSScheduleItem *)scheduleCallWithEndpoint:(NSString *)endpointName parameters:(NSDictionary *)parameters owner:(NWSOperationOwner *)owner
 {
-    NWSScheduleItem *result = [schedule addCall:[self callWithEndpoint:endpointName parameters:parameters]];
+    NWSScheduleItem *result = [_schedule addCall:[self callWithEndpoint:endpointName parameters:parameters]];
     if (owner) {
         [owner addOperation:result];
     } else {
@@ -224,7 +224,7 @@
 
 - (NWSScheduleItem *)scheduleCallWithEndpoint:(NSString *)endpointName value:(id)value key:(NSString *)key parent:(NSObject *)parent owner:(NWSOperationOwner *)owner
 {
-    NWSScheduleItem *result = [schedule addCall:[self callWithEndpoint:endpointName value:value key:key parent:parent]];
+    NWSScheduleItem *result = [_schedule addCall:[self callWithEndpoint:endpointName value:value key:key parent:parent]];
     if (owner) {
         [owner addOperation:result];
     } else {
@@ -235,7 +235,7 @@
 
 - (NWSScheduleItem *)scheduleCallWithEndpoint:(NSString *)endpointName parameters:(NSDictionary *)parameters parent:(NSObject *)parent owner:(NWSOperationOwner *)owner
 {
-    NWSScheduleItem *result = [schedule addCall:[self callWithEndpoint:endpointName parameters:parameters parent:parent]];
+    NWSScheduleItem *result = [_schedule addCall:[self callWithEndpoint:endpointName parameters:parameters parent:parent]];
     if (owner) {
         [owner addOperation:result];
     } else {
@@ -249,27 +249,27 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p m:%u e:%u>", NSStringFromClass(self.class), self, (int)mappings.count, (int)endpoints.count];
+    return [NSString stringWithFormat:@"<%@:%p m:%u e:%u>", NSStringFromClass(self.class), self, (int)_mappings.count, (int)_endpoints.count];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"backend with %u mappings and %u endpoints", (int)mappings.count, (int)endpoints.count] readable:prefix];
+    return [[NSString stringWithFormat:@"backend with %u mappings and %u endpoints", (int)_mappings.count, (int)_endpoints.count] readable:prefix];
 }
 
 - (NSString *)about
 {
     NSMutableString *result = [[NSMutableString alloc] init];
     [result appendFormat:@"\n[%@]\n", NSStringFromClass(self.class)];
-    [result appendFormat:@"Mappings: (#%u)\n", (int)mappings.count];
-    for (NSString *name in mappings) {
-        [result appendFormat:@"   %@: %@\n", name, [[mappings objectForKey:name] readable:@"   "]];
+    [result appendFormat:@"Mappings: (#%u)\n", (int)_mappings.count];
+    for (NSString *name in _mappings) {
+        [result appendFormat:@"   %@: %@\n", name, [[_mappings objectForKey:name] readable:@"   "]];
     }
-    [result appendFormat:@"Endpoints: (#%u)\n", (int)endpoints.count];
-    for (NSString *name in endpoints) {
-        [result appendFormat:@"   %@: %@\n", name, [[endpoints objectForKey:name] readable:@"   "]];
+    [result appendFormat:@"Endpoints: (#%u)\n", (int)_endpoints.count];
+    for (NSString *name in _endpoints) {
+        [result appendFormat:@"   %@: %@\n", name, [[_endpoints objectForKey:name] readable:@"   "]];
     }
-    [result appendFormat:@"Schedule: %@", schedule.readable];
+    [result appendFormat:@"Schedule: %@", _schedule.readable];
     return result;
 }
 

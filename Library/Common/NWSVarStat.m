@@ -10,23 +10,21 @@
 
 
 @implementation NWSVarStat {
-    long double sum;
-    long double squareSum;
+    long double _sum;
+    long double _squareSum;
 }
-
-@synthesize count;
 
 - (void)count:(double)value
 {
-    count++;
-    sum += value;
-    squareSum += (long double)value * value;
+    _count++;
+    _sum += value;
+    _squareSum += (long double)value * value;
 }
 
 - (double)average
 {
-    if (count) {
-        return (double)(sum / count);
+    if (_count) {
+        return (double)(_sum / _count);
     } else {
         return .0;
     }
@@ -34,8 +32,8 @@
 
 - (long double)variance
 {
-    if (count) {
-        return (squareSum - sum / count * sum) / count;
+    if (_count) {
+        return (_squareSum - _sum / _count * _sum) / _count;
     } else {
         return .0;
     }
@@ -51,12 +49,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@:%p count:%lu sum:%f>", NSStringFromClass(self.class), self, count, (double)sum];
+    return [NSString stringWithFormat:@"<%@:%p count:%lu sum:%f>", NSStringFromClass(self.class), self, _count, (double)_sum];
 }
 
 - (NSString *)readable:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"%f±%f (#%lu)", self.average, self.deviation, count] readable:prefix];
+    return [[NSString stringWithFormat:@"%f±%f (#%lu)", self.average, self.deviation, _count] readable:prefix];
 }
 
 @end
