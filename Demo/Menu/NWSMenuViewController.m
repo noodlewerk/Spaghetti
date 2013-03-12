@@ -10,7 +10,7 @@
 #import "NWSBasicExampleTableViewController.h"
 
 @implementation NWSMenuViewController {
-    NSManagedObjectContext *context;
+    NSManagedObjectContext *_context;
 }
 
 
@@ -60,7 +60,7 @@
 {
     UIViewController* controller = nil;
     switch (index) {
-        case 0: controller = [[NWSPerformanceViewController alloc] initWithContext:context]; break;
+        case 0: controller = [[NWSPerformanceViewController alloc] initWithContext:_context]; break;
         case 1: controller = [[NWSBasicExampleTableViewController alloc] initWithStyle:UITableViewStylePlain]; break;
     }
     

@@ -13,21 +13,23 @@
 
 
 @interface NWSTestClass : NSEntityDescription {
-    int ivar;
-    NSString *ivarToOne;
-    NSSet *ivarToMany;
+    int _ivar;
+    NSString *_ivarToOne;
+    NSSet *_ivarToMany;
 }
 @property (nonatomic, assign) int property;
 @property (nonatomic, copy) NSString *propertyToOne;
 @property (nonatomic, strong) NSSet *propertyToMany;
 @property (nonatomic, assign) BOOL isToMany;
 @end
+
 @implementation NWSTestClass
-@synthesize property, propertyToOne, propertyToMany, isToMany;
+
 - (NSDictionary *)attributesByName
 {
     return [NSDictionary dictionaryWithObjectsAndKeys:@"", @"property", @"", @"ivar", nil];
 }
+
 - (NSDictionary *)relationshipsByName
 {
     NWSTestClass *toOne = [[NWSTestClass alloc] init];
@@ -36,10 +38,12 @@
     toMany.isToMany = YES;
     return [NSDictionary dictionaryWithObjectsAndKeys:toOne, @"propertyToOne", toOne, @"ivarToOne", toMany, @"propertyToMany", nil];
 }
+
 - (NSString *)name
 {
     return @"";
 }
+
 @end
 
 
@@ -59,13 +63,13 @@
     NWSClassObjectType *i = [[NWSClassObjectType alloc] initWithClass:NWSTestClass.class];
     
     STAssertTrue([i hasAttribute:[NWSPath pathFromString:@"property"]], @"");
-    STAssertTrue([i hasAttribute:[NWSPath pathFromString:@"ivar"]], @"");
+    STAssertTrue([i hasAttribute:[NWSPath pathFromString:@"_ivar"]], @"");
     STAssertTrue(![i hasAttribute:[NWSPath pathFromString:@"x"]], @"");
     STAssertTrue([i hasRelation:[NWSPath pathFromString:@"propertyToOne"] toMany:NO], @"");
-    STAssertTrue([i hasRelation:[NWSPath pathFromString:@"ivarToOne"] toMany:NO], @"");
+    STAssertTrue([i hasRelation:[NWSPath pathFromString:@"_ivarToOne"] toMany:NO], @"");
     STAssertTrue(![i hasRelation:[NWSPath pathFromString:@"x"] toMany:NO], @"");
     STAssertTrue([i hasRelation:[NWSPath pathFromString:@"propertyToMany"] toMany:YES], @"");
-    STAssertTrue([i hasRelation:[NWSPath pathFromString:@"ivarToMany"] toMany:YES], @"");
+    STAssertTrue([i hasRelation:[NWSPath pathFromString:@"_ivarToMany"] toMany:YES], @"");
     STAssertTrue(![i hasRelation:[NWSPath pathFromString:@"x"] toMany:YES], @"");
     STAssertNotNil(i.description, @"");
     STAssertNotNil(i.readable, @"");

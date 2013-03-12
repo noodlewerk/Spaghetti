@@ -15,10 +15,10 @@
 #define L(__a, ...) [self printLine:NO format:__a, ##__VA_ARGS__]
 
 @implementation NWSPerformanceViewController {
-    UITextView *textView;
-    NWSBackend *backend;
-    NWSStore *store;
-    NSString *indent;
+    UITextView *_textView;
+    NWSBackend *_backend;
+    NWSStore *_store;
+    NSString *_indent;
 }
 
 
@@ -41,7 +41,7 @@
     NSManagedObjectContext *result = [[NSManagedObjectContext alloc] init];
     [result setPersistentStoreCoordinator:coordinator];
     
-    store = [[NWSCoreDataStore alloc] initWithContext:context queue:NSOperationQueue.mainQueue];
+    _store = [[NWSCoreDataStore alloc] initWithContext:context queue:NSOperationQueue.mainQueue];
 }
 
 - (id)initWithContext:(NSManagedObjectContext *)context
@@ -56,11 +56,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    textView = [[UITextView alloc] initWithFrame:self.view.bounds];
-    indent = @"   ";
+    _textView = [[UITextView alloc] initWithFrame:self.view.bounds];
+    _indent = @"   ";
     Log(@"");
     Log(@"== Spaghetti performance test ==");
-    [self.view addSubview:textView];
+    [self.view addSubview:_textView];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -77,10 +77,10 @@
     va_start(args, format);
     NSString *l = [[NSString alloc] initWithFormat:format arguments:args];
     if (line) {
-        l = [l stringByAppendingFormat:@"\n%@", indent];
+        l = [l stringByAppendingFormat:@"\n%@", _indent];
     }
     [NSOperationQueue.mainQueue addOperationWithBlock:^{
-        textView.text = [textView.text stringByAppendingString:l];
+        _textView.text = [_textView.text stringByAppendingString:l];
     }];
     va_end(args);
 }
@@ -109,12 +109,12 @@
     NSData *data = [NSData dataWithContentsOfURL:[[NSBundle bundleForClass:self.class] URLForResource:@"channel" withExtension:@"json"]];
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
-    NWSStore *s = [store beginTransaction];
+    NWSStore *s = [_store beginTransaction];
     
     NWSVarStat *stat = [[NWSVarStat alloc] init];
     for (NSUInteger i = 0; i < count; i++) {
         NSDate *d = NSDate.date;
-        [[backend mappingWithName:@"channel"] mapElement:json store:s];
+        [[_backend mappingWithName:@"channel"] mapElement:json store:s];
         [stat count:-[d timeIntervalSinceNow]];
         L(@".");
     }
@@ -132,12 +132,12 @@
     Log(@"");
     Log(@"Mapping %u channels %u times:", json.count, count);
     
-    NWSStore *s = [store beginTransaction];
+    NWSStore *s = [_store beginTransaction];
     
     NWSVarStat *stat = [[NWSVarStat alloc] init];
     for (NSUInteger i = 0; i < count; i++) {
         NSDate *d = NSDate.date;
-        [[backend mappingWithName:@"channel"] mapElement:json store:s];
+        [[_backend mappingWithName:@"channel"] mapElement:json store:s];
         [stat count:-[d timeIntervalSinceNow]];
         L(@".");
     }

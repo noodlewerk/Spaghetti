@@ -12,9 +12,6 @@
 #pragma mark -
 
 @implementation NWSBasicExampleTwitterMessage
-@synthesize sender;
-@synthesize text;
-@synthesize date;
 @end
 
 #pragma mark -
@@ -82,8 +79,8 @@
 #pragma mark -
 
 @implementation NWSBasicExampleTableViewController {
-    NWSBasicExampleBackend *backend;
-    NSArray *tweets;
+    NWSBasicExampleBackend *_backend;
+    NSArray *_tweets;
 }
 
 #pragma mark Lifecycle
@@ -91,7 +88,7 @@
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
-        backend = [NWSBasicExampleBackend shared];
+        _backend = [NWSBasicExampleBackend shared];
     }
     return self;
 }
@@ -106,7 +103,7 @@
     twitterCall.doneBlock = ^(id results) {
         // First check if there's a result. If not, something has gone wrong.
         if (results) {
-            tweets = (NSArray *)results;
+            _tweets = (NSArray *)results;
             [self.tableView reloadData];
         }
         else {
@@ -123,7 +120,7 @@
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [tweets count];
+    return [_tweets count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -134,7 +131,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
     }
     
-    NWSBasicExampleTwitterMessage *tweet = [tweets objectAtIndex:indexPath.row];
+    NWSBasicExampleTwitterMessage *tweet = [_tweets objectAtIndex:indexPath.row];
     NSString *senderAndMessageString = [NSString stringWithFormat:@"@%@: %@", tweet.sender, tweet.text];
     int maximumCharacters = 40;
     if ([senderAndMessageString length] > maximumCharacters) {
