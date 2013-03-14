@@ -672,7 +672,7 @@
 				B38832B916309C5E0082F729 /* ObjectType */,
 				B38832C016309C5E0082F729 /* Parsing */,
 				B38832CB16309C5E0082F729 /* Path */,
-				B38832DA16309C5E0082F729 /* Service */,
+				B38832DA16309C5E0082F729 /* Manage */,
 				B38832E116309C5E0082F729 /* Store */,
 				B38832F016309C5E0082F729 /* Test */,
 				B38832F716309C5E0082F729 /* Transform */,
@@ -797,7 +797,7 @@
 			path = Path;
 			sourceTree = "<group>";
 		};
-		B38832DA16309C5E0082F729 /* Service */ = {
+		B38832DA16309C5E0082F729 /* Manage */ = {
 			isa = PBXGroup;
 			children = (
 				B38832DB16309C5E0082F729 /* NWSBackend.h */,
@@ -807,7 +807,7 @@
 				B38832DF16309C5E0082F729 /* NWSSchedule.h */,
 				B38832E016309C5E0082F729 /* NWSSchedule.m */,
 			);
-			path = Service;
+			path = Manage;
 			sourceTree = "<group>";
 		};
 		B38832E116309C5E0082F729 /* Store */ = {
