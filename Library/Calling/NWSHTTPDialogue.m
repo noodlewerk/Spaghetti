@@ -143,12 +143,15 @@
         self.callbackQueue = NSOperationQueue.currentQueue;
         NWLogWarnIfNot(self.callbackQueue, @"No callback queue set or available, set manually");
     }
-    
-    NWLogWarnIfNot(self.operationQueue, @"Wouldn't it be better if you gave me the queue?");
-    
+        
     if (!self.operationQueue) {
-        self.operationQueue = [[NSOperationQueue alloc] init];
-        self.operationQueue.maxConcurrentOperationCount = 1;
+        static NSOperationQueue *fallbackQueue = nil;
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            fallbackQueue = [[NSOperationQueue alloc] init];
+            fallbackQueue.maxConcurrentOperationCount = 1;
+        });
+        self.operationQueue = fallbackQueue;
     }
     
     NWLogWarnIfNot(self.operationQueue.maxConcurrentOperationCount == 1, @"Concurrent mapping not allowed.");
