@@ -9,6 +9,7 @@
 #import "NWSCommon.h"
 #import "NWSEndpoint.h"
 #import "NWSActivityIndicator.h"
+#import "NWSDialogue.h"
 
 @implementation NWSCall {
     NSMutableDictionary *_parameters;
@@ -36,11 +37,18 @@
     return self;
 }
 
-- (id)newDialogue // COV_NF_START
+- (NWSDialogue *)newDialogue // COV_NF_START
 {
     NWLogWarn(@"Abstract method requires implementation");
     return nil;
 } // COV_NF_END
+
+- (NWSDialogue *)start
+{
+    NWSDialogue *dialogue = [self newDialogue];
+    [dialogue start];
+    return dialogue;
+}
 
 - (id)copyWithZone:(NSZone *)zone
 {

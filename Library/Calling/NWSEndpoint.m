@@ -37,6 +37,20 @@
     return nil;
 } // COV_NF_END
 
+- (NWSCall *)startWithBlock:(void (^)(id result))block
+{
+    return [self startWithParameters:nil block:block];
+}
+
+- (NWSCall *)startWithParameters:(NSDictionary *)parameters block:(void (^)(id result))block
+{
+    NWSCall *call = [self newCall];
+    call.doneBlock = block;
+    if (parameters) [call setParameters:parameters];
+    [call start];
+    return call;
+}
+
 - (id)copyWithZone:(NSZone *)zone
 {
     NWSEndpoint *result = [[self.class allocWithZone:zone] init];

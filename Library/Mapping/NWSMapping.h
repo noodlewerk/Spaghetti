@@ -57,6 +57,8 @@
  */
 - (void)setObjectClassName:(NSString *)className;
 
+- (void)setObjectClass:(Class)clas;
+
 /**
  * Sets the type of object used with this mapping.
  * 
@@ -66,6 +68,8 @@
  * @see NWSEntityObjectType
  */
 - (void)setObjectEntityName:(NSString *)entityName model:(NSManagedObjectModel *)model;
+
+- (void)setObjectEntity:(NSEntityDescription *)entity;
 
 
 /** @name Accessing entries */

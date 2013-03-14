@@ -111,7 +111,11 @@
  * Instantiates a call to this endpoint.
  * @see NWSCall
  */
-- (id)newCall;
+- (NWSCall *)newCall;
+
+- (NWSCall *)startWithBlock:(void(^)(id result))block;
+- (NWSCall *)startWithParameters:(NSDictionary *)parameters block:(void (^)(id result))block;
+
 
 #if DEBUG
 @property (nonatomic, strong) NWSVarStat *requestTime;

@@ -42,4 +42,8 @@
  */
 - (id)initWithType:(NWSObjectType *)type path:(NWSPath *)path;
 
+- (id)initWithCreateClass:(Class)clas;
+
+- (id)initWithCreateEntity:(NSEntityDescription *)entity;
+
 @end

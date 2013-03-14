@@ -108,13 +108,23 @@
 {
     Class clas = NSClassFromString(className);
     NWLogWarnIfNot(clas, @"Class not found: %@", className);
+    [self setObjectClass:clas];
+}
+
+- (void)setObjectClass:(Class)clas
+{
     self.objectType = [[NWSClassObjectType alloc] initWithClass:clas];
 }
 
 - (void)setObjectEntityName:(NSString *)entityName model:(NSManagedObjectModel *)model
 {
-    NSEntityDescription *entity = (model.entitiesByName)[entityName];
+    NSEntityDescription *entity = model.entitiesByName[entityName];
     NWLogWarnIfNot(entity, @"Entity not found: %@", entityName);
+    [self setObjectEntity:entity];
+}
+
+- (void)setObjectEntity:(NSEntityDescription *)entity
+{
     self.objectType = [[NWSEntityObjectType alloc] initWithEntity:entity];
 }
 

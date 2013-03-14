@@ -12,10 +12,21 @@
 #import "NWSMappingContext.h"
 #import "NWSPath.h"
 #import "NWSObjectType.h"
+#import "NWSClassObjectType.h"
+#import "NWSEntityObjectType.h"
 
 
 @implementation NWSIDToObjectTransform
 
+- (id)initWithCreateClass:(Class)clas
+{
+    return [self initWithType:[[NWSClassObjectType alloc] initWithClass:clas] path:nil];
+}
+
+- (id)initWithCreateEntity:(NSEntityDescription *)entity
+{
+    return [self initWithType:[[NWSEntityObjectType alloc] initWithEntity:entity] path:nil];
+}
 
 - (id)initWithType:(NWSObjectType *)type path:(NWSPath *)path
 {

@@ -151,8 +151,9 @@ typedef void(^NWSCallDoneBlock)(id result);
  * Instantiates a dialogue based on this call.
  * @see NWSDialogue
  */
-- (id)newDialogue;
+- (NWSDialogue *)newDialogue;
 
+- (NWSDialogue *)start;
 
 - (void)doneWithResult:(id)result;
 
