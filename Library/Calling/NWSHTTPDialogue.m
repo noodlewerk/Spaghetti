@@ -129,9 +129,7 @@
 - (void)start
 {
     DEBUG_STAT_START_IN(_startCall);
-    
-    NWLogWarnIfNot(self.call.store, @"Expecting a store to map to on dialogue start");
-    
+        
     NWLogInfo(@"start call (expected:%.3fs)", self.call.endpoint.totalTime.average);
     // check cancel
     if (_cancelled) {

@@ -141,7 +141,7 @@
     NWSMapping *mapping = _call.requestMapping;
     if (mapping) {
         NWSStore *store = _call.store;
-        NWLogWarnIfNot(store, @"Unable to map response without a store (with objects)");
+        NWLogWarnIfNot(store, @"Unable to map request without a store (with objects)");
         NWSObjectID *identifier = [store identifierForObject:object];
         data = [mapping mapIdentifier:identifier store:store];
     } else {

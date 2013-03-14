@@ -6,8 +6,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
 
-@interface NWSGoogleMapsViewController : UIViewController <CLLocationManagerDelegate>
-
+@interface NWSGoogleMapsViewController : UIViewController
 @end

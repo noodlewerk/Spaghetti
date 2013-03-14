@@ -6,8 +6,8 @@
 //
 
 #import "NWSGoogleMapsViewController.h"
-#import <MapKit/MapKit.h>
 #import "Spaghetti.h"
+#import <MapKit/MapKit.h>
 
 
 @interface NWSGoogleMapsResult : NSObject
@@ -22,6 +22,9 @@
 @property (nonatomic, assign) double longitude;
 @end @implementation NWSGoogleMapsResult @end
 
+
+@interface NWSGoogleMapsViewController() <CLLocationManagerDelegate>
+@end
 
 @implementation NWSGoogleMapsViewController {
     MKMapView *_mapView;
@@ -56,14 +59,10 @@
     [resultMapping addAttributeWithElementPath:@"address_components" objectPath:@"city" transform:cityTransform];
     [resultMapping addAttributeWithElementPath:@"address_components" objectPath:@"country" transform:countryTransform];
     
-    NWSBasicStore *store = [[NWSBasicStore alloc] init];
-
     NWSHTTPEndpoint *result = [[NWSHTTPEndpoint alloc] init];
     result.urlString = @"http://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude),$(longitude)&sensor=true";
     result.responseMapping = resultMapping;
     result.responsePath = [NWSPath pathFromString:@"results.0"];
-    result.store = store;
-    result.indicator = NWSNetworkActivityIndicator.shared;
 
     return result;
 }
