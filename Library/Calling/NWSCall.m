@@ -89,7 +89,7 @@
 
 - (void)setParameters:(NSDictionary *)parameters
 {
-    if (!parameters) {
+    if (!_parameters) {
         _parameters = [[NSMutableDictionary alloc] initWithDictionary:parameters];
     } else {
         [_parameters addEntriesFromDictionary:parameters];
