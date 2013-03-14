@@ -12,11 +12,13 @@
 
 /**
  * Parses a string of data into a nested structure of dictionaries and arrays.
+ * @param data Binary input data
  */
 - (id)parse:(NSData *)data;
 
 /**
  * Serializes structured data into a string of data.
+ * @param value Any object, usually a dictionary, array, or primitive.
  */
 - (NSData *)serialize:(id)value;
 

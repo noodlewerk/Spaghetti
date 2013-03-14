@@ -29,7 +29,6 @@
 
 /**
  * If YES, this transform will not assert, but instead log on the 'warning' tag.
- * @see NWSLog
  */
 @property (nonatomic, assign) BOOL logInstead;
 

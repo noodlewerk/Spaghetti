@@ -8,6 +8,11 @@
 #import "NWSEndpoint.h"
 
 
+/**
+ * Endpoint stub for testing.
+ * @see NWSTestCall
+ * @see NWSTestDialogue
+ */
 @interface NWSTestEndpoint : NWSEndpoint
 
 @property (nonatomic, copy) NSString *response;
