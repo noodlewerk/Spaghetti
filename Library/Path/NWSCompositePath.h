@@ -23,11 +23,4 @@
 
 - (id)initWithPaths:(NSArray *)paths;
 
-/**
- * Generates a composite path by splitting the provided string and converting each component to a path. Components are separated by ':' (colon). Conversion is done using [NWSPath pathFromString:] for each component.
- * @param string A string with path components separated by ':'.
- * @see [NWSPath pathFromString:]
- */
-+ (NWSCompositePath *)pathFromString:(NSString *)string;
-
 @end

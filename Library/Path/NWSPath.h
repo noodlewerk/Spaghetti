@@ -28,11 +28,9 @@
  *
  *  - Nil remains nil.
  *  - Empty string become a NWSSelfPath.
- *  - Starting with '=' will be parsed by NWSConstantValuePath.
- *  - Starting with ':' will be parsed by NWSCompositePath.
- *  - Number becomes a NWSIndexPath.
- *  - Containing '.' becomes a NWSKeyPathPath.
- *  - Others become a NWSSingleKeyPath.
+ *  - Starting with '=' are parsed to a NWSConstantValuePath.
+ *  - Starting with '.' are parsed to a NWSKeyPathPath.
+ *  - Others are parsed to a NWSCompositePath, NWSIndexPath or NWSSingleKeyPath.
  *
  * @param string Any path-string.
  */

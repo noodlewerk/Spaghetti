@@ -92,19 +92,19 @@
 
 - (void)testComposite
 {
-    STAssertTrue([[_dictionary valueForPathString:@":string"] isEqualToString:@"string-1"], @"");
-    STAssertTrue([[_dictionary valueForPathString:@":integer"] integerValue] == 1, @"");
-    STAssertTrue([_dictionary valueForPathString:@":null"] == NSNull.null, @"");
-    STAssertTrue([[_dictionary valueForPathString:@":dictionary:string"] isEqualToString:@"string-1"], @"");
-    STAssertTrue([[_dictionary valueForPathString:@":dictionary:integer"] integerValue] == 1, @"");
-    STAssertTrue([[_dictionary valueForPathString:@":array:0"] isEqualToString:@"string-2"], @"");
-    STAssertTrue([[_dictionary valueForPathString:@":array:1"] integerValue] == 2, @"");
-    STAssertTrue([[_dictionary valueForPathString:@":array:-5"] isEqualToString:@"string-2"], @"");
-    STAssertTrue([[_dictionary valueForPathString:@":array:-4"] integerValue] == 2, @"");
-    STAssertTrue([[_dictionary valueForPathString:@":array:-2:string"] isEqualToString:@"string-1"], @"");
+    STAssertTrue([[_dictionary valueForPathString:@"string"] isEqualToString:@"string-1"], @"");
+    STAssertTrue([[_dictionary valueForPathString:@"integer"] integerValue] == 1, @"");
+    STAssertTrue([_dictionary valueForPathString:@"null"] == NSNull.null, @"");
+    STAssertTrue([[_dictionary valueForPathString:@"dictionary.string"] isEqualToString:@"string-1"], @"");
+    STAssertTrue([[_dictionary valueForPathString:@"dictionary.integer"] integerValue] == 1, @"");
+    STAssertTrue([[_dictionary valueForPathString:@"array.0"] isEqualToString:@"string-2"], @"");
+    STAssertTrue([[_dictionary valueForPathString:@"array.1"] integerValue] == 2, @"");
+    STAssertTrue([[_dictionary valueForPathString:@"array.-5"] isEqualToString:@"string-2"], @"");
+    STAssertTrue([[_dictionary valueForPathString:@"array.-4"] integerValue] == 2, @"");
+    STAssertTrue([[_dictionary valueForPathString:@"array.-2.string"] isEqualToString:@"string-1"], @"");
     
-    [_dictionary setValue:@"string-0" forPathString:@":array:-2:string"];
-    STAssertTrue([[_dictionary valueForPathString:@":array:-2:string"] isEqualToString:@"string-0"], @"");
+    [_dictionary setValue:@"string-0" forPathString:@"array.-2.string"];
+    STAssertTrue([[_dictionary valueForPathString:@"array.-2.string"] isEqualToString:@"string-0"], @"");
 }
 
 @end

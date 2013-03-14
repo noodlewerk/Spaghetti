@@ -9,6 +9,7 @@
 #import "NWSCommon.h"
 #import "NWSSingleKeyPath.h"
 #import "NWSIndexPath.h"
+#import "NWSKeyPathPath.h"
 
 
 @implementation NWSCompositePath
@@ -69,20 +70,6 @@
             break;
         }
     }
-}
-
-
-#pragma mark - String parsing
-
-+ (NWSCompositePath *)pathFromString:(NSString *)string
-{
-    NSArray *components = [string componentsSeparatedByString:@":"];
-    NSMutableArray *paths = [[NSMutableArray alloc] initWithCapacity:components.count];
-    for (NSString *component in components) {
-        NWSPath *path = [NWSPath pathFromString:component];
-        [paths addObject:path];
-    }
-    return [[self alloc] initWithPaths:paths];
 }
 
 

@@ -61,7 +61,7 @@
     NWSHTTPEndpoint *result = [[NWSHTTPEndpoint alloc] init];
     result.urlString = @"http://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude),$(longitude)&sensor=true";
     result.responseMapping = resultMapping;
-    result.responsePath = [NWSPath pathFromString:@":results:0"];
+    result.responsePath = [NWSPath pathFromString:@"results.0"];
     result.store = store;
     result.indicator = NWSNetworkActivityIndicator.shared;
 

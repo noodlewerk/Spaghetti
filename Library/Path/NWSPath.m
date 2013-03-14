@@ -57,16 +57,38 @@
     unichar c = [string characterAtIndex:0];
     switch (c) {
         case '=': return [NWSConstantValuePath pathFromString:[string substringFromIndex:1]]; break;
-        case ':': return [NWSCompositePath pathFromString:[string substringFromIndex:1]]; break;
+        case ':': return [self pathFromString:[string substringFromIndex:1] separator:@":"]; break;
+        case '.': return [[NWSKeyPathPath alloc] initWithKeyPath:string]; break;
     }
+    return [self pathFromString:string separator:@"."];
+}
+
++ (NWSPath *)componentFromString:(NSString *)string
+{
     NWSPath *path = [NWSIndexPath pathFromString:string];
     if (path) {
         return path;
     }
     if ([string rangeOfString:@"."].length) {
-        return [[NWSKeyPathPath alloc] initWithKeyPath:string];            
+        return [[NWSKeyPathPath alloc] initWithKeyPath:string];
     }
     return [[NWSSingleKeyPath alloc] initWithKey:string];
+}
+
++ (NWSPath *)pathFromString:(NSString *)string separator:(NSString *)separator
+{
+    NSArray *components = [string componentsSeparatedByString:separator];
+    if (components.count > 1) {
+        NSMutableArray *paths = [[NSMutableArray alloc] initWithCapacity:components.count];
+        for (NSString *component in components) {
+            NWSPath *path = [self componentFromString:component];
+            [paths addObject:path];
+        }
+        return [[NWSCompositePath alloc] initWithPaths:paths];
+    } else if (components.count) {
+        return [self componentFromString:components[0]];
+    }
+    return nil;
 }
 
 
