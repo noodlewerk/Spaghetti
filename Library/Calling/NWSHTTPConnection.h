@@ -5,7 +5,6 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
-typedef void(^NWSConnectionDoneBlock)(NSHTTPURLResponse *response, NSData *data);
 
 @protocol NWSActivityIndicator;
 
@@ -19,10 +18,10 @@ typedef void(^NWSConnectionDoneBlock)(NSHTTPURLResponse *response, NSData *data)
 /**
  * The callback block that is invoked as soon as the NSURLConnection finishes or fails.
  */
-@property (nonatomic, copy) NWSConnectionDoneBlock doneBlock;
+@property (nonatomic, copy) void(^block)(NSHTTPURLResponse *response, NSData *data);
 
 /**
- * The queue on which the doneBlock will be invoked.
+ * The queue on which the completion block will be invoked.
  */
 @property (nonatomic, strong) NSOperationQueue *callbackQueue;
 
@@ -43,7 +42,7 @@ typedef void(^NWSConnectionDoneBlock)(NSHTTPURLResponse *response, NSData *data)
 - (void)start;
 
 /**
- * Cancels any running connection without calling the doneBlock.
+ * Cancels any running connection without calling the completion block.
  */
 - (void)cancel;
 

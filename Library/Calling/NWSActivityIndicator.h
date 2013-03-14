@@ -31,8 +31,6 @@
 @end
 
 
-typedef void(^NWSActivityIndicatorSwitchBlock)(BOOL activity);
-
 /**
  * An implementation of the NWSNetworkActivityIndicator protocol based on a simple callback and a delay.
  *
@@ -46,7 +44,7 @@ typedef void(^NWSActivityIndicatorSwitchBlock)(BOOL activity);
  * The block that is called when activity switches from some to none or back.
  * @see NWSNetworkActivityIndicator
  */
-@property (nonatomic, copy) NWSActivityIndicatorSwitchBlock switchBlock;
+@property (nonatomic, copy) void(^switchBlock)(BOOL activity);
 
 /**
  * The queue on which the switch block will be invoked.
@@ -79,7 +77,7 @@ typedef void(^NWSActivityIndicatorSwitchBlock)(BOOL activity);
  * @param delay The minimum number of seconds the indicator switches on.
  * @see NWSActivityIndicator
  */
-- (id)initWithBlock:(NWSActivityIndicatorSwitchBlock)switchBlock callbackQueue:(NSOperationQueue *)callbackQueue delay:(NSTimeInterval)delay;
+- (id)initWithBlock:(void(^)(BOOL activity))switchBlock callbackQueue:(NSOperationQueue *)callbackQueue delay:(NSTimeInterval)delay;
 
 @end
 

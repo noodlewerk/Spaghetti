@@ -8,8 +8,6 @@
 @class NWSEndpoint, NWSStore, NWSDialogue, NWSMapping, NWSPath, NWSPolicy, NWSParser;
 @protocol NWSActivityIndicator;
 
-typedef void(^NWSCallDoneBlock)(id result);
-
 /**
  * The prototype for a specific conversation.
  *
@@ -27,7 +25,7 @@ typedef void(^NWSCallDoneBlock)(id result);
  * The block invoked by a dialogue to indicate success or failure.
  * @see NWSDialogue
  */
-@property (nonatomic, copy) NWSCallDoneBlock doneBlock;
+@property (nonatomic, copy) void(^block)(id result);
 
 /**
  * A dictionary of key-value pairs used for substituting $-references.

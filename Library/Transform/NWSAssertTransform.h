@@ -7,7 +7,6 @@
 
 #import "NWSTransform.h"
 
-typedef BOOL(^NWSAssertBlock)(id value);
 
 /**
  * An identity transform that tests the input to be equal to certain value and asserts if it doesn't match.

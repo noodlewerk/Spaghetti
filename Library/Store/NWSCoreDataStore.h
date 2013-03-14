@@ -7,7 +7,6 @@
 
 #import "NWSStore.h"
 
-typedef BOOL(^NWSThreadPredicateBlock)();
 
 /**
  * A store based on a NSManagedObjectContext.

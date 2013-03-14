@@ -54,7 +54,7 @@
 {
     NWSCall *result = [[self.class allocWithZone:zone] init];
     result.endpoint = _endpoint;
-    result.doneBlock = _doneBlock;
+    result.block = _block;
     result.parameters = [_parameters mutableCopy];
     result.store = _store;
     result.requestParser = _requestParser;
@@ -76,9 +76,9 @@
 
 - (void)doneWithResult:(id)result
 {
-    if (_doneBlock) {
-        NWSCallDoneBlock b = _doneBlock;
-        _doneBlock = nil;
+    if (_block) {
+        void(^b)(id result) = _block;
+        _block = nil;
         b(result);
     }
 }

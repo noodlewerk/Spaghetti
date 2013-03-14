@@ -8,8 +8,6 @@
 #import "NWSTransform.h"
 
 
-typedef id(^NWSTransformBlock)(id value, NWSMappingContext* context);
-
 /**
  * A transform based on a block implementation.
  *
@@ -20,24 +18,24 @@ typedef id(^NWSTransformBlock)(id value, NWSMappingContext* context);
 /**
  * Block used for forward transform.
  */
-@property (nonatomic, copy) NWSTransformBlock transformBlock;
+@property (nonatomic, copy) id(^transformBlock)(id value, NWSMappingContext* context);
 
 /**
  * Block used for reverse transform.
  */
-@property (nonatomic, copy) NWSTransformBlock reverseBlock;
+@property (nonatomic, copy) id(^reverseBlock)(id value, NWSMappingContext* context);
 
 /**
  * Init with only a forward transform block, reverse is nil.
  * @param transformBlock The forward transform block.
  */
-- (id)initWithBlock:(NWSTransformBlock)transformBlock;
+- (id)initWithBlock:(id(^)(id value, NWSMappingContext* context))transformBlock;
 
 /**
  * Init with both a forward and reverse transform block.
  * @param transformBlock The forward transform block.
  * @param reverseBlock The reverse transform block.
  */
-- (id)initWithTransformBlock:(NWSTransformBlock)transformBlock reverseBlock:(NWSTransformBlock)reverseBlock;
+- (id)initWithTransformBlock:(id(^)(id value, NWSMappingContext* context))transformBlock reverseBlock:(id(^)(id value, NWSMappingContext* context))reverseBlock;
 
 @end

@@ -45,7 +45,7 @@
         [_indicator registerActivity];
     } else {
         NWLogWarn(@"Failed to init NSURLConnection");
-        if (_doneBlock) _doneBlock(nil, nil); _doneBlock = nil;
+        if (_block) _block(nil, nil); _block = nil;
     }
 }
 
@@ -54,7 +54,7 @@
     [_connection cancel]; _connection = nil;
     NWLogInfo(@"Unregistering call: %@", _request.URL);
     [_indicator unregisterActivity];
-    _doneBlock = nil;
+    _block = nil;
 }
 
 
@@ -98,13 +98,13 @@
     _connection = nil;
     NWLogInfo(@"Unregistering call: %@", _request.URL);
     [_indicator unregisterActivity];
-    if (_doneBlock) {
-        NWSConnectionDoneBlock b = _doneBlock;
+    if (_block) {
+        void(^b)(NSHTTPURLResponse *response, NSData *data) = _block;
         void(^block)() = ^{b(_response, _responseData);};
         [_callbackQueue addOperationWithBlock:block];
     }
     // break retain cycles
-    _doneBlock = nil;
+    _block = nil;
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -113,13 +113,13 @@
     _connection = nil;
     NWLogInfo(@"Unregistering call: %@", _request.URL);
     [_indicator unregisterActivity];
-    if (_doneBlock) {
-        NWSConnectionDoneBlock b = _doneBlock;
+    if (_block) {
+        void(^b)(NSHTTPURLResponse *response, NSData *data) = _block;
         void(^block)() = ^{b(_response, _responseData);};
         [_callbackQueue addOperationWithBlock:block];
     }
     // break retain cycles
-    _doneBlock = nil;
+    _block = nil;
 }
 
 

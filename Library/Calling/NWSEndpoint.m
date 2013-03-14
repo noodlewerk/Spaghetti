@@ -45,7 +45,7 @@
 - (NWSCall *)startWithParameters:(NSDictionary *)parameters block:(void (^)(id result))block
 {
     NWSCall *call = [self newCall];
-    call.doneBlock = block;
+    call.block = block;
     if (parameters) [call setParameters:parameters];
     [call start];
     return call;

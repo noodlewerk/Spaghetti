@@ -99,8 +99,8 @@
     // Create the call for getting the Twitter message.
     NWSCall *twitterCall = [[NWSBasicExampleBackend shared] callWithEndpoint:@"3fmTwitterStream"];
     
-    // Add a done block to process the returned data.
-    twitterCall.doneBlock = ^(id results) {
+    // Add a completion block to process the returned data.
+    twitterCall.block = ^(id results) {
         // First check if there's a result. If not, something has gone wrong.
         if (results) {
             _tweets = (NSArray *)results;
@@ -114,7 +114,7 @@
     // Actually schedule the call.
     [[NWSBasicExampleBackend shared] scheduleCall:twitterCall owner:nil];
     
-    /// @todo Somehow make a convenience method for adding doneblocks?
+    /// @todo Somehow make a convenience method for adding completion blocks?
 }
 
 #pragma mark UITableViewDataSource

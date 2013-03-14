@@ -62,7 +62,7 @@
     NWLogInfo(@"sending request (expected:%.3fs)", self.call.endpoint.requestTime.average);
     DEBUG_STAT_START_IN(_startRequest);
     
-    NWSConnectionDoneBlock doneBlock = ^(NSHTTPURLResponse *response, NSData *data) {
+    void(^block)(NSHTTPURLResponse *response, NSData *data) = ^(NSHTTPURLResponse *response, NSData *data) {
         _connection = nil;
         DEBUG_STAT_STOP_IN(_startRequest, self.call.endpoint.requestTime);
         // check cancel
@@ -82,7 +82,7 @@
     };
     
     NWSHTTPConnection *connection = [[NWSHTTPConnection alloc] initWithRequest:_request];
-    connection.doneBlock = doneBlock;
+    connection.block = block;
     connection.callbackQueue = self.operationQueue;
     connection.indicator = self.indicator;
     [connection start];

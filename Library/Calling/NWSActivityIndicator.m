@@ -22,7 +22,7 @@
     return [self initWithBlock:nil callbackQueue:nil delay:0];
 }
 
-- (id)initWithBlock:(NWSActivityIndicatorSwitchBlock)switchBlock callbackQueue:(NSOperationQueue *)callbackQueue delay:(NSTimeInterval)delay
+- (id)initWithBlock:(void(^)(BOOL activity))switchBlock callbackQueue:(NSOperationQueue *)callbackQueue delay:(NSTimeInterval)delay
 {
     self = [super init];
     if (self) {

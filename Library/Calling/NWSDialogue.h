@@ -27,7 +27,7 @@
 
 /**
  * The queue on which the dialogue should report success or failure. If none is provided, the same queue as the one start was invoked on will be used.
- * @see [NWSCall doneBlock]
+ * @see [NWSCall block]
  */
 @property (nonatomic, strong) NSOperationQueue *callbackQueue;
 

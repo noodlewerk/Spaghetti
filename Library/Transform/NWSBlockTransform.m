@@ -14,12 +14,12 @@
 
 #pragma mark - Object life cycle
 
-- (id)initWithBlock:(NWSTransformBlock)transformBlock
+- (id)initWithBlock:(id(^)(id value, NWSMappingContext* context))transformBlock
 {
     return [self initWithTransformBlock:transformBlock reverseBlock:nil];
 }
 
-- (id)initWithTransformBlock:(NWSTransformBlock)transformBlock reverseBlock:(NWSTransformBlock)reverseBlock
+- (id)initWithTransformBlock:(id(^)(id value, NWSMappingContext* context))transformBlock reverseBlock:(id(^)(id value, NWSMappingContext* context))reverseBlock
 {
     self = [super init];
     if (self) {
