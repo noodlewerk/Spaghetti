@@ -6,8 +6,9 @@
 //
 
 #import "NWSMenuViewController.h"
-#import "NWSPerformanceViewController.h"
+#import "NWSGoogleMapsViewController.h"
 #import "NWSBasicExampleTableViewController.h"
+
 
 @implementation NWSMenuViewController {
     NSManagedObjectContext *_context;
@@ -46,8 +47,8 @@
     }
     
     switch (indexPath.row) {
-        case 0: cell.textLabel.text = @"Performance"; break;
-        case 1: cell.textLabel.text = @"BasicExample"; break;
+        case 0: cell.textLabel.text = @"Google Maps"; break;
+        case 1: cell.textLabel.text = @"Twitter Stream"; break;
     }
     
     return cell;
@@ -60,7 +61,7 @@
 {
     UIViewController* controller = nil;
     switch (index) {
-        case 0: controller = [[NWSPerformanceViewController alloc] initWithContext:_context]; break;
+        case 0: controller = [[NWSGoogleMapsViewController alloc] init]; break;
         case 1: controller = [[NWSBasicExampleTableViewController alloc] initWithStyle:UITableViewStylePlain]; break;
     }
     

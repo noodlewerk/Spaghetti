@@ -32,6 +32,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		B31CE16016F1D07D00FF6AAE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31CE15F16F1D07D00FF6AAE /* CoreLocation.framework */; };
 		B388320B16309B730082F729 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F816309B730082F729 /* Foundation.framework */; };
 		B388320E16309B730082F729 /* libSpaghettiTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F516309B730082F729 /* libSpaghettiTouch.a */; };
 		B388323B16309BB90082F729 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388322816309BB80082F729 /* Cocoa.framework */; };
@@ -313,6 +314,8 @@
 		B38834561630A2BB0082F729 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388344E1630A1A60082F729 /* CoreData.framework */; };
 		B38834571630A2ED0082F729 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388341616309E720082F729 /* UIKit.framework */; };
 		B3C79D7D1630A5FB00A4B979 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3C79D7C1630A5FB00A4B979 /* Default-568h@2x.png */; };
+		B3DD6FE616F0D3440076D9F1 /* NWSGoogleMapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DD6FE516F0D3440076D9F1 /* NWSGoogleMapsViewController.m */; };
+		B3DD6FE816F0D3CF0076D9F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3DD6FE716F0D3CF0076D9F1 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -340,6 +343,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B31CE15F16F1D07D00FF6AAE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		B38831F516309B730082F729 /* libSpaghettiTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpaghettiTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38831F816309B730082F729 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B388320616309B730082F729 /* SpaghettiTouchTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaghettiTouchTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -501,6 +505,9 @@
 		B388344E1630A1A60082F729 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		B3C79D781630A55500A4B979 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		B3C79D7C1630A5FB00A4B979 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B3DD6FE416F0D3440076D9F1 /* NWSGoogleMapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSGoogleMapsViewController.h; sourceTree = "<group>"; };
+		B3DD6FE516F0D3440076D9F1 /* NWSGoogleMapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSGoogleMapsViewController.m; sourceTree = "<group>"; };
+		B3DD6FE716F0D3CF0076D9F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -547,6 +554,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B31CE16016F1D07D00FF6AAE /* CoreLocation.framework in Frameworks */,
+				B3DD6FE816F0D3CF0076D9F1 /* MapKit.framework in Frameworks */,
 				B388344D1630A19B0082F729 /* libSpaghettiTouch.a in Frameworks */,
 				B388341516309E6D0082F729 /* libxml2.dylib in Frameworks */,
 				B388341716309E720082F729 /* UIKit.framework in Frameworks */,
@@ -587,6 +596,8 @@
 			isa = PBXGroup;
 			children = (
 				B388328B16309C5E0082F729 /* NWLogging */,
+				B3DD6FE716F0D3CF0076D9F1 /* MapKit.framework */,
+				B31CE15F16F1D07D00FF6AAE /* CoreLocation.framework */,
 				B388341416309E6D0082F729 /* libxml2.dylib */,
 				B38834321630A0070082F729 /* libxml2.dylib */,
 				B388343A1630A11E0082F729 /* SenTestingKit.framework */,
@@ -603,6 +614,7 @@
 			isa = PBXGroup;
 			children = (
 				B388326E16309C5E0082F729 /* BasicExample */,
+				B3DD6FE316F0D3310076D9F1 /* GoogleMaps */,
 				B388327C16309C5E0082F729 /* Menu */,
 				B388328316309C5E0082F729 /* Performance */,
 				B388332516309C950082F729 /* Supporting Files */,
@@ -925,6 +937,15 @@
 				B388331616309C5E0082F729 /* SpaghettiTest-Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B3DD6FE316F0D3310076D9F1 /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				B3DD6FE416F0D3440076D9F1 /* NWSGoogleMapsViewController.h */,
+				B3DD6FE516F0D3440076D9F1 /* NWSGoogleMapsViewController.m */,
+			);
+			path = GoogleMaps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1445,6 +1466,7 @@
 				B38834401630A14C0082F729 /* NWSMenuViewController.m in Sources */,
 				B38834411630A14C0082F729 /* NWSPerformanceViewController.m in Sources */,
 				B38834421630A14C0082F729 /* main.m in Sources */,
+				B3DD6FE616F0D3440076D9F1 /* NWSGoogleMapsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
