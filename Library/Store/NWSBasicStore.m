@@ -42,21 +42,24 @@
 - (NWSObjectID *)identifierWithType:(NWSObjectType *)type primaryPathsAndValues:(NSArray *)pathsAndValues create:(BOOL)create
 {
     // NOTE: no restrictions on type, unless create is YES
+    NWLogWarnIfNot(pathsAndValues.count || create, @"Expecting pathsAndValues or create");
     
     // search for object in internal data store
-    for (NSObject *object in _objects) {
-        if ([type matches:object]) {
-            BOOL match = YES;
-            for (NSUInteger i = 1; i < pathsAndValues.count && match; i+=2) {
-                NWSPath *path = pathsAndValues[i-1];
-                id value = pathsAndValues[i];
-                id v = [object valueForPath:path];
-                if (v != value && ![v isEqual:value]) {
-                    match = NO;
+    if (pathsAndValues.count) {
+        for (NSObject *object in _objects) {
+            if ([type matches:object]) {
+                BOOL match = YES;
+                for (NSUInteger i = 1; i < pathsAndValues.count && match; i+=2) {
+                    NWSPath *path = pathsAndValues[i-1];
+                    id value = pathsAndValues[i];
+                    id v = [object valueForPath:path];
+                    if (v != value && ![v isEqual:value]) {
+                        match = NO;
+                    }
                 }
-            }
-            if (match) {
-                return [[NWSMemoryObjectID alloc] initWithObject:object];
+                if (match) {
+                    return [[NWSMemoryObjectID alloc] initWithObject:object];
+                }
             }
         }
     }
