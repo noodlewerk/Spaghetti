@@ -320,8 +320,9 @@
                 }
                 DEBUG_CONTEXT_PUSH(context, relation.elementPath);
                 NWLogInfo(@"mapElement relation: %@", context.path);
-                id transformed = [relation.transform transform:value context:context];
+                NWSObjectID *transformed = [relation.transform transform:value context:context];
                 DEBUG_CONTEXT_POP(context);
+                NWLogWarnIfNot([transformed isKindOfClass:NWSObjectID.class], @"Transform result should be object ID, not %@", transformed.class);
                 // if we have a subject to assign to
                 if (result) {
                     [context.store setRelationForIdentifier:result value:transformed path:relation.objectPath policy:relation.policy baseStore:nil];        
