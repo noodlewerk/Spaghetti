@@ -6,7 +6,8 @@
 //
 
 #import "NWSIndexPath.h"
-#import "NWSCommon.h"
+#import "NWSStringToNumberTransform.h"
+#import "NWAbout.h"
 
 
 @implementation NWSIndexPath
@@ -76,7 +77,7 @@
 
 + (NWSIndexPath *)pathFromString:(NSString *)string
 {
-    NSNumber *number = [string number];
+    NSNumber *number = [NWSStringToNumberTransform numberForString:string];
     if (number) {
         return [[NWSIndexPath alloc] initWithIndex:[number integerValue]];
     }
@@ -91,9 +92,9 @@
     return [NSString stringWithFormat:@"<%@:%p index:%i>", NSStringFromClass(self.class), self, (int)_index];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@(_index) readable:prefix];
+    return [@(_index) about:prefix];
 }
 
 

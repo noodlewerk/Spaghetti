@@ -6,7 +6,7 @@
 //
 
 #import "NWSCall.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSEndpoint.h"
 #import "NWSActivityIndicator.h"
 #import "NWSDialogue.h"
@@ -183,9 +183,9 @@
     return [NSString stringWithFormat:@"<%@:%p endpoint:%@>", NSStringFromClass(self.class), self, _endpoint];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"call to %@", _endpoint] readable:prefix];
+    return [[NSString stringWithFormat:@"call to %@", _endpoint] about:prefix];
 }
 
 @end

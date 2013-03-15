@@ -6,7 +6,7 @@
 //
 
 #import "NWSKeyPathPath.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 
 
 @implementation NWSKeyPathPath
@@ -59,9 +59,9 @@
     return [NSString stringWithFormat:@"<%@:%p keyPath:%@>", NSStringFromClass(self.class), self, _keyPath];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [_keyPath readable:prefix];
+    return [_keyPath about:prefix];
 }
 
 @end

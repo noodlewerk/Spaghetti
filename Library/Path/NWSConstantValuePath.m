@@ -6,7 +6,8 @@
 //
 
 #import "NWSConstantValuePath.h"
-#import "NWSCommon.h"
+#import "NWSStringToNumberTransform.h"
+#import "NWAbout.h"
 
 
 @implementation NWSConstantValuePath
@@ -58,7 +59,7 @@
     NSString *type = [string substringToIndex:r.location];
     NSString *value = [string substringFromIndex:r.location + r.length];
     if (!type.length) {
-        NSNumber *number = [value number];
+        NSNumber *number = [NWSStringToNumberTransform numberForString:value];
         return [[NWSConstantValuePath alloc] initWithValue:number ? number : value];
     } else if ([type isEqualToString:@"nil"]) {
         return [[NWSConstantValuePath alloc] initWithValue:nil];
@@ -91,9 +92,9 @@
     return [NSString stringWithFormat:@"<%@:%p key:%@>", NSStringFromClass(self.class), self, _value];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [_value readable:prefix];
+    return [_value about:prefix];
 }
 
 @end

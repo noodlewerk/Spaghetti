@@ -6,7 +6,7 @@
 //
 
 #import "NWSMemoryObjectID.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 
 
 @implementation NWSMemoryObjectID
@@ -42,9 +42,9 @@
     return [NSString stringWithFormat:@"<%@:%p object:%@>", NSStringFromClass(self.class), self, _object];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"id %@ in memory", NSStringFromClass(_object.class)] readable:prefix];
+    return [[NSString stringWithFormat:@"id %@ in memory", NSStringFromClass(_object.class)] about:prefix];
 }
 
 @end

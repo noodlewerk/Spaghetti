@@ -6,7 +6,7 @@
 //
 
 #import "NWSBlockTransform.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 
 
 @implementation NWSBlockTransform
@@ -55,9 +55,9 @@
     return [NSString stringWithFormat:@"<%@:%p transform:%@ reverse:%@>", NSStringFromClass(self.class), self, _transformBlock ? @"Y" : @"N", _reverseBlock ? @"Y" : @"N"];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"block-transform" readable:prefix];
+    return [@"block-transform" about:prefix];
 }
 
 

@@ -6,7 +6,7 @@
 //
 
 #import "NWSStore.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSPath.h"
 #import "NWSObjectReference.h"
 
@@ -106,9 +106,9 @@
     return [NSString stringWithFormat:@"<%@:%p>", NSStringFromClass(self.class), self];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"store" readable:prefix];
+    return [@"store" about:prefix];
 }
 
 

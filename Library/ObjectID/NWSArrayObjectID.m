@@ -6,7 +6,7 @@
 //
 
 #import "NWSArrayObjectID.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 
 
 @implementation NWSArrayObjectID
@@ -45,9 +45,9 @@
     return [NSString stringWithFormat:@"<%@:%p identifiers:%@>", NSStringFromClass(self.class), self, _identifiers];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [_identifiers readable:prefix];
+    return [_identifiers about:prefix];
 }
 
 @end

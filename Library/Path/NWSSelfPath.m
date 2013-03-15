@@ -6,7 +6,7 @@
 //
 
 #import "NWSSelfPath.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 
 
 @implementation NWSSelfPath
@@ -55,9 +55,9 @@
     return [NSString stringWithFormat:@"<%@:%p>", NSStringFromClass(self.class), self];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"path-to-self" readable:prefix];
+    return [@"path-to-self" about:prefix];
 }
 
 

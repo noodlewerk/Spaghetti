@@ -6,7 +6,7 @@
 //
 
 #import "NWSObjectID.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 
 
 @implementation NWSObjectID
@@ -34,9 +34,9 @@
     return [NSString stringWithFormat:@"<%@:%p>", NSStringFromClass(self.class), self];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"object-id" readable:prefix];
+    return [@"object-id" about:prefix];
 }
 
 @end

@@ -6,7 +6,7 @@
 //
 
 #import "NWStats.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 
 
 @implementation NWStats {
@@ -52,9 +52,9 @@
     return [NSString stringWithFormat:@"<%@:%p count:%lu sum:%f>", NSStringFromClass(self.class), self, _count, (double)_sum];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"%f±%f (#%lu)", self.average, self.deviation, _count] readable:prefix];
+    return [[NSString stringWithFormat:@"%f±%f (#%lu)", self.average, self.deviation, _count] about:prefix];
 }
 
 @end

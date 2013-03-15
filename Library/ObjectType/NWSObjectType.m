@@ -6,7 +6,7 @@
 //
 
 #import "NWSObjectType.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSPath.h"
 
 
@@ -59,9 +59,9 @@
     return [NSString stringWithFormat:@"<%@:%p>", NSStringFromClass(self.class), self];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"object-type" readable:prefix];
+    return [@"object-type" about:prefix];
 }
 
 @end

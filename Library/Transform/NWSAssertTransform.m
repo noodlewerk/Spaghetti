@@ -6,7 +6,7 @@
 //
 
 #import "NWSAssertTransform.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 
 
 @implementation NWSAssertTransform
@@ -83,9 +83,9 @@
     return [NSString stringWithFormat:@"<%@:%p>", NSStringFromClass(self.class), self];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"assert-transform" readable:prefix];
+    return [@"assert-transform" about:prefix];
 }
 
 @end

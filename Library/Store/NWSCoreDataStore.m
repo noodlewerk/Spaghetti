@@ -6,7 +6,7 @@
 //
 
 #import "NWSCoreDataStore.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSManagedObjectID.h"
 #import "NWSArrayObjectID.h"
 #import "NWSEntityObjectType.h"
@@ -463,9 +463,9 @@
     return [NSString stringWithFormat:@"<%@:%p context:%@>", NSStringFromClass(self.class), self, _context];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"core-data-store" readable:prefix];
+    return [@"core-data-store" about:prefix];
 }
 
 

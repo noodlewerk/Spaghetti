@@ -6,7 +6,7 @@
 //
 
 #import "NWSDateFormatterTransform.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSMappingContext.h"
 
 
@@ -75,9 +75,9 @@
     return [NSString stringWithFormat:@"<%@:%p formatter:%@>", NSStringFromClass(self.class), self, _formatter];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"date-formatter" readable:prefix];
+    return [@"date-formatter" about:prefix];
 }
 
 @end

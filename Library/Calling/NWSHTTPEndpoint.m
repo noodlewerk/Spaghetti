@@ -6,7 +6,7 @@
 //
 
 #import "NWSHTTPEndpoint.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSHTTPCall.h"
 #import "NWSSelfPath.h"
 
@@ -50,9 +50,9 @@
     return [NSString stringWithFormat:@"<%@:%p url:%@ req-map:%@ res-map:%@ store:%@>", NSStringFromClass(self.class), self, _urlString, self.requestMapping, self.responseMapping, self.store];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"http-endpoint on %@", _urlString] readable:prefix];
+    return [[NSString stringWithFormat:@"http-endpoint on %@", _urlString] about:prefix];
 }
 
 @end

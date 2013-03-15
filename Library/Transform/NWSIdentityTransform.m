@@ -6,7 +6,7 @@
 //
 
 #import "NWSIdentityTransform.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 
 
 @implementation NWSIdentityTransform
@@ -45,9 +45,9 @@
     return [NSString stringWithFormat:@"<%@:%p>", NSStringFromClass(self.class), self];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"identity-transform" readable:prefix];
+    return [@"identity-transform" about:prefix];
 }
 
 @end

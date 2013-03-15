@@ -31,3 +31,10 @@
 - (id)dereference;
 
 @end
+
+
+@interface NSObject (MapAdditions)
+
+- (id)mapWithBlock:(id(^)(id))block;
+
+@end

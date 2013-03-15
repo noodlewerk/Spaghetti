@@ -8,7 +8,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import "NWSClassObjectType.h"
 #import "NWSEntityObjectType.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSPath.h"
 
 
@@ -72,7 +72,7 @@
     STAssertTrue([i hasRelation:[NWSPath pathFromString:@"_ivarToMany"] toMany:YES], @"");
     STAssertTrue(![i hasRelation:[NWSPath pathFromString:@"x"] toMany:YES], @"");
     STAssertNotNil(i.description, @"");
-    STAssertNotNil(i.readable, @"");
+    STAssertNotNil(i.about, @"");
 }
 
 - (void)testEntityObjectType
@@ -90,14 +90,14 @@
     STAssertTrue(![i hasRelation:[NWSPath pathFromString:@"ivarToOne"] toMany:YES], @"");
     STAssertTrue(![i hasRelation:[NWSPath pathFromString:@"x"] toMany:YES], @"");
     STAssertNotNil(i.description, @"");
-    STAssertNotNil(i.readable, @"");
+    STAssertNotNil(i.about, @"");
 }
 
 - (void)testObjectType
 {
     NWSObjectType *i = [[NWSObjectType alloc] init];
     STAssertNotNil(i.description, @"");
-    STAssertNotNil(i.readable, @"");
+    STAssertNotNil(i.about, @"");
 }
 
 @end

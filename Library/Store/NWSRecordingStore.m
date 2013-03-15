@@ -6,7 +6,7 @@
 //
 
 #import "NWSRecordingStore.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSObjectType.h"
 #import "NWSObjectID.h"
 #import "NWSArrayObjectID.h"
@@ -24,9 +24,9 @@
 {
     return [NSString stringWithFormat:@"<%@:%p type:%@ pathsAndValues:%@ %@>", NSStringFromClass(self.class), self, _type, _pathsAndValues, _create ? @"create" : @"do-not-create"];
 }
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"%@ with %@", [_type readable:prefix], [_pathsAndValues readable:prefix]] readable:prefix];    
+    return [[NSString stringWithFormat:@"%@ with %@", [_type about:prefix], [_pathsAndValues about:prefix]] about:prefix];    
 }
 @end
 
@@ -40,9 +40,9 @@
 {
     return [NSString stringWithFormat:@"<%@:%p type:%@>", NSStringFromClass(self.class), self, _type];
 }
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"%@-type", [_type readable:prefix]] readable:prefix];    
+    return [[NSString stringWithFormat:@"%@-type", [_type about:prefix]] about:prefix];    
 }
 @end
 
@@ -53,9 +53,9 @@
 {
     return [NSString stringWithFormat:@"<%@:%p identifier:%@ path:%@ value:%@>", NSStringFromClass(self.class), self, _identifier, _path, _value];
 }
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"On %@ set %@ := %@", [_identifier readable:prefix], [_path.readable readable:prefix], [_value readable:prefix]] readable:prefix];    
+    return [[NSString stringWithFormat:@"On %@ set %@ := %@", [_identifier about:prefix], [_path.about about:prefix], [_value about:prefix]] about:prefix];    
 }
 @end
 
@@ -66,9 +66,9 @@
 {
     return [NSString stringWithFormat:@"<%@:%p identifier:%@ path:%@ value:%@ policy:%@>", NSStringFromClass(self.class), self, _identifier, _path, _value, _policy];
 }
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"On %@ set %@ := %@ (%@)", [_identifier readable:prefix], [_path readable:prefix], [_value readable:prefix], [_policy readable:prefix]] readable:prefix];    
+    return [[NSString stringWithFormat:@"On %@ set %@ := %@ (%@)", [_identifier about:prefix], [_path about:prefix], [_value about:prefix], [_policy about:prefix]] about:prefix];    
 }
 @end
 
@@ -213,9 +213,9 @@
     return [NSString stringWithFormat:@"<%@:%p #records:%u>", NSStringFromClass(self.class), self, (int)_records.count];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"reading-store" readable:prefix];
+    return [@"reading-store" about:prefix];
 }
 
 

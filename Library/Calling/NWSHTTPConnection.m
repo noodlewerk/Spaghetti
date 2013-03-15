@@ -130,9 +130,9 @@
     return [NSString stringWithFormat:@"<%@:%p url:%@>", NSStringFromClass(self.class), self, _request.URL];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"connection to %@ (%u,%u)", _request.URL, (int)_response.statusCode, (int)_responseData.length] readable:prefix];
+    return [[NSString stringWithFormat:@"connection to %@ (%u,%u)", _request.URL, (int)_response.statusCode, (int)_responseData.length] about:prefix];
 }
 
 @end

@@ -6,7 +6,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSHTTPCall.h"
 #import "NWSHTTPConnection.h"
 #import "NWSHTTPDialogue.h"
@@ -33,7 +33,7 @@
     STAssertNotNil(i.resolvedURL, @"");
     STAssertNotNil(i.newDialogue, @"");
     STAssertNotNil(i.description, @"");
-    STAssertNotNil(i.readable, @"");
+    STAssertNotNil(i.about, @"");
 }
 
 - (void)testHTTPConnection
@@ -41,7 +41,7 @@
     NWSHTTPConnection *i = [[NWSHTTPConnection alloc] init];
     
     STAssertNotNil(i.description, @"");
-    STAssertNotNil(i.readable, @"");
+    STAssertNotNil(i.about, @"");
 }
 
 - (void)testHTTPDialogue
@@ -49,7 +49,7 @@
     NWSHTTPDialogue *i = [[NWSHTTPDialogue alloc] init];
     
     STAssertNotNil(i.description, @"");
-    STAssertNotNil(i.readable, @"");
+    STAssertNotNil(i.about, @"");
 }
 
 - (void)testHTTPEndpoint
@@ -58,7 +58,7 @@
     
     STAssertNotNil([i newCall], @"");
     STAssertNotNil(i.description, @"");
-    STAssertNotNil(i.readable, @"");
+    STAssertNotNil(i.about, @"");
 }
 
 - (void)testDereferencing

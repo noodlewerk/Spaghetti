@@ -6,7 +6,7 @@
 //
 
 #import "NWSClassObjectType.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #include <objc/runtime.h>
 #import "NWSPath.h"
 #import "NWSSingleKeyPath.h"
@@ -98,9 +98,9 @@
     return [NSString stringWithFormat:@"<%@:%p class:%@>", NSStringFromClass(self.class), self, NSStringFromClass(_clas)];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [_clas readable:prefix];
+    return [_clas about:prefix];
 }
 
 @end

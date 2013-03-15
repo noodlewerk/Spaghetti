@@ -6,7 +6,7 @@
 //
 
 #import "NWSIDToObjectTransform.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSStore.h"
 #import "NWSObjectID.h"
 #import "NWSMappingContext.h"
@@ -75,9 +75,9 @@
     return [NSString stringWithFormat:@"<%@:%p type:%@ path:%@>", NSStringFromClass(self.class), self, _type, _path];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"transform %@ to %@", [_path readable:prefix], [_type readable:prefix]] readable:prefix];
+    return [[NSString stringWithFormat:@"transform %@ to %@", [_path about:prefix], [_type about:prefix]] about:prefix];
 }
 
 @end

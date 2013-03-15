@@ -6,7 +6,7 @@
 //
 
 #import "NWSMapping.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSObjectID.h"
 #import "NWSTransform.h"
 #import "NWSStore.h"
@@ -51,9 +51,9 @@
     return [NSString stringWithFormat:@"<%@:%p element:%@ attribute:%@ transform:%@>", NSStringFromClass(self.class), self, _elementPath, _objectPath, _transform];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"map-entry %@ -> %@ using %@", [_elementPath readable:prefix], [_objectPath readable:prefix], [_transform readable:prefix]] readable:prefix];
+    return [[NSString stringWithFormat:@"map-entry %@ -> %@ using %@", [_elementPath about:prefix], [_objectPath about:prefix], [_transform about:prefix]] about:prefix];
 }
 
 @end
@@ -462,9 +462,9 @@
     return [NSString stringWithFormat:@"<%@:%p type:%@ #attributes:%u #relations:%u #primaries:%u>", NSStringFromClass(self.class), self, _objectType, (int)_attributes.count, (int)_relations.count, (int)_primaries.count];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"mapping for %@", [_objectType readable:prefix]] readable:prefix];
+    return [[NSString stringWithFormat:@"mapping for %@", [_objectType about:prefix]] about:prefix];
 }
 
 @end

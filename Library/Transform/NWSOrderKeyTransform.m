@@ -6,7 +6,7 @@
 //
 
 #import "NWSOrderKeyTransform.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSMappingContext.h"
 
 
@@ -63,9 +63,9 @@
     return [NSString stringWithFormat:@"<%@:%p>", NSStringFromClass(self.class), self];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"order-key-transform" readable:prefix];
+    return [@"order-key-transform" about:prefix];
 }
 
 @end

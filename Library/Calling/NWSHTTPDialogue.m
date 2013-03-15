@@ -180,9 +180,9 @@
     return [NSString stringWithFormat:@"<%@:%p url:%@>", NSStringFromClass(self.class), self, _request.URL];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"dialogue with %@", _request.URL] readable:prefix];
+    return [[NSString stringWithFormat:@"dialogue with %@", _request.URL] about:prefix];
 }
 
 @end

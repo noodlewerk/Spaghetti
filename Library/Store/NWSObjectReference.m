@@ -6,7 +6,7 @@
 //
 
 #import "NWSObjectReference.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 
 
 @implementation NWSObjectReference
@@ -39,6 +39,30 @@
 - (id)dereference
 {
     return [NWSObjectReference dereference:_object];
+}
+
+@end
+
+
+
+@implementation NSObject (MapAdditions)
+
+- (id)mapWithBlock:(id(^)(id))block
+{
+    if (![self isKindOfClass:NSArray.class]) {
+        return block(self);
+    }
+    NSArray *objects = (NSArray *)self;
+    NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:objects.count];
+    for (id object in objects) {
+        id mapped = [object mapWithBlock:block];
+        if (mapped) {
+            [result addObject:mapped];
+        } else {
+            [result addObject:NSNull.null];
+        }
+    }
+    return result;
 }
 
 @end

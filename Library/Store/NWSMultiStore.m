@@ -6,7 +6,7 @@
 //
 
 #import "NWSMultiStore.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSBasicStore.h"
 #import "NWSEntityObjectType.h"
 #import "NWSClassObjectType.h"
@@ -210,9 +210,9 @@
     return [NSString stringWithFormat:@"<%@:%p #stores:%u>", NSStringFromClass(self.class), self, (int)_stores.count];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"multi-store" readable:prefix];
+    return [@"multi-store" about:prefix];
 }
 
 

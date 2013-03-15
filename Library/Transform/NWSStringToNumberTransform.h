@@ -19,4 +19,9 @@
  */
 + (NWSStringToNumberTransform *)shared;
 
+/**
+ * Parses the string into an NSNumber without using NSNumberFormatter.
+ */
++ (NSNumber *)numberForString:(NSString *)string;
+
 @end

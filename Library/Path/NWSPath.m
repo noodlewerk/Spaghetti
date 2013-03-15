@@ -6,7 +6,7 @@
 //
 
 #import "NWSPath.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSSingleKeyPath.h"
 #import "NWSKeyPathPath.h"
 #import "NWSSelfPath.h"
@@ -99,9 +99,9 @@
     return [NSString stringWithFormat:@"<%@:%p>", NSStringFromClass(self.class), self];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"a path" readable:prefix];
+    return [@"a path" about:prefix];
 }
 
 @end

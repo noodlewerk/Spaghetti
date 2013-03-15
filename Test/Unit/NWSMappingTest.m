@@ -6,7 +6,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSMapping.h"
 #import "NWSMappingContext.h"
 #import "NWSMappingValidator.h"
@@ -27,7 +27,7 @@
 {
     NWSMapping *i = [[NWSMapping alloc] init];
     STAssertNotNil(i.description, @"");
-    STAssertNotNil(i.readable, @"");
+    STAssertNotNil(i.about, @"");
 }
 
 - (void)testMappingContext
@@ -35,21 +35,21 @@
     NWSMappingContext *i = [[NWSMappingContext alloc] init];
     STAssertNotNil(i.path, @"");
     STAssertNotNil(i.description, @"");
-    STAssertNotNil(i.readable, @"");
+    STAssertNotNil(i.about, @"");
 }
 
 - (void)testMappingEntry
 {
     NWSMappingEntry *i = [[NWSMappingEntry alloc] init];
     STAssertNotNil(i.description, @"");
-    STAssertNotNil(i.readable, @"");
+    STAssertNotNil(i.about, @"");
 }
 
 - (void)testMappingValidator
 {
     NWSMappingValidator *i = [[NWSMappingValidator alloc] init];
     STAssertNotNil(i.description, @"");
-    STAssertNotNil(i.readable, @"");
+    STAssertNotNil(i.about, @"");
 }
 
 - (void)testSetterPolicy
@@ -60,7 +60,7 @@
     STAssertNotNil([NWSPolicy.deleteOne description], @"");
     STAssertNotNil([NWSPolicy.deleteMany description], @"");
     STAssertNotNil(i.description, @"");
-    STAssertNotNil(i.readable, @"");
+    STAssertNotNil(i.about, @"");
 }
 
 @end

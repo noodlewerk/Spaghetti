@@ -6,7 +6,7 @@
 //
 
 #import "NWSCompositeTransform.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 
 
 @implementation NWSCompositeTransform {
@@ -52,9 +52,9 @@
     return [NSString stringWithFormat:@"<%@:%p #transforms:%u>", NSStringFromClass(self.class), self, (int)_transforms.count];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"compound %@", [_transforms readable:prefix]] readable:prefix];
+    return [[NSString stringWithFormat:@"compound %@", [_transforms about:prefix]] about:prefix];
 }
 
 @end

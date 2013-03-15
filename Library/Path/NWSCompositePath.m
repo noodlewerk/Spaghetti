@@ -6,7 +6,7 @@
 //
 
 #import "NWSCompositePath.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSSingleKeyPath.h"
 #import "NWSIndexPath.h"
 #import "NWSKeyPathPath.h"
@@ -80,7 +80,7 @@
     return [NSString stringWithFormat:@"<%@:%p #paths:%u>", NSStringFromClass(self.class), self, (int)_paths.count];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
     NSMutableString *result = [[NSMutableString alloc] init];
     BOOL separator = NO;
@@ -90,7 +90,7 @@
         } else {
             separator = YES;
         }
-        [result appendString:[path readable:prefix]];
+        [result appendString:[path about:prefix]];
     }
     return result;
 }

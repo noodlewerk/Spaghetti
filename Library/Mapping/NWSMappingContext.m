@@ -6,7 +6,7 @@
 //
 
 #import "NWSMappingContext.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSStore.h"
 #import "NWSCompositePath.h"
 
@@ -79,9 +79,9 @@
     return [NSString stringWithFormat:@"<%@:%p store:%@>", NSStringFromClass(self.class), self, _store];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"map-context" readable:prefix];
+    return [@"map-context" about:prefix];
 }
 
 
@@ -104,7 +104,7 @@
 
 - (NSString *)path
 {
-    return [[self pathStack] readable];
+    return [self pathStack].about;
 }
 
 #else 

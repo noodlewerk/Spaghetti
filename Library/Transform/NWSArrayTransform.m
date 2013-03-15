@@ -6,7 +6,7 @@
 //
 
 #import "NWSArrayTransform.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSArrayObjectID.h"
 #import "NWSMappingContext.h"
 
@@ -90,9 +90,9 @@
     return [NSString stringWithFormat:@"<%@:%p transform:%@>", NSStringFromClass(self.class), self, _transform];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"repeated %@", [_transform readable:prefix]] readable:prefix];
+    return [[NSString stringWithFormat:@"repeated %@", [_transform about:prefix]] about:prefix];
 }
 
 @end

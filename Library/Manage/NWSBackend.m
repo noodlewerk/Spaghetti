@@ -9,7 +9,7 @@
 #import "Spaghetti.h"
 #import "NWSSchedule.h"
 #import "NWSOperation.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 
 
 @implementation NWSBackend {
@@ -252,9 +252,9 @@
     return [NSString stringWithFormat:@"<%@:%p m:%u e:%u>", NSStringFromClass(self.class), self, (int)_mappings.count, (int)_endpoints.count];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"backend with %u mappings and %u endpoints", (int)_mappings.count, (int)_endpoints.count] readable:prefix];
+    return [[NSString stringWithFormat:@"backend with %u mappings and %u endpoints", (int)_mappings.count, (int)_endpoints.count] about:prefix];
 }
 
 - (NSString *)about
@@ -263,13 +263,13 @@
     [result appendFormat:@"\n[%@]\n", NSStringFromClass(self.class)];
     [result appendFormat:@"Mappings: (#%u)\n", (int)_mappings.count];
     for (NSString *name in _mappings) {
-        [result appendFormat:@"   %@: %@\n", name, [_mappings[name] readable:@"   "]];
+        [result appendFormat:@"   %@: %@\n", name, [_mappings[name] about:@"   "]];
     }
     [result appendFormat:@"Endpoints: (#%u)\n", (int)_endpoints.count];
     for (NSString *name in _endpoints) {
-        [result appendFormat:@"   %@: %@\n", name, [_endpoints[name] readable:@"   "]];
+        [result appendFormat:@"   %@: %@\n", name, [_endpoints[name] about:@"   "]];
     }
-    [result appendFormat:@"Schedule: %@", _schedule.readable];
+    [result appendFormat:@"Schedule: %@", _schedule.about];
     return result;
 }
 

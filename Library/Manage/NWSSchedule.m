@@ -8,7 +8,7 @@
 #import "NWSSchedule.h"
 #import "NWSCall.h"
 #import "NWSDialogue.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 
 
 static const NSTimeInterval minOperationInterval = 0.1;
@@ -45,9 +45,9 @@ static const NSTimeInterval minOperationInterval = 0.1;
     return [NSString stringWithFormat:@"<%@:%p s:%f i:%f q:%@>", NSStringFromClass(self.class), self, _startTime, _intervalTime, _callbackQueue ? @"Y" : @"N"];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"schedule-item-abstract" readable:prefix];
+    return [@"schedule-item-abstract" about:prefix];
 }
 
 @end
@@ -102,9 +102,9 @@ static const NSTimeInterval minOperationInterval = 0.1;
     return [NSString stringWithFormat:@"<%@:%p s:%f i:%f q:%@>", NSStringFromClass(self.class), self, self.startTime, self.intervalTime, self.callbackQueue ? @"Y" : @"N"];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"schedule-item on:%@ every:%u call:%@", [NSDate dateWithTimeIntervalSince1970:self.startTime], (int)self.intervalTime, [_call readable:prefix]] readable:prefix];
+    return [[NSString stringWithFormat:@"schedule-item on:%@ every:%u call:%@", [NSDate dateWithTimeIntervalSince1970:self.startTime], (int)self.intervalTime, [_call about:prefix]] about:prefix];
 }
 
 @end
@@ -163,9 +163,9 @@ static const NSTimeInterval minOperationInterval = 0.1;
     return [NSString stringWithFormat:@"<%@:%p s:%f i:%f q:%@>", NSStringFromClass(self.class), self, self.startTime, self.intervalTime, self.callbackQueue ? @"Y" : @"N"];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"schedule-group on:%@ every:%u #%u", [NSDate dateWithTimeIntervalSince1970:self.startTime], (int)self.intervalTime, (int)_items.count] readable:prefix];
+    return [[NSString stringWithFormat:@"schedule-group on:%@ every:%u #%u", [NSDate dateWithTimeIntervalSince1970:self.startTime], (int)self.intervalTime, (int)_items.count] about:prefix];
 }
 
 @end
@@ -354,9 +354,9 @@ static const NSTimeInterval minOperationInterval = 0.1;
     return [NSString stringWithFormat:@"<%@:%p #%u %@>", NSStringFromClass(self.class), self, (int)self.count, self.running ? @"R" : @"P"];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"schedule %@ with %u items", self.running ? @"running" : @"paused", (int)self.count] readable:prefix];
+    return [[NSString stringWithFormat:@"schedule %@ with %u items", self.running ? @"running" : @"paused", (int)self.count] about:prefix];
 }
 
 - (NSString *)about
@@ -368,7 +368,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
         [result appendFormat:@"Next run will be on %@.\n", _nextRun];
         [result appendString:@"Scheduled items:\n"];
         for (NWSScheduleItem *item in _schedule) {
-            [result appendFormat:@"   %@\n", [item readable:@"   "]];
+            [result appendFormat:@"   %@\n", [item about:@"   "]];
         }
     });
     return result;

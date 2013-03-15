@@ -6,7 +6,7 @@
 //
 
 #import "NWSMappingTransform.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSMapping.h"
 
 
@@ -55,9 +55,9 @@
     return [NSString stringWithFormat:@"<%@:%p mapping:%@>", NSStringFromClass(self.class), self, _mapping];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [[NSString stringWithFormat:@"transform with %@", [_mapping readable:prefix]] readable:prefix];
+    return [[NSString stringWithFormat:@"transform with %@", [_mapping about:prefix]] about:prefix];
 }
 
 @end

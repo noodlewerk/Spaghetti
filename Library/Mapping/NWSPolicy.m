@@ -6,7 +6,7 @@
 //
 
 #import "NWSPolicy.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 
 
 @implementation NWSPolicy
@@ -91,9 +91,9 @@
     return [NSString stringWithFormat:@"<%@:%p %@>", NSStringFromClass(self.class), self, [NWSPolicy stringFromType:_type]];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"setter-policy" readable:prefix];
+    return [@"setter-policy" about:prefix];
 }
 
 @end

@@ -6,7 +6,7 @@
 //
 
 #import "NWSBasicStore.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSClassObjectType.h"
 #import "NWSMemoryObjectID.h"
 #import "NWSArrayObjectID.h"
@@ -191,9 +191,9 @@
     return [NSString stringWithFormat:@"<%@:%p #internal:%u>", NSStringFromClass(self.class), self, (int)_objects.count];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"basic-store" readable:prefix];
+    return [@"basic-store" about:prefix];
 }
 
 

@@ -9,7 +9,7 @@
 #import "NWSArrayObjectID.h"
 #import "NWSManagedObjectID.h"
 #import "NWSMemoryObjectID.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 
 
 @interface NWSTestManagedObjectID : NSManagedObjectID
@@ -51,7 +51,7 @@
     STAssertTrue([i isEqual: j], @"");
     STAssertTrue(![i isEqual: k], @"");
     STAssertNotNil(i.description, @"");
-    STAssertNotNil(i.readable, @"");
+    STAssertNotNil(i.about, @"");
 }
 
 - (void)testManagedObjectID
@@ -65,7 +65,7 @@
     STAssertTrue([i isEqual: j], @"");
     STAssertTrue(![i isEqual: k], @"");
     STAssertNotNil(i.description, @"");
-    STAssertNotNil(i.readable, @"");
+    STAssertNotNil(i.about, @"");
 }
 
 - (void)testMemoryObjectID
@@ -79,7 +79,7 @@
     STAssertTrue([i isEqual: j], @"");
     STAssertTrue(![i isEqual: k], @"");
     STAssertNotNil(i.description, @"");
-    STAssertNotNil(i.readable, @"");
+    STAssertNotNil(i.about, @"");
 }
 
 @end

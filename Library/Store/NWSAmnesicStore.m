@@ -10,7 +10,7 @@
 #import "NWSClassObjectType.h"
 #import "NWSPath.h"
 #import "NWSArrayObjectID.h"
-#import "NWSCommon.h"
+#import "NWAbout.h"
 #import "NWSObjectReference.h"
 #import "NWSPolicy.h"
 
@@ -163,9 +163,9 @@
     return [NSString stringWithFormat:@"<%@:%p>", NSStringFromClass(self.class), self];
 }
 
-- (NSString *)readable:(NSString *)prefix
+- (NSString *)about:(NSString *)prefix
 {
-    return [@"amnesic-store" readable:prefix];
+    return [@"amnesic-store" about:prefix];
 }
 
 
