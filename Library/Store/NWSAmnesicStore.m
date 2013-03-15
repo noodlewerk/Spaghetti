@@ -35,14 +35,17 @@
 
 - (NWSObjectID *)identifierWithType:(NWSClassObjectType *)type primaryPathsAndValues:(NSArray *)pathsAndValues create:(BOOL)create
 {
-    NWLogWarnIfNot(pathsAndValues.count == 0, @"Amnesic store does not support primary keys");
+    NWLogWarnIfNot(pathsAndValues.count == 0, @"Amnesic store does not support primary keys, try basic store or core data store");
     
     // no object found
     if (create) {
-        NWLogWarnIfNot([type isKindOfClass:NWSClassObjectType.class], @"parameter 'type' should be a NWSClassObjectType");
-        id object = [[type.clas alloc] init];
-        NWSObjectID *result = [[NWSMemoryObjectID alloc] initWithObject:object];
-        return result;
+        if ([type isKindOfClass:NWSClassObjectType.class]) {
+            id object = [[type.clas alloc] init];
+            NWSObjectID *result = [[NWSMemoryObjectID alloc] initWithObject:object];
+            return result;
+        } else {
+            NWLogWarn(@"parameter 'type' should be a NWSClassObjectType, use core data store instead");
+        }
     } else {
         NWLogWarn(@"Amnesic store only creates objects, it doesn't fetch any because it doesn't have any");
     }
