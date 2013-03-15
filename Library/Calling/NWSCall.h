@@ -6,7 +6,7 @@
 //
 
 @class NWSEndpoint, NWSStore, NWSDialogue, NWSMapping, NWSPath, NWSPolicy, NWSParser;
-@protocol NWSActivityIndicator;
+@protocol NWActivityIndicator;
 
 /**
  * The prototype for a specific conversation.
@@ -107,7 +107,7 @@
  * @see [NWSEndpoint indicator]
  * @see addIndicator:
  */
-@property (nonatomic, strong) id<NWSActivityIndicator> indicator;
+@property (nonatomic, strong) id<NWActivityIndicator> indicator;
 
 - (id)initWithEndpoint:(NWSEndpoint *)endpoint;
 
@@ -116,7 +116,7 @@
  * @param indicator The indicator to be informed upon calling.
  * @see indicator;
  */
-- (void)addIndicator:(id<NWSActivityIndicator>)indicator;
+- (void)addIndicator:(id<NWActivityIndicator>)indicator;
 
 /** @name Setting parameters */
 

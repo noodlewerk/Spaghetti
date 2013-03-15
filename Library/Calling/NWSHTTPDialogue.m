@@ -6,7 +6,7 @@
 //
 
 #import "NWSHTTPDialogue.h"
-#import "NWSHTTPConnection.h"
+#import "NWHTTPConnection.h"
 #import "NWSHTTPCall.h"
 #import "NWSHTTPEndpoint.h"
 #import "NWStats.h"
@@ -16,7 +16,7 @@
 @implementation NWSHTTPDialogue {
     NSDate *_startCall;
     NSDate *_startRequest;
-    NWSHTTPConnection *_connection;
+    NWHTTPConnection *_connection;
     BOOL _cancelled;
 }
 
@@ -81,7 +81,7 @@
         [self map];
     };
     
-    NWSHTTPConnection *connection = [[NWSHTTPConnection alloc] initWithRequest:_request];
+    NWHTTPConnection *connection = [[NWHTTPConnection alloc] initWithRequest:_request];
     connection.block = block;
     connection.callbackQueue = self.operationQueue;
     connection.indicator = self.indicator;

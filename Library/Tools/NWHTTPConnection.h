@@ -1,19 +1,19 @@
 //
-//  NWSHTTPConnection.h
-//  Spaghetti
+//  NWHTTPConnection.h
+//  NWTools
 //
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
 
-@protocol NWSActivityIndicator;
+@protocol NWActivityIndicator;
 
 /**
  * A convenience wrapper around NSURLConnection.
  *
  * Similar to the sendAsynchronousRequest: method of NSURLConnection, but also provides a cancel method.
  */
-@interface NWSHTTPConnection : NSObject<NSURLConnectionDelegate>
+@interface NWHTTPConnection : NSObject<NSURLConnectionDelegate>
 
 /**
  * The callback block that is invoked as soon as the NSURLConnection finishes or fails.
@@ -28,7 +28,7 @@
 /**
  * Indicator this connection will register on after starting.
  */
-@property (nonatomic, strong) id<NWSActivityIndicator> indicator;
+@property (nonatomic, strong) id<NWActivityIndicator> indicator;
 
 /**
  * Initialize with request.

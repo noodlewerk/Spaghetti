@@ -1,6 +1,6 @@
 //
-//  NWSActivityIndicator.h
-//  Spaghetti
+//  NWActivityIndicator.h
+//  NWTools
 //
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
@@ -10,21 +10,21 @@
  *
  * For example something that keeps track of the number of active operations, or something that shows a spinner as long as there are active operations.
  *
- * @see NWSBasicActivityIndicator
+ * @see NWBasicActivityIndicator
  */
-@protocol NWSActivityIndicator <NSObject>
+@protocol NWActivityIndicator <NSObject>
 
 /** @name Registering activity */
 
 /**
  * Marks the start of a particular network activity.
- * @see [NWSNetworkActivityIndicator registerActivity]
+ * @see [NWNetworkActivityIndicator registerActivity]
  */
 - (void)registerActivity;
 
 /**
  * Marks the end of the network activity that was previously marked with registerActivity.
- * @see [NWSNetworkActivityIndicator unregisterActivity]
+ * @see [NWNetworkActivityIndicator unregisterActivity]
  */
 - (void)unregisterActivity;
 
@@ -32,17 +32,17 @@
 
 
 /**
- * An implementation of the NWSNetworkActivityIndicator protocol based on a simple callback and a delay.
+ * An implementation of the NWNetworkActivityIndicator protocol based on a simple callback and a delay.
  *
- * @see NWSActivityIndicator
+ * @see NWActivityIndicator
  */
-@interface NWSBasicActivityIndicator : NSObject <NWSActivityIndicator>
+@interface NWBasicActivityIndicator : NSObject <NWActivityIndicator>
 
 /** @name Configuring indicator */
 
 /**
  * The block that is called when activity switches from some to none or back.
- * @see NWSNetworkActivityIndicator
+ * @see NWNetworkActivityIndicator
  */
 @property (nonatomic, copy) void(^switchBlock)(BOOL activity);
 
@@ -56,7 +56,7 @@
  * The minimum number of seconds the indicator switches on.
  *
  * This prevents the indication under control to flicker on a sequence of short activities, but instead has a steady indication of at least `delay` seconds.
- * @see NWSNetworkActivityIndicator
+ * @see NWNetworkActivityIndicator
  */
 @property (nonatomic, assign) NSTimeInterval delay;
 
@@ -64,7 +64,7 @@
 
 /**
  * The current activity, YES if at least one activity is registered.
- * @see NWSActivityIndicator
+ * @see NWActivityIndicator
  */
 @property (nonatomic, assign, readonly) BOOL activity;
 
@@ -75,7 +75,7 @@
  * @param switchBlock The block that is called when activity switches from some to none or back.
  * @param callbackQueue The queue on which the switch block will be invoked.
  * @param delay The minimum number of seconds the indicator switches on.
- * @see NWSActivityIndicator
+ * @see NWActivityIndicator
  */
 - (id)initWithBlock:(void(^)(BOOL activity))switchBlock callbackQueue:(NSOperationQueue *)callbackQueue delay:(NSTimeInterval)delay;
 
@@ -87,15 +87,15 @@
  *
  * All calls to registerActivity and unregisterActivity will be forwarded to its sub-indicators.
  *
- * @see NWSActivityIndicator
+ * @see NWActivityIndicator
  */
-@interface NWSCombinedActivityIndicator : NSObject <NWSActivityIndicator, NSCopying>
+@interface NWCombinedActivityIndicator : NSObject <NWActivityIndicator, NSCopying>
 
 /** @name Accessing indicator */
 
 /**
  * The collection of sub-indicators to which all (un)register messages will be forwarded.
- * @see NWSActivityIndicator
+ * @see NWActivityIndicator
  */
 @property (nonatomic, strong, readonly) NSArray *indicators;
 
@@ -106,7 +106,7 @@
  * @param indicator The first sub-indicator in this combined indicator.
  * @see addIndicator:
  */
-- (id)initWithIndicator:(id<NWSActivityIndicator>)indicator;
+- (id)initWithIndicator:(id<NWActivityIndicator>)indicator;
 
 /**
  * Inits and adds a collection of indicators.
@@ -122,7 +122,7 @@
  * @param indicator Indicator to add.
  * @see initWithIndicator:
  */
-- (void)addIndicator:(id<NWSActivityIndicator>)indicator;
+- (void)addIndicator:(id<NWActivityIndicator>)indicator;
 
 /**
  * Adds multiple indicators to the collection of indicators
@@ -137,18 +137,18 @@
 /**
  * The sloppy indicator allows for sloppy indicator handling by automatically compensating for missing register and unregister calls.
  */
-@interface NWSSloppyActivityIndicator : NSObject <NWSActivityIndicator>
+@interface NWSloppyActivityIndicator : NSObject <NWActivityIndicator>
 
 /**
  * The indicator that is wrapped by this sloppy indicator.
  */
-@property (nonatomic, strong, readonly) id<NWSActivityIndicator> indicator;
+@property (nonatomic, strong, readonly) id<NWActivityIndicator> indicator;
 
 /**
  * Inits with the indicator to-be wrapped.
  * @param indicator The indicator that is wrapped by this sloppy indicator.
  */
-- (id)initWithIndicator:(id<NWSActivityIndicator>)indicator;
+- (id)initWithIndicator:(id<NWActivityIndicator>)indicator;
 
 /**
  * Unregister any remaining activity, i.e. repeatedly call unregisterActivity as necessary.
@@ -163,13 +163,13 @@
  *
  * This indicator is built around the networkActivityIndicatorVisible property of UIApplication.sharedApplication, but does not make any assumptions of its value. It is however important to avoid any other process to modify this property to guarantee correct indication of activity by this class. This indicator will assert on this condition.
  *
- * This indicator is based on the NWSBasicActivityIndicator and configured with a delay of one second, to avoid flickering activity indication.
+ * This indicator is based on the NWBasicActivityIndicator and configured with a delay of one second, to avoid flickering activity indication.
  *
  * On non-UIKit platforms, this class does register activity, but has no means of indicating this.
  *
- * @see NWSActivityIndicator
+ * @see NWActivityIndicator
  */
-@interface NWSNetworkActivityIndicator : NWSBasicActivityIndicator
+@interface NWNetworkActivityIndicator : NWBasicActivityIndicator
 
 /** @name Registering network activity */
 
@@ -187,9 +187,9 @@
 
 /**
  * The shared instance for the one-and-only indicator.
- * @see NWSBasicActivityIndicator
+ * @see NWBasicActivityIndicator
  */
-+ (NWSNetworkActivityIndicator *)shared;
++ (NWNetworkActivityIndicator *)shared;
 
 @end
 

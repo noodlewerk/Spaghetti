@@ -6,7 +6,7 @@
 //
 
 @class NWStats, NWSCall, NWSMapping,  NWSStore, NWSPath, NWSPolicy, NWSParser;
-@protocol NWSActivityIndicator;
+@protocol NWActivityIndicator;
 
 #if DEBUG
 #define DEBUG_STAT_START(__stat) NSDate *__stat##DebugDate = NSDate.date
@@ -103,7 +103,7 @@
  * The activity indicator that will be used by calls derived from this endpoint.
  * @see [NWSCall indicator]
  */
-@property (nonatomic, strong) id<NWSActivityIndicator> indicator;
+@property (nonatomic, strong) id<NWActivityIndicator> indicator;
 
 /** @name Creating calls */
 

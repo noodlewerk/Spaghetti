@@ -1,14 +1,14 @@
 //
-//  NWSActivityIndicator.m
-//  Spaghetti
+//  NWActivityIndicator.m
+//  NWTools
 //
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
-#import "NWSActivityIndicator.h"
+#import "NWActivityIndicator.h"
 
 
-@implementation NWSBasicActivityIndicator {
+@implementation NWBasicActivityIndicator {
     NSUInteger _count;
     BOOL _showingActivity;
     dispatch_queue_t _queue;
@@ -29,7 +29,7 @@
         _switchBlock = [switchBlock copy];
         _callbackQueue = callbackQueue;
         _delay = delay;
-        _queue = dispatch_queue_create("NWSBasicActivityIndicator", DISPATCH_QUEUE_SERIAL);
+        _queue = dispatch_queue_create("NWBasicActivityIndicator", DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
@@ -117,7 +117,7 @@
 
 
 
-@implementation NWSCombinedActivityIndicator {
+@implementation NWCombinedActivityIndicator {
     NSMutableArray *_indicators;
 }
 
@@ -133,7 +133,7 @@
     return self;
 }
 
-- (id)initWithIndicator:(id<NWSActivityIndicator>)indicator
+- (id)initWithIndicator:(id<NWActivityIndicator>)indicator
 {
     self = [super init];
     if (self) {
@@ -151,7 +151,7 @@
     return self;
 }
 
-- (void)addIndicator:(id<NWSActivityIndicator>)indicator
+- (void)addIndicator:(id<NWActivityIndicator>)indicator
 {
     [_indicators addObject:indicator];    
 }
@@ -163,7 +163,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    NWSCombinedActivityIndicator *result = [[self.class allocWithZone:zone] initWithArray:_indicators];
+    NWCombinedActivityIndicator *result = [[self.class allocWithZone:zone] initWithArray:_indicators];
     return result;
 }
 
@@ -171,14 +171,14 @@
 
 - (void)registerActivity
 {
-    for (id<NWSActivityIndicator> indicator in _indicators) {
+    for (id<NWActivityIndicator> indicator in _indicators) {
         [indicator registerActivity];
     }
 }
 
 - (void)unregisterActivity
 {
-    for (id<NWSActivityIndicator> indicator in _indicators) {
+    for (id<NWActivityIndicator> indicator in _indicators) {
         [indicator unregisterActivity];
     }
 }
@@ -187,14 +187,14 @@
 
 
 
-@implementation NWSSloppyActivityIndicator {
+@implementation NWSloppyActivityIndicator {
     NSUInteger _count;
 }
 
 
 #pragma mark - Object life cycle
 
-- (id)initWithIndicator:(id<NWSActivityIndicator>)indicator
+- (id)initWithIndicator:(id<NWActivityIndicator>)indicator
 {
     self = [super init];
     if (self) {
@@ -238,20 +238,20 @@
 
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
-static void NWSNetworkSetShowActivity(BOOL activity) {
+static void NWNetworkSetShowActivity(BOOL activity) {
     NSCAssert(NSThread.isMainThread, @"Network indicator should be accessed from main thread");
     NSCAssert(UIApplication.sharedApplication.networkActivityIndicatorVisible != activity, @"UIApplication's networkActivityIndicatorVisible has been changed outside of this indicator.");
     UIApplication.sharedApplication.networkActivityIndicatorVisible = activity;
 }
 #else
-static void NWSNetworkSetShowActivity(BOOL activity) {
+static void NWNetworkSetShowActivity(BOOL activity) {
     // TODO: no UIApplication available to set network activity indicator
 }
 #endif
 
-static NSTimeInterval const NWSNetworkActivityIndicatorDelay = 1.0;
+static NSTimeInterval const NWNetworkActivityIndicatorDelay = 1.0;
 
-@implementation NWSNetworkActivityIndicator
+@implementation NWNetworkActivityIndicator
 
 
 #pragma mark - Shared instance
@@ -266,14 +266,14 @@ static NSTimeInterval const NWSNetworkActivityIndicatorDelay = 1.0;
     [self.shared unregisterActivity];
 }
 
-+ (NWSNetworkActivityIndicator *)shared
++ (NWNetworkActivityIndicator *)shared
 {
-    static NWSNetworkActivityIndicator *result = nil;
+    static NWNetworkActivityIndicator *result = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        result = [[NWSNetworkActivityIndicator alloc] initWithBlock:^(BOOL activity) {
-            NWSNetworkSetShowActivity(activity);
-        } callbackQueue:NSOperationQueue.mainQueue delay:NWSNetworkActivityIndicatorDelay];
+        result = [[NWNetworkActivityIndicator alloc] initWithBlock:^(BOOL activity) {
+            NWNetworkSetShowActivity(activity);
+        } callbackQueue:NSOperationQueue.mainQueue delay:NWNetworkActivityIndicatorDelay];
     });
     return result;
 }

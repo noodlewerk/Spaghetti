@@ -6,7 +6,7 @@
 //
 
 @class NWSCall;
-@protocol NWSActivityIndicator;
+@protocol NWActivityIndicator;
 
 /**
  * A actual conversation based on a call, should be disposed after use.
@@ -34,9 +34,9 @@
 /**
  * An indicator this dialogue will register on as long as it's running.
  * @see [NWSCall indicator]
- * @see NWSActivityIndicator
+ * @see NWActivityIndicator
  */
-@property (nonatomic, strong) id<NWSActivityIndicator> indicator;
+@property (nonatomic, strong) id<NWActivityIndicator> indicator;
 
 - (id)initWithCall:(NWSCall *)call;
 

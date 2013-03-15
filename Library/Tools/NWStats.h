@@ -1,6 +1,6 @@
 //
 //  NWStats.h
-//  Spaghetti
+//  NWTools
 //
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //

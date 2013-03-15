@@ -1,15 +1,15 @@
 //
-//  NWSHTTPConnection.m
-//  Spaghetti
+//  NWHTTPConnection.m
+//  NWTools
 //
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
-#import "NWSHTTPConnection.h"
-#import "NWSActivityIndicator.h"
+#import "NWHTTPConnection.h"
+#import "NWActivityIndicator.h"
 
 
-@implementation NWSHTTPConnection {
+@implementation NWHTTPConnection {
     NSURLRequest *_request;
     NSURLConnection *_connection;
     NSHTTPURLResponse *_response;

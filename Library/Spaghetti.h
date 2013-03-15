@@ -13,13 +13,13 @@
 #import "NWSEndpoint.h"
 #import "NWSSchedule.h"
 #import "NWSOperation.h"
-#import "NWSActivityIndicator.h"
+#import "NWActivityIndicator.h"
 
 
 #pragma mark - HTTP
 
 #import "NWSHTTPCall.h"
-#import "NWSHTTPConnection.h"
+#import "NWHTTPConnection.h"
 #import "NWSHTTPDialogue.h"
 #import "NWSHTTPEndpoint.h"
 

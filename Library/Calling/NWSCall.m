@@ -8,7 +8,7 @@
 #import "NWSCall.h"
 #import "NWAbout.h"
 #import "NWSEndpoint.h"
-#import "NWSActivityIndicator.h"
+#import "NWActivityIndicator.h"
 #import "NWSDialogue.h"
 
 @implementation NWSCall {
@@ -66,8 +66,8 @@
     result.parent = _parent;
     result.parentPath = _parentPath;
     result.parentPolicy = _parentPolicy;
-    if ([_indicator isKindOfClass:NWSCombinedActivityIndicator.class]) {
-        result.indicator = [(NWSCombinedActivityIndicator *)_indicator copy];
+    if ([_indicator isKindOfClass:NWCombinedActivityIndicator.class]) {
+        result.indicator = [(NWCombinedActivityIndicator *)_indicator copy];
     } else {
         result.indicator = _indicator;
     }
@@ -104,13 +104,13 @@
     }
 }
 
-- (void)addIndicator:(id<NWSActivityIndicator>)indicator
+- (void)addIndicator:(id<NWActivityIndicator>)indicator
 {
     NWLogWarnIfNot(_indicator, @"Expecting non-nil indicator to add");
-    if ([_indicator isKindOfClass:NWSCombinedActivityIndicator.class]) {
-        [(NWSCombinedActivityIndicator *)_indicator addIndicator:indicator];
+    if ([_indicator isKindOfClass:NWCombinedActivityIndicator.class]) {
+        [(NWCombinedActivityIndicator *)_indicator addIndicator:indicator];
     } else if (_indicator) {
-        _indicator = [[NWSCombinedActivityIndicator alloc] initWithIndicators:@[indicator, indicator]];
+        _indicator = [[NWCombinedActivityIndicator alloc] initWithIndicators:@[indicator, indicator]];
     } else {
         _indicator = indicator;
     }

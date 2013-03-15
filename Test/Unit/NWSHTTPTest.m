@@ -8,7 +8,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import "NWAbout.h"
 #import "NWSHTTPCall.h"
-#import "NWSHTTPConnection.h"
+#import "NWHTTPConnection.h"
 #import "NWSHTTPDialogue.h"
 #import "NWSHTTPEndpoint.h"
 
@@ -38,7 +38,7 @@
 
 - (void)testHTTPConnection
 {
-    NWSHTTPConnection *i = [[NWSHTTPConnection alloc] init];
+    NWHTTPConnection *i = [[NWHTTPConnection alloc] init];
     
     STAssertNotNil(i.description, @"");
     STAssertNotNil(i.about, @"");
