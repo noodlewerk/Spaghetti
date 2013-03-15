@@ -5,6 +5,7 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 
 @protocol NWActivityIndicator;
 
@@ -29,6 +30,8 @@
  * Indicator this connection will register on after starting.
  */
 @property (nonatomic, strong) id<NWActivityIndicator> indicator;
+
+@property (nonatomic, strong) NSURLRequest *request;
 
 /**
  * Initialize with request.
