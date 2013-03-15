@@ -337,13 +337,27 @@
 
 - (NWSStore *)beginTransaction
 {
-    // can be called from any (background) thread
-    NSManagedObjectContext *c = [[NSManagedObjectContext alloc] init];
-    c.undoManager = nil;
-    c.persistentStoreCoordinator = _context.persistentStoreCoordinator;
-//    c.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy;
-    NWSCoreDataStore *result = [[NWSCoreDataStore alloc] initWithContext:c queue:NSOperationQueue.currentQueue];
-    return result;
+    NSManagedObjectContext *context = _context;
+    switch (_transactionType) {
+        case kNWSTransactionTypeNewContext: {
+            BOOL hasPersistentStore = _context.persistentStoreCoordinator.persistentStores.count > 0;
+            if (hasPersistentStore) {
+                // can be called from any (background) thread
+                context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+                context.undoManager = nil;
+                context.persistentStoreCoordinator = _context.persistentStoreCoordinator;
+            } else {
+                NWLogWarn(@"kNWSTransactionTypeNewContext requires a persistent store, using kNWSTransactionTypeCurrentContext instead.");
+            }
+        } break;
+        case kNWSTransactionTypeChildContext: {
+            context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+            context.undoManager = nil;
+            context.parentContext = _context;
+        } break;
+        case kNWSTransactionTypeCurrentContext: break;
+    }
+    return [[NWSCoreDataStore alloc] initWithContext:context queue:NSOperationQueue.currentQueue];
 }
 
 - (void)cleanup
@@ -408,30 +422,35 @@
     // signal temp store it's going away
     [tempStore cleanup];
     
-    // only save if there is a persistent store available
-    BOOL hasPersistentStore = _context.persistentStoreCoordinator.persistentStores.count > 0;
-    if (hasPersistentStore) {
-        // get notified when safe is done
-        NSNotificationCenter *center = NSNotificationCenter.defaultCenter;
-        id observer = [center addObserverForName:NSManagedObjectContextDidSaveNotification object:tempStore.context queue:_queue usingBlock:^(NSNotification *notification) {
-            // update fetched result controllers, see also: http://www.mlsite.net/blog/?p=518
-            NSArray* updates = [(notification.userInfo)[@"updated"] allObjects];
-            for (NSManagedObject *o in updates.reverseObjectEnumerator) {
-                id object = [_context objectWithID:o.objectID];
-                [object willAccessValueForKey:nil];
-            }
-            [_context mergeChangesFromContextDidSaveNotification:notification];
-        }];
-        // perform save
-        NSError *error = nil;
-        BOOL saved = [tempStore.context save:&error];
-        NWLogWarnIfError(error);
-        NWLogWarnIfNot(saved, @"Failed to save temporary context");
-        [center removeObserver:observer];
-    } else {
-        NWLogWarn(@"No persistent store to save to");
+    switch (_transactionType) {
+        case kNWSTransactionTypeNewContext: {
+            // get notified when safe is done
+            NSNotificationCenter *center = NSNotificationCenter.defaultCenter;
+            id observer = [center addObserverForName:NSManagedObjectContextDidSaveNotification object:tempStore.context queue:_queue usingBlock:^(NSNotification *notification) {
+                // update fetched result controllers, see also: http://www.mlsite.net/blog/?p=518
+                NSArray* updates = [(notification.userInfo)[@"updated"] allObjects];
+                for (NSManagedObject *o in updates.reverseObjectEnumerator) {
+                    id object = [_context objectWithID:o.objectID];
+                    [object willAccessValueForKey:nil];
+                }
+                [_context mergeChangesFromContextDidSaveNotification:notification];
+            }];
+            // perform save
+            NSError *error = nil;
+            BOOL saved = [tempStore.context save:&error];
+            NWLogWarnIfError(error);
+            NWLogWarnIfNot(saved, @"Failed to save temporary context");
+            [center removeObserver:observer];
+        } break;
+        case kNWSTransactionTypeChildContext: {
+            NSError *error = nil;
+            BOOL saved = [tempStore.context save:&error];
+            NWError(error);
+            NWLogWarnIfNot(saved, @"Failed to save child context");
+        } break;
+        case kNWSTransactionTypeCurrentContext: break;
     }
-    
+
     // migrate references
     [tempStore migrateReferencesToStore:self];
 }

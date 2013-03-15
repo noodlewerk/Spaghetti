@@ -8,6 +8,13 @@
 #import "NWSStore.h"
 
 
+typedef enum {
+    kNWSTransactionTypeChildContext = 0,
+    kNWSTransactionTypeNewContext = 1,
+    kNWSTransactionTypeCurrentContext = 2,
+} NWSTransactionType;
+
+
 /**
  * A store based on a NSManagedObjectContext.
  *
@@ -28,6 +35,8 @@
  * The queue on which all context-related messages should be sent.
  */
 @property (nonatomic, strong, readonly) NSOperationQueue *queue;
+
+@property (nonatomic, assign) NWSTransactionType transactionType;
 
 /**
  * Initialize this store with its NSManagedObjectContext.
