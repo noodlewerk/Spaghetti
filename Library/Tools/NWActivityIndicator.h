@@ -5,6 +5,9 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
+
 /**
  * Something that keeps track (registers) activities.
  *

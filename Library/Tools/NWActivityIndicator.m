@@ -239,8 +239,8 @@
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
 static void NWNetworkSetShowActivity(BOOL activity) {
-    NSCAssert(NSThread.isMainThread, @"Network indicator should be accessed from main thread");
-    NSCAssert(UIApplication.sharedApplication.networkActivityIndicatorVisible != activity, @"UIApplication's networkActivityIndicatorVisible has been changed outside of this indicator.");
+    NWLogWarnIfNot(NSThread.isMainThread, @"Network indicator should be accessed from main thread");
+    NWLogWarnIfNot(UIApplication.sharedApplication.networkActivityIndicatorVisible != activity, @"UIApplication's networkActivityIndicatorVisible has been changed outside of this indicator.");
     UIApplication.sharedApplication.networkActivityIndicatorVisible = activity;
 }
 #else
