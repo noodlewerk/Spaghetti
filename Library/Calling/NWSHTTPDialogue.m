@@ -9,7 +9,7 @@
 #import "NWSHTTPConnection.h"
 #import "NWSHTTPCall.h"
 #import "NWSHTTPEndpoint.h"
-#import "NWSVarStat.h"
+#import "NWStats.h"
 #import "NWSMapping.h"
 
 

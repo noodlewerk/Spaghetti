@@ -1,15 +1,15 @@
 //
-//  NWSVarStat.m
+//  NWStats.m
 //  Spaghetti
 //
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
-#import "NWSVarStat.h"
+#import "NWStats.h"
 #import "NWSCommon.h"
 
 
-@implementation NWSVarStat {
+@implementation NWStats {
     long double _sum;
     long double _squareSum;
 }

@@ -1,5 +1,5 @@
 //
-//  NWSVarStat.h
+//  NWStats.h
 //  Spaghetti
 //
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
@@ -8,7 +8,7 @@
 /**
  * Provides basic statistical information (average, variance) of a single variable.
  */
-@interface NWSVarStat : NSObject
+@interface NWStats : NSObject
 
 /**
  * The number of times a value was added to the dataset.

@@ -5,7 +5,7 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
-@class NWSVarStat, NWSCall, NWSMapping,  NWSStore, NWSPath, NWSPolicy, NWSParser;
+@class NWStats, NWSCall, NWSMapping,  NWSStore, NWSPath, NWSPolicy, NWSParser;
 @protocol NWSActivityIndicator;
 
 #if DEBUG
@@ -118,15 +118,15 @@
 
 
 #if DEBUG
-@property (nonatomic, strong) NWSVarStat *requestTime;
-@property (nonatomic, strong) NWSVarStat *parseTime;
-@property (nonatomic, strong) NWSVarStat *mappingTime;
-@property (nonatomic, strong) NWSVarStat *totalTime;
+@property (nonatomic, strong) NWStats *requestTime;
+@property (nonatomic, strong) NWStats *parseTime;
+@property (nonatomic, strong) NWStats *mappingTime;
+@property (nonatomic, strong) NWStats *totalTime;
 #else
-- (NWSVarStat *)requestTime;
-- (NWSVarStat *)parseTime;
-- (NWSVarStat *)mappingTime;
-- (NWSVarStat *)totalTime;
+- (NWStats *)requestTime;
+- (NWStats *)parseTime;
+- (NWStats *)mappingTime;
+- (NWStats *)totalTime;
 #endif
 
 @end

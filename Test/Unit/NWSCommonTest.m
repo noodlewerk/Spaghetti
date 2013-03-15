@@ -7,7 +7,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "NWSCommon.h"
-#import "NWSVarStat.h"
+#import "NWStats.h"
 
 
 @interface NWSCommonTest : SenTestCase
@@ -26,9 +26,9 @@
     STAssertNotNil(i.readable, @"");
 }
 
-- (void)testVarStat
+- (void)testStats
 {
-    NWSVarStat *i = [[NWSVarStat alloc] init];
+    NWStats *i = [[NWStats alloc] init];
     [i count:1];
     
     STAssertTrue(i.average == 1, @"");

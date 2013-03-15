@@ -8,7 +8,7 @@
 #import "NWSDialogue.h"
 #import "NWSCall.h"
 #import "NWSEndpoint.h"
-#import "NWSVarStat.h"
+#import "NWStats.h"
 #import "NWSSelfPath.h"
 #import "NWSStore.h"
 #import "NWSMapping.h"

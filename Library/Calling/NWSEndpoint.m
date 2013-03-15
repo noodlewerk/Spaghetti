@@ -7,7 +7,7 @@
 
 #import "NWSEndpoint.h"
 #import "NWSCommon.h"
-#import "NWSVarStat.h"
+#import "NWStats.h"
 #import "NWSSelfPath.h"
 #import "NWSCall.h"
 #import "NWSParser.h"
@@ -22,10 +22,10 @@
     self = [super init];
     if (self) {
 #if DEBUG
-        _mappingTime = [[NWSVarStat alloc] init];
-        _parseTime = [[NWSVarStat alloc] init];
-        _totalTime = [[NWSVarStat alloc] init];
-        _requestTime = [[NWSVarStat alloc] init];
+        _mappingTime = [[NWStats alloc] init];
+        _parseTime = [[NWStats alloc] init];
+        _totalTime = [[NWStats alloc] init];
+        _requestTime = [[NWStats alloc] init];
 #endif
     }
     return self;
@@ -68,10 +68,10 @@
 }
 
 #if !DEBUG
-- (NWSVarStat *)mappingTime {return nil;}
-- (NWSVarStat *)parseTime {return nil;}
-- (NWSVarStat *)totalTime {return nil;}
-- (NWSVarStat *)requestTime {return nil;}
+- (NWStats *)mappingTime {return nil;}
+- (NWStats *)parseTime {return nil;}
+- (NWStats *)totalTime {return nil;}
+- (NWStats *)requestTime {return nil;}
 #endif
 
 #pragma mark - Logging
