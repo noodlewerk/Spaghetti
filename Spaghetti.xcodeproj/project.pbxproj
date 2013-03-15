@@ -300,12 +300,9 @@
 		B38834391630A0200082F729 /* NWLCore.c in Sources */ = {isa = PBXBuildFile; fileRef = B388328C16309C5E0082F729 /* NWLCore.c */; };
 		B388343B1630A11E0082F729 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388343A1630A11E0082F729 /* SenTestingKit.framework */; };
 		B388343C1630A1210082F729 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388343A1630A11E0082F729 /* SenTestingKit.framework */; };
-		B388343D1630A14C0082F729 /* NWSBasicExampleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B388327016309C5E0082F729 /* NWSBasicExampleTableViewController.m */; };
 		B388343F1630A14C0082F729 /* NWSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B388327E16309C5E0082F729 /* NWSAppDelegate.m */; };
 		B38834401630A14C0082F729 /* NWSMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B388328016309C5E0082F729 /* NWSMenuViewController.m */; };
-		B38834411630A14C0082F729 /* NWSPerformanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B388328616309C5E0082F729 /* NWSPerformanceViewController.m */; };
 		B38834421630A14C0082F729 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B388327516309C5E0082F729 /* main.m */; };
-		B38834461630A1560082F729 /* NWSPerformanceData.plist in Resources */ = {isa = PBXBuildFile; fileRef = B388328416309C5E0082F729 /* NWSPerformanceData.plist */; };
 		B38834471630A1560082F729 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = B388327116309C5E0082F729 /* Icon-72.png */; };
 		B38834481630A1560082F729 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B388327216309C5E0082F729 /* Icon-72@2x.png */; };
 		B38834491630A1560082F729 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B388327316309C5E0082F729 /* Icon.png */; };
@@ -357,8 +354,6 @@
 		B388323916309BB90082F729 /* SpaghettiCocoaTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaghettiCocoaTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B388325216309C060082F729 /* SpaghettiDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaghettiDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B388325616309C060082F729 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		B388326F16309C5E0082F729 /* NWSBasicExampleTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSBasicExampleTableViewController.h; sourceTree = "<group>"; };
-		B388327016309C5E0082F729 /* NWSBasicExampleTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSBasicExampleTableViewController.m; sourceTree = "<group>"; };
 		B388327116309C5E0082F729 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		B388327216309C5E0082F729 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		B388327316309C5E0082F729 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -370,9 +365,6 @@
 		B388328016309C5E0082F729 /* NWSMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSMenuViewController.m; sourceTree = "<group>"; };
 		B388328116309C5E0082F729 /* SpaghettiDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpaghettiDemo-Info.plist"; sourceTree = "<group>"; };
 		B388328216309C5E0082F729 /* SpaghettiDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpaghettiDemo-Prefix.pch"; sourceTree = "<group>"; };
-		B388328416309C5E0082F729 /* NWSPerformanceData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NWSPerformanceData.plist; sourceTree = "<group>"; };
-		B388328516309C5E0082F729 /* NWSPerformanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSPerformanceViewController.h; sourceTree = "<group>"; };
-		B388328616309C5E0082F729 /* NWSPerformanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSPerformanceViewController.m; sourceTree = "<group>"; };
 		B388328C16309C5E0082F729 /* NWLCore.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = NWLCore.c; sourceTree = "<group>"; };
 		B388328D16309C5E0082F729 /* NWLCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWLCore.h; sourceTree = "<group>"; };
 		B388329016309C5E0082F729 /* NWSActivityIndicator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSActivityIndicator.h; sourceTree = "<group>"; };
@@ -628,23 +620,12 @@
 		B388326D16309C5E0082F729 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				B388326E16309C5E0082F729 /* BasicExample */,
 				B3DD6FE316F0D3310076D9F1 /* GoogleMaps */,
 				B33D7D0D16F3012800DAF8D4 /* TwitterSearch */,
 				B388327C16309C5E0082F729 /* Menu */,
-				B388328316309C5E0082F729 /* Performance */,
 				B388332516309C950082F729 /* Supporting Files */,
 			);
 			path = Demo;
-			sourceTree = "<group>";
-		};
-		B388326E16309C5E0082F729 /* BasicExample */ = {
-			isa = PBXGroup;
-			children = (
-				B388326F16309C5E0082F729 /* NWSBasicExampleTableViewController.h */,
-				B388327016309C5E0082F729 /* NWSBasicExampleTableViewController.m */,
-			);
-			path = BasicExample;
 			sourceTree = "<group>";
 		};
 		B388327C16309C5E0082F729 /* Menu */ = {
@@ -656,16 +637,6 @@
 				B388328016309C5E0082F729 /* NWSMenuViewController.m */,
 			);
 			path = Menu;
-			sourceTree = "<group>";
-		};
-		B388328316309C5E0082F729 /* Performance */ = {
-			isa = PBXGroup;
-			children = (
-				B388328416309C5E0082F729 /* NWSPerformanceData.plist */,
-				B388328516309C5E0082F729 /* NWSPerformanceViewController.h */,
-				B388328616309C5E0082F729 /* NWSPerformanceViewController.m */,
-			);
-			path = Performance;
 			sourceTree = "<group>";
 		};
 		B388328B16309C5E0082F729 /* NWLogging */ = {
@@ -683,12 +654,12 @@
 			children = (
 				B388328F16309C5E0082F729 /* Calling */,
 				B38832A016309C5E0082F729 /* Common */,
+				B38832DA16309C5E0082F729 /* Manage */,
 				B38832A616309C5E0082F729 /* Mapping */,
 				B38832B016309C5E0082F729 /* ObjectID */,
 				B38832B916309C5E0082F729 /* ObjectType */,
 				B38832C016309C5E0082F729 /* Parsing */,
 				B38832CB16309C5E0082F729 /* Path */,
-				B38832DA16309C5E0082F729 /* Manage */,
 				B38832E116309C5E0082F729 /* Store */,
 				B38832F016309C5E0082F729 /* Test */,
 				B38832F716309C5E0082F729 /* Transform */,
@@ -1242,7 +1213,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B38834461630A1560082F729 /* NWSPerformanceData.plist in Resources */,
 				B38834471630A1560082F729 /* Icon-72.png in Resources */,
 				B38834481630A1560082F729 /* Icon-72@2x.png in Resources */,
 				B38834491630A1560082F729 /* Icon.png in Resources */,
@@ -1477,10 +1447,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B38834391630A0200082F729 /* NWLCore.c in Sources */,
-				B388343D1630A14C0082F729 /* NWSBasicExampleTableViewController.m in Sources */,
 				B388343F1630A14C0082F729 /* NWSAppDelegate.m in Sources */,
 				B38834401630A14C0082F729 /* NWSMenuViewController.m in Sources */,
-				B38834411630A14C0082F729 /* NWSPerformanceViewController.m in Sources */,
 				B38834421630A14C0082F729 /* main.m in Sources */,
 				B3DD6FE616F0D3440076D9F1 /* NWSGoogleMapsViewController.m in Sources */,
 				B33D7D1016F3014100DAF8D4 /* NWSTwitterSearchViewController.m in Sources */,
