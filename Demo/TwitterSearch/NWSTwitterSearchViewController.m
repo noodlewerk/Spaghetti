@@ -35,12 +35,15 @@
 
 
 @interface NWSTwitterDetailsViewController : UITableViewController
-@property (nonatomic, strong) TwitterMessage *message;
+- (id)initWithMessage:(TwitterMessage *)message;
 @end
 
 
 @interface NWSTwitterSearchViewController() <NSFetchedResultsControllerDelegate, UITableViewDataSource, UISearchBarDelegate>
 @end
+
+
+#pragma mark -
 
 @implementation NWSTwitterSearchViewController {
     NSManagedObjectModel *_model;
@@ -49,6 +52,7 @@
     NWSHTTPEndpoint *_endpoint;
     NSString *_searchQueue;
     BOOL _searchingBackend;
+    UIActivityIndicatorView *_spinner;
 }
 
 
@@ -72,26 +76,21 @@
 {
     NSURL *modelURL = [[NSBundle bundleForClass:self.class] URLForResource:@"NWSTwitter" withExtension:@"momd"];
     NSManagedObjectModel *model = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
     NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    [context setPersistentStoreCoordinator:coordinator];
+    context.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+    _model = model;
+    _context = context;
 
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"TwitterMessage"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
     NSFetchedResultsController *controller = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
     controller.delegate = self;
-    NSError *error = nil;
-    [controller performFetch:&error];
-    NWError(error);
-
-    _model = model;
-    _context = context;
     _fetchedResultsController = controller;
 }
 
 - (void)setupEndpoint
 {
-    NWSTransform *dateTransform = [[NWSDateFormatterTransform alloc] initWithString:@"EEE, dd MMM yyyy HH:mm:ss Z"];
+    NWSTransform *dateTransform = [[NWSDateFormatterTransform alloc] initWithString:@"E, dd MMM yyyy HH:mm:ss Z"];
     
     NWSMapping *userMapping = [[NWSMapping alloc] init];
     [userMapping setObjectEntityName:@"TwitterUser" model:_model];
@@ -133,6 +132,11 @@
     searchBar.text = @"Spaghetti";
     searchBar.delegate = self;
     self.tableView.tableHeaderView = searchBar;
+    
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center = CGPointMake(searchBar.bounds.size.width - 48, searchBar.bounds.size.height / 2);
+    [searchBar addSubview:spinner];
+    _spinner = spinner;
 }
 
 
@@ -159,6 +163,7 @@
         
     } else if (string.length) {
         _searchingBackend = YES;
+        [_spinner startAnimating];
         
         // send HTTP request to twitter web server
         [_endpoint startWithParameters:@{@"query":string} block:^(NSArray *messages) {
@@ -168,11 +173,13 @@
                 message.search = string;
             }
             _searchingBackend = NO;
+            [_spinner stopAnimating];
             
-            // pop the next query from the queue
             if (_searchQueue.length) {
+                // pop the next query from the queue
                 [self searchBackendWithString:_searchQueue];
             } else {
+                // redo search in 5 seconds
                 [self performSelector:@selector(searchBackendWithString:) withObject:string afterDelay:5];
             }
         }];
@@ -199,7 +206,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self searchBackendWithString:[(UISearchBar *)self.tableView.tableHeaderView text]];
+    [self searchWithString:[(UISearchBar *)self.tableView.tableHeaderView text]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -211,21 +218,15 @@
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return [[_fetchedResultsController sections] count];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[_fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+    return [_fetchedResultsController.sections[section] numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"TwitterSearch";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-	if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(self.class)];
+	if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:NSStringFromClass(self.class)];
     TwitterMessage *message = [_fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = message.text;
     cell.detailTextLabel.text = message.user.fullname;
@@ -234,8 +235,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NWSTwitterDetailsViewController *controller = [[NWSTwitterDetailsViewController alloc] init];
-    controller.message = [_fetchedResultsController objectAtIndexPath:indexPath];
+    TwitterMessage *message = [_fetchedResultsController objectAtIndexPath:indexPath];
+    NWSTwitterDetailsViewController *controller = [[NWSTwitterDetailsViewController alloc] initWithMessage:message];
     [self.navigationController pushViewController:controller animated:YES];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -248,37 +249,24 @@
     [self.tableView beginUpdates];
 }
 
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
-{
-    switch(type) {
-        case NSFetchedResultsChangeInsert: {
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-        } break;
-        case NSFetchedResultsChangeDelete: {
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-        } break;
-    }
-}
-
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)object
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
 {
     switch(type) {
         case NSFetchedResultsChangeInsert: {
-            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         } break;
         case NSFetchedResultsChangeDelete: {
-            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         } break;
         case NSFetchedResultsChangeUpdate: {
             UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
             cell.textLabel.text = [object text];
         } break;
         case NSFetchedResultsChangeMove: {
-            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath]withRowAnimation:UITableViewRowAnimationAutomatic];
         } break;
     }
 }
@@ -304,22 +292,27 @@
 @end
 
 
+#pragma mark -
+
 @implementation NWSTwitterDetailsViewController {
     NSMutableArray *_pairs;
 }
 
-- (void)viewDidLoad
+- (id)initWithMessage:(TwitterMessage *)message
 {
-    [super viewDidLoad];
-    _pairs = @[].mutableCopy;
-    if (_message.text.length) [_pairs addObject:@[@"Message", _message.text]];
-    if (_message.user.fullname.length) [_pairs addObject:@[@"By", _message.user.fullname]];
-    if (_message.date) [_pairs addObject:@[@"On", [_message.date descriptionWithLocale:NSLocale.currentLocale]]];
-    if (_message.location) [_pairs addObject:@[@"At", _message.location]];
-    if (_message.language) [_pairs addObject:@[@"Language", _message.language]];
-    if (_message.image) [_pairs addObject:@[@"Image URL", _message.image]];
-    if (_message.source) [_pairs addObject:@[@"Source", _message.source]];
-    if (_message.type) [_pairs addObject:@[@"Type", _message.type]];
+    self = [super init];
+    if (self) {
+        _pairs = @[].mutableCopy;
+        if (message.text.length) [_pairs addObject:@[@"Message", message.text]];
+        if (message.user.fullname.length) [_pairs addObject:@[@"By", message.user.fullname]];
+        if (message.date) [_pairs addObject:@[@"On", [message.date descriptionWithLocale:NSLocale.currentLocale]]];
+        if (message.location) [_pairs addObject:@[@"At", message.location]];
+        if (message.language) [_pairs addObject:@[@"Language", message.language]];
+        if (message.image) [_pairs addObject:@[@"Image URL", message.image]];
+        if (message.source) [_pairs addObject:@[@"Source", message.source]];
+        if (message.type) [_pairs addObject:@[@"Type", message.type]];
+    }
+    return self;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
