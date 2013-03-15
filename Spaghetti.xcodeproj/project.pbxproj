@@ -33,6 +33,8 @@
 
 /* Begin PBXBuildFile section */
 		B31CE16016F1D07D00FF6AAE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31CE15F16F1D07D00FF6AAE /* CoreLocation.framework */; };
+		B33D7D1016F3014100DAF8D4 /* NWSTwitterSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33D7D0F16F3014100DAF8D4 /* NWSTwitterSearchViewController.m */; };
+		B33D7D1316F301C300DAF8D4 /* NWSTwitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B33D7D1116F301C200DAF8D4 /* NWSTwitter.xcdatamodeld */; };
 		B388320B16309B730082F729 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F816309B730082F729 /* Foundation.framework */; };
 		B388320E16309B730082F729 /* libSpaghettiTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F516309B730082F729 /* libSpaghettiTouch.a */; };
 		B388323B16309BB90082F729 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388322816309BB80082F729 /* Cocoa.framework */; };
@@ -344,6 +346,9 @@
 
 /* Begin PBXFileReference section */
 		B31CE15F16F1D07D00FF6AAE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		B33D7D0E16F3014100DAF8D4 /* NWSTwitterSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSTwitterSearchViewController.h; sourceTree = "<group>"; };
+		B33D7D0F16F3014100DAF8D4 /* NWSTwitterSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSTwitterSearchViewController.m; sourceTree = "<group>"; };
+		B33D7D1216F301C300DAF8D4 /* NWSTwitter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NWSTwitter.xcdatamodel; sourceTree = "<group>"; };
 		B38831F516309B730082F729 /* libSpaghettiTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpaghettiTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38831F816309B730082F729 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B388320616309B730082F729 /* SpaghettiTouchTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaghettiTouchTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -568,6 +573,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B33D7D0D16F3012800DAF8D4 /* TwitterSearch */ = {
+			isa = PBXGroup;
+			children = (
+				B33D7D0E16F3014100DAF8D4 /* NWSTwitterSearchViewController.h */,
+				B33D7D0F16F3014100DAF8D4 /* NWSTwitterSearchViewController.m */,
+				B33D7D1116F301C200DAF8D4 /* NWSTwitter.xcdatamodeld */,
+			);
+			path = TwitterSearch;
+			sourceTree = "<group>";
+		};
 		B38831E5163099C90082F729 = {
 			isa = PBXGroup;
 			children = (
@@ -615,6 +630,7 @@
 			children = (
 				B388326E16309C5E0082F729 /* BasicExample */,
 				B3DD6FE316F0D3310076D9F1 /* GoogleMaps */,
+				B33D7D0D16F3012800DAF8D4 /* TwitterSearch */,
 				B388327C16309C5E0082F729 /* Menu */,
 				B388328316309C5E0082F729 /* Performance */,
 				B388332516309C950082F729 /* Supporting Files */,
@@ -1467,6 +1483,8 @@
 				B38834411630A14C0082F729 /* NWSPerformanceViewController.m in Sources */,
 				B38834421630A14C0082F729 /* main.m in Sources */,
 				B3DD6FE616F0D3440076D9F1 /* NWSGoogleMapsViewController.m in Sources */,
+				B33D7D1016F3014100DAF8D4 /* NWSTwitterSearchViewController.m in Sources */,
+				B33D7D1316F301C300DAF8D4 /* NWSTwitter.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1958,6 +1976,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B33D7D1116F301C200DAF8D4 /* NWSTwitter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B33D7D1216F301C300DAF8D4 /* NWSTwitter.xcdatamodel */,
+			);
+			currentVersion = B33D7D1216F301C300DAF8D4 /* NWSTwitter.xcdatamodel */;
+			path = NWSTwitter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B38831E7163099C90082F729 /* Project object */;
 }

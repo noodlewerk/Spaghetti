@@ -7,21 +7,25 @@
 
 #import "NWSMenuViewController.h"
 #import "NWSGoogleMapsViewController.h"
-#import "NWSBasicExampleTableViewController.h"
+#import "NWSTwitterSearchViewController.h"
 
 
-@implementation NWSMenuViewController {
-    NSManagedObjectContext *_context;
+@implementation NWSMenuViewController
+
+
+#pragma mark - View life cycle
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.title = @"Menu";
 }
-
-
-#pragma mark - Object life cycle
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    // fast forward:
-//    [self selectController:1 animated:NO];
+//    [self selectController:1 animated:NO]; // fast forward
 }
+
 
 #pragma mark - Table view data source
 
@@ -48,7 +52,7 @@
     
     switch (indexPath.row) {
         case 0: cell.textLabel.text = @"Google Maps"; break;
-        case 1: cell.textLabel.text = @"Twitter Stream"; break;
+        case 1: cell.textLabel.text = @"Twitter Search"; break;
     }
     
     return cell;
@@ -62,7 +66,7 @@
     UIViewController* controller = nil;
     switch (index) {
         case 0: controller = [[NWSGoogleMapsViewController alloc] init]; break;
-        case 1: controller = [[NWSBasicExampleTableViewController alloc] initWithStyle:UITableViewStylePlain]; break;
+        case 1: controller = [[NWSTwitterSearchViewController alloc] init]; break;
     }
     
     [self.navigationController pushViewController:controller animated:animated];
