@@ -350,11 +350,6 @@
                 NWLogWarn(@"kNWSTransactionTypeNewContext requires a persistent store, using kNWSTransactionTypeCurrentContext instead.");
             }
         } break;
-        case kNWSTransactionTypeChildContext: {
-            context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-            context.undoManager = nil;
-            context.parentContext = _context;
-        } break;
         case kNWSTransactionTypeCurrentContext: break;
     }
     return [[NWSCoreDataStore alloc] initWithContext:context queue:NSOperationQueue.currentQueue];
@@ -441,12 +436,6 @@
             NWLogWarnIfError(error);
             NWLogWarnIfNot(saved, @"Failed to save temporary context");
             [center removeObserver:observer];
-        } break;
-        case kNWSTransactionTypeChildContext: {
-            NSError *error = nil;
-            BOOL saved = [tempStore.context save:&error];
-            NWError(error);
-            NWLogWarnIfNot(saved, @"Failed to save child context");
         } break;
         case kNWSTransactionTypeCurrentContext: break;
     }
