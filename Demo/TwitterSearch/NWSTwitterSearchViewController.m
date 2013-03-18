@@ -281,7 +281,7 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    [self searchWithString:searchText];
+    [self searchWithString:searchText.lowercaseString];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
