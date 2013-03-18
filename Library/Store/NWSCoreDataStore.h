@@ -9,7 +9,7 @@
 
 
 typedef enum {
-    kNWSTransactionTypeChildContext = 0,
+    kNWSTransactionTypeChildContext = 0, // available from iOS 5
     kNWSTransactionTypeNewContext = 1,
     kNWSTransactionTypeCurrentContext = 2,
 } NWSTransactionType;

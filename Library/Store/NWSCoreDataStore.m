@@ -343,7 +343,7 @@
             BOOL hasPersistentStore = _context.persistentStoreCoordinator.persistentStores.count > 0;
             if (hasPersistentStore) {
                 // can be called from any (background) thread
-                context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+                context = [[NSManagedObjectContext alloc] init];
                 context.undoManager = nil;
                 context.persistentStoreCoordinator = _context.persistentStoreCoordinator;
             } else {
