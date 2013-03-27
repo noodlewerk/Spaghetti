@@ -42,6 +42,10 @@
 		B34A55B316F3C68B00FAE0BA /* NWHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B34A55AF16F3C68B00FAE0BA /* NWHTTPConnection.m */; };
 		B34A55BC16F3C79000FAE0BA /* NWActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = B34A55BA16F3C79000FAE0BA /* NWActivityIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B34A55BD16F3C79000FAE0BA /* NWActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B34A55BB16F3C79000FAE0BA /* NWActivityIndicator.m */; };
+		B36F15901702F719004390B4 /* NWHTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = B36F158E1702F719004390B4 /* NWHTTP.h */; };
+		B36F15911702F719004390B4 /* NWHTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = B36F158E1702F719004390B4 /* NWHTTP.h */; };
+		B36F15921702F719004390B4 /* NWHTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = B36F158F1702F719004390B4 /* NWHTTP.m */; };
+		B36F15931702F719004390B4 /* NWHTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = B36F158F1702F719004390B4 /* NWHTTP.m */; };
 		B388320B16309B730082F729 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F816309B730082F729 /* Foundation.framework */; };
 		B388320E16309B730082F729 /* libSpaghettiTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F516309B730082F729 /* libSpaghettiTouch.a */; };
 		B388323B16309BB90082F729 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388322816309BB80082F729 /* Cocoa.framework */; };
@@ -349,6 +353,8 @@
 		B34A55AF16F3C68B00FAE0BA /* NWHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWHTTPConnection.m; sourceTree = "<group>"; };
 		B34A55BA16F3C79000FAE0BA /* NWActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWActivityIndicator.h; sourceTree = "<group>"; };
 		B34A55BB16F3C79000FAE0BA /* NWActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWActivityIndicator.m; sourceTree = "<group>"; };
+		B36F158E1702F719004390B4 /* NWHTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWHTTP.h; sourceTree = "<group>"; };
+		B36F158F1702F719004390B4 /* NWHTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWHTTP.m; sourceTree = "<group>"; };
 		B38831F516309B730082F729 /* libSpaghettiTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpaghettiTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38831F816309B730082F729 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B388320616309B730082F729 /* SpaghettiTouchTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaghettiTouchTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -693,6 +699,8 @@
 				B38832A216309C5E0082F729 /* NWAbout.m */,
 				B34A55BA16F3C79000FAE0BA /* NWActivityIndicator.h */,
 				B34A55BB16F3C79000FAE0BA /* NWActivityIndicator.m */,
+				B36F158E1702F719004390B4 /* NWHTTP.h */,
+				B36F158F1702F719004390B4 /* NWHTTP.m */,
 				B34A55AE16F3C68B00FAE0BA /* NWHTTPConnection.h */,
 				B34A55AF16F3C68B00FAE0BA /* NWHTTPConnection.m */,
 				B38832A416309C5E0082F729 /* NWStats.h */,
@@ -1000,6 +1008,7 @@
 				B301F78E16F70C8400594F5E /* NWActivityIndicator.h in Headers */,
 				B34A55B116F3C68B00FAE0BA /* NWHTTPConnection.h in Headers */,
 				B388339B16309D710082F729 /* NWSTransform.h in Headers */,
+				B36F15911702F719004390B4 /* NWHTTP.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1066,6 +1075,7 @@
 				B388340D16309DC90082F729 /* NWSStringToNumberTransform.h in Headers */,
 				B388340F16309DC90082F729 /* NWSTimeStampTransform.h in Headers */,
 				B388341116309DC90082F729 /* NWSTransform.h in Headers */,
+				B36F15901702F719004390B4 /* NWHTTP.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1341,6 +1351,7 @@
 				B388341216309DC90082F729 /* NWSTransform.m in Sources */,
 				B34A55B216F3C68B00FAE0BA /* NWHTTPConnection.m in Sources */,
 				B34A55BD16F3C79000FAE0BA /* NWActivityIndicator.m in Sources */,
+				B36F15921702F719004390B4 /* NWHTTP.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1421,6 +1432,7 @@
 				B388339A16309D710082F729 /* NWSTimeStampTransform.m in Sources */,
 				B388339C16309D710082F729 /* NWSTransform.m in Sources */,
 				B34A55B316F3C68B00FAE0BA /* NWHTTPConnection.m in Sources */,
+				B36F15931702F719004390B4 /* NWHTTP.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

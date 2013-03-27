@@ -6,64 +6,25 @@
 //
 
 #import "NWSURLParser.h"
+#import "NWHTTP.h"
+
 
 @implementation NWSURLParser
-
-+ (NSString *)escapeForURL:(NSString *)s
-{
-    return (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)s, NULL, CFSTR("*'();:@&=+$,/?!%#[]"), kCFStringEncodingUTF8);
-}
-
-+ (NSString *)unescapeForURL:(NSString *)s
-{
-    return (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL, (__bridge CFStringRef)s, CFSTR(""), kCFStringEncodingUTF8);
-}
 
 - (NSDictionary *)parse:(NSData *)data
 {
     NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSArray *components = [string componentsSeparatedByString:@"&"];
-    NSMutableDictionary *result = [[NSMutableDictionary alloc] initWithCapacity:components.count];
-    for (NSString *pair in components) {
-        NSRange r = [pair rangeOfString:@"="];
-        NSString *key = nil;
-        id value = nil;
-        if (r.length) {
-            key = [self.class unescapeForURL:[pair substringToIndex:r.location]];
-            value = [self.class unescapeForURL:[pair substringFromIndex:r.location + r.length]];
-        } else {
-            key = [self.class unescapeForURL:pair];
-            value = NSNull.null;
-        }
-        result[key] = value;
-    }
-    return result;
+    return [NWHTTP splitQueryWithString:string];
 }
 
 - (NSData *)serialize:(NSDictionary *)dictionary
 {
-    NSMutableString *s = [[NSMutableString alloc] init];
-    for (NSString *key in dictionary) {
-        id value = dictionary[key];
-        NSString *k = [self.class escapeForURL:key.description];
-        if ([value isKindOfClass:NSArray.class]) {
-            for (NSString *val in value) {
-                if ([val isKindOfClass:NSNull.class]) {
-                    [s appendFormat:@"%@%@[]", s.length ? @"&" : @"", k];
-                } else {
-                    NSString *v = [self.class escapeForURL:val.description];
-                    [s appendFormat:@"%@%@[]=%@", s.length ? @"&" : @"", k, v];
-                }
-            }
-        } else if ([value isKindOfClass:NSNull.class]) {
-            [s appendFormat:@"%@%@", s.length ? @"&" : @"", k];           
-        } else {
-            NSString *v = [self.class escapeForURL:[value description]];
-            [s appendFormat:@"%@%@=%@", s.length ? @"&" : @"", k, v];
-        }
+    if (_multipartBoundary) {
+        NSString *boundary = _multipartBoundary;
+        return [NWHTTP multipartDataWithParameters:dictionary boundary:&boundary];
     }
-    NSData *result = [s dataUsingEncoding:NSUTF8StringEncoding];
-    return result;
+    NSString *query = [NWHTTP joinQueryWithDictionary:dictionary];
+    return [query dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 + (id)shared
@@ -73,6 +34,13 @@
     dispatch_once(&onceToken, ^{
         result = [[NWSURLParser alloc] init];
     });
+    return result;
+}
+
++ (NSString *)generateHexBoundary:(NSUInteger)length
+{
+    NSMutableString *result = [[NSMutableString alloc] initWithCapacity:length];
+    while (length--) [result appendFormat:@"%c", "0123456789ABCDEF"[arc4random() % 16]];
     return result;
 }
 
