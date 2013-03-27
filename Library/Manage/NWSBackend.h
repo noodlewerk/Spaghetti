@@ -90,11 +90,17 @@
 
 /** @name Creating calls */
 
-- (NWSCall *)callWithEndpoint:(NSString *)endpoint;
-- (NWSCall *)callWithEndpoint:(NSString *)endpoint value:(id)value key:(NSString *)key;
+- (NWSCall *)callWithEndpoint:(NSString *)endpointName;
+- (NWSCall *)callWithEndpoint:(NSString *)endpointName value:(id)value key:(NSString *)key;
 - (NWSCall *)callWithEndpoint:(NSString *)endpointName parameters:(NSDictionary *)parameters;
-- (NWSCall *)callWithEndpoint:(NSString *)endpoint value:(id)value key:(NSString *)key parent:(id)parent;
+- (NWSCall *)callWithEndpoint:(NSString *)endpointName value:(id)value key:(NSString *)key parent:(id)parent;
 - (NWSCall *)callWithEndpoint:(NSString *)endpointName parameters:(NSDictionary *)parameters parent:(id)parent;
+
+- (NWSCall *)callWithEndpoint:(NSString *)endpointName block:(void(^)(id result))block;
+- (NWSCall *)callWithEndpoint:(NSString *)endpointName value:(id)value key:(NSString *)key block:(void(^)(id result))block;
+- (NWSCall *)callWithEndpoint:(NSString *)endpointName parameters:(NSDictionary *)parameters block:(void(^)(id result))block;
+- (NWSCall *)callWithEndpoint:(NSString *)endpointName value:(id)value key:(NSString *)key parent:(id)parent block:(void(^)(id result))block;
+- (NWSCall *)callWithEndpoint:(NSString *)endpointName parameters:(NSDictionary *)parameters parent:(id)parent block:(void(^)(id result))block;
 
 
 /** @name Scheduling calls */
@@ -109,6 +115,12 @@
 - (NWSScheduleItem *)scheduleCallWithEndpoint:(NSString *)endpointName parameters:(NSDictionary *)parameters owner:(NWSOperationOwner *)owner;
 - (NWSScheduleItem *)scheduleCallWithEndpoint:(NSString *)endpointName value:(id)value key:(NSString *)key parent:(NSObject *)parent owner:(NWSOperationOwner *)owner;
 - (NWSScheduleItem *)scheduleCallWithEndpoint:(NSString *)endpointName parameters:(NSDictionary *)parameters parent:(NSObject *)parent owner:(NWSOperationOwner *)owner;
+
+- (NWSScheduleItem *)scheduleCallWithEndpoint:(NSString *)endpointName owner:(NWSOperationOwner *)owner block:(void(^)(id result))block;
+- (NWSScheduleItem *)scheduleCallWithEndpoint:(NSString *)endpointName value:(id)value key:(NSString *)key owner:(NWSOperationOwner *)owner block:(void(^)(id result))block;
+- (NWSScheduleItem *)scheduleCallWithEndpoint:(NSString *)endpointName parameters:(NSDictionary *)parameters owner:(NWSOperationOwner *)owner block:(void(^)(id result))block;
+- (NWSScheduleItem *)scheduleCallWithEndpoint:(NSString *)endpointName value:(id)value key:(NSString *)key parent:(NSObject *)parent owner:(NWSOperationOwner *)owner block:(void(^)(id result))block;
+- (NWSScheduleItem *)scheduleCallWithEndpoint:(NSString *)endpointName parameters:(NSDictionary *)parameters parent:(NSObject *)parent owner:(NWSOperationOwner *)owner block:(void(^)(id result))block;
 
 - (NSString *)about;
 
