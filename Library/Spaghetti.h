@@ -64,6 +64,7 @@
 #import "NWSJSONParser.h"
 #import "NWSXMLParser.h"
 #import "NWSStringParser.h"
+#import "NWSURLParser.h"
 
 
 #pragma mark - Store
