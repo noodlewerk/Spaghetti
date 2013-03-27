@@ -7,21 +7,19 @@
 
 #pragma mark - Calling
 
-#import "NWSBackend.h"
 #import "NWSCall.h"
 #import "NWSDialogue.h"
 #import "NWSEndpoint.h"
-#import "NWSSchedule.h"
-#import "NWSOperation.h"
-#import "NWActivityIndicator.h"
-
-
-#pragma mark - HTTP
-
 #import "NWSHTTPCall.h"
-#import "NWHTTPConnection.h"
 #import "NWSHTTPDialogue.h"
 #import "NWSHTTPEndpoint.h"
+
+
+#pragma mark - Manage
+
+#import "NWSBackend.h"
+#import "NWSOperation.h"
+#import "NWSSchedule.h"
 
 
 #pragma mark - Mapping
@@ -47,24 +45,24 @@
 #import "NWSObjectType.h"
 
 
+#pragma mark - Parsing
+
+#import "NWSJSONParser.h"
+#import "NWSParser.h"
+#import "NWSStringParser.h"
+#import "NWSURLParser.h"
+#import "NWSXMLParser.h"
+
+
 #pragma mark - Path
 
+#import "NWSCompositePath.h"
+#import "NWSConstantValuePath.h"
+#import "NWSIndexPath.h"
 #import "NWSKeyPathPath.h"
 #import "NWSPath.h"
 #import "NWSSelfPath.h"
 #import "NWSSingleKeyPath.h"
-#import "NWSConstantValuePath.h"
-#import "NWSCompositePath.h"
-#import "NWSIndexPath.h"
-
-
-#pragma mark - Parser
-
-#import "NWSParser.h"
-#import "NWSJSONParser.h"
-#import "NWSXMLParser.h"
-#import "NWSStringParser.h"
-#import "NWSURLParser.h"
 
 
 #pragma mark - Store
@@ -73,25 +71,9 @@
 #import "NWSBasicStore.h"
 #import "NWSCoreDataStore.h"
 #import "NWSMultiStore.h"
+#import "NWSObjectReference.h"
 #import "NWSRecordingStore.h"
 #import "NWSStore.h"
-#import "NWSObjectReference.h"
-
-
-#pragma mark - Transform
-
-#import "NWSArrayTransform.h"
-#import "NWSAssertTransform.h"
-#import "NWSBlockTransform.h"
-#import "NWSDateFormatterTransform.h"
-#import "NWSIdentityTransform.h"
-#import "NWSIDToObjectTransform.h"
-#import "NWSMappingTransform.h"
-#import "NWSTimeStampTransform.h"
-#import "NWSTransform.h"
-#import "NWSOrderKeyTransform.h"
-#import "NWSCompositeTransform.h"
-#import "NWSStringToNumberTransform.h"
 
 
 #pragma mark - Test
@@ -100,3 +82,27 @@
 #import "NWSTestDialogue.h"
 #import "NWSTestEndpoint.h"
 
+
+#pragma mark - Tools
+
+#import "NWAbout.h"
+#import "NWActivityIndicator.h"
+#import "NWHTTP.h"
+#import "NWHTTPConnection.h"
+#import "NWStats.h"
+
+
+#pragma mark - Transform
+
+#import "NWSArrayTransform.h"
+#import "NWSAssertTransform.h"
+#import "NWSBlockTransform.h"
+#import "NWSCompositeTransform.h"
+#import "NWSDateFormatterTransform.h"
+#import "NWSIDToObjectTransform.h"
+#import "NWSIdentityTransform.h"
+#import "NWSMappingTransform.h"
+#import "NWSOrderKeyTransform.h"
+#import "NWSStringToNumberTransform.h"
+#import "NWSTimeStampTransform.h"
+#import "NWSTransform.h"
