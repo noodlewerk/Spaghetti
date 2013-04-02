@@ -47,7 +47,7 @@
 
 + (BOOL)supports:(NSObject *)object
 {
-    return ![object isKindOfClass:NSManagedObject.class];
+    return ![object isKindOfClass:NSClassFromString(@"NSManagedObject")];
 }
 
 - (BOOL)hasAttribute:(NWSPath *)attribute
