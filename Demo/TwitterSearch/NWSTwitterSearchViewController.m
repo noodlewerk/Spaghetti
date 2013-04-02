@@ -115,11 +115,14 @@
     [NWSMappingValidator validate:userMapping];
     [NWSMappingValidator validate:messageMapping];
     
+    NWSCoreDataStore *store = [[NWSCoreDataStore alloc] initWithContext:_context queue:NSOperationQueue.mainQueue];
+    store.transactionType = kNWSTransactionTypeCurrentContext;
+    
     NWSHTTPEndpoint *searchEndpoint = [[NWSHTTPEndpoint alloc] init];
     searchEndpoint.urlString = @"http://search.twitter.com/search.json?q=%(query)";
     searchEndpoint.responseMapping = messageMapping;
     searchEndpoint.responsePath = [NWSPath pathFromString:@"results"];
-    searchEndpoint.store = [[NWSCoreDataStore alloc] initWithContext:_context queue:NSOperationQueue.mainQueue];
+    searchEndpoint.store = store;
     _endpoint = searchEndpoint;
 }
 
