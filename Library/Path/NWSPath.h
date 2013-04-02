@@ -5,6 +5,8 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 /**
  * Path provides a generic way to access and modify object properties.
  */

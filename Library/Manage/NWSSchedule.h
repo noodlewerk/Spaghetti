@@ -5,8 +5,8 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "NWSOperation.h"
-
 
 @class NWSCall;
 

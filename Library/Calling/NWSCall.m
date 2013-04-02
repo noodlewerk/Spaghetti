@@ -10,6 +10,8 @@
 #import "NWSEndpoint.h"
 #import "NWActivityIndicator.h"
 #import "NWSDialogue.h"
+#include "NWLCore.h"
+
 
 @implementation NWSCall {
     NSMutableDictionary *_parameters;

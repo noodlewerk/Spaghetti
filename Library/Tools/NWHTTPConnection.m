@@ -7,6 +7,7 @@
 
 #import "NWHTTPConnection.h"
 #import "NWActivityIndicator.h"
+#include "NWLCore.h"
 
 
 @interface NWHTTPConnection ()

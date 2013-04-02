@@ -15,6 +15,7 @@
 #import "NWSMemoryObjectID.h"
 #import "NWSArrayObjectID.h"
 #import "NWSObjectReference.h"
+#include "NWLCore.h"
 
 
 @implementation NWSMultiStore {

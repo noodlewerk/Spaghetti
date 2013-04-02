@@ -9,6 +9,7 @@
 #import "NWAbout.h"
 #import "NWSArrayObjectID.h"
 #import "NWSMappingContext.h"
+#include "NWLCore.h"
 
 
 @implementation NWSArrayTransform

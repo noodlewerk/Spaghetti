@@ -5,6 +5,8 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 /**
  * Provides basic statistical information (average, variance) of a single variable.
  */

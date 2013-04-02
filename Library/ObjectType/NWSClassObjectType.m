@@ -10,6 +10,7 @@
 #include <objc/runtime.h>
 #import "NWSPath.h"
 #import "NWSSingleKeyPath.h"
+#include "NWLCore.h"
 
 
 @implementation NWSClassObjectType

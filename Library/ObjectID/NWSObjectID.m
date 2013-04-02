@@ -7,6 +7,7 @@
 
 #import "NWSObjectID.h"
 #import "NWAbout.h"
+#include "NWLCore.h"
 
 
 @implementation NWSObjectID

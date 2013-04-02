@@ -14,7 +14,7 @@
 #import "NWSKeyPathPath.h"
 #import "NWSSingleKeyPath.h"
 #import "NWSObjectReference.h"
-
+#include "NWLCore.h"
 
 
 //#define DEBUG_CACHE_CHECK

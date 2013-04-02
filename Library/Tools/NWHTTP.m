@@ -2,7 +2,6 @@
 //  NWHTTP.m
 //  NWTools
 //
-//  Created by Leo on 10/5/12.
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 

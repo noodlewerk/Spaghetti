@@ -5,6 +5,8 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 /**
  * Provides a (de)serialization mechanism that transforms structured data (dictionaries and arrays) to an from plain data.
  */

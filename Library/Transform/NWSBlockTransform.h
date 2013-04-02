@@ -5,8 +5,8 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "NWSTransform.h"
-
 
 /**
  * A transform based on a block implementation.

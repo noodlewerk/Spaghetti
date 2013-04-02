@@ -7,6 +7,7 @@
 
 #import "NWSParser.h"
 #import "NWSJSONParser.h"
+#include "NWLCore.h"
 
 
 @implementation NWSParser

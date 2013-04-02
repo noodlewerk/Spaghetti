@@ -5,6 +5,8 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 /**
  * A reference is a one-element container, a pointer to an object.
  *

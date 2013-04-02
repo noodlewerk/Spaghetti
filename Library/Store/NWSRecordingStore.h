@@ -5,8 +5,8 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "NWSStore.h"
-
 
 @interface NWSAttributeRecord : NSObject
 @property (nonatomic, strong) NWSObjectID *identifier;

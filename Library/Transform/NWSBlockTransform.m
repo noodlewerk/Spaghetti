@@ -7,6 +7,7 @@
 
 #import "NWSBlockTransform.h"
 #import "NWAbout.h"
+#include "NWLCore.h"
 
 
 @implementation NWSBlockTransform

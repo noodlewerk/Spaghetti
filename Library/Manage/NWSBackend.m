@@ -10,6 +10,7 @@
 #import "NWSSchedule.h"
 #import "NWSOperation.h"
 #import "NWAbout.h"
+#include "NWLCore.h"
 
 
 @implementation NWSBackend {

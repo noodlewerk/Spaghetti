@@ -9,6 +9,7 @@
 #import "NWAbout.h"
 #import "NWSSingleKeyPath.h"
 #import "NWSSelfPath.h"
+#include "NWLCore.h"
 
 
 @implementation NWSEntityObjectType

@@ -8,6 +8,7 @@
 #import "NWSStringToNumberTransform.h"
 #import "NWAbout.h"
 #import "NWSMappingContext.h"
+#include "NWLCore.h"
 
 
 @implementation NWSStringToNumberTransform

@@ -8,6 +8,7 @@
 #import "NWSTestDialogue.h"
 #import "NWAbout.h"
 #import "NWSTestCall.h"
+#include "NWLCore.h"
 
 
 @implementation NWSTestDialogue {

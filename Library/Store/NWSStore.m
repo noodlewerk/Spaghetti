@@ -9,6 +9,7 @@
 #import "NWAbout.h"
 #import "NWSPath.h"
 #import "NWSObjectReference.h"
+#include "NWLCore.h"
 
 
 @implementation NWSStore

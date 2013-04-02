@@ -12,6 +12,7 @@
 #import "NWSArrayObjectID.h"
 #import "NWSPath.h"
 #import "NWSPolicy.h"
+#include "NWLCore.h"
 
 
 @interface NWSRecordObjectID : NWSObjectID

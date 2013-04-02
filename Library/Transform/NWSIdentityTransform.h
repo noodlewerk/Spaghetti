@@ -5,8 +5,8 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "NWSTransform.h"
-
 
 /**
  * This is the trivial transform that maps every value on that value, simply passing it on.

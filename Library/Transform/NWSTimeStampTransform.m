@@ -8,6 +8,7 @@
 #import "NWSTimeStampTransform.h"
 #import "NWAbout.h"
 #import "NWSMappingContext.h"
+#include "NWLCore.h"
 
 
 @implementation NWSTimeStampTransform

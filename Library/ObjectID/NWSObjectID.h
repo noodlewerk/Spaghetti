@@ -5,6 +5,8 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 /**
  * An object id is an identifier for a specific object, but without any need for a reference to the object or for the object to exist at all.
  *

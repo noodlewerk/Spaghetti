@@ -23,6 +23,7 @@
 #import "NWSIndexPath.h"
 #import "NWSIdentityTransform.h"
 #import "NWSObjectReference.h"
+#include "NWLCore.h"
 
 
 @implementation NWSMappingEntry

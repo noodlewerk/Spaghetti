@@ -5,6 +5,8 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 @class NWSEndpoint, NWSStore, NWSDialogue, NWSMapping, NWSPath, NWSPolicy, NWSParser;
 @protocol NWActivityIndicator;
 

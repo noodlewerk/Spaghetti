@@ -8,6 +8,7 @@
 #import "NWSIndexPath.h"
 #import "NWSStringToNumberTransform.h"
 #import "NWAbout.h"
+#include "NWLCore.h"
 
 
 @implementation NWSIndexPath

@@ -7,7 +7,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 /**
  * Something that keeps track (registers) activities.
  *

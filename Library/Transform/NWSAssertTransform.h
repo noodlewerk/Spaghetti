@@ -5,8 +5,8 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "NWSTransform.h"
-
 
 /**
  * An identity transform that tests the input to be equal to certain value and asserts if it doesn't match.

@@ -11,6 +11,8 @@
 #import "NWSSelfPath.h"
 #import "NWSCall.h"
 #import "NWSParser.h"
+#include "NWLCore.h"
+
 
 @implementation NWSEndpoint
 

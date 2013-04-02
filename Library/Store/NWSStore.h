@@ -5,8 +5,9 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
-@class NWSObjectID, NWSObjectType, NWSPath, NWSPolicy, NWSObjectReference;
+#import <Foundation/Foundation.h>
 
+@class NWSObjectID, NWSObjectType, NWSPath, NWSPolicy, NWSObjectReference;
 
 /**
  * Represents a repository of objects with identifiers that can be retrieved using object properties and used to get and set values and relations.

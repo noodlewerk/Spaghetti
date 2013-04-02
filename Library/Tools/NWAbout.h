@@ -5,6 +5,8 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 /**
  * The about method retuns a human-readable description of an object. NWAbout provides default implementations for common primitives.
  */

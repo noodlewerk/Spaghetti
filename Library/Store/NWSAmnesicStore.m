@@ -13,6 +13,7 @@
 #import "NWAbout.h"
 #import "NWSObjectReference.h"
 #import "NWSPolicy.h"
+#include "NWLCore.h"
 
 
 @implementation NWSAmnesicStore

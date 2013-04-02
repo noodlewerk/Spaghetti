@@ -6,6 +6,7 @@
 //
 
 #import "NWSOperation.h"
+#include "NWLCore.h"
 
 
 @implementation NWSOperationOwner {

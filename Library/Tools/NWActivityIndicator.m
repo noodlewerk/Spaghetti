@@ -6,6 +6,7 @@
 //
 
 #import "NWActivityIndicator.h"
+#include "NWLCore.h"
 
 
 @implementation NWBasicActivityIndicator {

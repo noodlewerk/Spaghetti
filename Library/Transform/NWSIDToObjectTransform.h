@@ -5,8 +5,9 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 #import "NWSTransform.h"
-
 
 @class NWSObjectType, NWSPath;
 

@@ -5,8 +5,10 @@
 //  Copyright (c) 2012 noodlewerk. All rights reserved.
 //
 
-#import "NWSObjectID.h"
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "NWSObjectID.h"
+
 /**
  * The object id used by the NWSCoreDataStore, wraps NWSManagedObjectID.
  *

@@ -11,6 +11,7 @@
 #import "NWSHTTPEndpoint.h"
 #import "NWStats.h"
 #import "NWSMapping.h"
+#include "NWLCore.h"
 
 
 @implementation NWSHTTPDialogue {

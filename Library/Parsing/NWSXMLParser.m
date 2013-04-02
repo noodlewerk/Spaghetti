@@ -7,6 +7,7 @@
 
 #import "NWSXMLParser.h"
 #import <libxml/parser.h>
+#include "NWLCore.h"
 
 
 @implementation NWSXMLParser

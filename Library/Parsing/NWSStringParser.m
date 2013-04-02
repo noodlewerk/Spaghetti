@@ -6,6 +6,8 @@
 //
 
 #import "NWSStringParser.h"
+#include "NWLCore.h"
+
 
 @implementation NWSStringParser
 

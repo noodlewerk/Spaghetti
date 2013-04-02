@@ -15,6 +15,7 @@
 #import "NWSObjectReference.h"
 #import "NWSParser.h"
 #import "NWSAmnesicStore.h"
+#include "NWLCore.h"
 
 
 @implementation NWSDialogue

@@ -13,6 +13,7 @@
 #import "NWSConstantValuePath.h"
 #import "NWSCompositePath.h"
 #import "NWSIndexPath.h"
+#include "NWLCore.h"
 
 
 @implementation NWSPath

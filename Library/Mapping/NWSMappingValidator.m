@@ -11,6 +11,7 @@
 #import "NWSPath.h"
 #import "NWSObjectType.h"
 #import "NWSArrayTransform.h"
+#include "NWLCore.h"
 
 
 @implementation NWSMappingValidator

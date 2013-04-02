@@ -13,6 +13,7 @@
 #import "NWSPath.h"
 #import "NWSPolicy.h"
 #import "NWSObjectReference.h"
+#include "NWLCore.h"
 
 
 @implementation NWSBasicStore {

@@ -8,6 +8,7 @@
 #import "NWSTransform.h"
 #import "NWAbout.h"
 #import "NWSCompositeTransform.h"
+#include "NWLCore.h"
 
 
 @implementation NWSTransform

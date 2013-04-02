@@ -9,6 +9,7 @@
 #import "NWSCall.h"
 #import "NWSDialogue.h"
 #import "NWAbout.h"
+#include "NWLCore.h"
 
 
 static const NSTimeInterval minOperationInterval = 0.1;

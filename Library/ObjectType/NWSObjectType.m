@@ -8,6 +8,7 @@
 #import "NWSObjectType.h"
 #import "NWAbout.h"
 #import "NWSPath.h"
+#include "NWLCore.h"
 
 
 @implementation NWSObjectType
