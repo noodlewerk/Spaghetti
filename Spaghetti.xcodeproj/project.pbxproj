@@ -43,7 +43,7 @@
 		B34A55BC16F3C79000FAE0BA /* NWActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = B34A55BA16F3C79000FAE0BA /* NWActivityIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B34A55BD16F3C79000FAE0BA /* NWActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B34A55BB16F3C79000FAE0BA /* NWActivityIndicator.m */; };
 		B36F15901702F719004390B4 /* NWHTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = B36F158E1702F719004390B4 /* NWHTTP.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B36F15911702F719004390B4 /* NWHTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = B36F158E1702F719004390B4 /* NWHTTP.h */; };
+		B36F15911702F719004390B4 /* NWHTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = B36F158E1702F719004390B4 /* NWHTTP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B36F15921702F719004390B4 /* NWHTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = B36F158F1702F719004390B4 /* NWHTTP.m */; };
 		B36F15931702F719004390B4 /* NWHTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = B36F158F1702F719004390B4 /* NWHTTP.m */; };
 		B388320B16309B730082F729 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38831F816309B730082F729 /* Foundation.framework */; };
@@ -1007,8 +1007,8 @@
 				B388339916309D710082F729 /* NWSTimeStampTransform.h in Headers */,
 				B301F78E16F70C8400594F5E /* NWActivityIndicator.h in Headers */,
 				B34A55B116F3C68B00FAE0BA /* NWHTTPConnection.h in Headers */,
-				B388339B16309D710082F729 /* NWSTransform.h in Headers */,
 				B36F15911702F719004390B4 /* NWHTTP.h in Headers */,
+				B388339B16309D710082F729 /* NWSTransform.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
