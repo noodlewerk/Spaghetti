@@ -11,6 +11,7 @@
 #import "NWSHTTPEndpoint.h"
 #import "NWStats.h"
 #import "NWSMapping.h"
+#import "NWAbout.h"
 #include "NWLCore.h"
 
 

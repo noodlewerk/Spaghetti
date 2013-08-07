@@ -8,7 +8,7 @@
 #import "NWSHTTPCall.h"
 #import "NWSHTTPDialogue.h"
 #import "NWSHTTPEndpoint.h"
-
+#import "NWAbout.h"
 
 @implementation NWSHTTPCall {
     NSMutableDictionary *_headers;
