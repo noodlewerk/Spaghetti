@@ -104,7 +104,7 @@
 
 - (NSString *)path
 {
-    return [self pathStack].about;
+    return [[self pathStack] about:nil];
 }
 
 #else 
