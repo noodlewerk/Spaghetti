@@ -200,7 +200,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (void)queueItem:(NWSScheduleItem *)item
 {
-    NWLogInfo(@"on-queue: queueing item");
+    NWLogSpag(@"on-queue: queueing item");
     // TODO: more efficient sorted insert
     [_schedule addObject:item];
     [_schedule sortUsingComparator:^NSComparisonResult(NWSScheduleItem *a, NWSScheduleItem *b) {
@@ -222,7 +222,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
     delay = MAX(delay, 0);
     NSDate *next = [NSDate dateWithTimeIntervalSinceNow:delay];
     if (!_nextRun || [next compare:_nextRun] == NSOrderedAscending) {
-        NWLogInfo(@"on-queue: re-run");
+        NWLogSpag(@"on-queue: re-run");
         _nextRun = next;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delay * NSEC_PER_SEC);
         dispatch_after(popTime, _scheduleQueue, ^(void) {
@@ -236,7 +236,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
 {
     _nextRun = nil;
     if (_cancelled) {
-        NWLogInfo(@"on-queue: cancelled");
+        NWLogSpag(@"on-queue: cancelled");
         return;
     }
     if (_schedule.count) {
@@ -245,7 +245,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
         NSTimeInterval delay = item.startTime - now;
         if (delay <= 0) {
             // update schedule
-            NWLogInfo(@"on-queue: running item");
+            NWLogSpag(@"on-queue: running item");
             [_schedule removeObjectAtIndex:0];
             if (!item.cancelled) {
                 if (item.intervalTime > 0) {
@@ -260,20 +260,20 @@ static const NSTimeInterval minOperationInterval = 0.1;
                 NWSScheduleItem *next = _schedule[0];
                 [self dequeueItemAfterDelay:next.startTime - now + minOperationInterval];
             } else {
-                NWLogInfo(@"on-queue: pausing");
+                NWLogSpag(@"on-queue: pausing");
             }
         } else {
-            NWLogInfo(@"on-queue: retry in %f", delay);
+            NWLogSpag(@"on-queue: retry in %f", delay);
             [self dequeueItemAfterDelay:delay];
         }
     } else {
-        NWLogInfo(@"on-queue: pausing (2)");
+        NWLogSpag(@"on-queue: pausing (2)");
     }
 }
 
 - (void)start
 {
-    NWLogInfo(@"off-queue: starting");
+    NWLogSpag(@"off-queue: starting");
     dispatch_async(_scheduleQueue, ^{
         _cancelled = NO;
     });
@@ -281,7 +281,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (void)cancel
 {
-    NWLogInfo(@"off-queue: cancelling");
+    NWLogSpag(@"off-queue: cancelling");
     dispatch_async(_scheduleQueue, ^{
         _cancelled = YES;
     });
@@ -289,7 +289,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (void)scheduleItem:(NWSScheduleItem *)item
 {
-    NWLogInfo(@"off-queue: adding item");
+    NWLogSpag(@"off-queue: adding item");
     if (!item.callbackQueue) {
         item.callbackQueue = NSOperationQueue.currentQueue;
     }

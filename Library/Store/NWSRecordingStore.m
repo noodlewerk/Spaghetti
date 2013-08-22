@@ -94,7 +94,7 @@
 
 - (NWSObjectID *)identifierWithType:(NWSObjectType *)type primaryPathsAndValues:(NSArray *)pathsAndValues create:(BOOL)create
 {
-    NWLogInfo(@"identifierWithType: %@ %@ %@", type, pathsAndValues, create ? @"create" : @"do-not-create");
+    NWLogSpag(@"identifierWithType: %@ %@ %@", type, pathsAndValues, create ? @"create" : @"do-not-create");
     NWSRecordObjectID *result = [[NWSRecordObjectID alloc] init];
     result.type = type;
     result.pathsAndValues = pathsAndValues;
@@ -116,7 +116,7 @@
 
 - (void)setAttributeForIdentifier:(NWSObjectID *)identifier value:(id)value path:(NWSPath *)path
 {
-    NWLogInfo(@"setAttributeForIdentifier: %@, %@ = %@", identifier, path, value);
+    NWLogSpag(@"setAttributeForIdentifier: %@, %@ = %@", identifier, path, value);
     NWSAttributeRecord *record = [[NWSAttributeRecord alloc] init];
     record.identifier = identifier;
     record.value = value;
@@ -126,7 +126,7 @@
 
 - (void)setRelationForIdentifier:(NWSObjectID *)identifier value:(NWSObjectID *)value path:(NWSPath *)path policy:(NWSPolicy *)policy baseStore:(NWSStore *)baseStore
 {
-    NWLogInfo(@"setRelationForIdentifier: %@, %@ = %@ (%@)", identifier, path, value, policy);
+    NWLogSpag(@"setRelationForIdentifier: %@, %@ = %@ (%@)", identifier, path, value, policy);
     NWSRelationRecord *record = [[NWSRelationRecord alloc] init];
     record.identifier = identifier;
     record.value = value;

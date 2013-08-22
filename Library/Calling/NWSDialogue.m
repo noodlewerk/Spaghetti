@@ -59,7 +59,7 @@
     if (!parser) {
         parser = NWSParser.defaultParser;
     }
-    NWLogInfo(@"parsing data (expected:%.3fs)", _call.endpoint.parseTime.average);
+    NWLogSpag(@"parsing data (expected:%.3fs)", _call.endpoint.parseTime.average);
     DEBUG_STAT_START(parseTime);
     id parsed = [parser parse:data];
     DEBUG_STAT_STOP(parseTime, _call.endpoint);
@@ -98,7 +98,7 @@
         }
         
         // perform actual mapping
-        NWLogInfo(@"mapping tree (expected:%.3fs)", _call.endpoint.mappingTime.average);
+        NWLogSpag(@"mapping tree (expected:%.3fs)", _call.endpoint.mappingTime.average);
         DEBUG_STAT_START(mappingTime);
         NWSObjectID *identifier = [mapping mapElement:value store:tempStore];
         DEBUG_STAT_STOP(mappingTime, _call.endpoint);
@@ -153,7 +153,7 @@
     if (!parser) {
         parser = NWSParser.defaultParser;
     }
-    NWLogInfo(@"serializing object");
+    NWLogSpag(@"serializing object");
     NSData *result = [parser serialize:data];
     if (!result) {
         NWLogWarn(@"failed to serialize");

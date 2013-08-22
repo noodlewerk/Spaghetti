@@ -29,15 +29,15 @@
     void(^callbackBlock)() = ^{        
         // check cancel
         if (_cancelled) {
-            NWLogInfo(@"cancelled");
+            NWLogSpag(@"cancelled");
             return;
         }
         [self.call doneWithResult:result];
         if (result) {
-            NWLogInfo(@"done call (total:%.3fs)", DEBUG_STAT_INTERVAL_IN(_startCall));
+            NWLogSpag(@"done call (total:%.3fs)", DEBUG_STAT_INTERVAL_IN(_startCall));
             DEBUG_STAT_STOP_IN(_startCall, self.call.endpoint.totalTime);
         } else {
-            NWLogInfo(@"failed call");
+            NWLogSpag(@"failed call");
         }
     };
     [self.callbackQueue addOperationWithBlock:callbackBlock];
@@ -50,7 +50,7 @@
     NWLogWarnIfNot(NSOperationQueue.currentQueue == self.operationQueue, @"Expecting to run on queue: %@", self.operationQueue);
     // check cancel
     if (_cancelled) {
-        NWLogInfo(@"cancelled");
+        NWLogSpag(@"cancelled");
         return;
     }
     
@@ -61,7 +61,7 @@
 - (void)connect
 {
     // send request
-    NWLogInfo(@"sending request (expected:%.3fs)", self.call.endpoint.requestTime.average);
+    NWLogSpag(@"sending request (expected:%.3fs)", self.call.endpoint.requestTime.average);
     DEBUG_STAT_START_IN(_startRequest);
     
     void(^block)(NSHTTPURLResponse *response, NSData *data) = ^(NSHTTPURLResponse *response, NSData *data) {
@@ -69,7 +69,7 @@
         DEBUG_STAT_STOP_IN(_startRequest, self.call.endpoint.requestTime);
         // check cancel
         if (_cancelled) {
-            NWLogInfo(@"cancelled");
+            NWLogSpag(@"cancelled");
             return;
         }
         // keep response
@@ -132,10 +132,10 @@
 {
     DEBUG_STAT_START_IN(_startCall);
         
-    NWLogInfo(@"start call (expected:%.3fs)", self.call.endpoint.totalTime.average);
+    NWLogSpag(@"start call (expected:%.3fs)", self.call.endpoint.totalTime.average);
     // check cancel
     if (_cancelled) {
-        NWLogInfo(@"cancelled");
+        NWLogSpag(@"cancelled");
         return;
     }
     

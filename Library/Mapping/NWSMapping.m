@@ -279,7 +279,7 @@
 {
     NWSObjectID *result = nil;
     
-    NWLogInfo(@"start mapping: %@", context.path);
+    NWLogSpag(@"start mapping: %@", context.path);
     
     if ([element isKindOfClass:NSDictionary.class]) {    
         // if we have a primary path, first search for existing object to map to
@@ -298,7 +298,7 @@
             }
             result = [context.store identifierWithType:_objectType primaryPathsAndValues:pathsAndValues create:YES];
             NWLogWarnIfNot(result, @"No identifier found or created");
-            NWLogInfo(@"found/created object: %@", result);
+            NWLogSpag(@"found/created object: %@", result);
         }   
         
         // perform individual mapEntries
@@ -309,7 +309,7 @@
                     value = nil;
                 }
                 DEBUG_CONTEXT_PUSH(context, attribute.elementPath);
-                NWLogInfo(@"mapElement attribute: %@ = %@", context.path, value);
+                NWLogSpag(@"mapElement attribute: %@ = %@", context.path, value);
                 id transformed = [attribute.transform transform:value context:context];
                 DEBUG_CONTEXT_POP(context);
                 // if we have a subject to assign to
@@ -318,7 +318,7 @@
                 }
             } else {
                 // else mapElement key not present in element
-                NWLogInfo(@"no element for attribute: %@", attribute);
+                NWLogSpag(@"no element for attribute: %@", attribute);
             }
         }
         
@@ -330,7 +330,7 @@
                     value = nil;
                 }
                 DEBUG_CONTEXT_PUSH(context, relation.elementPath);
-                NWLogInfo(@"mapElement relation: %@", context.path);
+                NWLogSpag(@"mapElement relation: %@", context.path);
                 NWSObjectID *transformed = [relation.transform transform:value context:context];
                 DEBUG_CONTEXT_POP(context);
                 NWLogWarnIfNot(!transformed || [transformed isKindOfClass:NWSObjectID.class], @"Transform result should be object ID, not %@", transformed.class);
@@ -340,7 +340,7 @@
                 }
             } else {
                 // else mapElement key not present in entry
-                NWLogInfo(@"no entry for relation: %@", relation);
+                NWLogSpag(@"no entry for relation: %@", relation);
             }
         }
     } else if ([element isKindOfClass:NSArray.class]) {
@@ -367,7 +367,7 @@
         NWLogWarn(@"Unable to map element: %@ (class:%@ path:%@)", element, element.class, context.path);
     }
     
-    NWLogInfo(@"done mapping: %@", context.path);
+    NWLogSpag(@"done mapping: %@", context.path);
        
     return result;
 }
@@ -429,7 +429,7 @@
         for (NWSMappingEntry *attribute in _attributes) {
             id value = [context.store attributeForIdentifier:identifier path:attribute.objectPath];
             DEBUG_CONTEXT_PUSH(context, attribute.objectPath);
-            NWLogInfo(@"mapElement attribute: %@ = %@", context.path, value);
+            NWLogSpag(@"mapElement attribute: %@ = %@", context.path, value);
             id reversed = [attribute.transform reverse:value context:context];
             DEBUG_CONTEXT_POP(context);
             if (reversed == nil) {
@@ -442,7 +442,7 @@
         for (NWSMappingEntry *relation in _relations) {
             id value = [context.store relationForIdentifier:identifier path:relation.objectPath];
             DEBUG_CONTEXT_PUSH(context, relation.objectPath);
-            NWLogInfo(@"mapElement relation: %@", context.path);
+            NWLogSpag(@"mapElement relation: %@", context.path);
             id reversed = [relation.transform reverse:value context:context];
             DEBUG_CONTEXT_POP(context);
             if (reversed == nil) {

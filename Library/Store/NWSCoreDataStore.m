@@ -114,7 +114,7 @@
 - (NWSObjectID *)identifierWithType:(NWSEntityObjectType *)type primaryPathsAndValues:(NSArray *)pathsAndValues create:(BOOL)create
 {
     NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogInfo(@"identifierWithType: %@ %@ %@", type, pathsAndValues, create ? @"create" : @"do-not-create");
+    NWLogSpag(@"identifierWithType: %@ %@ %@", type, pathsAndValues, create ? @"create" : @"do-not-create");
     NWLogWarnIfNot(pathsAndValues.count || create, @"So I should not find and should not create an object?");
     NWLogWarnIfNot([type isKindOfClass:NWSEntityObjectType.class], @"");
 
@@ -147,7 +147,7 @@
 - (id)attributeForIdentifier:(NWSObjectID *)identifier path:(NWSPath *)path
 {
     NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogInfo(@"attributeForIdentifier: %@ %@", identifier, path);
+    NWLogSpag(@"attributeForIdentifier: %@ %@", identifier, path);
     if ([identifier isKindOfClass:NWSManagedObjectID.class]) {
         NWSManagedObjectID *i = (NWSManagedObjectID *)identifier;
         NSObject *object = [_context objectWithID:i.ID];
@@ -167,7 +167,7 @@
 - (NWSObjectID *)relationForIdentifier:(NWSObjectID *)identifier path:(NWSPath *)path
 {
     NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogInfo(@"relationForIdentifier: %@ %@", identifier, path);
+    NWLogSpag(@"relationForIdentifier: %@ %@", identifier, path);
     if ([identifier isKindOfClass:NWSManagedObjectID.class]) {
         NWSManagedObjectID *i = (NWSManagedObjectID *)identifier;
         NSObject *object = [_context objectWithID:i.ID];
@@ -192,7 +192,7 @@
 - (void)setAttributeForIdentifier:(NWSObjectID *)identifier value:(id)value path:(NWSPath *)path
 {
     NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogInfo(@"setAttributeForIdentifier: %@, %@ = %@", identifier, path, value);
+    NWLogSpag(@"setAttributeForIdentifier: %@, %@ = %@", identifier, path, value);
     if ([identifier isKindOfClass:NWSManagedObjectID.class]) {
         NWSManagedObjectID *i = (NWSManagedObjectID *)identifier;
         NSObject *object = [_context objectWithID:i.ID];
@@ -209,7 +209,7 @@
 - (id)objectWithIdentifier:(NWSObjectID *)identifier baseStore:(NWSStore *)baseStore
 {
     NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogInfo(@"objectWithIdentifier: %@", identifier);
+    NWLogSpag(@"objectWithIdentifier: %@", identifier);
     if ([identifier isKindOfClass:NWSManagedObjectID.class]) {
         NWSManagedObjectID *i = (NWSManagedObjectID *)identifier;
         NSManagedObject *result = [_context objectWithID:i.ID];
@@ -238,7 +238,7 @@
 - (void)setRelationForIdentifier:(NWSManagedObjectID *)identifier value:(NWSObjectID *)value path:(NWSPath *)path policy:(NWSPolicy *)policy baseStore:(NWSStore *)baseStore
 {
     NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogInfo(@"setRelationForIdentifier: %@, %@ = %@ (%@)", identifier, path, value, policy);
+    NWLogSpag(@"setRelationForIdentifier: %@, %@ = %@ (%@)", identifier, path, value, policy);
     if ([identifier isKindOfClass:NWSManagedObjectID.class]) {
         NSObject *object = [_context objectWithID:identifier.ID];
         // TODO: do we need to fetch the object, can't we just assign based on NSManagedObjectID?
@@ -292,7 +292,7 @@
 - (void)deleteObjectWithIdentifier:(NWSManagedObjectID *)identifier
 {
     NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogInfo(@"deleteObjectWithIdentifier: %@", identifier);
+    NWLogSpag(@"deleteObjectWithIdentifier: %@", identifier);
     if ([identifier isKindOfClass:NWSManagedObjectID.class]) {
         [_toBeDeleted addObject:identifier.ID];
     } else {
@@ -303,7 +303,7 @@
 - (NWSObjectReference *)referenceForIdentifier:(NWSObjectID *)identifier
 {
     NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogInfo(@"referenceForIdentifier: %@", identifier);
+    NWLogSpag(@"referenceForIdentifier: %@", identifier);
     id object = [self objectWithIdentifier:identifier baseStore:nil];
     NWSObjectReference *result = [[NWSObjectReference alloc] initWithObject:object];
     [_references addObject:result];
@@ -313,7 +313,7 @@
 - (NWSObjectID *)identifierForObject:(NSManagedObject *)object
 {
     NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogInfo(@"identifierForObject: %@", object);
+    NWLogSpag(@"identifierForObject: %@", object);
     if ([object isKindOfClass:NSManagedObject.class]) {
         return [[NWSManagedObjectID alloc] initWithID:object.objectID];
     } else if (object) {
@@ -358,7 +358,7 @@
 - (void)cleanup
 {
     NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogInfo(@"cleanup");
+    NWLogSpag(@"cleanup");
     
     // apply all deletes
     for (NSManagedObjectID *i in _toBeDeleted) {

@@ -8,3 +8,5 @@
 #endif
 
 #include "NWLCore.h"
+
+#define NWLogSpag(_format, ...)                  NWLLogWithFilter("spag", NWL_LIB_STR, _format, ##__VA_ARGS__)
