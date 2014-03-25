@@ -60,6 +60,31 @@ void NWLForwardToPrinters(NWLContext context, CFStringRef message) {
     }
 }
 
+void NWLForwardWithoutFilter(NWLContext context, CFStringRef format, ...) {
+    va_list arglist;
+    va_start(arglist, format);
+    CFStringRef message = CFStringCreateWithFormatAndArguments(NULL, 0, format, arglist);
+    va_end(arglist);
+    NWLForwardToPrinters(context, message);
+    CFRelease(message);
+}
+
+void NWLForwardWithFilter(NWLContext context, CFStringRef format, ...) {
+    NWLAction type = NWLMatchingActionForContext(context);
+    if (type) {
+        va_list arglist;
+        va_start(arglist, format);
+        CFStringRef message = CFStringCreateWithFormatAndArguments(NULL, 0, format, arglist);
+        va_end(arglist);
+        switch (type) {
+            case kNWLAction_print: NWLForwardToPrinters(context, message); break;
+            case kNWLAction_break: NWLForwardToPrinters(context, message); NWLBreakInDebugger(); break;
+            default: CFShow(message); break;
+        }
+        CFRelease(message);
+    }
+}
+
 int NWLAddPrinter(const char *name, void(*func)(NWLContext, CFStringRef, void *), void *info) {
     int count = NWLPrinters.count;
     if (count < kNWLPrinterListSize) {
@@ -110,12 +135,12 @@ void NWLStderrPrinter(NWLContext context, CFStringRef message, void *info) {
 
     // add time
     int hour = 0, minute = 0, second = 0, micro = 0;
-    NWLClock(&hour, &minute, &second, &micro);
+    NWLClock(context.time, &hour, &minute, &second, &micro);
     char timeBuffer[16];
     int timeLength = snprintf(timeBuffer, sizeof(timeBuffer), "%02i:%02i:%02i.%06i", hour, minute, second, micro);
     iov[i].iov_base = timeBuffer;
     iov[i++].iov_len = sizeof(timeBuffer) - 1 < timeLength ? sizeof(timeBuffer) - 1 : timeLength;
-    
+
     // add context
     if (context.lib && *context.lib) {
         iov[i].iov_base = " ";
@@ -141,7 +166,7 @@ void NWLStderrPrinter(NWLContext context, CFStringRef message, void *info) {
         iov[i].iov_base = (void *)context.tag;
         iov[i++].iov_len = strnlen(context.tag, 32);
     }
-    
+
     iov[i].iov_base = "] ";
     iov[i++].iov_len = 2;
 
@@ -151,7 +176,7 @@ void NWLStderrPrinter(NWLContext context, CFStringRef message, void *info) {
         unsigned char messageBuffer[256];
         CFIndex messageLength = 0;
         CFIndex length = 1;
-        
+
         while (length && range.length) {
             length = CFStringGetBytes(message, range, kCFStringEncodingUTF8, '?', false, messageBuffer, sizeof(messageBuffer), &messageLength);
             iov[i].iov_base = messageBuffer;
@@ -303,7 +328,7 @@ void NWLRestoreDefaultFilters(void) {
 
 #pragma mark - Clock
 
-static double NWLTime() {
+double NWLTime(void) {
     return CFAbsoluteTimeGetCurrent() + 978307200;
 }
 
@@ -319,13 +344,12 @@ void NWLRestorePrintClock(void) {
     NWLTimeOffset = 0;
 }
 
-double NWLClock(int *hour, int *minute, int *second, int *micro) {
-    CFAbsoluteTime time = NWLTime() - NWLTimeOffset;
-    *hour = (int)(time / 3600) % 24;
-    *minute = (int)(time / 60) % 60;
-    *second = (int)time % 60;
-    *micro = (int)((time - floor(time)) * 1000000) % 1000000;
-    return time;
+void NWLClock(double time, int *hour, int *minute, int *second, int *micro) {
+    double t = time - NWLTimeOffset;
+    *hour = (int)(t / 3600) % 24;
+    *minute = (int)(t / 60) % 60;
+    *second = (int)t % 60;
+    *micro = (int)((t - floor(t)) * 1000000) % 1000000;
 }
 
 
@@ -345,8 +369,6 @@ int NWLAboutString(char *buffer, int size) {
 #define _NWL_ABOUT_ACTION_(_action) do {if (filter->action == kNWLAction_##_action) {_NWL_PRINT_(buffer, s, "   action       : "#_action);}} while (0)
         _NWL_ABOUT_ACTION_(print);
         _NWL_ABOUT_ACTION_(break);
-        _NWL_ABOUT_ACTION_(raise);
-        _NWL_ABOUT_ACTION_(assert);
         const char *value = NULL;
 #define _NWL_ABOUT_PROP_(_prop) do {if ((value = filter->properties[kNWLProperty_##_prop])) {_NWL_PRINT_(buffer, s, " "#_prop"=%s", value);}} while (0)
         _NWL_ABOUT_PROP_(tag);
@@ -366,24 +388,33 @@ int NWLAboutString(char *buffer, int size) {
 void NWLogAbout(void) {
     char buffer[256];
     int length = NWLAboutString(buffer, sizeof(buffer));
-    NWLContext context = {NULL, "NWLogging", NULL, 0, NULL};
+    NWLContext context = {NULL, "NWLogging", NULL, 0, NULL, NWLTime()};
     CFStringRef message = CFStringCreateWithFormat(NULL, 0, CFSTR("About NWLogging\n%s%s"), buffer, length <= sizeof(buffer) - 1 ? "" : "\n   ...");\
     NWLForwardToPrinters(context, message);
     CFRelease(message);
 }
 
 
+#pragma mark - Misc Helpers
+
+void NWLRestore(void) {
+    NWLRestoreDefaultFilters();
+    NWLRestoreDefaultPrinters();
+    NWLRestorePrintClock();
+}
+
+
 #pragma mark - Macro wrappers
 
-void NWLPrintInfo() {
+void NWLPrintInfo(void) {
     NWLAddFilter("info", NULL, NULL, NULL, kNWLAction_print);
 }
 
-void NWLPrintWarn() {
+void NWLPrintWarn(void) {
     NWLAddFilter("warn", NULL, NULL, NULL, kNWLAction_print);
 }
 
-void NWLPrintDbug() {
+void NWLPrintDbug(void) {
     NWLAddFilter("dbug", NULL, NULL, NULL, kNWLAction_print);
 }
 
@@ -391,7 +422,7 @@ void NWLPrintTag(const char *tag) {
     NWLAddFilter(tag, NULL, NULL, NULL, kNWLAction_print);
 }
 
-void NWLPrintAll() {
+void NWLPrintAll(void) {
     NWLAddFilter(NULL, NULL, NULL, NULL, kNWLAction_print);
 }
 
@@ -423,13 +454,17 @@ void NWLPrintDbugInFile(const char *file) {
     NWLAddFilter("dbug", NULL, file, NULL, kNWLAction_print);
 }
 
+void NWLPrintAllInFile(const char *file) {
+    NWLAddFilter(NULL, NULL, file, NULL, kNWLAction_print);
+}
+
 void NWLPrintDbugInFunction(const char *function) {
     NWLAddFilter("dbug", NULL, NULL, function, kNWLAction_print);
 }
 
 
 
-void NWLBreakWarn() {
+void NWLBreakWarn(void) {
     NWLAddFilter("warn", NULL, NULL, NULL, kNWLAction_break);
 }
 
@@ -447,15 +482,15 @@ void NWLBreakTagInLib(const char *tag, const char *lib) {
 
 
 
-void NWLClearInfo() {
+void NWLClearInfo(void) {
     NWLRemoveMatchingFilters("info", NULL, NULL, NULL);
 }
 
-void NWLClearWarn() {
+void NWLClearWarn(void) {
     NWLRemoveMatchingFilters("warn", NULL, NULL, NULL);
 }
 
-void NWLClearDbug() {
+void NWLClearDbug(void) {
     NWLRemoveMatchingFilters("dbug", NULL, NULL, NULL);
 }
 
