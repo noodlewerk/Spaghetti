@@ -11,7 +11,7 @@
 #import "NWSSelfPath.h"
 #import "NWSCall.h"
 #import "NWSParser.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSEndpoint
@@ -35,7 +35,7 @@
 
 - (id)newCall // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return nil;
 } // COV_NF_END
 

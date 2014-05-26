@@ -10,7 +10,7 @@
 #import "NWSEndpoint.h"
 #import "NWActivityIndicator.h"
 #import "NWSDialogue.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSCall {
@@ -41,7 +41,7 @@
 
 - (NWSDialogue *)newDialogue // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return nil;
 } // COV_NF_END
 
@@ -108,7 +108,7 @@
 
 - (void)addIndicator:(id<NWActivityIndicator>)indicator
 {
-    NWLogWarnIfNot(_indicator, @"Expecting non-nil indicator to add");
+    NWSLogWarnIfNot(_indicator, @"Expecting non-nil indicator to add");
     if ([_indicator isKindOfClass:NWCombinedActivityIndicator.class]) {
         [(NWCombinedActivityIndicator *)_indicator addIndicator:indicator];
     } else if (_indicator) {
@@ -165,12 +165,12 @@
                 }
                 [result appendString:[value description]];
             } else {
-                NWLogWarn(@"Unable to find value for key: %@", key);
+                NWSLogWarn(@"Unable to find value for key: %@", key);
                 [result appendFormat:@"?(%@)", key];
             }
             i = s.location + s.length;
         } else {
-            NWLogWarn(@"$(..) is missing closing parenthesis in format: %@", format);
+            NWSLogWarn(@"$(..) is missing closing parenthesis in format: %@", format);
             break;
         }
     }

@@ -7,20 +7,20 @@
 
 #import "NWSParser.h"
 #import "NWSJSONParser.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSParser
 
 - (id)parse:(NSData *)data // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return nil;
 } // COV_NF_END
 
 - (NSData *)serialize:(id)value // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return nil;
 } // COV_NF_END
 

@@ -7,6 +7,6 @@
     #import <CoreData/CoreData.h>
 #endif
 
-#include "NWLCore.h"
+#include "NWSLCore.h"
 
-#define NWLogSpag(_format, ...)                  NWLLogWithFilter("spag", NWL_LIB_STR, _format, ##__VA_ARGS__)
+#define NWSLogSpag(_format, ...)                  NWSLLogWithFilter("spag", NWSL_LIB_STR, _format, ##__VA_ARGS__)

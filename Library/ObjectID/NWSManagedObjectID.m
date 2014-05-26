@@ -7,7 +7,7 @@
 
 #import "NWSManagedObjectID.h"
 #import "NWAbout.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSManagedObjectID
@@ -19,7 +19,7 @@
 {
     self = [super init];
     if (self) {
-        NWLogWarnIfNot(ID, @"Initializing an managed object ID with nil ID");
+        NWSLogWarnIfNot(ID, @"Initializing an managed object ID with nil ID");
         _ID = ID;
     }
     return self;

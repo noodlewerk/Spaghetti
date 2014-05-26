@@ -6,7 +6,7 @@
 //
 
 #import "NWActivityIndicator.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWBasicActivityIndicator {
@@ -55,11 +55,11 @@
 - (void)showActivity:(BOOL)hasActivity
 {
     if (!self.callbackQueue) {
-        NWLogWarn(@"Expecting non-nil callbackQueue, to use for activity indication");
+        NWSLogWarn(@"Expecting non-nil callbackQueue, to use for activity indication");
         return;
     }
     if (!self.switchBlock) {
-        NWLogWarn(@"Expecting non-nil switchBlock, to call with activity indication");
+        NWSLogWarn(@"Expecting non-nil switchBlock, to call with activity indication");
         return;
     }
     if (hasActivity != _showingActivity) {
@@ -109,7 +109,7 @@
                 [self update];
             }
         } else {
-            NWLogWarn(@"Unregistering network activity once too much");
+            NWSLogWarn(@"Unregistering network activity once too much");
         }
     });
 }
@@ -240,8 +240,8 @@
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
 static void NWNetworkSetShowActivity(BOOL activity) {
-    NWLogWarnIfNot(NSThread.isMainThread, @"Network indicator should be accessed from main thread");
-    NWLogWarnIfNot(UIApplication.sharedApplication.networkActivityIndicatorVisible != activity, @"UIApplication's networkActivityIndicatorVisible has been changed outside of this indicator.");
+    NWSLogWarnIfNot(NSThread.isMainThread, @"Network indicator should be accessed from main thread");
+    NWSLogWarnIfNot(UIApplication.sharedApplication.networkActivityIndicatorVisible != activity, @"UIApplication's networkActivityIndicatorVisible has been changed outside of this indicator.");
     UIApplication.sharedApplication.networkActivityIndicatorVisible = activity;
 }
 #else

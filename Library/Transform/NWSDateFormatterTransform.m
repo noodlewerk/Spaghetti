@@ -8,7 +8,7 @@
 #import "NWSDateFormatterTransform.h"
 #import "NWAbout.h"
 #import "NWSMappingContext.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSDateFormatterTransform
@@ -45,11 +45,11 @@
     if ([string isKindOfClass:NSString.class]) {
         NSDate *result = [_formatter dateFromString:string];
         if (!result) {
-            NWLogWarn(@"Unable to parse string %@ (path:%@)", string, context.path);
+            NWSLogWarn(@"Unable to parse string %@ (path:%@)", string, context.path);
         }
         return result;
     } else {
-        NWLogWarn(@"Expecting NSString instead of %@ (path:%@)", string.class, context.path);
+        NWSLogWarn(@"Expecting NSString instead of %@ (path:%@)", string.class, context.path);
         return nil;
     }
 }
@@ -59,11 +59,11 @@
     if ([date isKindOfClass:NSDate.class]) {
         NSString *result = [_formatter stringFromDate:date];
         if (!result) {
-            NWLogWarn(@"Unable to format date %@ (path:%@)", date, context.path);
+            NWSLogWarn(@"Unable to format date %@ (path:%@)", date, context.path);
         }
         return result;
     } else {
-        NWLogWarn(@"Expecting NSDate instead of %@ (path:%@)", date.class, context.path);
+        NWSLogWarn(@"Expecting NSDate instead of %@ (path:%@)", date.class, context.path);
         return nil;
     }
 }

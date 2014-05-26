@@ -9,7 +9,7 @@
 #import "NWAbout.h"
 #import "NWSPath.h"
 #import "NWSObjectReference.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSStore
@@ -20,52 +20,52 @@
 // TODO: consider providing an NSPredicate instead of a NSArray of paths and values, moving the predicate creation (and caching) to the mapping
 - (NWSObjectID *)identifierWithType:(NWSObjectType *)type primaryPathsAndValues:(NSArray *)pathsAndValues create:(BOOL)create // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return nil;
 } // COV_NF_END
 
 - (id)attributeForIdentifier:(NWSObjectID *)identifier path:(NWSPath *)path // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return nil;
 } // COV_NF_END
 
 - (id)relationForIdentifier:(NWSObjectID *)identifier path:(NWSPath *)path // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return nil;
 } // COV_NF_END
 
 - (void)setAttributeForIdentifier:(NWSObjectID *)identifier value:(id)value path:(NWSPath *)path // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
 } // COV_NF_END
 
 - (void)setRelationForIdentifier:(NWSObjectID *)identifier value:(NWSObjectID *)value path:(NWSPath *)path policy:(NWSPolicy *)policy baseStore:(NWSStore *)baseStore // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
 } // COV_NF_END
 
 - (void)deleteObjectWithIdentifier:(NWSObjectID *)identifier // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
 } // COV_NF_END
 
 - (NWSObjectReference *)referenceForIdentifier:(NWSObjectID *)identifier // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return nil;
 } // COV_NF_END
 
 - (NWSObjectID *)identifierForObject:(id)object // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return nil;
 } // COV_NF_END
 
 - (NWSObjectType *)typeFromString:(NSString *)string // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return nil;
 } // COV_NF_END
 
@@ -90,13 +90,13 @@
 
 - (NWSStore *)beginTransaction // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return nil;
 } // COV_NF_END
 
 - (void)mergeTransaction:(NWSStore *)store // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
 } // COV_NF_END
 
 
@@ -117,7 +117,7 @@
 
 - (NSArray *)allObjects // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return nil;
 } // COV_NF_END
 

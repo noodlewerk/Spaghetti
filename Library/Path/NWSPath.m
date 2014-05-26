@@ -13,7 +13,7 @@
 #import "NWSConstantValuePath.h"
 #import "NWSCompositePath.h"
 #import "NWSIndexPath.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSPath
@@ -23,24 +23,24 @@
 
 - (id)valueWithObject:(NSObject *)object // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return nil;
 } // COV_NF_END
 
 - (void)setWithObject:(NSObject *)object value:(id)value // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
 } // COV_NF_END
 
 - (BOOL)isEqual:(NWSPath *)path // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return NO;
 } // COV_NF_END
 
 - (NSUInteger)hash // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return NO;
 } // COV_NF_END
 

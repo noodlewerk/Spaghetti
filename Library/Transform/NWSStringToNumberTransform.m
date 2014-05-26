@@ -8,7 +8,7 @@
 #import "NWSStringToNumberTransform.h"
 #import "NWAbout.h"
 #import "NWSMappingContext.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSStringToNumberTransform
@@ -34,7 +34,7 @@
     if ([string isKindOfClass:NSString.class]) {
         return [self.class numberForString:string];
     } else if (string) {
-        NWLogWarn(@"Expecting NSString instead of %@ (path:%@)", string.class, context.path);
+        NWSLogWarn(@"Expecting NSString instead of %@ (path:%@)", string.class, context.path);
     }
     return nil;
 }
@@ -44,7 +44,7 @@
     if ([number isKindOfClass:NSNumber.class]) {
         return [number stringValue];
     } else if (number) {
-        NWLogWarn(@"Expecting NSNumber instead of %@ (path:%@)", number.class, context.path);
+        NWSLogWarn(@"Expecting NSNumber instead of %@ (path:%@)", number.class, context.path);
     }
     return nil;
 }

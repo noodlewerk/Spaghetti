@@ -8,7 +8,7 @@
 #import "NWSConstantValuePath.h"
 #import "NWSStringToNumberTransform.h"
 #import "NWAbout.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSConstantValuePath
@@ -81,7 +81,7 @@
     } else if ([type isEqualToString:@"double"]) {
         return [[NWSConstantValuePath alloc] initWithValue:@([value doubleValue])];
     }
-    NWLogWarn(@"Unknown type in parsing constant path: %@", type);
+    NWSLogWarn(@"Unknown type in parsing constant path: %@", type);
     return nil;
 }
 

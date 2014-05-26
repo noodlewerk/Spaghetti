@@ -8,7 +8,7 @@
 #import "NWSObjectType.h"
 #import "NWAbout.h"
 #import "NWSPath.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSObjectType
@@ -18,37 +18,37 @@
 
 - (BOOL)matches:(NSObject *)object // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return NO;
 } // COV_NF_END
 
 + (BOOL)supports:(NSObject *)object // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return NO;
 } // COV_NF_END
 
 - (BOOL)hasAttribute:(NWSPath *)attribute // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return NO;
 } // COV_NF_END
 
 - (BOOL)hasRelation:(NWSPath *)relation toMany:(BOOL)toMany // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return NO;
 } // COV_NF_END
 
 - (BOOL)isEqual:(NWSObjectType *)type // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return NO;
 } // COV_NF_END
 
 - (NSUInteger)hash // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return NO;
 } // COV_NF_END
 

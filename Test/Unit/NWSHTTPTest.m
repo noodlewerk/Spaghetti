@@ -20,7 +20,7 @@
 
 - (void)setUp
 {
-    NWLPrintWarn();
+    NWSLPrintWarn();
 }
 
 - (void)testHTTPCall

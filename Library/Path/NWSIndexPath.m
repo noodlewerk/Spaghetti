@@ -8,7 +8,7 @@
 #import "NWSIndexPath.h"
 #import "NWSStringToNumberTransform.h"
 #import "NWAbout.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSIndexPath
@@ -43,14 +43,14 @@
     if ([array isKindOfClass:NSArray.class]) {
         NSInteger i = _index < 0 ? _index + array.count : _index;
         if (i < 0 || i >= array.count) {
-            NWLogWarn(@"Index path out of bounds: %i", (int)i);
+            NWSLogWarn(@"Index path out of bounds: %i", (int)i);
             return nil;
         }
         return array[i];
     } else if ((id)array == NSNull.null) {
         return NSNull.null; 
     } else if (array) {
-        NWLogWarn(@"Expecting array to apply index path to: %@", array);
+        NWSLogWarn(@"Expecting array to apply index path to: %@", array);
     }
     return nil;
 }
@@ -63,13 +63,13 @@
             [array addObject:NSNull.null];
         }
         if (i < 0 || i >= array.count) {
-            NWLogWarn(@"Index path out of bounds: %i", (int)i);
+            NWSLogWarn(@"Index path out of bounds: %i", (int)i);
             return;
         }
         array[i] = value;
     } else if ((id)array == NSNull.null) {
     } else if (array)  {
-        NWLogWarn(@"Expecting mutable array to apply index path to: %@", array);
+        NWSLogWarn(@"Expecting mutable array to apply index path to: %@", array);
     }
 }
 

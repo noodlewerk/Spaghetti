@@ -12,7 +12,7 @@
 #import "NWSArrayObjectID.h"
 #import "NWSPath.h"
 #import "NWSPolicy.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @interface NWSRecordObjectID : NWSObjectID
@@ -94,7 +94,7 @@
 
 - (NWSObjectID *)identifierWithType:(NWSObjectType *)type primaryPathsAndValues:(NSArray *)pathsAndValues create:(BOOL)create
 {
-    NWLogSpag(@"identifierWithType: %@ %@ %@", type, pathsAndValues, create ? @"create" : @"do-not-create");
+    NWSLogSpag(@"identifierWithType: %@ %@ %@", type, pathsAndValues, create ? @"create" : @"do-not-create");
     NWSRecordObjectID *result = [[NWSRecordObjectID alloc] init];
     result.type = type;
     result.pathsAndValues = pathsAndValues;
@@ -104,19 +104,19 @@
 
 - (id)attributeForIdentifier:(NWSObjectID *)identifier path:(NWSPath *)path
 {
-    NWLogWarn(@"Recording store is unable to provide such information");
+    NWSLogWarn(@"Recording store is unable to provide such information");
     return nil;
 }
 
 - (NWSObjectID *)relationForIdentifier:(NWSObjectID *)identifier path:(NWSPath *)path
 {
-    NWLogWarn(@"Recording store is unable to provide such information");
+    NWSLogWarn(@"Recording store is unable to provide such information");
     return nil;
 }
 
 - (void)setAttributeForIdentifier:(NWSObjectID *)identifier value:(id)value path:(NWSPath *)path
 {
-    NWLogSpag(@"setAttributeForIdentifier: %@, %@ = %@", identifier, path, value);
+    NWSLogSpag(@"setAttributeForIdentifier: %@, %@ = %@", identifier, path, value);
     NWSAttributeRecord *record = [[NWSAttributeRecord alloc] init];
     record.identifier = identifier;
     record.value = value;
@@ -126,7 +126,7 @@
 
 - (void)setRelationForIdentifier:(NWSObjectID *)identifier value:(NWSObjectID *)value path:(NWSPath *)path policy:(NWSPolicy *)policy baseStore:(NWSStore *)baseStore
 {
-    NWLogSpag(@"setRelationForIdentifier: %@, %@ = %@ (%@)", identifier, path, value, policy);
+    NWSLogSpag(@"setRelationForIdentifier: %@, %@ = %@ (%@)", identifier, path, value, policy);
     NWSRelationRecord *record = [[NWSRelationRecord alloc] init];
     record.identifier = identifier;
     record.value = value;
@@ -137,12 +137,12 @@
 
 - (void)deleteObjectWithIdentifier:(NWSObjectID *)identifier
 {
-    NWLogWarn(@"Recording store does not support object deletion");
+    NWSLogWarn(@"Recording store does not support object deletion");
 }
 
 - (NWSObjectReference *)referenceForIdentifier:(NWSObjectID *)identifier
 {
-    NWLogWarn(@"Recording store does not support object fetching");
+    NWSLogWarn(@"Recording store does not support object fetching");
     return nil;
 }
 
@@ -180,7 +180,7 @@
             NWSObjectID *value = [self applyIdentifier:r.value store:store];
             [store setRelationForIdentifier:identifier value:value path:r.path policy:r.policy baseStore:nil];
         } else {
-            NWLogWarn(@"Record class not supported: %@", record);
+            NWSLogWarn(@"Record class not supported: %@", record);
         }
     }
     [_records removeAllObjects];
@@ -224,7 +224,7 @@
 
 - (NSArray *)allObjects
 {
-    NWLogWarn(@"Recording store does not support object fetching");
+    NWSLogWarn(@"Recording store does not support object fetching");
     return nil;
 }
 

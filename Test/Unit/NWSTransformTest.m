@@ -17,7 +17,7 @@
 
 - (void)setUp
 {
-    NWLBreakWarn();
+    NWSLBreakWarn();
 }
 
 - (void)testStats

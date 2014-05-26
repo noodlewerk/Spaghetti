@@ -11,7 +11,7 @@
 #import "NWSPath.h"
 #import "NWSObjectType.h"
 #import "NWSArrayTransform.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSMappingValidator
@@ -21,11 +21,11 @@
     if (_mapping.objectType) {
         for (NWSMappingEntry *entry in _mapping.attributes) {
             if (![_mapping.objectType hasAttribute:entry.objectPath]) {
-                NWLogWarn(@"Mapping %@ does not have to-attribute: %@", _mapping.about, entry.objectPath.about); // COV_NF_LINE
+                NWSLogWarn(@"Mapping %@ does not have to-attribute: %@", _mapping.about, entry.objectPath.about); // COV_NF_LINE
             }
         }
     } else {
-        NWLogWarn(@"Mapping %@ attributes cannot be validated without objectType", _mapping.about); // COV_NF_LINE
+        NWSLogWarn(@"Mapping %@ attributes cannot be validated without objectType", _mapping.about); // COV_NF_LINE
     }
 }
 
@@ -35,11 +35,11 @@
         for (NWSMappingEntry *entry in _mapping.relations) {
             BOOL isToMany = [entry.transform isKindOfClass:NWSArrayTransform.class];
             if (![_mapping.objectType hasRelation:entry.objectPath toMany:isToMany]) {
-                NWLogWarn(@"Mapping %@ does not have to-relation: %@", _mapping, entry.objectPath); // COV_NF_LINE
+                NWSLogWarn(@"Mapping %@ does not have to-relation: %@", _mapping, entry.objectPath); // COV_NF_LINE
             }
         }
     } else {
-        NWLogWarn(@"Mapping %@ relations cannot be validated without objectType", _mapping.about); // COV_NF_LINE
+        NWSLogWarn(@"Mapping %@ relations cannot be validated without objectType", _mapping.about); // COV_NF_LINE
     }
 }
 
@@ -47,13 +47,13 @@
 {
     for (NWSMappingEntry *primary in _mapping.primaries) {
         if (!primary.objectPath) {
-            NWLogWarn(@"Mapping %@ does not have primary path set", _mapping); // COV_NF_LINE
+            NWSLogWarn(@"Mapping %@ does not have primary path set", _mapping); // COV_NF_LINE
         }
         if (![_mapping.objectType hasAttribute:primary.objectPath]) {
-            NWLogWarn(@"Mapping %@ does not have primary attribute: %@", _mapping.about, primary.objectPath.about); // COV_NF_LINE
+            NWSLogWarn(@"Mapping %@ does not have primary attribute: %@", _mapping.about, primary.objectPath.about); // COV_NF_LINE
         }
         if (!primary.elementPath) {
-            NWLogWarn(@"Mapping %@ does not map primary element", _mapping.about); // COV_NF_LINE
+            NWSLogWarn(@"Mapping %@ does not map primary element", _mapping.about); // COV_NF_LINE
         }
     }
 }
@@ -61,7 +61,7 @@
 - (void)validateMisc
 {
     if (!_mapping.attributes.count && !_mapping.relations.count) {
-        NWLogWarn(@"Mapping %@ has no attributes and no relations", _mapping.about); // COV_NF_LINE
+        NWSLogWarn(@"Mapping %@ has no attributes and no relations", _mapping.about); // COV_NF_LINE
     }
 }
 

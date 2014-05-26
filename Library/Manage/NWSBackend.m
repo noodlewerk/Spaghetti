@@ -10,7 +10,7 @@
 #import "NWSSchedule.h"
 #import "NWSOperation.h"
 #import "NWAbout.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSBackend {
@@ -136,7 +136,7 @@
     if (value && key) {
         [result setParameterValue:value forKey:key];
     } else {
-        NWLogWarn(@"Expecting both a key and a value to be set");
+        NWSLogWarn(@"Expecting both a key and a value to be set");
     }
     result.block = block;
     return result;
@@ -148,7 +148,7 @@
     if (parameters) {
         [result setParameters:parameters];
     } else {
-        NWLogWarn(@"Expecting parameters to be set");
+        NWSLogWarn(@"Expecting parameters to be set");
     }
     result.block = block;
     return result;
@@ -179,7 +179,7 @@
     if (owner) {
         [owner addOperation:result];
     } else {
-        NWLogWarn(@"Scheduling item without owner");
+        NWSLogWarn(@"Scheduling item without owner");
     }
     return result;
 }
@@ -190,7 +190,7 @@
     if (owner) {
         [owner addOperation:result];
     } else {
-        NWLogWarn(@"Scheduling item without owner");
+        NWSLogWarn(@"Scheduling item without owner");
     }
     return result;
 }
@@ -201,7 +201,7 @@
     if (owner) {
         [owner addOperation:result];
     } else {
-        NWLogWarn(@"Scheduling item without owner");
+        NWSLogWarn(@"Scheduling item without owner");
     }
     return result;
 }
@@ -212,7 +212,7 @@
     if (owner) {
         [owner addOperation:result];
     } else {
-        NWLogWarn(@"Scheduling item without owner");
+        NWSLogWarn(@"Scheduling item without owner");
     }
     return result;
 }
@@ -254,7 +254,7 @@
     if (owner) {
         [owner addOperation:result];
     } else {
-        NWLogWarn(@"Scheduling item without owner");
+        NWSLogWarn(@"Scheduling item without owner");
     }
     return result;
 }
@@ -267,7 +267,7 @@
     if (owner) {
         [owner addOperation:result];
     } else {
-        NWLogWarn(@"Scheduling item without owner");
+        NWSLogWarn(@"Scheduling item without owner");
     }
     return result;
 }
@@ -280,7 +280,7 @@
     if (owner) {
         [owner addOperation:result];
     } else {
-        NWLogWarn(@"Scheduling item without owner");
+        NWSLogWarn(@"Scheduling item without owner");
     }
     return result;
 }
@@ -293,7 +293,7 @@
     if (owner) {
         [owner addOperation:result];
     } else {
-        NWLogWarn(@"Scheduling item without owner");
+        NWSLogWarn(@"Scheduling item without owner");
     }
     return result;
 }
@@ -306,7 +306,7 @@
     if (owner) {
         [owner addOperation:result];
     } else {
-        NWLogWarn(@"Scheduling item without owner");
+        NWSLogWarn(@"Scheduling item without owner");
     }
     return result;
 }

@@ -6,7 +6,7 @@
 //
 
 #import "NWSStringParser.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSStringParser
@@ -14,14 +14,14 @@
 - (id)parse:(NSData *)data
 {
     NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NWLogWarnIfNot(result.length, @"Parser result empty");
+    NWSLogWarnIfNot(result.length, @"Parser result empty");
     return result;
 }
 
 - (NSData *)serialize:(NSString *)value
 {
     NSData *result = [value dataUsingEncoding:NSUTF8StringEncoding];
-    NWLogWarnIfNot(result.length, @"Parser result empty");
+    NWSLogWarnIfNot(result.length, @"Parser result empty");
     return result;
 }
 

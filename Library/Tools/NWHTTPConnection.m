@@ -7,7 +7,7 @@
 
 #import "NWHTTPConnection.h"
 #import "NWActivityIndicator.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @interface NWHTTPConnection ()
@@ -37,8 +37,8 @@
 
 - (void)start
 {
-    NWLogWarnIfNot(!_connection, @"A started connection cannot be restarted");
-    NWLogWarnIfNot(_request, @"Cannot start a connection without request");
+    NWSLogWarnIfNot(!_connection, @"A started connection cannot be restarted");
+    NWSLogWarnIfNot(_request, @"Cannot start a connection without request");
     _connection = [[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:NO];
     [_connection scheduleInRunLoop:NSRunLoop.mainRunLoop forMode:NSDefaultRunLoopMode];
     if (_connection) {
@@ -46,11 +46,11 @@
             NWAssertMainThread();
             _callbackQueue = NSOperationQueue.mainQueue;
         }
-        NWLogDbug(@"Starting call: %@", _request.URL);
+        NWSLogDbug(@"Starting call: %@", _request.URL);
         [_connection start];
         [_indicator registerActivity];
     } else {
-        NWLogWarn(@"Failed to init NSURLConnection");
+        NWSLogWarn(@"Failed to init NSURLConnection");
         void(^b)(NSHTTPURLResponse *response, NSData *data) = _block; _block = nil;
         if (b) [_callbackQueue addOperationWithBlock:^{b(nil, nil);}];
     }
@@ -59,7 +59,7 @@
 - (void)cancel
 {
     if (_connection) {
-        NWLogInfo(@"Cancelled call: %@", _request.URL);
+        NWSLogInfo(@"Cancelled call: %@", _request.URL);
         [_connection cancel]; _connection = nil;
         [_indicator unregisterActivity];
     }
@@ -69,7 +69,7 @@
 
 - (void)finished
 {
-    NWLogDbug(@"Finished call: %@", _request.URL);
+    NWSLogDbug(@"Finished call: %@", _request.URL);
     _connection = nil;
     [_indicator unregisterActivity];
     void(^b)(NSHTTPURLResponse *response, NSData *data) = _block; _block = nil;
@@ -93,7 +93,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response
 {
-    NWLogWarnIfNot(!_response, @"Receiving a response twice");
+    NWSLogWarnIfNot(!_response, @"Receiving a response twice");
     _response = response;
 }
 
@@ -113,7 +113,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    NWLogWarnIfError(error);
+    NWSLogWarnIfError(error);
     [self cancel];
 }
 

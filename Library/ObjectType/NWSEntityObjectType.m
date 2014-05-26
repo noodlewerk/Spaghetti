@@ -9,7 +9,7 @@
 #import "NWAbout.h"
 #import "NWSSingleKeyPath.h"
 #import "NWSSelfPath.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSEntityObjectType
@@ -45,7 +45,7 @@
         NSManagedObject *o = (NSManagedObject *)object;
         return [_entity isEqual:o.entity];
     } else {
-        NWLogWarn(@"object not supported: %@", object); // COV_NF_LINE
+        NWSLogWarn(@"object not supported: %@", object); // COV_NF_LINE
         return NO; // COV_NF_LINE
     }
 }
@@ -64,7 +64,7 @@
     } else if ([attribute isKindOfClass:NWSSelfPath.class]) {
         return YES;
     } else {
-        NWLogWarn(@"attribute not yet supported: %@", attribute); // COV_NF_LINE
+        NWSLogWarn(@"attribute not yet supported: %@", attribute); // COV_NF_LINE
         return NO; // COV_NF_LINE
     }
 }
@@ -82,7 +82,7 @@
         }
         return YES;
     } else {
-        NWLogWarn(@"relation not yet supported: %@", relation); // COV_NF_LINE
+        NWSLogWarn(@"relation not yet supported: %@", relation); // COV_NF_LINE
         return NO; // COV_NF_LINE
     }
 }

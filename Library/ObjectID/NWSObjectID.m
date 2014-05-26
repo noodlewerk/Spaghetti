@@ -7,7 +7,7 @@
 
 #import "NWSObjectID.h"
 #import "NWAbout.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSObjectID
@@ -17,13 +17,13 @@
 
 - (BOOL)isEqual:(NWSObjectID *)identifier // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return NO;
 } // COV_NF_END
 
 - (NSUInteger)hash // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return NO;
 } // COV_NF_END
 

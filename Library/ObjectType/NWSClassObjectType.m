@@ -10,7 +10,7 @@
 #include <objc/runtime.h>
 #import "NWSPath.h"
 #import "NWSSingleKeyPath.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSClassObjectType
@@ -63,7 +63,7 @@
             return YES;
         }
     } else {
-        NWLogWarn(@"Path type not yet supported: %@", attribute); // COV_NF_LINE
+        NWSLogWarn(@"Path type not yet supported: %@", attribute); // COV_NF_LINE
     }
     return NO;
 }
@@ -86,7 +86,7 @@
             return toMany == isToMany;
         }
     } else {
-        NWLogWarn(@"Path type not yet supported: %@", relation); // COV_NF_LINE
+        NWSLogWarn(@"Path type not yet supported: %@", relation); // COV_NF_LINE
     }
     return NO;
 }

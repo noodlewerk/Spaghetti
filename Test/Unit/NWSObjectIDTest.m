@@ -38,7 +38,7 @@
 
 - (void)setUp
 {
-    NWLBreakWarn();
+    NWSLBreakWarn();
 }
 
 - (void)testArrayObjectID

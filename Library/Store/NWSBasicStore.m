@@ -13,7 +13,7 @@
 #import "NWSPath.h"
 #import "NWSPolicy.h"
 #import "NWSObjectReference.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSBasicStore {
@@ -43,7 +43,7 @@
 - (NWSObjectID *)identifierWithType:(NWSObjectType *)type primaryPathsAndValues:(NSArray *)pathsAndValues create:(BOOL)create
 {
     // NOTE: no restrictions on type, unless create is YES
-    NWLogWarnIfNot(pathsAndValues.count || create, @"Expecting pathsAndValues or create");
+    NWSLogWarnIfNot(pathsAndValues.count || create, @"Expecting pathsAndValues or create");
     
     // search for object in internal data store
     if (pathsAndValues.count) {
@@ -67,8 +67,8 @@
 
     // no object found
     if (create) {
-        NWLogWarnIfNot(_objects.count != 10, @"Basic store is not well suited for 'large' amounts of objects");
-        NWLogWarnIfNot([type isKindOfClass:NWSClassObjectType.class], @"parameter 'type' should be a NWSClassObjectType");
+        NWSLogWarnIfNot(_objects.count != 10, @"Basic store is not well suited for 'large' amounts of objects");
+        NWSLogWarnIfNot([type isKindOfClass:NWSClassObjectType.class], @"parameter 'type' should be a NWSClassObjectType");
         id object = [[((NWSClassObjectType *)type).clas alloc] init];
         [_objects addObject:object];
         NWSObjectID *identifier = [[NWSMemoryObjectID alloc] initWithObject:object];
@@ -80,13 +80,13 @@
 
 - (id)attributeForIdentifier:(NWSMemoryObjectID *)identifier path:(NWSPath *)path
 {
-    NWLogWarnIfNot([identifier isKindOfClass:NWSMemoryObjectID.class], @"parameter 'identifier' should be a NWSMemoryObjectID");
+    NWSLogWarnIfNot([identifier isKindOfClass:NWSMemoryObjectID.class], @"parameter 'identifier' should be a NWSMemoryObjectID");
     return [identifier.object valueForPath:path];
 }
 
 - (NWSMemoryObjectID *)relationForIdentifier:(NWSMemoryObjectID *)identifier path:(NWSPath *)path
 {
-    NWLogWarnIfNot([identifier isKindOfClass:NWSMemoryObjectID.class], @"parameter 'identifier' should be a NWSMemoryObjectID");
+    NWSLogWarnIfNot([identifier isKindOfClass:NWSMemoryObjectID.class], @"parameter 'identifier' should be a NWSMemoryObjectID");
     NSObject *object = [identifier.object valueForPath:path];
     NWSMemoryObjectID *result = [[NWSMemoryObjectID alloc] initWithObject:object];
     return result;
@@ -105,14 +105,14 @@
             if (object) {
                 [result addObject:object];
             } else {
-                NWLogWarn(@"Unable to add nil to object array (%@)", i);
+                NWSLogWarn(@"Unable to add nil to object array (%@)", i);
             }
         }
         return result;
     } else if (baseStore) {
         return [baseStore referenceForIdentifier:identifier];
     } else {
-        NWLogWarn(@"Identifier type %@ not supported (and base-store is nil)", identifier.class);
+        NWSLogWarn(@"Identifier type %@ not supported (and base-store is nil)", identifier.class);
     }
     return nil;    
 }
@@ -137,7 +137,7 @@
         if (policy.type == kNWSPolicyReplace) {
             [object setValue:new forPath:path];
         } else {
-            NWLogWarn(@"Basic store only supports replace policy");
+            NWSLogWarn(@"Basic store only supports replace policy");
         }
     }
 }

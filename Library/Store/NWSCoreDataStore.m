@@ -14,7 +14,7 @@
 #import "NWSKeyPathPath.h"
 #import "NWSSingleKeyPath.h"
 #import "NWSObjectReference.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 //#define DEBUG_CACHE_CHECK
@@ -57,7 +57,7 @@
 - (NSManagedObjectID *)fetchWithEntity:(NSEntityDescription *)entity primaryPathsAndValues:(NSArray *)pathsAndValues
 {
     // create predicates from primary properties (paths and values)
-    NWLogWarnIfNot(pathsAndValues.count % 2 == 0, @"Every path needs a value");
+    NWSLogWarnIfNot(pathsAndValues.count % 2 == 0, @"Every path needs a value");
     NSMutableArray *predicates = [[NSMutableArray alloc] initWithCapacity:pathsAndValues.count / 2];
     for (NSUInteger i = 1; i < pathsAndValues.count; i += 2) {
         NWSPath *path = pathsAndValues[i - 1];
@@ -72,7 +72,7 @@
             NSPredicate *predicate = [[NSComparisonPredicate alloc] initWithLeftExpression:[NSExpression expressionForKeyPath:pathString] rightExpression:[NSExpression expressionForConstantValue:value] modifier:NSDirectPredicateModifier type:NSEqualToPredicateOperatorType options:0];
             [predicates addObject:predicate];
         } else {
-            NWLogWarn(@"Unable to create predicate for path '%@' and value '%@'", path, value);
+            NWSLogWarn(@"Unable to create predicate for path '%@' and value '%@'", path, value);
         }
     }
     // set up fetch request
@@ -83,10 +83,10 @@
     // perform fetch
     NSError *error = nil;
     NSArray *results = [_context executeFetchRequest:request error:&error];
-    NWLogWarnIfError(error);
-    NWLogWarnIfNot(results, @"Expected fetch request to return non-nil");
+    NWSLogWarnIfError(error);
+    NWSLogWarnIfNot(results, @"Expected fetch request to return non-nil");
     if (results.count) {
-        NWLogWarnIfNot(results.count == 1, @"Multiple objects match primary properties");
+        NWSLogWarnIfNot(results.count == 1, @"Multiple objects match primary properties");
         NSManagedObjectID *identifier = results.lastObject;
         return identifier;
     }
@@ -105,7 +105,7 @@
 #ifdef DEBUG_CACHE_CHECK
     } else {
         NSManagedObjectID *c = [self fetchWithEntity:entity primaryPathsAndValues:pathsAndValues];
-        NWLogWarnIfNot([result isEqual:c] && [result.URIRepresentation.absoluteString isEqualToString:c.URIRepresentation.absoluteString], @"");
+        NWSLogWarnIfNot([result isEqual:c] && [result.URIRepresentation.absoluteString isEqualToString:c.URIRepresentation.absoluteString], @"");
 #endif
     }
     return result;
@@ -113,14 +113,14 @@
 
 - (NWSObjectID *)identifierWithType:(NWSEntityObjectType *)type primaryPathsAndValues:(NSArray *)pathsAndValues create:(BOOL)create
 {
-    NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogSpag(@"identifierWithType: %@ %@ %@", type, pathsAndValues, create ? @"create" : @"do-not-create");
-    NWLogWarnIfNot(pathsAndValues.count || create, @"So I should not find and should not create an object?");
-    NWLogWarnIfNot([type isKindOfClass:NWSEntityObjectType.class], @"");
+    NWSLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
+    NWSLogSpag(@"identifierWithType: %@ %@ %@", type, pathsAndValues, create ? @"create" : @"do-not-create");
+    NWSLogWarnIfNot(pathsAndValues.count || create, @"So I should not find and should not create an object?");
+    NWSLogWarnIfNot([type isKindOfClass:NWSEntityObjectType.class], @"");
 
     // extract entity description
     NSEntityDescription *entity = type.entity;
-    NWLogWarnIfNot(entity, @"No entity found in object type: %@", type);
+    NWSLogWarnIfNot(entity, @"No entity found in object type: %@", type);
 
     if (pathsAndValues.count) {
         NSManagedObjectID *identifier = [self fetchCachedWithEntity:entity primaryPathsAndValues:pathsAndValues];
@@ -146,28 +146,28 @@
 
 - (id)attributeForIdentifier:(NWSObjectID *)identifier path:(NWSPath *)path
 {
-    NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogSpag(@"attributeForIdentifier: %@ %@", identifier, path);
+    NWSLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
+    NWSLogSpag(@"attributeForIdentifier: %@ %@", identifier, path);
     if ([identifier isKindOfClass:NWSManagedObjectID.class]) {
         NWSManagedObjectID *i = (NWSManagedObjectID *)identifier;
         NSObject *object = [_context objectWithID:i.ID];
         id result = [object valueForPath:path];
         // TODO: why is this?
         if ([result isKindOfClass:NSSet.class]) {
-            NWLogWarn(@"should never happen for attribute");
+            NWSLogWarn(@"should never happen for attribute");
             result = [(NSSet *)result allObjects];
         }
         return result;
     } else {
-        NWLogWarn(@"identifier not supported: %@", identifier);
+        NWSLogWarn(@"identifier not supported: %@", identifier);
     }
     return nil;
 }
 
 - (NWSObjectID *)relationForIdentifier:(NWSObjectID *)identifier path:(NWSPath *)path
 {
-    NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogSpag(@"relationForIdentifier: %@ %@", identifier, path);
+    NWSLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
+    NWSLogSpag(@"relationForIdentifier: %@ %@", identifier, path);
     if ([identifier isKindOfClass:NWSManagedObjectID.class]) {
         NWSManagedObjectID *i = (NWSManagedObjectID *)identifier;
         NSObject *object = [_context objectWithID:i.ID];
@@ -184,15 +184,15 @@
         NWSManagedObjectID *result = [[NWSManagedObjectID alloc] initWithID:[(NSManagedObject *)value objectID]];
         return result;
     } else {
-        NWLogWarn(@"type not supported");
+        NWSLogWarn(@"type not supported");
     }
     return nil;
 }
 
 - (void)setAttributeForIdentifier:(NWSObjectID *)identifier value:(id)value path:(NWSPath *)path
 {
-    NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogSpag(@"setAttributeForIdentifier: %@, %@ = %@", identifier, path, value);
+    NWSLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
+    NWSLogSpag(@"setAttributeForIdentifier: %@, %@ = %@", identifier, path, value);
     if ([identifier isKindOfClass:NWSManagedObjectID.class]) {
         NWSManagedObjectID *i = (NWSManagedObjectID *)identifier;
         NSObject *object = [_context objectWithID:i.ID];
@@ -202,18 +202,18 @@
             [object setValue:value forPath:path];
         }
     } else {
-        NWLogWarn(@"type not supported");
+        NWSLogWarn(@"type not supported");
     }
 }
 
 - (id)objectWithIdentifier:(NWSObjectID *)identifier baseStore:(NWSStore *)baseStore
 {
-    NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogSpag(@"objectWithIdentifier: %@", identifier);
+    NWSLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
+    NWSLogSpag(@"objectWithIdentifier: %@", identifier);
     if ([identifier isKindOfClass:NWSManagedObjectID.class]) {
         NWSManagedObjectID *i = (NWSManagedObjectID *)identifier;
         NSManagedObject *result = [_context objectWithID:i.ID];
-        NWLogWarnIfNot(result, @"No object with managed object ID");
+        NWSLogWarnIfNot(result, @"No object with managed object ID");
         return result;
     } else if ([identifier isKindOfClass:NWSArrayObjectID.class]) {
         NSArray *identifiers = ((NWSArrayObjectID *)identifier).identifiers;
@@ -223,29 +223,29 @@
             if (object) {
                 [result addObject:object];
             } else {
-                NWLogWarn(@"Unable to add nil to object array (%@)", i);
+                NWSLogWarn(@"Unable to add nil to object array (%@)", i);
             }
         }
         return result;
     } else if (identifier && baseStore) {
         return [baseStore referenceForIdentifier:identifier];
     } else {
-        NWLogWarn(@"type not supported");
+        NWSLogWarn(@"type not supported");
     }
     return nil;
 }
 
 - (void)setRelationForIdentifier:(NWSManagedObjectID *)identifier value:(NWSObjectID *)value path:(NWSPath *)path policy:(NWSPolicy *)policy baseStore:(NWSStore *)baseStore
 {
-    NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogSpag(@"setRelationForIdentifier: %@, %@ = %@ (%@)", identifier, path, value, policy);
+    NWSLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
+    NWSLogSpag(@"setRelationForIdentifier: %@, %@ = %@ (%@)", identifier, path, value, policy);
     if ([identifier isKindOfClass:NWSManagedObjectID.class]) {
         NSObject *object = [_context objectWithID:identifier.ID];
         // TODO: do we need to fetch the object, can't we just assign based on NSManagedObjectID?
         id valueObject = value ? [self objectWithIdentifier:value baseStore:baseStore] : nil;
-        NWLogWarnIfNot(policy, @"Expecting policy to be non-nil");
+        NWSLogWarnIfNot(policy, @"Expecting policy to be non-nil");
         if (policy.toMany) {
-            NWLogWarnIfNot([valueObject isKindOfClass:NSArray.class], @"To many setter expects array");
+            NWSLogWarnIfNot([valueObject isKindOfClass:NSArray.class], @"To many setter expects array");
             NSArray *valueArray = (NSArray *)valueObject;
             NSSet *current = [object valueForPath:path];
             NSSet *new = nil;
@@ -280,30 +280,30 @@
                         [self deleteObjectWithIdentifier:ID];
                     }                    
                 } else {
-                    NWLogWarn(@"Only replace or delete policy supported on to-one relations");                        
+                    NWSLogWarn(@"Only replace or delete policy supported on to-one relations");                        
                 }
             }
         }
     } else {
-        NWLogWarn(@"identifier type not supported: %@", identifier);
+        NWSLogWarn(@"identifier type not supported: %@", identifier);
     }
 }
 
 - (void)deleteObjectWithIdentifier:(NWSManagedObjectID *)identifier
 {
-    NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogSpag(@"deleteObjectWithIdentifier: %@", identifier);
+    NWSLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
+    NWSLogSpag(@"deleteObjectWithIdentifier: %@", identifier);
     if ([identifier isKindOfClass:NWSManagedObjectID.class]) {
         [_toBeDeleted addObject:identifier.ID];
     } else {
-        NWLogWarn(@"identifier type not supported: %@", identifier);
+        NWSLogWarn(@"identifier type not supported: %@", identifier);
     }
 }
 
 - (NWSObjectReference *)referenceForIdentifier:(NWSObjectID *)identifier
 {
-    NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogSpag(@"referenceForIdentifier: %@", identifier);
+    NWSLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
+    NWSLogSpag(@"referenceForIdentifier: %@", identifier);
     id object = [self objectWithIdentifier:identifier baseStore:nil];
     NWSObjectReference *result = [[NWSObjectReference alloc] initWithObject:object];
     [_references addObject:result];
@@ -312,19 +312,19 @@
 
 - (NWSObjectID *)identifierForObject:(NSManagedObject *)object
 {
-    NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogSpag(@"identifierForObject: %@", object);
+    NWSLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
+    NWSLogSpag(@"identifierForObject: %@", object);
     if ([object isKindOfClass:NSManagedObject.class]) {
         return [[NWSManagedObjectID alloc] initWithID:object.objectID];
     } else if (object) {
-        NWLogWarn(@"Core data store can only make identifier for managed objects");
+        NWSLogWarn(@"Core data store can only make identifier for managed objects");
     }
     return nil;
 }
 
 - (NWSObjectType *)typeFromString:(NSString *)string
 {
-    NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
+    NWSLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
     NSEntityDescription *entity = [NSEntityDescription entityForName:string inManagedObjectContext:_context];
     if (entity) {
         return [[NWSEntityObjectType alloc] initWithEntity:entity];
@@ -347,7 +347,7 @@
                 context.undoManager = nil;
                 context.persistentStoreCoordinator = _context.persistentStoreCoordinator;
             } else {
-                NWLogWarn(@"kNWSTransactionTypeNewContext requires a persistent store, using kNWSTransactionTypeCurrentContext instead.");
+                NWSLogWarn(@"kNWSTransactionTypeNewContext requires a persistent store, using kNWSTransactionTypeCurrentContext instead.");
             }
         } break;
         case kNWSTransactionTypeCurrentContext: break;
@@ -357,8 +357,8 @@
 
 - (void)cleanup
 {
-    NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
-    NWLogSpag(@"cleanup");
+    NWSLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
+    NWSLogSpag(@"cleanup");
     
     // apply all deletes
     for (NSManagedObjectID *i in _toBeDeleted) {
@@ -373,7 +373,7 @@
  */
 - (void)migrateReferencesToStore:(NWSCoreDataStore *)baseStore
 {
-    NWLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
+    NWSLogWarnIfNot(_queue == NSOperationQueue.currentQueue, @"Core data store should be invoked on one queue: %@", _queue);
     
     // remove modified references from the temp-store
     NSArray *refs = [[NSArray alloc] initWithArray:_references];
@@ -384,7 +384,7 @@
         id object = reference.object;
         // migrate reference to an identifier
         reference.object = [object mapWithBlock:^NSManagedObjectID *(NSManagedObject *o) {
-            NWLogWarnIfNot(!o.isFault, @"Expecting object to not be fault");
+            NWSLogWarnIfNot(!o.isFault, @"Expecting object to not be fault");
             NSManagedObjectID *identifier = o.objectID;
             return identifier;              
         }];
@@ -411,8 +411,8 @@
 
 - (void)mergeTransaction:(NWSCoreDataStore *)tempStore
 {
-    NWLogWarnIfNot([self isKindOfClass:NWSCoreDataStore.class], @"Core data store can only merge with other core data store");
-    NWLogWarnIfNot(tempStore.queue == NSOperationQueue.currentQueue, @"Merge should be invoked on temp queue: %@", tempStore.queue);
+    NWSLogWarnIfNot([self isKindOfClass:NWSCoreDataStore.class], @"Core data store can only merge with other core data store");
+    NWSLogWarnIfNot(tempStore.queue == NSOperationQueue.currentQueue, @"Merge should be invoked on temp queue: %@", tempStore.queue);
     
     // signal temp store it's going away
     [tempStore cleanup];
@@ -433,8 +433,8 @@
             // perform save
             NSError *error = nil;
             BOOL saved = [tempStore.context save:&error];
-            NWLogWarnIfError(error);
-            NWLogWarnIfNot(saved, @"Failed to save temporary context");
+            NWSLogWarnIfError(error);
+            NWSLogWarnIfNot(saved, @"Failed to save temporary context");
             [center removeObserver:observer];
         } break;
         case kNWSTransactionTypeCurrentContext: break;
@@ -469,7 +469,7 @@
         request.entity = entity;
         NSError *error = nil;
         NSArray *results = [_context executeFetchRequest:request error:&error];
-        NWLogWarnIfError(error);
+        NWSLogWarnIfError(error);
         [result addObjectsFromArray:results];
     }
     return result;

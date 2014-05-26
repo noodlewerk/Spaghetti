@@ -15,7 +15,7 @@
 #import "NWSMemoryObjectID.h"
 #import "NWSArrayObjectID.h"
 #import "NWSObjectReference.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSMultiStore {
@@ -57,7 +57,7 @@
 - (NWSObjectID *)identifierWithType:(NWSObjectType *)type primaryPathsAndValues:(NSArray *)pathsAndValues create:(BOOL)create
 {
     NWSStore *store = _storeForObjectTypeClass[NSStringFromClass(type.class)];
-    NWLogWarnIfNot(store, @"No store for object type: %@", type);
+    NWSLogWarnIfNot(store, @"No store for object type: %@", type);
     return [store identifierWithType:type primaryPathsAndValues:pathsAndValues create:create];
 }
 
@@ -72,7 +72,7 @@
         return result;
     } else {
         NWSStore *store = _storeForObjectIDClass[NSStringFromClass(identifier.class)];
-        NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
+        NWSLogWarnIfNot(store, @"No store for object id: %@", identifier);
         return [store attributeForIdentifier:identifier path:path];
     }
 }
@@ -88,7 +88,7 @@
         return [[NWSArrayObjectID alloc] initWithIdentifiers:result];
     } else {
         NWSStore *store = _storeForObjectIDClass[NSStringFromClass(identifier.class)];
-        NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
+        NWSLogWarnIfNot(store, @"No store for object id: %@", identifier);
         return [store relationForIdentifier:identifier path:path];
     }
 }
@@ -102,7 +102,7 @@
         }
     } else {
         NWSStore *store = _storeForObjectIDClass[NSStringFromClass(identifier.class)];
-        NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
+        NWSLogWarnIfNot(store, @"No store for object id: %@", identifier);
         [store setAttributeForIdentifier:identifier value:value path:path];
     }
 }
@@ -116,7 +116,7 @@
         }
     } else {
         NWSStore *store = _storeForObjectIDClass[NSStringFromClass(identifier.class)];
-        NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
+        NWSLogWarnIfNot(store, @"No store for object id: %@", identifier);
         [store setRelationForIdentifier:identifier value:value path:path policy:policy baseStore:baseStore ? baseStore : self];
     }
 }
@@ -130,7 +130,7 @@
         }
     } else {
         NWSStore *store = _storeForObjectIDClass[NSStringFromClass(identifier.class)];
-        NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
+        NWSLogWarnIfNot(store, @"No store for object id: %@", identifier);
         [store deleteObjectWithIdentifier:identifier];
     }
 }
@@ -146,7 +146,7 @@
         return [[NWSObjectReference alloc] initWithObject:array];
     } else {
         NWSStore *store = _storeForObjectIDClass[NSStringFromClass(identifier.class)];
-        NWLogWarnIfNot(store, @"No store for object id: %@", identifier);
+        NWSLogWarnIfNot(store, @"No store for object id: %@", identifier);
         return [store referenceForIdentifier:identifier];
     }
 }
@@ -160,7 +160,7 @@
             return [store identifierForObject:object];
         }
     }
-    NWLogWarn(@"No object type matches object: %@", object);
+    NWSLogWarn(@"No object type matches object: %@", object);
     return nil;
 }
 
@@ -172,7 +172,7 @@
             return type;
         }        
     }
-    NWLogWarn(@"No object type matches string: %@", string);
+    NWSLogWarn(@"No object type matches string: %@", string);
     return nil;
 }
 
@@ -193,13 +193,13 @@
 
 - (void)mergeTransaction:(NWSMultiStore *)store
 {
-    NWLogWarnIfNot([store isKindOfClass:NWSMultiStore.class], @"Multi store can only merge with multi store.");
+    NWSLogWarnIfNot([store isKindOfClass:NWSMultiStore.class], @"Multi store can only merge with multi store.");
     if (store.stores.count == _stores.count) {
         for (NSUInteger i = 0; i < _stores.count; i++) {
             [_stores[i] mergeTransaction:(store.stores)[i]];
         }
     } else {
-        NWLogWarn(@"Multi stores should have equal number of sub-stores: %i %i", (int)_stores.count, (int)store.stores.count);
+        NWSLogWarn(@"Multi stores should have equal number of sub-stores: %i %i", (int)_stores.count, (int)store.stores.count);
     }
 }
 

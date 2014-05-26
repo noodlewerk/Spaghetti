@@ -6,7 +6,7 @@
 //
 
 #import "NWSOperation.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSOperationOwner {
@@ -33,7 +33,7 @@
 
 - (void)dealloc
 {
-    NWLogWarnIfNot(_operations.count == 0, @"Did you forget to call 'cancelAllItems'?");
+    NWSLogWarnIfNot(_operations.count == 0, @"Did you forget to call 'cancelAllItems'?");
     [self cancelAllOperations];
 }
 
@@ -45,7 +45,7 @@
     if (operation != self) {
         [_operations addObject:operation];
     } else {
-        NWLogWarn(@"Adding operation to itself causes infinite recursion");
+        NWSLogWarn(@"Adding operation to itself causes infinite recursion");
     }
 }
 

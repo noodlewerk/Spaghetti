@@ -7,7 +7,7 @@
 
 #import "NWSXMLParser.h"
 #import <libxml/parser.h>
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSXMLParser
@@ -92,7 +92,7 @@
                 }
             }
         } else {
-            NWLogWarn(@"Unknown node type: %i", node->type);
+            NWSLogWarn(@"Unknown node type: %i", node->type);
         }
     }
     

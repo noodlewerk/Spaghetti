@@ -14,5 +14,5 @@
     #import <CoreData/CoreData.h>
 #endif
 
-#define NWL_LIB SpaghettiDemo
-#import "NWLCore.h"
+#define NWSL_LIB SpaghettiDemo
+#import "NWSLCore.h"

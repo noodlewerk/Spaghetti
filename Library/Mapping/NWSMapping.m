@@ -23,17 +23,17 @@
 #import "NWSIndexPath.h"
 #import "NWSIdentityTransform.h"
 #import "NWSObjectReference.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSMappingEntry
 
 - (id)initWithElementPath:(NWSPath *)elementPath objectPath:(NWSPath *)objectPath transform:(NWSTransform *)transform policy:(NWSPolicy *)policy
 {
-    NWLogWarnIfNot(elementPath, @"Element path should be non-nil");
-    NWLogWarnIfNot(objectPath, @"Object path should be non-nil");
-    NWLogWarnIfNot(transform, @"Transform should be non-nil");
-    NWLogWarnIfNot(policy, @"Policy should be non-nil");
+    NWSLogWarnIfNot(elementPath, @"Element path should be non-nil");
+    NWSLogWarnIfNot(objectPath, @"Object path should be non-nil");
+    NWSLogWarnIfNot(transform, @"Transform should be non-nil");
+    NWSLogWarnIfNot(policy, @"Policy should be non-nil");
     self = [super init];
     if (self) {
         _elementPath = elementPath;
@@ -108,7 +108,7 @@
 - (void)setObjectClassName:(NSString *)className
 {
     Class clas = NSClassFromString(className);
-    NWLogWarnIfNot(clas, @"Class not found: %@", className);
+    NWSLogWarnIfNot(clas, @"Class not found: %@", className);
     [self setObjectClass:clas];
 }
 
@@ -120,7 +120,7 @@
 - (void)setObjectEntityName:(NSString *)entityName model:(NSManagedObjectModel *)model
 {
     NSEntityDescription *entity = model.entitiesByName[entityName];
-    NWLogWarnIfNot(entity, @"Entity not found: %@", entityName);
+    NWSLogWarnIfNot(entity, @"Entity not found: %@", entityName);
     [self setObjectEntity:entity];
 }
 
@@ -213,7 +213,7 @@
         NWSTransform *transform = [[NWSMappingTransform alloc] initWithMapping:mapping];
         [self addRelationWithElementPath:elementPath objectPath:objectPath transform:transform policy:policy];
     } else {
-        NWLogWarn(@"Mapping not set, did you create it in the backend?");
+        NWSLogWarn(@"Mapping not set, did you create it in the backend?");
     }
 }
 
@@ -224,7 +224,7 @@
         NWSTransform *transform = [[NWSIDToObjectTransform alloc] initWithType:[[NWSClassObjectType alloc] initWithClass:clas] path:[NWSPath pathFromString:primary]];
         [self addRelationWithElementPath:elementPath objectPath:objectPath transform:transform policy:policy];
     } else {
-        NWLogWarn(@"Class not found: %@, typo?", className);
+        NWSLogWarn(@"Class not found: %@, typo?", className);
     }
 }
 
@@ -235,7 +235,7 @@
         NWSTransform *transform = [[NWSIDToObjectTransform alloc] initWithType:[[NWSEntityObjectType alloc] initWithEntity:entity] path:[NWSPath pathFromString:primary]];
         [self addRelationWithElementPath:elementPath objectPath:objectPath transform:transform policy:policy];
     } else {
-        NWLogWarn(@"Entity not found: %@  in model: %@, typo?", entityName, model);
+        NWSLogWarn(@"Entity not found: %@  in model: %@, typo?", entityName, model);
     }
 }
 
@@ -248,7 +248,7 @@
         NWSMappingEntry *relation = [[NWSMappingEntry alloc] initWithElementPath:[NWSPath pathFromString:elementPath] objectPath:[NWSPath pathFromString:objectPath] transform:transform policy:policy];
         [self addRelationEntry:relation];
     } else {
-        NWLogWarn(@"Transform not set, did you create it in de backend?");
+        NWSLogWarn(@"Transform not set, did you create it in de backend?");
     }
 }
 
@@ -279,7 +279,7 @@
 {
     NWSObjectID *result = nil;
     
-    NWLogSpag(@"start mapping: %@", context.path);
+    NWSLogSpag(@"start mapping: %@", context.path);
     
     if ([element isKindOfClass:NSDictionary.class]) {    
         // if we have a primary path, first search for existing object to map to
@@ -297,8 +297,8 @@
                 }
             }
             result = [context.store identifierWithType:_objectType primaryPathsAndValues:pathsAndValues create:YES];
-            NWLogWarnIfNot(result, @"No identifier found or created");
-            NWLogSpag(@"found/created object: %@", result);
+            NWSLogWarnIfNot(result, @"No identifier found or created");
+            NWSLogSpag(@"found/created object: %@", result);
         }   
         
         // perform individual mapEntries
@@ -309,7 +309,7 @@
                     value = nil;
                 }
                 DEBUG_CONTEXT_PUSH(context, attribute.elementPath);
-                NWLogSpag(@"mapElement attribute: %@ = %@", context.path, value);
+                NWSLogSpag(@"mapElement attribute: %@ = %@", context.path, value);
                 id transformed = [attribute.transform transform:value context:context];
                 DEBUG_CONTEXT_POP(context);
                 // if we have a subject to assign to
@@ -318,7 +318,7 @@
                 }
             } else {
                 // else mapElement key not present in element
-                NWLogSpag(@"no element for attribute: %@", attribute);
+                NWSLogSpag(@"no element for attribute: %@", attribute);
             }
         }
         
@@ -330,17 +330,17 @@
                     value = nil;
                 }
                 DEBUG_CONTEXT_PUSH(context, relation.elementPath);
-                NWLogSpag(@"mapElement relation: %@", context.path);
+                NWSLogSpag(@"mapElement relation: %@", context.path);
                 NWSObjectID *transformed = [relation.transform transform:value context:context];
                 DEBUG_CONTEXT_POP(context);
-                NWLogWarnIfNot(!transformed || [transformed isKindOfClass:NWSObjectID.class], @"Transform result should be object ID, not %@", transformed.class);
+                NWSLogWarnIfNot(!transformed || [transformed isKindOfClass:NWSObjectID.class], @"Transform result should be object ID, not %@", transformed.class);
                 // if we have a subject to assign to
                 if (result) {
                     [context.store setRelationForIdentifier:result value:transformed path:relation.objectPath policy:relation.policy baseStore:nil];        
                 }
             } else {
                 // else mapElement key not present in entry
-                NWLogSpag(@"no entry for relation: %@", relation);
+                NWSLogSpag(@"no entry for relation: %@", relation);
             }
         }
     } else if ([element isKindOfClass:NSArray.class]) {
@@ -356,7 +356,7 @@
             if (mapped) {
                 [results addObject:mapped];
             } else {
-                NWLogWarn(@"Unable to add nil object to array (element:%@ path:%@)", i, context.path);
+                NWSLogWarn(@"Unable to add nil object to array (element:%@ path:%@)", i, context.path);
             }
             [context incIndexInArray];
         }
@@ -364,10 +364,10 @@
         result = [[NWSArrayObjectID alloc] initWithIdentifiers:results];
         
     } else {
-        NWLogWarn(@"Unable to map element: %@ (class:%@ path:%@)", element, element.class, context.path);
+        NWSLogWarn(@"Unable to map element: %@ (class:%@ path:%@)", element, element.class, context.path);
     }
     
-    NWLogSpag(@"done mapping: %@", context.path);
+    NWSLogSpag(@"done mapping: %@", context.path);
        
     return result;
 }
@@ -388,8 +388,8 @@
 
 - (NSObject *)mapIdentifier:(NWSObjectID *)identifier context:(NWSMappingContext *)context
 {
-    NWLogWarnIfNot([identifier isKindOfClass:NWSObjectID.class], @"Identifier should be of class NWSObjectID: %@", identifier);
-    NWLogWarnIfNot(context, @"Expecting non-nil context to map with");
+    NWSLogWarnIfNot([identifier isKindOfClass:NWSObjectID.class], @"Identifier should be of class NWSObjectID: %@", identifier);
+    NWSLogWarnIfNot(context, @"Expecting non-nil context to map with");
     
     NSObject *result = nil;
     
@@ -429,7 +429,7 @@
         for (NWSMappingEntry *attribute in _attributes) {
             id value = [context.store attributeForIdentifier:identifier path:attribute.objectPath];
             DEBUG_CONTEXT_PUSH(context, attribute.objectPath);
-            NWLogSpag(@"mapElement attribute: %@ = %@", context.path, value);
+            NWSLogSpag(@"mapElement attribute: %@ = %@", context.path, value);
             id reversed = [attribute.transform reverse:value context:context];
             DEBUG_CONTEXT_POP(context);
             if (reversed == nil) {
@@ -442,7 +442,7 @@
         for (NWSMappingEntry *relation in _relations) {
             id value = [context.store relationForIdentifier:identifier path:relation.objectPath];
             DEBUG_CONTEXT_PUSH(context, relation.objectPath);
-            NWLogSpag(@"mapElement relation: %@", context.path);
+            NWSLogSpag(@"mapElement relation: %@", context.path);
             id reversed = [relation.transform reverse:value context:context];
             DEBUG_CONTEXT_POP(context);
             if (reversed == nil) {

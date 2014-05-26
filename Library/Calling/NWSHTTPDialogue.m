@@ -12,7 +12,7 @@
 #import "NWStats.h"
 #import "NWSMapping.h"
 #import "NWAbout.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSHTTPDialogue {
@@ -29,15 +29,15 @@
     void(^callbackBlock)() = ^{        
         // check cancel
         if (_cancelled) {
-            NWLogSpag(@"cancelled");
+            NWSLogSpag(@"cancelled");
             return;
         }
         [self.call doneWithResult:result];
         if (result) {
-            NWLogSpag(@"done call (total:%.3fs)", DEBUG_STAT_INTERVAL_IN(_startCall));
+            NWSLogSpag(@"done call (total:%.3fs)", DEBUG_STAT_INTERVAL_IN(_startCall));
             DEBUG_STAT_STOP_IN(_startCall, self.call.endpoint.totalTime);
         } else {
-            NWLogSpag(@"failed call");
+            NWSLogSpag(@"failed call");
         }
     };
     [self.callbackQueue addOperationWithBlock:callbackBlock];
@@ -47,10 +47,10 @@
 
 - (void)map
 {
-    NWLogWarnIfNot(NSOperationQueue.currentQueue == self.operationQueue, @"Expecting to run on queue: %@", self.operationQueue);
+    NWSLogWarnIfNot(NSOperationQueue.currentQueue == self.operationQueue, @"Expecting to run on queue: %@", self.operationQueue);
     // check cancel
     if (_cancelled) {
-        NWLogSpag(@"cancelled");
+        NWSLogSpag(@"cancelled");
         return;
     }
     
@@ -61,7 +61,7 @@
 - (void)connect
 {
     // send request
-    NWLogSpag(@"sending request (expected:%.3fs)", self.call.endpoint.requestTime.average);
+    NWSLogSpag(@"sending request (expected:%.3fs)", self.call.endpoint.requestTime.average);
     DEBUG_STAT_START_IN(_startRequest);
     
     void(^block)(NSHTTPURLResponse *response, NSData *data) = ^(NSHTTPURLResponse *response, NSData *data) {
@@ -69,14 +69,14 @@
         DEBUG_STAT_STOP_IN(_startRequest, self.call.endpoint.requestTime);
         // check cancel
         if (_cancelled) {
-            NWLogSpag(@"cancelled");
+            NWSLogSpag(@"cancelled");
             return;
         }
         // keep response
         _response = (NSHTTPURLResponse *)response;
         _data = data;
         if (!_data) {
-            NWLogWarn(@"response data is nil");
+            NWSLogWarn(@"response data is nil");
             [self doneWithResult:nil];
             return;
         }
@@ -88,13 +88,13 @@
     connection.callbackQueue = self.operationQueue;
     connection.indicator = self.indicator;
     [connection start];
-    NWLogWarnIfNot(!_connection, @"Dialogue should not run twice");
+    NWSLogWarnIfNot(!_connection, @"Dialogue should not run twice");
     _connection = connection;
 }
 
 - (NSURLRequest *)composeRequest
 {
-    NWLogWarnIfNot(NSOperationQueue.currentQueue == self.operationQueue, @"Expecting to run on queue: %@", self.operationQueue);
+    NWSLogWarnIfNot(NSOperationQueue.currentQueue == self.operationQueue, @"Expecting to run on queue: %@", self.operationQueue);
     
     NWSHTTPCall *httpCall = (NWSHTTPCall *)self.call;
     
@@ -123,7 +123,7 @@
         
         return result;
     } else {
-        NWLogWarn(@"Expecting valid url: %@", httpCall.urlString);
+        NWSLogWarn(@"Expecting valid url: %@", httpCall.urlString);
     }
     return nil;
 }
@@ -132,16 +132,16 @@
 {
     DEBUG_STAT_START_IN(_startCall);
         
-    NWLogSpag(@"start call (expected:%.3fs)", self.call.endpoint.totalTime.average);
+    NWSLogSpag(@"start call (expected:%.3fs)", self.call.endpoint.totalTime.average);
     // check cancel
     if (_cancelled) {
-        NWLogSpag(@"cancelled");
+        NWSLogSpag(@"cancelled");
         return;
     }
     
     if (!self.callbackQueue) {
         self.callbackQueue = NSOperationQueue.currentQueue;
-        NWLogWarnIfNot(self.callbackQueue, @"No callback queue set or available, set manually");
+        NWSLogWarnIfNot(self.callbackQueue, @"No callback queue set or available, set manually");
     }
         
     if (!self.operationQueue) {
@@ -154,7 +154,7 @@
         self.operationQueue = fallbackQueue;
     }
     
-    NWLogWarnIfNot(self.operationQueue.maxConcurrentOperationCount == 1, @"Concurrent mapping not allowed.");
+    NWSLogWarnIfNot(self.operationQueue.maxConcurrentOperationCount == 1, @"Concurrent mapping not allowed.");
     
     void(^requestBlock)() = ^{
         NSURLRequest *r = [self composeRequest];
@@ -162,7 +162,7 @@
             _request = r;
             [self connect];
         } else {
-            NWLogWarn(@"Unable to compse request, call cancelled");
+            NWSLogWarn(@"Unable to compse request, call cancelled");
         }
     };
     [self.operationQueue addOperationWithBlock:requestBlock];

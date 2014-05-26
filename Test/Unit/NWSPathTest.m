@@ -19,7 +19,7 @@
 
 - (void)setUp
 {
-    NWLBreakWarn();
+    NWSLBreakWarn();
     _dictionary = [[NSMutableDictionary alloc] init];
     _array = [[NSMutableArray alloc] init];
     

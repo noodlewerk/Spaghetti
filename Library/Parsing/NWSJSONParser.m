@@ -6,7 +6,7 @@
 //
 
 #import "NWSJSONParser.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSJSONParser
@@ -15,7 +15,7 @@
 {
     NSError *error = nil;
     id result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    NWLogWarnIfError(error);
+    NWSLogWarnIfError(error);
     return result;
 }
 
@@ -23,7 +23,7 @@
 {
     NSError *error = nil;
     NSData *result = [NSJSONSerialization dataWithJSONObject:value options:0 error:&error];
-    NWLogWarnIfError(error);
+    NWSLogWarnIfError(error);
     return result;
 }
 

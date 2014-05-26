@@ -8,7 +8,7 @@
 #import "NWSTransform.h"
 #import "NWAbout.h"
 #import "NWSCompositeTransform.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSTransform
@@ -18,13 +18,13 @@
 
 - (id)transform:(id)value context:(NWSMappingContext *)context // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return nil;
 } // COV_NF_END
 
 - (id)reverse:(id)value context:(NWSMappingContext *)context // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
     return nil;
 } // COV_NF_END
 

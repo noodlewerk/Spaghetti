@@ -32,6 +32,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		2324875319338CCD00C82CF2 /* NWSLCore.c in Sources */ = {isa = PBXBuildFile; fileRef = B388328C16309C5E0082F729 /* NWSLCore.c */; };
+		2324875419338CCF00C82CF2 /* NWSLCore.c in Sources */ = {isa = PBXBuildFile; fileRef = B388328C16309C5E0082F729 /* NWSLCore.c */; };
 		B301F78E16F70C8400594F5E /* NWActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = B34A55BA16F3C79000FAE0BA /* NWActivityIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B31CE16016F1D07D00FF6AAE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31CE15F16F1D07D00FF6AAE /* CoreLocation.framework */; };
 		B33D7D1016F3014100DAF8D4 /* NWSTwitterSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33D7D0F16F3014100DAF8D4 /* NWSTwitterSearchViewController.m */; };
@@ -298,9 +300,6 @@
 		B388342D16309F3B0082F729 /* NWSScheduleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B388332416309C5E0082F729 /* NWSScheduleTest.m */; };
 		B388343116309F9B0082F729 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B388341416309E6D0082F729 /* libxml2.dylib */; };
 		B38834331630A0070082F729 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B38834321630A0070082F729 /* libxml2.dylib */; };
-		B38834351630A01F0082F729 /* NWLCore.c in Sources */ = {isa = PBXBuildFile; fileRef = B388328C16309C5E0082F729 /* NWLCore.c */; };
-		B38834371630A01F0082F729 /* NWLCore.c in Sources */ = {isa = PBXBuildFile; fileRef = B388328C16309C5E0082F729 /* NWLCore.c */; };
-		B38834391630A0200082F729 /* NWLCore.c in Sources */ = {isa = PBXBuildFile; fileRef = B388328C16309C5E0082F729 /* NWLCore.c */; };
 		B388343B1630A11E0082F729 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388343A1630A11E0082F729 /* SenTestingKit.framework */; };
 		B388343C1630A1210082F729 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B388343A1630A11E0082F729 /* SenTestingKit.framework */; };
 		B388343F1630A14C0082F729 /* NWSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B388327E16309C5E0082F729 /* NWSAppDelegate.m */; };
@@ -350,9 +349,9 @@
 		B33D7D0F16F3014100DAF8D4 /* NWSTwitterSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSTwitterSearchViewController.m; sourceTree = "<group>"; };
 		B33D7D1216F301C300DAF8D4 /* NWSTwitter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NWSTwitter.xcdatamodel; sourceTree = "<group>"; };
 		B34A55AE16F3C68B00FAE0BA /* NWHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWHTTPConnection.h; sourceTree = "<group>"; };
-		B34A55AF16F3C68B00FAE0BA /* NWHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWHTTPConnection.m; sourceTree = "<group>"; };
+		B34A55AF16F3C68B00FAE0BA /* NWHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NWHTTPConnection.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B34A55BA16F3C79000FAE0BA /* NWActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWActivityIndicator.h; sourceTree = "<group>"; };
-		B34A55BB16F3C79000FAE0BA /* NWActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWActivityIndicator.m; sourceTree = "<group>"; };
+		B34A55BB16F3C79000FAE0BA /* NWActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NWActivityIndicator.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B36F158E1702F719004390B4 /* NWHTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWHTTP.h; sourceTree = "<group>"; };
 		B36F158F1702F719004390B4 /* NWHTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWHTTP.m; sourceTree = "<group>"; };
 		B38831F516309B730082F729 /* libSpaghettiTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpaghettiTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -374,8 +373,8 @@
 		B388328016309C5E0082F729 /* NWSMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSMenuViewController.m; sourceTree = "<group>"; };
 		B388328116309C5E0082F729 /* SpaghettiDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpaghettiDemo-Info.plist"; sourceTree = "<group>"; };
 		B388328216309C5E0082F729 /* SpaghettiDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpaghettiDemo-Prefix.pch"; sourceTree = "<group>"; };
-		B388328C16309C5E0082F729 /* NWLCore.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = NWLCore.c; sourceTree = "<group>"; };
-		B388328D16309C5E0082F729 /* NWLCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWLCore.h; sourceTree = "<group>"; };
+		B388328C16309C5E0082F729 /* NWSLCore.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = NWSLCore.c; sourceTree = "<group>"; };
+		B388328D16309C5E0082F729 /* NWSLCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSLCore.h; sourceTree = "<group>"; };
 		B388329216309C5E0082F729 /* NWSCall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSCall.h; sourceTree = "<group>"; };
 		B388329316309C5E0082F729 /* NWSCall.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSCall.m; sourceTree = "<group>"; };
 		B388329416309C5E0082F729 /* NWSDialogue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSDialogue.h; sourceTree = "<group>"; };
@@ -447,7 +446,7 @@
 		B38832DF16309C5E0082F729 /* NWSSchedule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSSchedule.h; sourceTree = "<group>"; };
 		B38832E016309C5E0082F729 /* NWSSchedule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSSchedule.m; sourceTree = "<group>"; };
 		B38832E216309C5E0082F729 /* NWSAmnesicStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSAmnesicStore.h; sourceTree = "<group>"; };
-		B38832E316309C5E0082F729 /* NWSAmnesicStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSAmnesicStore.m; sourceTree = "<group>"; };
+		B38832E316309C5E0082F729 /* NWSAmnesicStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NWSAmnesicStore.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B38832E416309C5E0082F729 /* NWSBasicStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSBasicStore.h; sourceTree = "<group>"; };
 		B38832E516309C5E0082F729 /* NWSBasicStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSBasicStore.m; sourceTree = "<group>"; };
 		B38832E616309C5E0082F729 /* NWSCoreDataStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSCoreDataStore.h; sourceTree = "<group>"; };
@@ -467,7 +466,7 @@
 		B38832F516309C5E0082F729 /* NWSTestEndpoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSTestEndpoint.h; sourceTree = "<group>"; };
 		B38832F616309C5E0082F729 /* NWSTestEndpoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSTestEndpoint.m; sourceTree = "<group>"; };
 		B38832F816309C5E0082F729 /* NWSArrayTransform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSArrayTransform.h; sourceTree = "<group>"; };
-		B38832F916309C5E0082F729 /* NWSArrayTransform.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSArrayTransform.m; sourceTree = "<group>"; };
+		B38832F916309C5E0082F729 /* NWSArrayTransform.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NWSArrayTransform.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B38832FA16309C5E0082F729 /* NWSAssertTransform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSAssertTransform.h; sourceTree = "<group>"; };
 		B38832FB16309C5E0082F729 /* NWSAssertTransform.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NWSAssertTransform.m; sourceTree = "<group>"; };
 		B38832FC16309C5E0082F729 /* NWSBlockTransform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NWSBlockTransform.h; sourceTree = "<group>"; };
@@ -647,8 +646,8 @@
 		B388328B16309C5E0082F729 /* NWLogging */ = {
 			isa = PBXGroup;
 			children = (
-				B388328D16309C5E0082F729 /* NWLCore.h */,
-				B388328C16309C5E0082F729 /* NWLCore.c */,
+				B388328D16309C5E0082F729 /* NWSLCore.h */,
+				B388328C16309C5E0082F729 /* NWSLCore.c */,
 			);
 			name = NWLogging;
 			path = Frameworks/NWLogging;
@@ -1317,6 +1316,7 @@
 				B38833CE16309DC90082F729 /* NWSStringParser.m in Sources */,
 				B38833D016309DC90082F729 /* NWSURLParser.m in Sources */,
 				B38833D216309DC90082F729 /* NWSXMLParser.m in Sources */,
+				2324875319338CCD00C82CF2 /* NWSLCore.c in Sources */,
 				B38833D416309DC90082F729 /* NWSCompositePath.m in Sources */,
 				B38833D616309DC90082F729 /* NWSConstantValuePath.m in Sources */,
 				B38833D816309DC90082F729 /* NWSIndexPath.m in Sources */,
@@ -1367,7 +1367,6 @@
 				B388342016309F3B0082F729 /* NWSObjectTypeTest.m in Sources */,
 				B388342116309F3B0082F729 /* NWSPathTest.m in Sources */,
 				B388342216309F3B0082F729 /* NWSScheduleTest.m in Sources */,
-				B38834351630A01F0082F729 /* NWLCore.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1383,6 +1382,7 @@
 				B388333716309D710082F729 /* NWSHTTPEndpoint.m in Sources */,
 				B388333916309D710082F729 /* NWAbout.m in Sources */,
 				B388333C16309D710082F729 /* NWStats.m in Sources */,
+				2324875419338CCF00C82CF2 /* NWSLCore.c in Sources */,
 				B388333E16309D710082F729 /* NWSMapping.m in Sources */,
 				B388334016309D710082F729 /* NWSMappingContext.m in Sources */,
 				B388334216309D710082F729 /* NWSMappingValidator.m in Sources */,
@@ -1448,7 +1448,6 @@
 				B388342B16309F3B0082F729 /* NWSObjectTypeTest.m in Sources */,
 				B388342C16309F3B0082F729 /* NWSPathTest.m in Sources */,
 				B388342D16309F3B0082F729 /* NWSScheduleTest.m in Sources */,
-				B38834371630A01F0082F729 /* NWLCore.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1456,7 +1455,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B38834391630A0200082F729 /* NWLCore.c in Sources */,
 				B388343F1630A14C0082F729 /* NWSAppDelegate.m in Sources */,
 				B38834401630A14C0082F729 /* NWSMenuViewController.m in Sources */,
 				B38834421630A14C0082F729 /* main.m in Sources */,
@@ -1506,6 +1504,7 @@
 		B38831EC163099C90082F729 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 			};
 			name = Debug;
@@ -1818,7 +1817,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Demo/SpaghettiDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = SpaghettiDemo;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

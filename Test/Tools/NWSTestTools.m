@@ -27,7 +27,7 @@
     NSData *data = [json dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error = nil;
     id result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    NWLogWarnIfError(error);
+    NWSLogWarnIfError(error);
     return result;
 }
 

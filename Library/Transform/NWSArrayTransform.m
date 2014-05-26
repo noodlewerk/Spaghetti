@@ -9,7 +9,7 @@
 #import "NWAbout.h"
 #import "NWSArrayObjectID.h"
 #import "NWSMappingContext.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSArrayTransform
@@ -40,7 +40,7 @@
                 [identifiers addObject:transformed];
                 [context incIndexInArray];
             } else {
-                NWLogWarn(@"Unable to add nil to object array (untransformed:%@ path:%@)", array, context.path);
+                NWSLogWarn(@"Unable to add nil to object array (untransformed:%@ path:%@)", array, context.path);
             }
         }
         [context popIndexInArray];
@@ -55,7 +55,7 @@
             [context incIndexInArray];
         } else {
             identifiers = @[];
-            NWLogWarn(@"Unable to set nil to object array (untransformed:%@ path:%@)", array, context.path);
+            NWSLogWarn(@"Unable to set nil to object array (untransformed:%@ path:%@)", array, context.path);
         }
         [context popIndexInArray];
         NWSArrayObjectID *result = [[NWSArrayObjectID alloc] initWithIdentifiers:identifiers];
@@ -78,7 +78,7 @@
         }
         return result;
     } else {
-        NWLogWarn(@"Expecting NWSArrayObjectID instead of %@ (path:%@)", identifier.class, context.path);
+        NWSLogWarn(@"Expecting NWSArrayObjectID instead of %@ (path:%@)", identifier.class, context.path);
         return nil;
     }
 }

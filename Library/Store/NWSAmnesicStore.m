@@ -13,7 +13,7 @@
 #import "NWAbout.h"
 #import "NWSObjectReference.h"
 #import "NWSPolicy.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSAmnesicStore
@@ -36,7 +36,7 @@
 
 - (NWSObjectID *)identifierWithType:(NWSClassObjectType *)type primaryPathsAndValues:(NSArray *)pathsAndValues create:(BOOL)create
 {
-    NWLogWarnIfNot(pathsAndValues.count == 0, @"Amnesic store does not support primary keys, try basic store or core data store");
+    NWSLogWarnIfNot(pathsAndValues.count == 0, @"Amnesic store does not support primary keys, try basic store or core data store");
     
     // no object found
     if (create) {
@@ -45,10 +45,10 @@
             NWSObjectID *result = [[NWSMemoryObjectID alloc] initWithObject:object];
             return result;
         } else {
-            NWLogWarn(@"parameter 'type' should be a NWSClassObjectType, use core data store instead");
+            NWSLogWarn(@"parameter 'type' should be a NWSClassObjectType, use core data store instead");
         }
     } else {
-        NWLogWarn(@"Amnesic store only creates objects, it doesn't fetch any because it doesn't have any");
+        NWSLogWarn(@"Amnesic store only creates objects, it doesn't fetch any because it doesn't have any");
     }
     
     return nil;
@@ -56,13 +56,13 @@
 
 - (id)attributeForIdentifier:(NWSMemoryObjectID *)identifier path:(NWSPath *)path
 {
-    NWLogWarnIfNot([identifier isKindOfClass:NWSMemoryObjectID.class], @"parameter 'identifier' should be a NWSMemoryObjectID");
+    NWSLogWarnIfNot([identifier isKindOfClass:NWSMemoryObjectID.class], @"parameter 'identifier' should be a NWSMemoryObjectID");
     return [identifier.object valueForPath:path];
 }
 
 - (NWSMemoryObjectID *)relationForIdentifier:(NWSMemoryObjectID *)identifier path:(NWSPath *)path
 {
-    NWLogWarnIfNot([identifier isKindOfClass:NWSMemoryObjectID.class], @"parameter 'identifier' should be a NWSMemoryObjectID");
+    NWSLogWarnIfNot([identifier isKindOfClass:NWSMemoryObjectID.class], @"parameter 'identifier' should be a NWSMemoryObjectID");
     NSObject *object = [identifier.object valueForPath:path];
     NWSMemoryObjectID *result = [[NWSMemoryObjectID alloc] initWithObject:object];
     return result;
@@ -81,14 +81,14 @@
             if (object) {
                 [result addObject:object];
             } else {
-                NWLogWarn(@"Unable to add nil to object array (%@)", i);
+                NWSLogWarn(@"Unable to add nil to object array (%@)", i);
             }
         }
         return result;
     } else if (identifier && baseStore) {
         return [baseStore referenceForIdentifier:identifier];
     } else {
-        NWLogWarn(@"Identifier type %@ not supported (and base-store is nil)", identifier.class);
+        NWSLogWarn(@"Identifier type %@ not supported (and base-store is nil)", identifier.class);
     }
     return nil;    
 }
@@ -113,7 +113,7 @@
         if (policy.type == kNWSPolicyReplace) {
             [object setValue:new forPath:path];
         } else {
-            NWLogWarn(@"Only replace policy is supported");
+            NWSLogWarn(@"Only replace policy is supported");
         }
     }
 }
@@ -174,7 +174,7 @@
 
 - (NSArray *)allObjects
 {
-    NWLogWarn(@"Amnesic store does not keep track of objects it creates");
+    NWSLogWarn(@"Amnesic store does not keep track of objects it creates");
     return nil;
 }
 

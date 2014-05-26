@@ -8,7 +8,7 @@
 #import "NWSTestDialogue.h"
 #import "NWAbout.h"
 #import "NWSTestCall.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSTestDialogue {
@@ -36,7 +36,7 @@
         return;
     }
     
-    NWLogWarnIfNot(_response, @"Test requires response data to map");
+    NWSLogWarnIfNot(_response, @"Test requires response data to map");
     
     NSData *data = [_response dataUsingEncoding:NSUTF8StringEncoding];
     id result = [self mapData:data useTransactionStore:NO];

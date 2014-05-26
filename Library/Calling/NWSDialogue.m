@@ -15,7 +15,7 @@
 #import "NWSObjectReference.h"
 #import "NWSParser.h"
 #import "NWSAmnesicStore.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSDialogue
@@ -38,19 +38,19 @@
 
 - (void)start // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");    
+    NWSLogWarn(@"Abstract method requires implementation");    
 } // COV_NF_END
 
 - (void)cancel // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");    
+    NWSLogWarn(@"Abstract method requires implementation");    
 } // COV_NF_END
 
 
 - (id)mapData:(NSData *)data useTransactionStore:(BOOL)useStore
 {
     if (!data.length) {
-        NWLogWarn(@"empty response");
+        NWSLogWarn(@"empty response");
         return nil;
     }
     
@@ -59,12 +59,12 @@
     if (!parser) {
         parser = NWSParser.defaultParser;
     }
-    NWLogSpag(@"parsing data (expected:%.3fs)", _call.endpoint.parseTime.average);
+    NWSLogSpag(@"parsing data (expected:%.3fs)", _call.endpoint.parseTime.average);
     DEBUG_STAT_START(parseTime);
     id parsed = [parser parse:data];
     DEBUG_STAT_STOP(parseTime, _call.endpoint);
     if (!parsed) {
-        NWLogWarn(@"failed to parse");
+        NWSLogWarn(@"failed to parse");
         return nil;
     }
     
@@ -75,7 +75,7 @@
     }
     id value = [parsed valueForPath:p];
     if (!value) {
-        NWLogWarn(@"no value at response path");
+        NWSLogWarn(@"no value at response path");
         return nil;
     }
     
@@ -98,19 +98,19 @@
         }
         
         // perform actual mapping
-        NWLogSpag(@"mapping tree (expected:%.3fs)", _call.endpoint.mappingTime.average);
+        NWSLogSpag(@"mapping tree (expected:%.3fs)", _call.endpoint.mappingTime.average);
         DEBUG_STAT_START(mappingTime);
         NWSObjectID *identifier = [mapping mapElement:value store:tempStore];
         DEBUG_STAT_STOP(mappingTime, _call.endpoint);
         if (!identifier) {
-            NWLogWarn(@"mapping result is nil");
+            NWSLogWarn(@"mapping result is nil");
             return nil;
         }
         
         // parent assignment
         if (_call.parent) {
-            NWLogWarnIfNot(_call.parentPath, @"Parent was set, but no path provided");
-            NWLogWarnIfNot(_call.parentPolicy, @"Parent was set, but no setter policy");
+            NWSLogWarnIfNot(_call.parentPath, @"Parent was set, but no path provided");
+            NWSLogWarnIfNot(_call.parentPolicy, @"Parent was set, but no setter policy");
             NWSObjectID *parentIdentifier = [tempStore identifierForObject:_call.parent];
             [tempStore setRelationForIdentifier:parentIdentifier value:identifier path:_call.parentPath policy:_call.parentPolicy baseStore:nil];
         }
@@ -134,7 +134,7 @@
 - (NSData *)mapObject:(NSObject *)object
 {
     if (!object) {
-        NWLogWarn(@"no object to serialize");
+        NWSLogWarn(@"no object to serialize");
         return nil;
     }
     
@@ -142,7 +142,7 @@
     NWSMapping *mapping = _call.requestMapping;
     if (mapping) {
         NWSStore *store = _call.store;
-        NWLogWarnIfNot(store, @"Unable to map request without a store (with objects)");
+        NWSLogWarnIfNot(store, @"Unable to map request without a store (with objects)");
         NWSObjectID *identifier = [store identifierForObject:object];
         data = [mapping mapIdentifier:identifier store:store];
     } else {
@@ -153,10 +153,10 @@
     if (!parser) {
         parser = NWSParser.defaultParser;
     }
-    NWLogSpag(@"serializing object");
+    NWSLogSpag(@"serializing object");
     NSData *result = [parser serialize:data];
     if (!result) {
-        NWLogWarn(@"failed to serialize");
+        NWSLogWarn(@"failed to serialize");
         return nil;
     }
     return result;

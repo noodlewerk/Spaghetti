@@ -16,19 +16,19 @@
 
 - (void)setUp
 {
-    NWLBreakWarn();
+    NWSLBreakWarn();
 }
 
 - (void)test
 {
     return; // slow test
     
-    NWLPrintDbugInFile("NWSSchedule.m");
-    NWLPrintDbugInFile("NWSScheduleTest.m");
+    NWSLPrintDbugInFile("NWSSchedule.m");
+    NWSLPrintDbugInFile("NWSScheduleTest.m");
     
     NWSSchedule *schedule = [[NWSSchedule alloc] init];
     [schedule start];
-    NWLResetPrintClock();
+    NWSLResetPrintClock();
     
     [schedule addCall:[[NWSTestCall alloc] init]];
     [schedule addCall:[[NWSTestCall alloc] init] afterDelay:2];

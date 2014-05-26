@@ -7,7 +7,7 @@
 
 #import "NWSAssertTransform.h"
 #import "NWAbout.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSAssertTransform
@@ -52,7 +52,7 @@
     if (![_forward isEqual:value]) {
         NSString *message = [NSString stringWithFormat:@"Assert transform failed on: %@ != %@", _forward, value];
         if (_logInstead) {
-            NWLogWarn(@"%@", message);
+            NWSLogWarn(@"%@", message);
         } else {
             NSAssert(NO, @"%@", message);        
         }
@@ -67,7 +67,7 @@
     if (![_reverse isEqual:value]) {
         NSString *message = [NSString stringWithFormat:@"Assert reverse failed on: %@ != %@", _reverse, value];
         if (_logInstead) {
-            NWLogWarn(@"%@", message);
+            NWSLogWarn(@"%@", message);
         } else {
             NSAssert(NO, @"%@", message);        
         }

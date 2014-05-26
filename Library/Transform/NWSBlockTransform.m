@@ -7,7 +7,7 @@
 
 #import "NWSBlockTransform.h"
 #import "NWAbout.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSBlockTransform
@@ -43,7 +43,7 @@
     if(_reverseBlock){
         return _reverseBlock(value, context);
     } else {
-        NWLogWarn(@"No reverseBlock set");
+        NWSLogWarn(@"No reverseBlock set");
         return nil;
     }
 }

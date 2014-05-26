@@ -8,7 +8,7 @@
 #import "NWSTimeStampTransform.h"
 #import "NWAbout.h"
 #import "NWSMappingContext.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 @implementation NWSTimeStampTransform
@@ -34,7 +34,7 @@
     if ([number isKindOfClass:NSNumber.class]) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } else {
-        NWLogWarn(@"Expecting NSString instead of %@ (path:%@)", number.class, context.path);
+        NWSLogWarn(@"Expecting NSString instead of %@ (path:%@)", number.class, context.path);
         return nil;
     }
 }
@@ -44,7 +44,7 @@
     if ([date isKindOfClass:NSDate.class]) {
         return @([date timeIntervalSince1970]);
     } else {
-        NWLogWarn(@"Expecting NSDate instead of %@ (path:%@)", date.class, context.path);
+        NWSLogWarn(@"Expecting NSDate instead of %@ (path:%@)", date.class, context.path);
         return nil;
     }
 }

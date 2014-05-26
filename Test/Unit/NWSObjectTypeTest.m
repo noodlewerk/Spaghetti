@@ -55,7 +55,7 @@
 
 - (void)setUp
 {
-    NWLBreakWarn();
+    NWSLBreakWarn();
 }
 
 - (void)testClassObjectType

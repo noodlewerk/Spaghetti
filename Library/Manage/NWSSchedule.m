@@ -9,7 +9,7 @@
 #import "NWSCall.h"
 #import "NWSDialogue.h"
 #import "NWAbout.h"
-#include "NWLCore.h"
+//#include "NWSLCore.h"
 
 
 static const NSTimeInterval minOperationInterval = 0.1;
@@ -30,12 +30,12 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (void)start:(NSOperationQueue *)queue // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
 } // COV_NF_END
 
 - (void)cancel // COV_NF_START
 {
-    NWLogWarn(@"Abstract method requires implementation");
+    NWSLogWarn(@"Abstract method requires implementation");
 } // COV_NF_END
 
 
@@ -200,7 +200,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (void)queueItem:(NWSScheduleItem *)item
 {
-    NWLogSpag(@"on-queue: queueing item");
+    NWSLogSpag(@"on-queue: queueing item");
     // TODO: more efficient sorted insert
     [_schedule addObject:item];
     [_schedule sortUsingComparator:^NSComparisonResult(NWSScheduleItem *a, NWSScheduleItem *b) {
@@ -222,7 +222,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
     delay = MAX(delay, 0);
     NSDate *next = [NSDate dateWithTimeIntervalSinceNow:delay];
     if (!_nextRun || [next compare:_nextRun] == NSOrderedAscending) {
-        NWLogSpag(@"on-queue: re-run");
+        NWSLogSpag(@"on-queue: re-run");
         _nextRun = next;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delay * NSEC_PER_SEC);
         dispatch_after(popTime, _scheduleQueue, ^(void) {
@@ -236,7 +236,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
 {
     _nextRun = nil;
     if (_cancelled) {
-        NWLogSpag(@"on-queue: cancelled");
+        NWSLogSpag(@"on-queue: cancelled");
         return;
     }
     if (_schedule.count) {
@@ -245,7 +245,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
         NSTimeInterval delay = item.startTime - now;
         if (delay <= 0) {
             // update schedule
-            NWLogSpag(@"on-queue: running item");
+            NWSLogSpag(@"on-queue: running item");
             [_schedule removeObjectAtIndex:0];
             if (!item.cancelled) {
                 if (item.intervalTime > 0) {
@@ -260,20 +260,20 @@ static const NSTimeInterval minOperationInterval = 0.1;
                 NWSScheduleItem *next = _schedule[0];
                 [self dequeueItemAfterDelay:next.startTime - now + minOperationInterval];
             } else {
-                NWLogSpag(@"on-queue: pausing");
+                NWSLogSpag(@"on-queue: pausing");
             }
         } else {
-            NWLogSpag(@"on-queue: retry in %f", delay);
+            NWSLogSpag(@"on-queue: retry in %f", delay);
             [self dequeueItemAfterDelay:delay];
         }
     } else {
-        NWLogSpag(@"on-queue: pausing (2)");
+        NWSLogSpag(@"on-queue: pausing (2)");
     }
 }
 
 - (void)start
 {
-    NWLogSpag(@"off-queue: starting");
+    NWSLogSpag(@"off-queue: starting");
     dispatch_async(_scheduleQueue, ^{
         _cancelled = NO;
     });
@@ -281,7 +281,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (void)cancel
 {
-    NWLogSpag(@"off-queue: cancelling");
+    NWSLogSpag(@"off-queue: cancelling");
     dispatch_async(_scheduleQueue, ^{
         _cancelled = YES;
     });
@@ -289,7 +289,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (void)scheduleItem:(NWSScheduleItem *)item
 {
-    NWLogSpag(@"off-queue: adding item");
+    NWSLogSpag(@"off-queue: adding item");
     if (!item.callbackQueue) {
         item.callbackQueue = NSOperationQueue.currentQueue;
     }
@@ -338,7 +338,7 @@ static const NSTimeInterval minOperationInterval = 0.1;
 
 - (NWSScheduleItem *)addCall:(NWSCall *)call afterDelay:(NSTimeInterval)delay repeatInterval:(NSTimeInterval)interval
 {
-    NWLogWarnIfNot(call, @"Expecting call to be non-nil");
+    NWSLogWarnIfNot(call, @"Expecting call to be non-nil");
     NWSScheduleItem *result = [[NWSCallScheduleItem alloc] initWithCall:call];
     result.startTime = [NSDate.date timeIntervalSince1970] + delay;
     result.intervalTime = interval;
