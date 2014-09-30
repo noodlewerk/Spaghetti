@@ -1115,7 +1115,7 @@
 			name = SpaghettiTouchTest;
 			productName = SpaghettiTouchTests;
 			productReference = B388320616309B730082F729 /* SpaghettiTouchTest.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 		B388322616309BB80082F729 /* SpaghettiCocoaStatic */ = {
 			isa = PBXNativeTarget;
@@ -1151,7 +1151,7 @@
 			name = SpaghettiCocoaTest;
 			productName = SpaghettiCocoaTests;
 			productReference = B388323916309BB90082F729 /* SpaghettiCocoaTest.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 		B388325116309C060082F729 /* SpaghettiTouchDemo */ = {
 			isa = PBXNativeTarget;
@@ -1654,7 +1654,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1692,7 +1692,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
